@@ -2,7 +2,7 @@
 #set term wxt size 640,576 background rgb 'black'
 #set term png transparent truecolor size 960,864
 #set output 'img/StringsInteractions.png'
-set term epslatex input nobackground noheader size 4,3
+set term epslatex input nobackground noheader size 7,4
 set output 'img/StringsInteractions.tex'
 
 load palettefile("set2")
