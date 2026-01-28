@@ -1,0 +1,13 @@
+numpy
+matplotlib
+pandas
+scipy
+sympy
+mealpy
+pyqt6
+Mathics-Scanner
+Mathics3
+Mathics-Django[full]
+mathicsscript[full]
+pymathics-natlang
+pymathics-graph

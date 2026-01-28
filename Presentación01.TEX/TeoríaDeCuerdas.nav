@@ -10,12 +10,14 @@
 \headcommand {\beamer@framepages {7}{12}}
 \headcommand {\slideentry {0}{0}{6}{13/13}{}{0}}
 \headcommand {\beamer@framepages {13}{13}}
-\headcommand {\slideentry {0}{0}{7}{14/15}{}{0}}
-\headcommand {\beamer@framepages {14}{15}}
-\headcommand {\slideentry {0}{0}{8}{16/16}{}{0}}
-\headcommand {\beamer@framepages {16}{16}}
-\headcommand {\beamer@partpages {1}{16}}
-\headcommand {\beamer@subsectionpages {1}{16}}
-\headcommand {\beamer@sectionpages {1}{16}}
-\headcommand {\beamer@documentpages {16}}
-\headcommand {\gdef \inserttotalframenumber {8}}
+\headcommand {\slideentry {0}{0}{7}{14/20}{}{0}}
+\headcommand {\beamer@framepages {14}{20}}
+\headcommand {\slideentry {0}{0}{8}{21/21}{}{0}}
+\headcommand {\beamer@framepages {21}{21}}
+\headcommand {\slideentry {0}{0}{9}{22/22}{}{0}}
+\headcommand {\beamer@framepages {22}{22}}
+\headcommand {\beamer@partpages {1}{22}}
+\headcommand {\beamer@subsectionpages {1}{22}}
+\headcommand {\beamer@sectionpages {1}{22}}
+\headcommand {\beamer@documentpages {22}}
+\headcommand {\gdef \inserttotalframenumber {9}}
