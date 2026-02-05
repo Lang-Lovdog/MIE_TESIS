@@ -37,7 +37,8 @@ variables_numericas={
 
 # Función potencial V
 V = (AH3*s/(tau**3)) + (AF3/(s*tau**3)) + (AF5/(tau**4)) + (A3N3/(tau**3))
-V_lifting =  (AH3*s/(tau**3)) + (AF3/(s*tau**3)) + (AF5/(tau**4)) + (A3N3/(tau**3)) + (AD5/((s**(1/2)*(tau**(5/2)))))
+V_lifting =  (AH3*s/(tau**3)) + (AF3/(s*tau**3)) + (AF5/(tau**4)) + (A3N3/(tau**3)) + (AD5/((s**sp.Rational(1,2)*(tau**sp.Rational(5,2)))))
+#V_lifting =  (AH3*s/(tau**3)) + (AF3/(s*tau**3)) + (AF5/(tau**4)) + (A3N3/(tau**3)) + (AD5/((s**(1/2)*(tau**(5/2)))))
 # Función potencial V
 
 # Matriz Hessiana de la función potencial
