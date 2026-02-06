@@ -1,0 +1,13 @@
+|TESIS/                         > El directorio relativo al proyecto de tesis.
+|- EXPERIMENTOS/                > El directorio donde realizo los códigos y
+|                               cosas por el estilo
+|-- CESAR-BRITO_ORIGINAL-DATA/  > Información del experimento original
+|-- Lovdog_Swampland/           > El código donde estoy replicando el
+|                               experimento del Dr. Cesar
+|--- MetastableVacua.py         > Módulo que contiene la función potencial
+|                               y sus descriptores correspondientes.
+|--- BusquedaGeneticos.py       >
+|--- test_fitness_function.py   >
+|-- Mathematica_Stuff/          > Código de Mathematica donde analizo sobre el
+|                               experimento, sintaxis, etc.
+|- PresentaciónXX/              > En caso de realizar alguna presentación
