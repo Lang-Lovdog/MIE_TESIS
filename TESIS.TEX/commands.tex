@@ -1,0 +1,175 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\cmppymatRend}[3]{
+  \noindent
+  \begin{minipage}[t]{\textwidth}
+    \captionof{lstlisting}{#3}
+    \label{lst:PruebaEficacia#2},
+    \begin{minipage}[t]{0.45\textwidth}
+      \centering
+      Matlab
+      \lstinputlisting[
+			nolol,
+      backgroundcolor=\color{Blue!7!white!98},
+      breaklines=true,
+      breakatwhitespace=false,
+      literate=%
+      {,}{,\allowbreak}1
+      {*}{$*$\allowbreak}1,
+      linerange={#1},
+      basicstyle=\MonoVictorSmall,
+      language=matlab,
+      ]{code.py/ZonaDePruebas/PruebasDeConversión.m}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.45\textwidth}
+      Python
+      \lstinputlisting[
+			nolol,
+      backgroundcolor=\color{Magenta!9!white!98},
+      breaklines=true,
+      breakatwhitespace=false,
+      literate=%
+        {*}{$*$}1
+        {,}{,\allowbreak}1,
+      linerange={#1},
+      basicstyle=\MonoVictorSmall,
+      language=python,
+      ]{code.py/ZonaDePruebas/PruebasDeConversión.py}
+    \end{minipage}
+  \end{minipage}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\cmppymatRendOut}[6]{
+  \begin{minipage}[t]{\textwidth}
+    \captionof{lstlisting}{Resultado de#4}
+    \label{lst:PruebaEficaciaRes#3},
+    \begin{minipage}[t]{0.45\textwidth}
+      \centering
+      Matlab
+      \lstinputlisting[
+			nolol,
+        backgroundcolor=\color{Green!10!White!98},
+        breaklines=true,
+        breakatwhitespace=true,
+        literate=%
+        {*}{$*$}1
+        {,}{,\allowbreak}1,
+        linerange={#1},
+        basicstyle=\MonoVictorSmall,
+        #5
+      ]{code.py/ZonaDePruebas/SALIDA.m.txt}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.45\textwidth}
+      \centering
+      Python
+      \lstinputlisting[
+			nolol,
+      backgroundcolor=\color{Yellow!10!White!98},
+      breaklines=true,
+      breakatwhitespace=true,
+      literate=%
+        {*}{$*$}1
+        {,}{,\allowbreak}1,
+      linerange={#2},
+      basicstyle=\MonoVictorSmall,
+      #6
+      ]{code.py/ZonaDePruebas/SALIDA.py.txt}
+    \end{minipage}
+  \end{minipage}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\cmppymatMP}[6]{
+  \begin{minipage}[t]{\textwidth}
+    \centering
+    \captionof{lstlisting}{#4}
+    \label{lst:Integracion#3}
+    \begin{minipage}[t]{0.48\textwidth}
+      \centering
+      Matlab
+      \lstinputlisting[
+        nolol,
+        backgroundcolor=\color{Blue!7!white!98},
+        breaklines=true,
+        breakatwhitespace=false,
+        linerange={#1},
+        basicstyle=\MonoVictorsmall,
+        showlines=false,
+        language=matlab,
+        #5
+      ]{./code.m/base/MetodoPropagacion.m}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.48\textwidth}
+      \centering
+      Python
+      \lstinputlisting[
+        nolol,
+        showlines=false,
+        backgroundcolor=\color{Magenta!9!white!98},
+        breaklines=true,
+        breakatwhitespace=false,
+        linerange={#2},
+        basicstyle=\MonoVictorsmall,
+        language=python,
+        #6
+      ]{./code.py/src/MétodoPropagación.py}
+    \end{minipage}
+  \end{minipage}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newfontfamily{\Chancellor}[Scale=1.2]{QTBlackForest}
+
+\newfontfamily{\MonoVictor}[Scale=0.76]{VictorMono Nerd Font}
+\newfontfamily{\MonoVictorSmall}[Scale=0.67]{VictorMono Nerd Font}
+\newfontfamily{\MonoVictorsmall}[Scale=0.56]{VictorMono Nerd Font}
+\newcommand{\colorea}[1]{\textcolor{Maroon}{#1}}
+
+\newcommand{\CabeceraTablaCmp}[1]{\cellcolor{violet}\textcolor{white}{\bfseries #1}}
+%\newcommand{\CabeceraTablaCmp}{\cellcolor{violet}\color{white}}
+\newcommand{\PrimerCelda}{\cellcolor{blue!25!green!10}\bfseries }
+
+\newcommand{\bookman}[1]{
+  \setmainfont[
+    Path = fonts/,
+    BoldFont = QTBookmann-Bold.otf,
+    ItalicFont = QTBookmann-Italic.otf,
+    BoldItalicFont = QTBookmann-BoldItalic.otf,
+    Scale=#1
+  ]{QTBookmann.otf}
+}
+
+\lstset{
+  showlines=true,
+  showstringspaces=false,
+  basicstyle=\MonoVictor,
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  breakatwhitespace=true,
+  breaklines=true,
+  frame=lines,
+  tabsize=2,
+  keywordstyle=\color{Violet}\bfseries,
+  backgroundcolor=\color{Apricot!5!white!98},
+  literate=%
+        {*}{$*$}1,
+  emph=%
+        {plot,(,)},
+  emphstyle=\color{Violet}\bfseries\underline
+}
+
+\bookman{0.9}
+\setdefaultlanguage{spanish}
+\bibliography{bibliografia}
+\addto\captionsspanish{%
+  \renewcommand{\figurename}{Imágen}%
+  \renewcommand{\tablename}{Tabla}%
+  \renewcommand{\listfigurename}{Índice de imágenes}%
+  \renewcommand{\listtablename}{Índice de tablas}%
+  \renewcommand{\lstlistingname}{Texto}%
+  \renewcommand{\lstlistlistingname}{Lista de textos y códigos}%
+}
+
+\newcommand{\lengm}{ {\itshape lenguaje m} }
+
+\nocite{*}
