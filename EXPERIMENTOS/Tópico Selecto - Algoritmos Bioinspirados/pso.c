@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <time.h>
 
 // Definición d'as funciones
 
@@ -18,7 +19,7 @@ ENJAMBRE* CrearEnjambre(
     exit(0);
   }
   ptr->CantidadDeParticulas=__CantidadDeParticulas__;
-  ptr->CantidadDeParametros=__CantidadDeParametros__;
+  ptr->CantidadDeDimensiones=__CantidadDeParametros__;
 
   //Reservar la memoria para N particulas de M parametros
   ptr->Part=NULL;
@@ -57,17 +58,18 @@ void InicializarEnjambre(
   __Enjambre__->LimitesSuperiores      = __LimitesSuperiores__;
   //Dar constriccion uwu
   long double fi = __Enjambre__->C1+__Enjambre__->C2;
-  __Enjambre__->Constriccion=2/fabs(2-fi-sqrt(pow(fi,2)-(4*fi)));
+  __Enjambre__->Constriccion=2/fabsl(2-fi-sqrtl(powl(fi,2)-(4*fi)));
   lovdog_startlog
-  printf("%f\n",fi);
-  printf("%f",pow(fi,2)-(4*fi));
-  printf("%f",sqrt(pow(fi,2)-(4*fi)));
-  printf("%f",fabs(2-fi-sqrt(pow(fi,2)-(4*fi))));
-  printf("%f\n\n",__Enjambre__->Constriccion);
+  printf("%Lf\n",fi);
+  printf("%Lf",powl(fi,2)-(4*fi));
+  printf("%Lf",sqrtl(powl(fi,2)-(4*fi)));
+  printf("%Lf",fabsl(2-fi-sqrtl(powl(fi,2)-(4*fi))));
+  printf("%Lf\n\n",__Enjambre__->Constriccion);
   lovdog_endlog
   //Inicializar cada vector de cada particula
+  srand(time(NULL));
   for(unsigned int i=0; i<__Enjambre__->CantidadDeParticulas; ++i) //Para cada particula i
-    for(unsigned int j=0; j<__Enjambre__->CantidadDeParametros; ++j) //Para cada parametro j de cada vector de la particula i
+    for(unsigned int j=0; j<__Enjambre__->CantidadDeDimensiones; ++j) //Para cada parametro j de cada vector de la particula i
     { rango=__Enjambre__->LimitesSuperiores[j]-__Enjambre__->LimitesInferiores[j];
       aux= ((long double)rand()/(long double)RAND_MAX) * rango + __Enjambre__->LimitesInferiores[j];
       __Enjambre__->Part[i].Xi[j]=aux;
@@ -94,16 +96,16 @@ void EliminarEnjambre(ENJAMBRE* __Enjambre__)
 
 void ImprimeParticulaID(ENJAMBRE *__Enjambre__, unsigned int __ID_Particula__){
   printf("\nP%i,Xi: ",__ID_Particula__);
-  for(unsigned int i=0; i<__Enjambre__->CantidadDeParametros; i++)
-    printf("%f, ",__Enjambre__->Part[__ID_Particula__].Xi[i]);
+  for(unsigned int i=0; i<__Enjambre__->CantidadDeDimensiones; i++)
+    printf("%Lf, ",__Enjambre__->Part[__ID_Particula__].Xi[i]);
   printf("\nP%i,Vi: ",__ID_Particula__);
-  for(unsigned int i=0; i<__Enjambre__->CantidadDeParametros; i++)
-    printf("%f, ",__Enjambre__->Part[__ID_Particula__].Vi[i]);
+  for(unsigned int i=0; i<__Enjambre__->CantidadDeDimensiones; i++)
+    printf("%Lf, ",__Enjambre__->Part[__ID_Particula__].Vi[i]);
   printf("\nP%i,Pi: ",__ID_Particula__);
-  for(unsigned int i=0; i<__Enjambre__->CantidadDeParametros; i++)
-    printf("%f, ",__Enjambre__->Part[__ID_Particula__].Pi[i]);
-  printf("\nP%i,Xfit=%f",__ID_Particula__,__Enjambre__->Part[__ID_Particula__].Xfit);
-  printf("\nP%i,Pfit=%f",__ID_Particula__,__Enjambre__->Part[__ID_Particula__].Pfit);
+  for(unsigned int i=0; i<__Enjambre__->CantidadDeDimensiones; i++)
+    printf("%Lf, ",__Enjambre__->Part[__ID_Particula__].Pi[i]);
+  printf("\nP%i,Xfit=%Lf",__ID_Particula__,__Enjambre__->Part[__ID_Particula__].Xfit);
+  printf("\nP%i,Pfit=%Lf",__ID_Particula__,__Enjambre__->Part[__ID_Particula__].Pfit);
 }
 
 void ImprimeParticula(
@@ -112,15 +114,15 @@ void ImprimeParticula(
 ){
   printf("\nParticula:");
   for(unsigned int i=0; i<__CantidadDeParametros__; i++)
-    printf("%f, ",__Particula__->Xi[i]);
+    printf("%Lf, ",__Particula__->Xi[i]);
   printf("\nParticula Vi: ");
   for(unsigned int i=0; i<__CantidadDeParametros__; i++)
-    printf("%f, ",__Particula__->Vi[i]);
+    printf("%Lf, ",__Particula__->Vi[i]);
   printf("\nParticula,Pi: ");
   for(unsigned int i=0; i<__CantidadDeParametros__; i++)
-    printf("%f, ",__Particula__->Pi[i]);
-  printf("\nParticula,Xfit=%f",__Particula__->Xfit);
-  printf("\nParticula,Pfit=%f",__Particula__->Pfit);
+    printf("%Lf, ",__Particula__->Pi[i]);
+  printf("\nParticula,Xfit=%Lf",__Particula__->Xfit);
+  printf("\nParticula,Pfit=%Lf",__Particula__->Pfit);
 }
 
 void ImprimeEnjambre(ENJAMBRE *__Enjambre__)
@@ -134,13 +136,13 @@ void EvaluarEnjambreMin(ENJAMBRE *__Enjambre__,const long double* __ParametrosDe
   // Calcular el valor de Fitness de cada particula
   BestFit = FuncionObjetivo(
       __Enjambre__->Part[0].Xi,
-      __Enjambre__->CantidadDeParametros,
+      __Enjambre__->CantidadDeDimensiones,
       __ParametrosDeOperacion__
     );
   for(unsigned int i=0; i<__Enjambre__->CantidadDeParticulas; i++){
     __Enjambre__->Part[i].Xfit = FuncionObjetivo(
         __Enjambre__->Part[i].Xi,
-        __Enjambre__->CantidadDeParametros,
+        __Enjambre__->CantidadDeDimensiones,
         __ParametrosDeOperacion__
       );
     // Almacena el indice de la mejor particula de todo en enjambre
@@ -156,13 +158,13 @@ void EvaluarEnjambreMax(ENJAMBRE *__Enjambre__,const long double* __ParametrosDe
   // Calcular el valor de Fitness de cada particula
   BestFit = FuncionObjetivo(
       __Enjambre__->Part[0].Xi,
-      __Enjambre__->CantidadDeParametros,
+      __Enjambre__->CantidadDeDimensiones,
       __ParametrosDeOperacion__
     );
   for(unsigned int i=0; i<__Enjambre__->CantidadDeParticulas; i++){
     __Enjambre__->Part[i].Xfit = FuncionObjetivo(
         __Enjambre__->Part[i].Xi,
-        __Enjambre__->CantidadDeParametros,
+        __Enjambre__->CantidadDeDimensiones,
         __ParametrosDeOperacion__
       );
     // Almacena el indice de la mejor particula de todo en enjambre
@@ -180,13 +182,13 @@ void EvaluacionInicialEnjambreMin(ENJAMBRE *__Enjambre__,const long double* __Pa
   //Calcular el valor de fitness de cada Particula
   BestFit=FuncionObjetivo(
       __Enjambre__->Part[0].Xi,
-      __Enjambre__->CantidadDeParametros,
+      __Enjambre__->CantidadDeDimensiones,
       __ParametrosDeOperacion__
     );
   for(unsigned int i=0; i<__Enjambre__->CantidadDeParticulas; i++){
     aux=FuncionObjetivo(
         __Enjambre__->Part[i].Xi,
-        __Enjambre__->CantidadDeParametros,
+        __Enjambre__->CantidadDeDimensiones,
         __ParametrosDeOperacion__
       );
     __Enjambre__->Part[i].Xfit=aux;
@@ -206,13 +208,13 @@ void EvaluacionInicialEnjambreMax(ENJAMBRE *__Enjambre__,const long double* __Pa
   //Calcular el valor de fitness de cada Particula
   BestFit=FuncionObjetivo(
       __Enjambre__->Part[0].Xi,
-      __Enjambre__->CantidadDeParametros,
+      __Enjambre__->CantidadDeDimensiones,
       __ParametrosDeOperacion__
     );
   for(unsigned int i=0; i<__Enjambre__->CantidadDeParticulas; i++){
     aux=FuncionObjetivo(
         __Enjambre__->Part[i].Xi,
-        __Enjambre__->CantidadDeParametros,
+        __Enjambre__->CantidadDeDimensiones,
         __ParametrosDeOperacion__
       );
     __Enjambre__->Part[i].Xfit=aux;
@@ -231,7 +233,7 @@ void ActualizarVelocidad(ENJAMBRE *__Enjambre__){
   long double Y1,Y2;
   //Actualizar cada vector velocidad Vi de cada particula
   for(unsigned int i=0; i<__Enjambre__->CantidadDeParticulas; i++) //Para cada particula i
-    for(unsigned int j=0; j<__Enjambre__->CantidadDeParametros; j++) //Para cada parametro j de cada vector Vi de la particula i
+    for(unsigned int j=0; j<__Enjambre__->CantidadDeDimensiones; j++) //Para cada parametro j de cada vector Vi de la particula i
     {
       Y1=rand()/(long double)RAND_MAX;
       Y2=rand()/(long double)RAND_MAX;
@@ -247,7 +249,7 @@ void ActualizarVelocidadInerciaW(ENJAMBRE *__Enjambre__){
   long double Y1,Y2;
   //Actualizar cada vector velocidad Vi de cada particula
   for(unsigned int i=0; i<__Enjambre__->CantidadDeParticulas; i++) //Para cada particula i
-    for(unsigned int j=0; j<__Enjambre__->CantidadDeParametros; j++) //Para cada parametro j de cada vector Vi de la particula i
+    for(unsigned int j=0; j<__Enjambre__->CantidadDeDimensiones; j++) //Para cada parametro j de cada vector Vi de la particula i
     {
       Y1=rand()/(long double)RAND_MAX;
       Y2=rand()/(long double)RAND_MAX;
@@ -258,30 +260,52 @@ void ActualizarVelocidadInerciaW(ENJAMBRE *__Enjambre__){
       );
     }
 }
+
+void ActualizarVelocidadClamping(ENJAMBRE *__Enjambre__){
+  long double Y1,Y2;
+  //Actualizar cada vector velocidad Vi de cada particula
+  for(unsigned int i=0; i<__Enjambre__->CantidadDeParticulas; i++) //Para cada particula i
+    for(unsigned int j=0; j<__Enjambre__->CantidadDeDimensiones; j++) //Para cada parametro j de cada vector Vi de la particula i
+    {
+      Y1=rand()/(long double)RAND_MAX;
+      Y2=rand()/(long double)RAND_MAX;
+      __Enjambre__->Part[i].Vi[j] =(
+          (__Enjambre__->Part[i].Vi[j]*__Enjambre__->X)+
+          (__Enjambre__->C1*Y1*(__Enjambre__->Part[i].Pi[j]-__Enjambre__->Part[i].Xi[j]))+
+          (__Enjambre__->C2*Y2*(__Enjambre__->Part[__Enjambre__->MejorParticulaDelGrupo].Pi[j]-__Enjambre__->Part[i].Xi[j]))
+      );
+      if(__Enjambre__->Part[i].Vi[j] > __Enjambre__->LimitesSuperiores[j])
+         __Enjambre__->Part[i].Vi[j]  =__Enjambre__->LimitesSuperiores[j];
+      if(__Enjambre__->Part[i].Vi[j] > __Enjambre__->LimitesInferiores[j])
+         __Enjambre__->Part[i].Vi[j] = __Enjambre__->LimitesInferiores[j];
+    }
+}
+
+
 void ActualizarVelocidadConstriction(
     ENJAMBRE *__Enjambre__
 ){
   long double Y1,Y2;
   //Actualizar cada vector velocidad Vi de cada particula
   for(unsigned int i=0; i<__Enjambre__->CantidadDeParticulas; i++) //Para cada particula i
-    for(unsigned int j=0; j<__Enjambre__->CantidadDeParametros; j++) //Para cada parametro j de cada vector Vi de la particula i
+    for(unsigned int j=0; j<__Enjambre__->CantidadDeDimensiones; j++) //Para cada parametro j de cada vector Vi de la particula i
     {
       Y1=rand()/(long double)RAND_MAX;
       Y2=rand()/(long double)RAND_MAX;
-      //printf("Y1=%f Y2=%f",Y1,Y2);
+      //printf("Y1=%Lf Y2=%Lf",Y1,Y2);
       __Enjambre__->Part[i].Vi[j] =__Enjambre__->Constriccion*(
         (__Enjambre__->Part[i].Vi[j]+
         (__Enjambre__->C1*Y1*(__Enjambre__->Part[i].Pi[j]-__Enjambre__->Part[i].Xi[j]))+
         (__Enjambre__->C2*Y2*(__Enjambre__->Part[__Enjambre__->MejorParticulaDelGrupo].Pi[j]-__Enjambre__->Part[i].Xi[j]))
       ));
-      //printf(" Vt+1= %f",__Enjambre__->Part[i].Vi[j]);
+      //printf(" Vt+1= %Lf",__Enjambre__->Part[i].Vi[j]);
     }
 }
 
 void ActualizarPosicion(ENJAMBRE *__Enjambre__){
   // Acutailzsr cada vector Posicion XI de cada particula
   for(unsigned int i=0; i<__Enjambre__->CantidadDeParticulas; i++) //Para cada particula i
-    for(unsigned int j=0; j<__Enjambre__->CantidadDeParametros; j++) //Para cada parametro j de cada vector de la particula i
+    for(unsigned int j=0; j<__Enjambre__->CantidadDeDimensiones; j++) //Para cada parametro j de cada vector de la particula i
       __Enjambre__->Part[i].Xi[j] += __Enjambre__->Part[i].Vi[j];
 }
 
@@ -289,7 +313,7 @@ void ActualizarMejoresPosicionesMin(ENJAMBRE *__Enjambre__){
   for(unsigned int i=0; i<__Enjambre__->CantidadDeParticulas; i++)
     if(__Enjambre__->Part[i].Xfit < __Enjambre__->Part[i].Pfit){
       __Enjambre__->Part[i].Pfit = __Enjambre__->Part[i].Xfit;
-      for(unsigned int j=0; j<__Enjambre__->CantidadDeParametros; j++) //Para cada parametro j de cada vector de la particula i
+      for(unsigned int j=0; j<__Enjambre__->CantidadDeDimensiones; j++) //Para cada parametro j de cada vector de la particula i
         __Enjambre__->Part[i].Pi[j] = __Enjambre__->Part[i].Xi[j];
     }
 }
@@ -298,7 +322,7 @@ void ActualizarMejoresPosicionesMax(ENJAMBRE *__Enjambre__){
   for(unsigned int i=0; i<__Enjambre__->CantidadDeParticulas; i++)
     if(__Enjambre__->Part[i].Xfit > __Enjambre__->Part[i].Pfit){
       __Enjambre__->Part[i].Pfit = __Enjambre__->Part[i].Xfit;
-      for(unsigned int j=0; j<__Enjambre__->CantidadDeParametros; j++) //Para cada parametro j de cada vector de la particula i
+      for(unsigned int j=0; j<__Enjambre__->CantidadDeDimensiones; j++) //Para cada parametro j de cada vector de la particula i
         __Enjambre__->Part[i].Pi[j] = __Enjambre__->Part[i].Xi[j];
     }
 }

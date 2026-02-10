@@ -1,10 +1,10 @@
 #ifndef __pso__header__
 #define __pso__header__
 
-#define lovdog_startlog if(lovdog_log){
+#define lovdog_startlog if(0){
 #define lovdog_endlog }
 
-unsigned char lovdog_log = 0;
+//unsigned char lovdog_log = 0;
 
 // Definición de la estructura Patícula
 // Esta partícula representa a un individuo
@@ -33,17 +33,17 @@ typedef struct {
 // Cada solución es repensada según los valores históricos
 // y valores presentes.
 typedef struct{
-  PARTICULA *Part;                      // Arreglo de partículas
+  PARTICULA         *Part;                     // Arreglo de partículas
   unsigned int       CantidadDeParticulas;    // Número de partículas
   unsigned int       CantidadDeDimensiones;   // Número de dimensiones del espacio de búsqueda
   unsigned int       MejorParticulaDelGrupo;  // ID de la mejor partícula del grupo
   unsigned int       MaximoDeIteraciones;     // Número máximo d'iteraciones a realizar
-  long double        C1;                       // Coeficiente de influencia individual
-  long double        C2;                       // Coeficiente de influencia social
-  const long double *LimitesSuperiores; // Limites Superiores de las dimensions del espacio de búsqueda
-  const long double *LimitesInferiores; // Limites Inferiores de las dimensions del espacio de búsqueda
-  long double        X;                        // Factor de constricción (convergencia)
-  long double        Constriccion;             // Factor de constricción (convergencia)
+  long double        C1;                      // Coeficiente de influencia individual
+  long double        C2;                      // Coeficiente de influencia social
+  const long double *LimitesSuperiores;       // Limites Superiores de las dimensions del espacio de búsqueda
+  const long double *LimitesInferiores;       // Limites Inferiores de las dimensions del espacio de búsqueda
+  long double        X;                       // Factor de constricción (convergencia)
+  long double        Constriccion;            // Factor de constricción (convergencia)
 }ENJAMBRE;
 
 
@@ -62,11 +62,11 @@ ENJAMBRE* CrearEnjambre(
  * Recibe el enjambre, la posición inicial, las variables del problema,
  * y los límites*/
 void InicializarEnjambre(
-    ENJAMBRE    *__Enjambre__,
+    ENJAMBRE          *__Enjambre__,
     long double        __FactorConstriccion__,
     long double        __ValorDePeso_C1__,
     long double        __ValorDePeso_C2__,
-    unsigned int __MaximoDeIteraciones__,
+    unsigned int       __MaximoDeIteraciones__,
     const long double *__LimitesInferiores__,
     const long double *__LimitesSuperiores__
   );
@@ -118,6 +118,9 @@ void EvaluacionInicialEnjambreMax(
 void ActualizarVelocidad(
     ENJAMBRE *__Enjambre__
   );
+void ActualizarVelocidadClamping(
+    ENJAMBRE *__Enjambre__
+  );
 void ActualizarVelocidadInerciaW(
     ENJAMBRE *__Enjambre__
   );
@@ -147,7 +150,7 @@ void ActualizarMejoresPosicionesMax(
 */
 long double FuncionObjetivo(
     long double          *__ValoresDeParametros__,
-    unsigned int    __CantidadDeParametros__,
+    unsigned int          __CantidadDeParametros__,
     const long double    *__ParametrosDeOperacion__
   );
 
@@ -168,7 +171,7 @@ PARTICULA ProcesoPSO(
     const long double        __Dimension__,
     const long double       *__LimiteSuperior__,
     const long double       *__LimiteInferior__,
-    const unsigned int __NumeroMaximoDeIteraciones__,
+    const unsigned int       __NumeroMaximoDeIteraciones__,
     const long double        __Factor_Constriccion_Inercia__,
     const long double        __ValorPesoPersonalC1__,
     const long double        __ValorPesoGlobalC2__,

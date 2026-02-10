@@ -38,8 +38,21 @@ update_pip:
 py:
 	. venv/bin/activate && python
 
+enjambre:
+	cd "./Tópico Selecto - Algoritmos Bioinspirados" &&\
+	gcc -o exe pso.c test.c -lm &&\
+	./exe
 
-help:
+enjambre_it_build:
+	cd "./Tópico Selecto - Algoritmos Bioinspirados" &&\
+	gcc -o exe pso.c test.c -lm &&\
+	./test_multi.sh
+
+enjambre_it:
+	cd "./Tópico Selecto - Algoritmos Bioinspirados" &&\
+	./test_multi.sh
+
+hel:
 	@echo "make configure     # Configura el entorno (bash y python venv)"
 	@echo "make genetico      # Realiza la optimización"
 	@echo "make vacua         # Muestra la inicialización de la función potencial"
