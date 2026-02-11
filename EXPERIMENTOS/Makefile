@@ -38,23 +38,29 @@ update_pip:
 py:
 	. venv/bin/activate && python
 
-enjambre:
+bio_enjambre:
 	cd "./Tópico Selecto - Algoritmos Bioinspirados" &&\
 	gcc -o exe pso.c test.c -lm &&\
 	./exe
 
-enjambre_it_build:
+bio_enjambre_it_build:
 	cd "./Tópico Selecto - Algoritmos Bioinspirados" &&\
 	gcc -o exe pso.c test.c -lm &&\
 	./test_multi.sh
 
-enjambre_it:
+bio_enjambre_it:
 	cd "./Tópico Selecto - Algoritmos Bioinspirados" &&\
 	./test_multi.sh
 
-hel:
-	@echo "make configure     # Configura el entorno (bash y python venv)"
-	@echo "make genetico      # Realiza la optimización"
-	@echo "make vacua         # Muestra la inicialización de la función potencial"
-	@echo "make test_fitness  # Realiza pruebas de verificación de la función de fitness sobre la función potencial a través de su definición simbólica"
-	@echo "make help          # Muestra esta ayuda"
+help:
+	@echo "make configure ............... # Configura el entorno (bash y python venv)"
+	@echo "make genetico ................ # Realiza la optimización"
+	@echo "make vacua ................... # Muestra la inicialización de la función potencial"
+	@echo "make test_fitness ............ # Realiza pruebas de verificación de la función de fitness sobre la función potencial a través de su definición simbólica"
+	@echo "make help .................... # Muestra esta ayuda"
+	@echo "make mathics ................. # Ejecuta el script de Mathematica"
+	@echo "make update_pip .............. # Actualiza las dependencias del proyecto de Python"
+	@echo "make py ...................... # Ejecuta Python en el entorno virtual"
+	@echo "make bio_enjambre ............ # Ejecuta el algoritmo de enjambre (curso bioinspirados)"
+	@echo "make bio_enjambre_it ......... # Ejecuta el script iterativo"
+	@echo "make bio_enjambre_it_build ... # Compila el algoritmo de enjambre y Ejecuta el script iterativo"

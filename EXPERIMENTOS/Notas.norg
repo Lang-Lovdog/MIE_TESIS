@@ -1,3 +1,13 @@
+@document.meta
+title: Descriptor y meta-journal del proyecto de tesis
+description: Aquí se describen detalles e ideas posiblemente relevantes a la tesis o al proyecto
+authors: Brandon Marquez Salazar (Lang Lovdog Inu Oókami)
+categories: meta.journal
+created: 2026-02-06T14:41:43-0600
+updated: 2026-02-11T14:51:44-0600
+version: 1.1.1
+@end
+
 Este archivo servirá como complemento a mi diario de tesis
 para poder tener comentarios que en la generalidad serían
 poco relevantes al trabajo y más relevantes a mi pensamiento.
@@ -51,20 +61,50 @@ pensamientos que pueden o no, en un futuro, tomar relevancia.
   a entender la estructura plana del árbol.
 
   @code liotree 
-    |TESIS/                         > El directorio relativo al proyecto de tesis.
-    |- EXPERIMENTOS/                > El directorio donde realizo los códigos y
-    |                               cosas por el estilo
-    |-- CESAR-BRITO_ORIGINAL-DATA/  > Información del experimento original
-    |-- Lovdog_Swampland/           > El código donde estoy replicando el
-    |                               experimento del Dr. Cesar
-    |--- MetastableVacua.py         > Módulo que contiene la función potencial
-    |                               y sus descriptores correspondientes.
-    |--- BusquedaGeneticos.py       >
-    |--- test_fitness_function.py   >
-    |-- Mathematica_Stuff/          > Código de Mathematica donde analizo sobre el
-    |                               experimento, sintaxis, etc.
-    |- PresentaciónXX               > En caso de realizar alguna presentación
+    |TESIS/                                           > El directorio relativo al proyecto de tesis.
+    |- EXPERIMENTOS/                                  > El directorio donde realizo los códigos y cosas por el estilo.
+    |-- CESAR-BRITO_ORIGINAL-DATA/                    > Información del experimento original 
+    |-- Lovdog_Swampland/                             > El código donde estoy replicando el experimento del Dr. Cesar.
+    |--- MetastableVacua.py                           > Módulo que contiene la función potencial y sus descriptores
+    |                                                 correspondientes. ||
+    |--- BusquedaGeneticos.py                         > Este script es la primera versión que implementa los
+    |                                                 metaheurísticos en Python. Originalmente PSO y Genéticos. ||
+    |--- test_fitness_function.py                     > Aquí únicamente se evalúan los elementos según los resultados
+    |                                                 esperados.  ||
+    |-- Mathematica_Stuff/                            > Código de Mathematica donde analizo sobre el experimento,
+    |                                                 sintaxis, etc. ||
+    |-- 'Tópico Selecto - Algoritmos Bioinspirados/'  > Directorio correspondiente a la UDA de algoritmos bioinspirados,
+    |--- pso.c
+    |--- pso.h
+    |--- vacua.c
+    |--- vacua.h
+    |--- test.c
+    |--- test_multi.sh
+    |--- resultados.txt
+    |                                                 curso en el cual se estudian algoritmos de optimización
+    |                                                 metaheurísticos, la razón de contener este directorio aquí es que
+    |                                                 el enfoque del curso está dirigido al proyecto, dándole un carácter
+    |                                                 de documentación/experimentación necesaria. ||
+    |- venv/                                          > Producto del "setup.sh", es el entorno virtual donde se encuentran
+    |                                                 los paquetes correspondientes al proyecto,  sin éste, no es posible
+    |                                                 (ni recomendable) realizar ejecuciones del proyecto.
+    |- Makefile                                       > Este es un archivo maestro que permite ejecutar cualquier código
+    |                                                 simulación, prueba o tarea dentro del proyecto. ||
+    |- Notas.norg                                     > Este meta-journal
+    |- requirements.txt                               > Lista de paquetes y módulos necesarios para el proyecto. Si acaso
+    |                                                 algún error de dependencias, verifíque las versiones a la fecha
+    |                                                 última de instalación estable: 11/02/2026.
+    |- setup.sh                                       > Script de configuración del entorno virtual de Pyrhon.
+    |- PresentaciónXX                                 > En caso de realizar alguna presentación, ésta llevará el nombre
+    |                                                 respetando el patrón (plantilla de nombre). ||
   @end
+
+** Lista de presentaciones
+    - Presentación 01: Presentación sobre la teoría de cuerdas,
+      el doctor Ascencio realizó observaciones sobre algunos
+      conceptos teóricos que se registraron en el diario de
+      tesis. La información aún no ha sido actualizada, es poco
+      probable que se llegue a realizar dicha actualización.
 
 * Makefile
 
@@ -81,4 +121,21 @@ pensamientos que pueden o no, en un futuro, tomar relevancia.
   base, la versión final formal, la versión en c, o la de
   wolfram. Por lo tanto habré de sostener contexto en la
   llamada a make.
-  
+
+** Opciones de desarrollo en make
+
+   A continuación las opciones del Makefile. Es preciso
+   corresponder que estas opciones son una lista incremental
+   debido a la naturaleza del proyecto.
+
+   - configure ............... # Configura el entorno (bash y python venv)
+   - genetico ................ # Realiza la optimización
+   - vacua ................... # Muestra la inicialización de la función potencial
+   - test_fitness ............ # Realiza pruebas de verificación de la función de fitness sobre la función potencial a través de su definición simbólica
+   - help .................... # Muestra esta ayuda
+   - mathics ................. # Ejecuta el script de Mathematica
+   - update_pip .............. # Actualiza las dependencias del proyecto de Python
+   - py ...................... # Ejecuta Python en el entorno virtual
+   - bio_enjambre ............ # Ejecuta el algoritmo de enjambre (curso bioinspirados)
+   - bio_enjambre_it ......... # Ejecuta el script iterativo
+   - bio_enjambre_it_build ... # Compila el algoritmo de enjambre y Ejecuta el script iterativo

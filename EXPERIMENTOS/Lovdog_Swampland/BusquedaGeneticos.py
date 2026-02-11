@@ -1,31 +1,33 @@
-import mealpy as mp
-from MetastableVacua import fitness_function as ff
+import mealpy as mp # type: ignore
+from mealpy                import FloatVar, get_optimizer_by_name
+from MetastableVacua       import fitness_function_mealpy as ff
+from test_fitness_function import plot_potencial_vs_autovalores
+
+vacua_parametros__dS = {
+    "obj_func": ff,
+    "bounds": FloatVar(
+        #    AH3   AF3   AF5   A3N3   s      tau
+        lb=[-100, -100, -100, -100, 1e-20, 1e-20, ],
+        ub=[ 100,  100,  100,  100,   100,   100, ]
+    ),
+    "minmax": "min",
+    "log_to": "MetastableVacuaReprise.log"
+}
+
+vacua_parametros_AdS = {
+    "obj_func": ff,
+    "bounds": FloatVar(
+        #    AH3   AF3   AF5   A3N3  AD5    s      tau
+        lb=[-100, -100, -100, -100, -100, 1e-20, 1e-20, ],
+        ub=[ 100,  100,  100,  100,  100,   100,   100, ]
+    ),
+    "minmax": "min",
+    "log_to": "MetastableVacuaReprise.log"
+}
 
 #### Creación de un genético simple para minimización de la función ff
-genetico = mp.GeneticAlgorithm(
-    pop_size=100,
-    mutation_prob=0.1,
-    mutation_distrib=[-0.1, 0.1],
-    crossover_prob=0.9,
-    elit_ratio=0.1,
-    parents_portion=0.3,
-    mutation_by_replacement=True,
-    mutation_step=0.1,
-    mutation_by_neighborhood=True,
-    mutation_neighborhood_size=5,
-    mutation_distrib_size=10,
-    fitness_func=ff,
-    maximize=True,
-    verbose=1
-)
+genetico = mp.GA.BaseGA(epoch=500, pop_size=50, pc=0.8, pm=0.2)
+genetico.solve(vacua_parametros__dS)
 #### Creación de un genético simple para minimización de la función ff
-
-genetico.run()
-
-print(genetico.best_individual())
-
-print(genetico.best_fitness())
-
-print(genetico.best_chromosome())
-
-print(genetico.best_solution())
+#### Imprimir solución
+print(f"Solución: {genetico.g_best.solution}, Fitness: {genetico.g_best.target.fitness}")

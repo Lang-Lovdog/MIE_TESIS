@@ -14,11 +14,11 @@ from MetastableVacua import potencial_eval as potencial
 from MetastableVacua import get_precision_decimal as decpr
 from MetastableVacua import plot_potencial_vars_adS as potplot
 from MetastableVacua import set_fixed_value
-from MetastableVacua import diagnostic_plot
-from matplotlib import pyplot as plt
-import pandas as pd
-import numpy as np
-import sympy as sp
+#from MetastableVacua import diagnostic_plot
+from matplotlib import pyplot as plt #type: ignore
+import pandas as pd                  #type: ignore
+#import numpy as np                   #type: ignore
+import sympy as sp                   #type: ignore
 
 pd.set_option("display.float_format",'{:.20f}'.format)
 
@@ -89,7 +89,7 @@ def auto_valores_eval(df : pd.DataFrame):
         diferencia =[
             fila[1][variables["Eig1"]]-eig[0],
             fila[1][variables["Eig2"]]-eig[1]
-        ] 
+        ]
         diferencia_error = [ sp.log(abs(x), 10).evalf(decpr()) if x != 0 else 0 for x in diferencia ]
         cmpdict = {
             "Original1"   : [ fila[1][variables["Eig1"]] ],
@@ -108,19 +108,6 @@ def auto_valores_eval(df : pd.DataFrame):
     print(comparacion)
 
 #### Graficación de una solucón
-def graficacion(df : pd.DataFrame):
-    fila = df.iloc[0]
-    set_fixed_value({
-       "AH3"  : fila[variables["AH3" ]],
-       "AF3"  : fila[variables["AF3" ]],
-       "AF5"  : fila[variables["AF5" ]],
-       "A3N3" : fila[variables["A3N3"]],
-    })
-    potplot(
-        fila[variables["s"   ]],
-        fila[variables["tau" ]]
-    )
-
 def plot_potencial_vs_autovalores(df : pd.DataFrame):
     global variables
 
@@ -176,4 +163,3 @@ if __name__ == '__main__':
     funcion_potencial_eval(df)
     auto_valores_eval(df)
     plot_potencial_vs_autovalores(df)
-    #graficacion(df)

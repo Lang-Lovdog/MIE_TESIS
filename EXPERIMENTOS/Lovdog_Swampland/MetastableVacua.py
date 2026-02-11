@@ -79,7 +79,8 @@ def traza_definida_positiva(_AH3, _AF3, _AF5, _A3N3, _tau, _s):
 
 def gradient_modulus(_AH3, _AF3, _AF5, _A3N3, _tau, _s):
     diV  = sp.derive_by_array(V, [s,tau])
-    diV2 = sp.tensorcontract(diV*diV, (0,1)).subs([
+    diV2 = diV[0]*diV[0] + diV[1]*diV[1]
+    diV2 = diV2.subs([
         (AH3, _AH3),
         (AF3, _AF3),
         (AF5, _AF5),
@@ -90,7 +91,7 @@ def gradient_modulus(_AH3, _AF3, _AF5, _A3N3, _tau, _s):
     return diV2
 
 def no_taquionico(_AH3, _AF3, _AF5, _A3N3, _tau, _s):
-    s_val = VHess.det - VHess.trace/4.0
+    s_val = VHess.det() - VHess.trace()/4.0
     f_val = s_val.subs([
         (AH3, _AH3),
         (AF3, _AF3),
@@ -103,6 +104,15 @@ def no_taquionico(_AH3, _AF3, _AF5, _A3N3, _tau, _s):
 
 ##### Función general de error
 def fitness_function(_AH3, _AF3, _AF5, _A3N3, _tau, _s):
+    return (
+        potencial_semidefinido_positivo(_AH3, _AF3, _AF5, _A3N3, _tau, _s) +
+        traza_definida_positiva        (_AH3, _AF3, _AF5, _A3N3, _tau, _s) +
+        gradient_modulus               (_AH3, _AF3, _AF5, _A3N3, _tau, _s) +
+        no_taquionico                  (_AH3, _AF3, _AF5, _A3N3, _tau, _s)
+    )
+
+def fitness_function_mealpy(solutions):
+    _AH3, _AF3, _AF5, _A3N3, _tau, _s = solutions
     return (
         potencial_semidefinido_positivo(_AH3, _AF3, _AF5, _A3N3, _tau, _s) +
         traza_definida_positiva        (_AH3, _AF3, _AF5, _A3N3, _tau, _s) +
@@ -168,7 +178,7 @@ def potencial_eval(_AH3, _AF3, _AF5, _A3N3, _tau, _s):
         (tau, _tau),
         (s, _s)
     ]).evalf(precision_decimal)
-    return val 
+    return val
 
 ##### Graficar funcion potencial
 def plot_potencial_vars(_tau, _s, show=True, save=None):
@@ -192,14 +202,14 @@ def plot_potencial_vars(_tau, _s, show=True, save=None):
     tau_vals = np.linspace(lims["tau"]["min"], lims["tau"]["max"][1], 1000)
 
     V_s  = V.subs([
-        (AH3, variables_numericas["AH3"]), 
+        (AH3, variables_numericas["AH3"]),
         (AF3, variables_numericas["AF3"]),
         (AF5, variables_numericas["AF5"]),
         (A3N3, variables_numericas["A3N3"]),
         (tau, _tau),
     ])
     V_tau= V.subs([
-        (AH3,  variables_numericas["AH3"]), 
+        (AH3,  variables_numericas["AH3"]),
         (AF3,  variables_numericas["AF3"]),
         (AF5,  variables_numericas["AF5"]),
         (A3N3, variables_numericas["A3N3"]),
@@ -235,7 +245,7 @@ def plot_potencial_vars_adS(s_adS, tau_adS, show=True, save=None):
     global variables_numericas
     global precision_decimal
     global V
-    
+
     # Ranges for RED plots
     # s: ×1.1, τ: ×1.1 (narrower range for red)
     s_vals = np.linspace(s_adS * 0.9, s_adS * 1.1, 1000)
@@ -243,16 +253,16 @@ def plot_potencial_vars_adS(s_adS, tau_adS, show=True, save=None):
 
     # V(s) with τ fixed at AdS τ value
     V_s_red = V.subs([
-        (AH3, variables_numericas["AH3"]), 
+        (AH3, variables_numericas["AH3"]),
         (AF3, variables_numericas["AF3"]),
         (AF5, variables_numericas["AF5"]),
         (A3N3, variables_numericas["A3N3"]),
         (tau, tau_adS),  # Fixed at AdS τ
     ])
-    
+
     # V(τ) with s fixed at AdS s value
     V_tau_red = V.subs([
-        (AH3,  variables_numericas["AH3"]), 
+        (AH3,  variables_numericas["AH3"]),
         (AF3,  variables_numericas["AF3"]),
         (AF5,  variables_numericas["AF5"]),
         (A3N3, variables_numericas["A3N3"]),
@@ -260,7 +270,7 @@ def plot_potencial_vars_adS(s_adS, tau_adS, show=True, save=None):
     ])
 
     # Evaluate
-    vs_vals_red = [float(V_s_red.subs(s, s_val).evalf(precision_decimal)) 
+    vs_vals_red = [float(V_s_red.subs(s, s_val).evalf(precision_decimal))
                    for s_val in s_vals]
     vtau_vals_red = [float(V_tau_red.subs(tau, tau_val).evalf(precision_decimal))
                      for tau_val in tau_vals]
@@ -275,7 +285,7 @@ def plot_potencial_vars_adS(s_adS, tau_adS, show=True, save=None):
     axiales[0].set_title(f'Red: V(s) with τ fixed at {tau_adS:.4f} (AD5=0)', fontsize=16)
     axiales[0].grid(True, alpha=0.3)
     axiales[0].axhline(y=0, color='k', linestyle=':', alpha=0.5)
-    axiales[0].scatter([s_adS], [float(V_s_red.subs(s, s_adS).evalf(precision_decimal))], 
+    axiales[0].scatter([s_adS], [float(V_s_red.subs(s, s_adS).evalf(precision_decimal))],
                        color='red', s=80, zorder=5)
 
     # RED Plot 2: V(τ) at AdS s (narrow range)
@@ -285,7 +295,7 @@ def plot_potencial_vars_adS(s_adS, tau_adS, show=True, save=None):
     axiales[1].set_title(f'Red: V(τ) with s fixed at {s_adS:.4f} (AD5=0, range ×1.1)', fontsize=16)
     axiales[1].grid(True, alpha=0.3)
     axiales[1].axhline(y=0, color='k', linestyle=':', alpha=0.5)
-    axiales[1].scatter([tau_adS], [float(V_tau_red.subs(tau, tau_adS).evalf(precision_decimal))], 
+    axiales[1].scatter([tau_adS], [float(V_tau_red.subs(tau, tau_adS).evalf(precision_decimal))],
                        color='red', s=80, zorder=5)
 
     plt.tight_layout()

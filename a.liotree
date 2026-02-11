@@ -1,13 +1,29 @@
-|TESIS/                         > El directorio relativo al proyecto de tesis.
-|- EXPERIMENTOS/                > El directorio donde realizo los códigos y
-|                               cosas por el estilo
-|-- CESAR-BRITO_ORIGINAL-DATA/  > Información del experimento original
-|-- Lovdog_Swampland/           > El código donde estoy replicando el
-|                               experimento del Dr. Cesar
-|--- MetastableVacua.py         > Módulo que contiene la función potencial
-|                               y sus descriptores correspondientes.
-|--- BusquedaGeneticos.py       >
-|--- test_fitness_function.py   >
-|-- Mathematica_Stuff/          > Código de Mathematica donde analizo sobre el
-|                               experimento, sintaxis, etc.
-|- PresentaciónXX/              > En caso de realizar alguna presentación
+|TESIS/                                           > El directorio relativo al proyecto de tesis.
+|- EXPERIMENTOS/                                  > El directorio donde realizo los códigos y cosas por el estilo.
+|-- CESAR-BRITO_ORIGINAL-DATA/                    > Información del experimento original 
+|-- Lovdog_Swampland/                             > El código donde estoy replicando el experimento del Dr. Cesar.
+|--- MetastableVacua.py                           > Módulo que contiene la función potencial y sus descriptores
+|                                                 correspondientes. ||
+|--- BusquedaGeneticos.py                         > Este script es la primera versión que implementa los
+|                                                 metaheurísticos en Python. Originalmente PSO y Genéticos. ||
+|--- test_fitness_function.py                     > Aquí únicamente se evalúan los elementos según los resultados
+|                                                 esperados.  ||
+|-- Mathematica_Stuff/                            > Código de Mathematica donde analizo sobre el experimento,
+|                                                 sintaxis, etc. ||
+|-- 'Tópico Selecto - Algoritmos Bioinspirados/'  > Directorio correspondiente a la UDA de algoritmos bioinspirados,
+|                                                 curso en el cual se estudian algoritmos de optimización
+|                                                 metaheurísticos, la razón de contener este directorio aquí es que
+|                                                 el enfoque del curso está dirigido al proyecto, dándole un carácter
+|                                                 de documentación/experimentación necesaria. ||
+|- venv/                                          > Producto del "setup.sh", es el entorno virtual donde se encuentran
+|                                                 los paquetes correspondientes al proyecto,  sin éste, no es posible
+|                                                 (ni recomendable) realizar ejecuciones del proyecto.
+|- Makefile                                       > Este es un archivo maestro que permite ejecutar cualquier código
+|                                                 simulación, prueba o tarea dentro del proyecto. ||
+|- Notas.norg                                     > Este meta-journal
+|- requirements.txt                               > Lista de paquetes y módulos necesarios para el proyecto. Si acaso
+|                                                 algún error de dependencias, verifíque las versiones a la fecha
+|                                                 última de instalación estable: 11/02/2026.
+|- setup.sh                                       > Script de configuración del entorno virtual de Pyrhon.
+|- PresentaciónXX                                 > En caso de realizar alguna presentación, ésta llevará el nombre
+|                                                 respetando el patrón (plantilla de nombre). ||
