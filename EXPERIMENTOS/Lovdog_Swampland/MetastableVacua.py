@@ -30,6 +30,7 @@ variables_numericas={
     "AF3" : 1.0,
     "AF5" : 1.0,
     "A3N3": 1.0,
+    "AD5" : 1.0,
     "tau" : 1.0,
     "s"   : 1.0
 }
@@ -66,12 +67,36 @@ def potencial_semidefinido_positivo(_AH3, _AF3, _AF5, _A3N3, _tau, _s):
     ]).evalf()
     return np.abs(val)-val
 
+def potencial_semidefinido_positivo_AdS(_AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s):
+    val=V_lifting.subs([
+        (AH3, _AH3),
+        (AF3, _AF3),
+        (AF5, _AF5),
+        (A3N3, _A3N3),
+        (AD5, _AD5),
+        (tau, _tau),
+        (s, _s)
+    ]).evalf()
+    return np.abs(val)-val
+
 def traza_definida_positiva(_AH3, _AF3, _AF5, _A3N3, _tau, _s):
     val = VHess.trace().subs([
         (AH3, _AH3),
         (AF3, _AF3),
         (AF5, _AF5),
         (A3N3, _A3N3),
+        (tau, _tau),
+        (s, _s)
+    ]).evalf()
+    return np.abs(val)-val
+
+def traza_definida_positiva_AdS(_AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s):
+    val = V_liftingHess.trace().subs([
+        (AH3, _AH3),
+        (AF3, _AF3),
+        (AF5, _AF5),
+        (A3N3, _A3N3),
+        (AD5, _AD5),
         (tau, _tau),
         (s, _s)
     ]).evalf()
@@ -90,6 +115,20 @@ def gradient_modulus(_AH3, _AF3, _AF5, _A3N3, _tau, _s):
     ]).evalf()
     return diV2
 
+def gradient_modulus_AdS(_AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s):
+    diV  = sp.derive_by_array(V_lifting, [s,tau])
+    diV2 = diV[0]*diV[0] + diV[1]*diV[1]
+    diV2 = diV2.subs([
+        (AH3, _AH3),
+        (AF3, _AF3),
+        (AF5, _AF5),
+        (A3N3, _A3N3),
+        (AD5, _AD5),
+        (tau, _tau),
+        (s, _s)
+    ]).evalf()
+    return diV2
+
 def no_taquionico(_AH3, _AF3, _AF5, _A3N3, _tau, _s):
     s_val = VHess.det() - VHess.trace()/4.0
     f_val = s_val.subs([
@@ -97,6 +136,19 @@ def no_taquionico(_AH3, _AF3, _AF5, _A3N3, _tau, _s):
         (AF3, _AF3),
         (AF5, _AF5),
         (A3N3, _A3N3),
+        (tau, _tau),
+        (s, _s)
+    ]).evalf()
+    return np.abs(f_val)-f_val
+
+def no_taquionico_AdS(_AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s):
+    s_val = V_liftingHess.det() - V_liftingHess.trace()/4.0
+    f_val = s_val.subs([
+        (AH3, _AH3),
+        (AF3, _AF3),
+        (AF5, _AF5),
+        (A3N3, _A3N3),
+        (AD5, _AD5),
         (tau, _tau),
         (s, _s)
     ]).evalf()
@@ -120,6 +172,23 @@ def fitness_function_mealpy(solutions):
         no_taquionico                  (_AH3, _AF3, _AF5, _A3N3, _tau, _s)
     )
 
+def fitness_function_AdS(_AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s):
+    return (
+        potencial_semidefinido_positivo_AdS(_AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s) +
+        traza_definida_positiva_AdS        (_AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s) +
+        gradient_modulus_AdS               (_AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s) +
+        no_taquionico_AdS                  (_AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s)
+    )
+
+def fitness_function_AdS_mealpy(solutions):
+    _AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s = solutions
+    return (
+        potencial_semidefinido_positivo_AdS(_AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s) +
+        traza_definida_positiva_AdS        (_AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s) +
+        gradient_modulus_AdS               (_AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s) +
+        no_taquionico_AdS                  (_AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s)
+    )
+
 ##### Función de autovalores
 def autovalores_VHess(_AH3, _AF3, _AF5, _A3N3, _tau, _s):
     return [
@@ -134,6 +203,20 @@ def autovalores_VHess(_AH3, _AF3, _AF5, _A3N3, _tau, _s):
         for ev in eigenvals_VHess.keys()
     ]
 
+def autovalores_VHess_AdS(_AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s):
+    return [
+        ev.subs([
+            (AH3, _AH3),
+            (AF3, _AF3),
+            (AF5, _AF5),
+            (A3N3, _A3N3),
+            (AD5, _AD5),
+            (tau, _tau),
+            (s, _s)
+        ]).evalf()
+        for ev in eigenvals_VHess_lifting.keys()
+    ]
+
 ##### Función de error de coeficientes fijos
 def fitness_function_coef(_AH3, _AF3, _AF5, _A3N3):
     global variables_numericas
@@ -144,14 +227,32 @@ def fitness_function_coef(_AH3, _AF3, _AF5, _A3N3):
         no_taquionico                  (_AH3, _AF3, _AF5, _A3N3, variables_numericas['tau'], variables_numericas['s'])
     )
 
+def fitness_function_coef_AdS(_AH3, _AF3, _AF5, _A3N3, _AD5):
+    global variables_numericas
+    return (
+        potencial_semidefinido_positivo_AdS(_AH3, _AF3, _AF5, _A3N3, _AD5, variables_numericas['tau'], variables_numericas['s']) +
+        traza_definida_positiva_AdS        (_AH3, _AF3, _AF5, _A3N3, _AD5, variables_numericas['tau'], variables_numericas['s']) +
+        gradient_modulus_AdS               (_AH3, _AF3, _AF5, _A3N3, _AD5, variables_numericas['tau'], variables_numericas['s']) +
+        no_taquionico_AdS                  (_AH3, _AF3, _AF5, _A3N3, _AD5, variables_numericas['tau'], variables_numericas['s'])
+    )
+
 ##### Función de error de variables fijas
 def fitness_function_vars(_s, _tau):
     global variables_numericas
     return (
-        potencial_semidefinido_positivo(variables_numericas[AH3], variables_numericas[AF3], variables_numericas[AF5], variables_numericas[A3N3], _tau, _s) +
-        traza_definida_positiva        (variables_numericas[AH3], variables_numericas[AF3], variables_numericas[AF5], variables_numericas[A3N3], _tau, _s) +
-        gradient_modulus               (variables_numericas[AH3], variables_numericas[AF3], variables_numericas[AF5], variables_numericas[A3N3], _tau, _s) +
-        no_taquionico                  (variables_numericas[AH3], variables_numericas[AF3], variables_numericas[AF5], variables_numericas[A3N3], _tau, _s)
+        potencial_semidefinido_positivo    (variables_numericas['AH3'], variables_numericas['AF3'], variables_numericas['AF5'], variables_numericas['A3N3'], _tau, _s) +
+        traza_definida_positiva            (variables_numericas['AH3'], variables_numericas['AF3'], variables_numericas['AF5'], variables_numericas['A3N3'], _tau, _s) +
+        gradient_modulus                   (variables_numericas['AH3'], variables_numericas['AF3'], variables_numericas['AF5'], variables_numericas['A3N3'], _tau, _s) +
+        no_taquionico                      (variables_numericas['AH3'], variables_numericas['AF3'], variables_numericas['AF5'], variables_numericas['A3N3'], _tau, _s)
+    )
+
+def fitness_function_vars_AdS(_s, _tau):
+    global variables_numericas
+    return (
+        potencial_semidefinido_positivo_AdS(variables_numericas['AH3'], variables_numericas['AF3'], variables_numericas['AF5'], variables_numericas['A3N3'], variables_numericas['AD5'], _tau, _s) +
+        traza_definida_positiva_AdS        (variables_numericas['AH3'], variables_numericas['AF3'], variables_numericas['AF5'], variables_numericas['A3N3'], variables_numericas['AD5'], _tau, _s) +
+        gradient_modulus_AdS               (variables_numericas['AH3'], variables_numericas['AF3'], variables_numericas['AF5'], variables_numericas['A3N3'], variables_numericas['AD5'], _tau, _s) +
+        no_taquionico_AdS                  (variables_numericas['AH3'], variables_numericas['AF3'], variables_numericas['AF5'], variables_numericas['A3N3'], variables_numericas['AD5'], _tau, _s)
     )
 
 ##### Definición de valores fijos para búsqueda
@@ -175,6 +276,19 @@ def potencial_eval(_AH3, _AF3, _AF5, _A3N3, _tau, _s):
         (AF3, _AF3),
         (AF5, _AF5),
         (A3N3, _A3N3),
+        (tau, _tau),
+        (s, _s)
+    ]).evalf(precision_decimal)
+    return val
+
+def potencial_eval_AdS(_AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s):
+    global precision_decimal
+    val=V.subs([
+        (AH3, _AH3),
+        (AF3, _AF3),
+        (AF5, _AF5),
+        (A3N3, _A3N3),
+        (AD5, _AD5),
         (tau, _tau),
         (s, _s)
     ]).evalf(precision_decimal)

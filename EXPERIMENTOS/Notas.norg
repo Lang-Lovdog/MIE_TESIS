@@ -131,7 +131,8 @@ pensamientos que pueden o no, en un futuro, tomar relevancia.
    - configure ............... # Configura el entorno (bash y python venv)
    - genetico ................ # Realiza la optimización
    - vacua ................... # Muestra la inicialización de la función potencial
-   - test_fitness ............ # Realiza pruebas de verificación de la función de fitness sobre la función potencial a través de su definición simbólica
+   - test_fitness ............ # Realiza pruebas de verificación de la función de fitness sobre la función potencial a través
+     #                         # de su definición simbólica
    - help .................... # Muestra esta ayuda
    - mathics ................. # Ejecuta el script de Mathematica
    - update_pip .............. # Actualiza las dependencias del proyecto de Python
@@ -139,3 +140,55 @@ pensamientos que pueden o no, en un futuro, tomar relevancia.
    - bio_enjambre ............ # Ejecuta el algoritmo de enjambre (curso bioinspirados)
    - bio_enjambre_it ......... # Ejecuta el script iterativo
    - bio_enjambre_it_build ... # Compila el algoritmo de enjambre y Ejecuta el script iterativo
+
+* Sobre'l programa de Lovdog Swampland
+
+  A día de hoy: 13/02/2023. Me he dado cuenta de que'n mi
+  implementación uso dS y AdS como suffijos de las funciones
+  co'l siguiente significado:
+
+  - foo__dS es una función que no utiliza lifting
+  - foo_AdS es una función que sí utiliza lifting
+
+  Esto es destacable pues es un error grave de concepto que se
+  heredará próximamente y debe ser resuelto para futuras
+  referencias sobre el código.
+
+  Lo correcto es el uso de dS para aquellos que tengan un
+  levantamiento teórico con los efectos de las D5-Branas y por
+  ello, que pasen de ser dS a AdS en un caso de éxito en la
+  búsqueda.
+
+  Por tanto en un sistema donde dicho lifing no existe,
+  entonces se conserva como un vacío AdS. Esto siendo, la 
+  primera versión de la función potencial.
+
+  En pocas palabras, aún si el sufijo es AdS, en realidad
+  se hace referencia a una función que implementa los efectos
+  de las D5-Branas, permitiendo realmente, en teoría la
+  predicción de un vacío dS. Por lo tanto, las otras funciones
+  son las que nos permites construir los vacíos AdS en
+  contraste con lo que su sufijo nos indica..
+
+  .....
+
+  Bien, para hoy 19/02/2023, el experimento que corría duró ya
+  al menos dos días desde su ejecución (y sigue en ejecución).
+  La cuenta se va al rededor de 15000 iteraciones totales
+  divididas en 100 iteraciones del optimizador por cada elemento
+  de la base de datos original, con 75 elementos cada base de
+  datos. Una en búsqueda de Veff y otra con Veff_lift.
+  Cada optimización buscará al mejor en 50 épocas, lo que le
+  da cierta lentitud al proceso.
+
+  Debo comentar que si bien se encontraron soluciones
+  interesantes, hay un problema grave. Los límites de
+  optimización del metaheurístico están mal establecidos, pues
+
+  - A3N3=[-100,100]
+  - s=(0,100]
+  - tau=(0,100]
+
+  Esto es un problema grave, si es posible que los elementos
+  encontrados tengan sentido, estaré contento, si no... Esto
+  fue tiempo perdido.
