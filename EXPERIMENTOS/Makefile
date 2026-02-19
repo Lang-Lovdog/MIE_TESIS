@@ -38,15 +38,16 @@ update_pip:
 py:
 	. venv/bin/activate && python
 
+bio_enjambre_build:
+	cd "./Tópico Selecto - Algoritmos Bioinspirados" &&\
+	gcc -c pso.c  -g &&\
+	gcc -c test.c -g &&\
+	gcc -o exe pso.o test.o -lm -g
+
 bio_enjambre:
 	cd "./Tópico Selecto - Algoritmos Bioinspirados" &&\
-	gcc -o exe pso.c test.c -lm &&\
 	./exe
 
-bio_enjambre_it_build:
-	cd "./Tópico Selecto - Algoritmos Bioinspirados" &&\
-	gcc -o exe pso.c test.c -lm &&\
-	./test_multi.sh
 
 bio_enjambre_it:
 	cd "./Tópico Selecto - Algoritmos Bioinspirados" &&\
@@ -62,5 +63,6 @@ help:
 	@echo "make update_pip .............. # Actualiza las dependencias del proyecto de Python"
 	@echo "make py ...................... # Ejecuta Python en el entorno virtual"
 	@echo "make bio_enjambre ............ # Ejecuta el algoritmo de enjambre (curso bioinspirados)"
+	@echo "make bio_enjambre_build ...... # Compila el algoritmo de enjambre y lo ejecuta"
 	@echo "make bio_enjambre_it ......... # Ejecuta el script iterativo"
 	@echo "make bio_enjambre_it_build ... # Compila el algoritmo de enjambre y Ejecuta el script iterativo"

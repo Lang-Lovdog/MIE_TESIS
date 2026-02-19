@@ -1,5 +1,5 @@
-#ifndef __pso__header__
-#define __pso__header__
+#ifndef __lovdog__pso__header__
+#define __lovdog__pso__header__
 
 #define lovdog_startlog if(0){
 #define lovdog_endlog }
@@ -42,9 +42,34 @@ typedef struct{
   long double        C2;                      // Coeficiente de influencia social
   const long double *LimitesSuperiores;       // Limites Superiores de las dimensions del espacio de búsqueda
   const long double *LimitesInferiores;       // Limites Inferiores de las dimensions del espacio de búsqueda
-  long double        X;                       // Factor de constricción (convergencia)
+  long double        K;                       // Factor de constricción (convergencia)
   long double        Constriccion;            // Factor de constricción (convergencia)
 }ENJAMBRE;
+
+// Esta estructura fungirá en la versión 0.0.2 del framework
+// estará planificada para póstumos usos de la biblioteca en
+// aplicaciones más extensibles.
+typedef struct SINTONIZACION{
+  long double  constriccion;
+  long double  c1;
+  long double  c2;
+  unsigned int max_iter;
+  unsigned int cant_part;
+  unsigned int cant_dim;
+  unsigned int execution_times;
+}SINTONIZACION;
+
+
+/* La función a evaluar, regresa el valor de fitness (precisión)
+ * Requiere ser definida para l'evaluación d'as partículas
+ * Valores De Parametros .... (arreglo long double)
+ * Cantidad De Parametros ... (int)
+ * Parametros De Operacion .. (arreglo long double)
+*/
+typedef long double (*FitnessFunction)(
+    long double          *__ValoresDeParametros__,
+    unsigned int          __CantidadDeParametros__,
+    const long double    *__ParametrosDeOperacion__);
 
 
 // Operadores del enjambre (métodos)
@@ -140,18 +165,6 @@ void ActualizarMejoresPosicionesMin(
   );
 void ActualizarMejoresPosicionesMax(
     ENJAMBRE *__Enjambre__
-  );
-
-/* La función a evaluar, regresa el valor de fitness (precisión)
- * Requiere ser definida para l'evaluación d'as partículas
- * Valores De Parametros .... (arreglo long double)
- * Cantidad De Parametros ... (int)
- * Parametros De Operacion .. (arreglo long double)
-*/
-long double FuncionObjetivo(
-    long double          *__ValoresDeParametros__,
-    unsigned int          __CantidadDeParametros__,
-    const long double    *__ParametrosDeOperacion__
   );
 
 /* Funcion que se puede definir para realizar el procesamiento pso,

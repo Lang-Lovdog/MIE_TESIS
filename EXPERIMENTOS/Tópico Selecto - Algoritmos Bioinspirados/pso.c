@@ -4,6 +4,8 @@
 #include <math.h>
 #include <time.h>
 
+FitnessFunction FuncionObjetivo;
+
 // Definición d'as funciones
 
 ENJAMBRE* CrearEnjambre(
@@ -49,7 +51,7 @@ void InicializarEnjambre(
 ){
   if(__Enjambre__){
   long double aux,rango;
-  __Enjambre__->X                      = __FactorConstriccion__;
+  __Enjambre__->K                      = __FactorConstriccion__;
   __Enjambre__->C1                     = __ValorDePeso_C1__;
   __Enjambre__->C2                     = __ValorDePeso_C2__;
   __Enjambre__->MaximoDeIteraciones    = __MaximoDeIteraciones__;
@@ -67,7 +69,6 @@ void InicializarEnjambre(
   printf("%Lf\n\n",__Enjambre__->Constriccion);
   lovdog_endlog
   //Inicializar cada vector de cada particula
-  srand(time(NULL));
   for(unsigned int i=0; i<__Enjambre__->CantidadDeParticulas; ++i) //Para cada particula i
     for(unsigned int j=0; j<__Enjambre__->CantidadDeDimensiones; ++j) //Para cada parametro j de cada vector de la particula i
     { rango=__Enjambre__->LimitesSuperiores[j]-__Enjambre__->LimitesInferiores[j];
@@ -134,13 +135,13 @@ void ImprimeEnjambre(ENJAMBRE *__Enjambre__)
 void EvaluarEnjambreMin(ENJAMBRE *__Enjambre__,const long double* __ParametrosDeOperacion__){
   long double BestFit;
   // Calcular el valor de Fitness de cada particula
-  BestFit = FuncionObjetivo(
+  BestFit = (*FuncionObjetivo)(
       __Enjambre__->Part[0].Xi,
       __Enjambre__->CantidadDeDimensiones,
       __ParametrosDeOperacion__
     );
   for(unsigned int i=0; i<__Enjambre__->CantidadDeParticulas; i++){
-    __Enjambre__->Part[i].Xfit = FuncionObjetivo(
+    __Enjambre__->Part[i].Xfit = (*FuncionObjetivo)(
         __Enjambre__->Part[i].Xi,
         __Enjambre__->CantidadDeDimensiones,
         __ParametrosDeOperacion__
@@ -156,13 +157,13 @@ void EvaluarEnjambreMin(ENJAMBRE *__Enjambre__,const long double* __ParametrosDe
 void EvaluarEnjambreMax(ENJAMBRE *__Enjambre__,const long double* __ParametrosDeOperacion__){
   long double BestFit;
   // Calcular el valor de Fitness de cada particula
-  BestFit = FuncionObjetivo(
+  BestFit = (*FuncionObjetivo)(
       __Enjambre__->Part[0].Xi,
       __Enjambre__->CantidadDeDimensiones,
       __ParametrosDeOperacion__
     );
   for(unsigned int i=0; i<__Enjambre__->CantidadDeParticulas; i++){
-    __Enjambre__->Part[i].Xfit = FuncionObjetivo(
+    __Enjambre__->Part[i].Xfit = (*FuncionObjetivo)(
         __Enjambre__->Part[i].Xi,
         __Enjambre__->CantidadDeDimensiones,
         __ParametrosDeOperacion__
@@ -180,13 +181,13 @@ void EvaluacionInicialEnjambreMin(ENJAMBRE *__Enjambre__,const long double* __Pa
   if(__Enjambre__){
   long double aux,BestFit;
   //Calcular el valor de fitness de cada Particula
-  BestFit=FuncionObjetivo(
+  BestFit=(*FuncionObjetivo)(
       __Enjambre__->Part[0].Xi,
       __Enjambre__->CantidadDeDimensiones,
       __ParametrosDeOperacion__
     );
   for(unsigned int i=0; i<__Enjambre__->CantidadDeParticulas; i++){
-    aux=FuncionObjetivo(
+    aux=(*FuncionObjetivo)(
         __Enjambre__->Part[i].Xi,
         __Enjambre__->CantidadDeDimensiones,
         __ParametrosDeOperacion__
@@ -206,13 +207,13 @@ void EvaluacionInicialEnjambreMax(ENJAMBRE *__Enjambre__,const long double* __Pa
   if(__Enjambre__){
   long double aux,BestFit;
   //Calcular el valor de fitness de cada Particula
-  BestFit=FuncionObjetivo(
+  BestFit=(*FuncionObjetivo)(
       __Enjambre__->Part[0].Xi,
       __Enjambre__->CantidadDeDimensiones,
       __ParametrosDeOperacion__
     );
   for(unsigned int i=0; i<__Enjambre__->CantidadDeParticulas; i++){
-    aux=FuncionObjetivo(
+    aux=(*FuncionObjetivo)(
         __Enjambre__->Part[i].Xi,
         __Enjambre__->CantidadDeDimensiones,
         __ParametrosDeOperacion__
@@ -254,7 +255,7 @@ void ActualizarVelocidadInerciaW(ENJAMBRE *__Enjambre__){
       Y1=rand()/(long double)RAND_MAX;
       Y2=rand()/(long double)RAND_MAX;
       __Enjambre__->Part[i].Vi[j] =(
-          (__Enjambre__->Part[i].Vi[j]*__Enjambre__->X)+
+          (__Enjambre__->Part[i].Vi[j]*__Enjambre__->K)+
         (__Enjambre__->C1*Y1*(__Enjambre__->Part[i].Pi[j]-__Enjambre__->Part[i].Xi[j]))+
         (__Enjambre__->C2*Y2*(__Enjambre__->Part[__Enjambre__->MejorParticulaDelGrupo].Pi[j]-__Enjambre__->Part[i].Xi[j]))
       );
@@ -262,22 +263,35 @@ void ActualizarVelocidadInerciaW(ENJAMBRE *__Enjambre__){
 }
 
 void ActualizarVelocidadClamping(ENJAMBRE *__Enjambre__){
+  srand(time(NULL));
   long double Y1,Y2;
+  long double vMax;
   //Actualizar cada vector velocidad Vi de cada particula
   for(unsigned int i=0; i<__Enjambre__->CantidadDeParticulas; i++) //Para cada particula i
     for(unsigned int j=0; j<__Enjambre__->CantidadDeDimensiones; j++) //Para cada parametro j de cada vector Vi de la particula i
     {
-      Y1=rand()/(long double)RAND_MAX;
-      Y2=rand()/(long double)RAND_MAX;
+      vMax = __Enjambre__->K*((__Enjambre__->LimitesSuperiores[j] - __Enjambre__->LimitesInferiores[j])/2);
+      Y1=(rand()%RAND_MAX)/(long double)RAND_MAX;
+      Y2=(rand()%RAND_MAX)/(long double)RAND_MAX;
+      //printf("Y1=%Lf\t Y2=%Lf\n"
+      //       "C1=%Lf\t C2=%Lf\n"
+      //       "Vi=%Lf\t Pi=%Lf\t Xi=%Lf\t Pig=%Lf\n"
+      //       ,Y1,Y2
+      //       ,__Enjambre__->C1,__Enjambre__->C2
+      //       ,__Enjambre__->Part[i].Vi[j]
+      //       ,__Enjambre__->Part[i].Pi[j]
+      //       ,__Enjambre__->Part[i].Xi[j]
+      //       ,__Enjambre__->Part[__Enjambre__->MejorParticulaDelGrupo].Pi[j]);
       __Enjambre__->Part[i].Vi[j] =(
-          (__Enjambre__->Part[i].Vi[j]*__Enjambre__->X)+
+          (__Enjambre__->Part[i].Vi[j]*__Enjambre__->K)+
           (__Enjambre__->C1*Y1*(__Enjambre__->Part[i].Pi[j]-__Enjambre__->Part[i].Xi[j]))+
           (__Enjambre__->C2*Y2*(__Enjambre__->Part[__Enjambre__->MejorParticulaDelGrupo].Pi[j]-__Enjambre__->Part[i].Xi[j]))
       );
-      if(__Enjambre__->Part[i].Vi[j] > __Enjambre__->LimitesSuperiores[j])
-         __Enjambre__->Part[i].Vi[j]  =__Enjambre__->LimitesSuperiores[j];
-      if(__Enjambre__->Part[i].Vi[j] > __Enjambre__->LimitesInferiores[j])
-         __Enjambre__->Part[i].Vi[j] = __Enjambre__->LimitesInferiores[j];
+      //printf("vMax=%Lf\t Vi=%Lf\n",vMax, __Enjambre__->Part[i].Vi[j]);
+      if(__Enjambre__->Part[i].Vi[j] > vMax)
+         __Enjambre__->Part[i].Vi[j]  =vMax;
+      if(__Enjambre__->Part[i].Vi[j] > vMax)
+         __Enjambre__->Part[i].Vi[j] = vMax;
     }
 }
 

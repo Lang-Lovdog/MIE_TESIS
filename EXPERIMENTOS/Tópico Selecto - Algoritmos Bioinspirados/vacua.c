@@ -1,8 +1,8 @@
 i#include "vacua.h"
 
-double V_lifting_optimized(double s, double tau, 
-                          double AH3, double AF3, double AF5, 
-                          double A3N3, double AD5) {
+double V_lifting(double s,    double tau, 
+                 double AH3,  double AF3, double AF5, 
+                 double A3N3, double AD5) {
     // Precompute common powers
     double inv_tau3 = 1.0 / pow(tau, 3);  // 1/tau^3
     double inv_tau4 = 1.0 / pow(tau, 4);  // 1/tau^4
