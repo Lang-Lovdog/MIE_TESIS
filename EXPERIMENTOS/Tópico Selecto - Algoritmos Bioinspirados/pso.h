@@ -1,10 +1,17 @@
 #ifndef __lovdog__pso__header__
 #define __lovdog__pso__header__
 
-#define lovdog_startlog if(0){
-#define lovdog_endlog }
+typedef int lovdog_log_var;
 
-//unsigned char lovdog_log = 0;
+#define lovdog_log_setup extern lovdog_log_var lovdog_log
+
+#define lovdog_startlog      if(lovdog_log & 0b1000){
+#define lovdog_endlog        }
+
+#define lovdog_startverb(vl) if(lovdog_log & vl){
+#define lovdog_endverb       }
+
+void lovdog_log_level(lovdog_log_var vl);
 
 // Definición de la estructura Patícula
 // Esta partícula representa a un individuo
@@ -33,7 +40,7 @@ typedef struct {
 // Cada solución es repensada según los valores históricos
 // y valores presentes.
 typedef struct{
-  PARTICULA         *Part;                     // Arreglo de partículas
+  PARTICULA         *Part;                    // Arreglo de partículas
   unsigned int       CantidadDeParticulas;    // Número de partículas
   unsigned int       CantidadDeDimensiones;   // Número de dimensiones del espacio de búsqueda
   unsigned int       MejorParticulaDelGrupo;  // ID de la mejor partícula del grupo
@@ -43,6 +50,7 @@ typedef struct{
   const long double *LimitesSuperiores;       // Limites Superiores de las dimensions del espacio de búsqueda
   const long double *LimitesInferiores;       // Limites Inferiores de las dimensions del espacio de búsqueda
   long double        K;                       // Factor de constricción (convergencia)
+  long double        W;                       // Peso de inercia
   long double        Constriccion;            // Factor de constricción (convergencia)
 }ENJAMBRE;
 
@@ -89,6 +97,7 @@ ENJAMBRE* CrearEnjambre(
 void InicializarEnjambre(
     ENJAMBRE          *__Enjambre__,
     long double        __FactorConstriccion__,
+    long double        __PesoDeInercia__,
     long double        __ValorDePeso_C1__,
     long double        __ValorDePeso_C2__,
     unsigned int       __MaximoDeIteraciones__,

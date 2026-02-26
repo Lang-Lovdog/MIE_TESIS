@@ -4,7 +4,11 @@
 #include <math.h>
 #include <time.h>
 
+
 FitnessFunction FuncionObjetivo;
+lovdog_log_var  lovdog_log;
+
+void lovdog_log_level(lovdog_log_var vl) { lovdog_log = vl; }
 
 // Definición d'as funciones
 
@@ -13,6 +17,8 @@ ENJAMBRE* CrearEnjambre(
     unsigned int __CantidadDeParticulas__,
     unsigned int __CantidadDeParametros__
   ){
+  time_t t;
+  srand(time(&t));
   ENJAMBRE *ptr=NULL;
   //Reservar la memoria para la estructura del enjambre
   ptr=(ENJAMBRE *)malloc(sizeof(ENJAMBRE));
@@ -43,6 +49,7 @@ ENJAMBRE* CrearEnjambre(
 void InicializarEnjambre(
     ENJAMBRE          *__Enjambre__,
     long double        __FactorConstriccion__,
+    long double        __PesoDeInercia__,
     long double        __ValorDePeso_C1__,
     long double        __ValorDePeso_C2__,
     unsigned int       __MaximoDeIteraciones__,
@@ -52,6 +59,7 @@ void InicializarEnjambre(
   if(__Enjambre__){
   long double aux,rango;
   __Enjambre__->K                      = __FactorConstriccion__;
+  __Enjambre__->W                      = __PesoDeInercia__;
   __Enjambre__->C1                     = __ValorDePeso_C1__;
   __Enjambre__->C2                     = __ValorDePeso_C2__;
   __Enjambre__->MaximoDeIteraciones    = __MaximoDeIteraciones__;
@@ -61,12 +69,40 @@ void InicializarEnjambre(
   //Dar constriccion uwu
   long double fi = __Enjambre__->C1+__Enjambre__->C2;
   __Enjambre__->Constriccion=2/fabsl(2-fi-sqrtl(powl(fi,2)-(4*fi)));
-  lovdog_startlog
+  lovdog_startverb(0b0010)
   printf("%Lf\n",fi);
-  printf("%Lf",powl(fi,2)-(4*fi));
-  printf("%Lf",sqrtl(powl(fi,2)-(4*fi)));
-  printf("%Lf",fabsl(2-fi-sqrtl(powl(fi,2)-(4*fi))));
+  printf("%Lf\n",powl(fi,2)-(4*fi));
+  printf("%Lf\n",sqrtl(powl(fi,2)-(4*fi)));
+  printf("%Lf\n",fabsl(2-fi-sqrtl(powl(fi,2)-(4*fi))));
   printf("%Lf\n\n",__Enjambre__->Constriccion);
+  lovdog_endverb
+  lovdog_startverb(0b0100)
+  printf("Características del Enjambre:{\n"
+         "\tParticulas: %u\n"
+         "\tDimensiones: %u\n"
+         "\tK: %Lf\n"
+         "\tW: %Lf\n"
+         "\tC1: %Lf\n"
+         "\tC2: %Lf\n"
+         "\tConstriccion: %Lf\n"
+         "\tMaximoDeIteraciones: %u\n"
+         ,__Enjambre__->CantidadDeParticulas
+         ,__Enjambre__->CantidadDeDimensiones
+         ,__Enjambre__->K
+         ,__Enjambre__->W
+         ,__Enjambre__->C1
+         ,__Enjambre__->C2
+         ,__Enjambre__->Constriccion
+         ,__Enjambre__->MaximoDeIteraciones);
+  printf("\tLimites Inferiores: [");
+  for(unsigned int i=0; i<__Enjambre__->CantidadDeDimensiones; ++i)
+    printf("%Lf, ",__Enjambre__->LimitesInferiores[i]);
+  printf("]\n");
+  printf("\tLimites Superiores: [");
+  for(unsigned int i=0; i<__Enjambre__->CantidadDeDimensiones; ++i)
+    printf("%Lf, ",__Enjambre__->LimitesSuperiores[i]);
+  printf("]\n");
+  printf("}\n\n");
   lovdog_endlog
   //Inicializar cada vector de cada particula
   for(unsigned int i=0; i<__Enjambre__->CantidadDeParticulas; ++i) //Para cada particula i
@@ -255,7 +291,7 @@ void ActualizarVelocidadInerciaW(ENJAMBRE *__Enjambre__){
       Y1=rand()/(long double)RAND_MAX;
       Y2=rand()/(long double)RAND_MAX;
       __Enjambre__->Part[i].Vi[j] =(
-          (__Enjambre__->Part[i].Vi[j]*__Enjambre__->K)+
+        (__Enjambre__->Part[i].Vi[j]*__Enjambre__->W)+
         (__Enjambre__->C1*Y1*(__Enjambre__->Part[i].Pi[j]-__Enjambre__->Part[i].Xi[j]))+
         (__Enjambre__->C2*Y2*(__Enjambre__->Part[__Enjambre__->MejorParticulaDelGrupo].Pi[j]-__Enjambre__->Part[i].Xi[j]))
       );
@@ -263,7 +299,6 @@ void ActualizarVelocidadInerciaW(ENJAMBRE *__Enjambre__){
 }
 
 void ActualizarVelocidadClamping(ENJAMBRE *__Enjambre__){
-  srand(time(NULL));
   long double Y1,Y2;
   long double vMax;
   //Actualizar cada vector velocidad Vi de cada particula
@@ -273,15 +308,17 @@ void ActualizarVelocidadClamping(ENJAMBRE *__Enjambre__){
       vMax = __Enjambre__->K*((__Enjambre__->LimitesSuperiores[j] - __Enjambre__->LimitesInferiores[j])/2);
       Y1=(rand()%RAND_MAX)/(long double)RAND_MAX;
       Y2=(rand()%RAND_MAX)/(long double)RAND_MAX;
-      //printf("Y1=%Lf\t Y2=%Lf\n"
-      //       "C1=%Lf\t C2=%Lf\n"
-      //       "Vi=%Lf\t Pi=%Lf\t Xi=%Lf\t Pig=%Lf\n"
-      //       ,Y1,Y2
-      //       ,__Enjambre__->C1,__Enjambre__->C2
-      //       ,__Enjambre__->Part[i].Vi[j]
-      //       ,__Enjambre__->Part[i].Pi[j]
-      //       ,__Enjambre__->Part[i].Xi[j]
-      //       ,__Enjambre__->Part[__Enjambre__->MejorParticulaDelGrupo].Pi[j]);
+      lovdog_startverb(0b0010)
+      printf("Y1=%Lf\t Y2=%Lf\n"
+             "C1=%Lf\t C2=%Lf\n"
+             "Vi=%Lf\t Pi=%Lf\t Xi=%Lf\t Pig=%Lf\n"
+             ,Y1,Y2
+             ,__Enjambre__->C1,__Enjambre__->C2
+             ,__Enjambre__->Part[i].Vi[j]
+             ,__Enjambre__->Part[i].Pi[j]
+             ,__Enjambre__->Part[i].Xi[j]
+             ,__Enjambre__->Part[__Enjambre__->MejorParticulaDelGrupo].Pi[j]);
+      lovdog_endverb
       __Enjambre__->Part[i].Vi[j] =(
           (__Enjambre__->Part[i].Vi[j]*__Enjambre__->K)+
           (__Enjambre__->C1*Y1*(__Enjambre__->Part[i].Pi[j]-__Enjambre__->Part[i].Xi[j]))+

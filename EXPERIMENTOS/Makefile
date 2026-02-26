@@ -40,9 +40,9 @@ py:
 
 bio_enjambre_build:
 	cd "./Tópico Selecto - Algoritmos Bioinspirados" &&\
-	gcc -c pso.c  -g &&\
-	gcc -c test.c -g &&\
-	gcc -o exe pso.o test.o -lm -g
+	gcc -c pso.c  -g -Wall &&\
+	gcc -c test.c -g -Wall &&\
+	gcc -o exe pso.o test.o -lm -g -Wall
 
 bio_enjambre:
 	cd "./Tópico Selecto - Algoritmos Bioinspirados" &&\

@@ -5,6 +5,8 @@
 #include "pso.h"
 #include "test.h"
 
+lovdog_log_setup;
+
 extern FitnessFunction FuncionObjetivo;
 
 void parse_opts(int argc, char *argv[], TuningVars *tuning_vars){
@@ -32,6 +34,7 @@ void parse_opts(int argc, char *argv[], TuningVars *tuning_vars){
 } 
 // Goods for SquareSummation*/
 
+/*
 void initialize_options(TuningVars *tuning_vars){
   tuning_vars->constriccion=0.01;
   tuning_vars->c1=2.0;
@@ -40,6 +43,17 @@ void initialize_options(TuningVars *tuning_vars){
   tuning_vars->cant_part=60;
   tuning_vars->cant_dim=2;
   tuning_vars->execution_times=1;
+}*/
+
+
+void initialize_options(TuningVars *tuning_vars){
+  tuning_vars->constriccion=0.9;
+  tuning_vars->c1=2.0;
+  tuning_vars->c2=2.0;
+  tuning_vars->max_iter=300;
+  tuning_vars->cant_part=60;
+  tuning_vars->cant_dim=2;
+  tuning_vars->execution_times=12;
 }
 
 void help(void){
@@ -47,6 +61,9 @@ void help(void){
 }
 
 int main (int argc, char *argv[]) {
+
+  lovdog_log = 0b0110;
+
   help();
   printf("\n");
   TuningVars tv;
@@ -110,7 +127,7 @@ static long double Schwefel(
     ++n;
   }
   fitness_val += (__CantidadDeParametros__)*418.9829;
-  return -fitness_val;
+  return fitness_val;
 }
 
 
@@ -126,21 +143,26 @@ PARTICULA ProcesoPSO(
     const long double       *__ParametrosDeOperacion__
 ){
   ENJAMBRE *enjambre;
-  FuncionObjetivo=&Schwefel;
+  FuncionObjetivo=&SquareSummation;
   enjambre=CrearEnjambre(__NumeroDeParticulas__, __Dimension__);
-  InicializarEnjambre(enjambre, __Factor_Constriccion_Inercia__, __ValorPesoPersonalC1__, __ValorPesoGlobalC2__, __NumeroMaximoDeIteraciones__, __LimiteInferior__, __LimiteSuperior__);
-  EvaluacionInicialEnjambreMax(enjambre, __ParametrosDeOperacion__);
-  //printf("\n ===== Inicialización ======\n");
-  //ImprimeEnjambre(enjambre);
+  InicializarEnjambre(enjambre, __Factor_Constriccion_Inercia__, __Factor_Constriccion_Inercia__, __ValorPesoPersonalC1__, __ValorPesoGlobalC2__, __NumeroMaximoDeIteraciones__, __LimiteInferior__, __LimiteSuperior__);
+  EvaluacionInicialEnjambreMin(enjambre, __ParametrosDeOperacion__);
+  lovdog_startlog
+  printf("\n ===== Inicialización ======\n");
+  ImprimeEnjambre(enjambre);
+  lovdog_endlog
   unsigned int n=0; while(n<__NumeroMaximoDeIteraciones__){
     //ActualizarVelocidad(enjambre);
-    ActualizarVelocidadClamping(enjambre);
+    //ActualizarVelocidadClamping(enjambre);
+    ActualizarVelocidadInerciaW(enjambre);
     ActualizarPosicion(enjambre);
-    EvaluarEnjambreMax(enjambre, __ParametrosDeOperacion__);
-    ActualizarMejoresPosicionesMax(enjambre);
-    //printf("\n ===== Iteración %u ======\n",n);
-    //ImprimeEnjambre(enjambre);
-    //printf("\n");
+    EvaluarEnjambreMin(enjambre, __ParametrosDeOperacion__);
+    ActualizarMejoresPosicionesMin(enjambre);
+    lovdog_startlog
+    printf("\n ===== Iteración %u ======\n",n);
+    ImprimeEnjambre(enjambre);
+    printf("\n");
+    lovdog_endlog
     ++n;
   }
   printf("@ Mejor Partícula : \n{");
