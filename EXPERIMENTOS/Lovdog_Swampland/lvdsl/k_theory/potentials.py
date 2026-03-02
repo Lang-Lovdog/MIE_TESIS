@@ -282,18 +282,6 @@ def autovalores_VHess_AdS(_AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s):
         for ev in eigenvals_VHess_lifting.keys()
     ]
 
-##### Definición de valores fijos para búsqueda
-def set_fixed_value(values : dict):
-    global variables_numericas
-    for var in values:
-        variables_numericas[var] = values[var]
-
-def set_precision_decimal(val : int):
-    global precision_decimal
-    precision_decimal = val
-
-def get_precision_decimal():
-    return precision_decimal
 
 ##### Evaluación de la función potencial
 def potencial_eval(_AH3, _AF3, _AF5, _A3N3, _tau, _s):
