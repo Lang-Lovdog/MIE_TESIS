@@ -4,7 +4,7 @@ description: Aquí se describen detalles e ideas posiblemente relevantes a la te
 authors: Brandon Marquez Salazar (Lang Lovdog Inu Oókami)
 categories: meta.journal
 created: 2026-02-06T14:41:43-0600
-updated: 2026-02-11T14:51:44-0600
+updated: 2026-03-03T15:29:15-0600
 version: 1.1.1
 @end
 
@@ -52,13 +52,13 @@ pensamientos que pueden o no, en un futuro, tomar relevancia.
 * Estructura del proyecto
 
   Al momento, 06/02/2026 a las 15:00, estoy procurando que el
-  proyecto tenga una estructura clara en el árbol de directorios
-  que podrá ser tomado desde mi github una vez se
+  proyecto tenga una estructura clara en el árbol de
+  directorios que podrá ser tomado desde mi github una vez se
   haya formalizado todo (está público, no sé si sea bueno).
 
-  Para lograr que mi trabajo sea correcto, si bien no puedo hacer
-  un sistema de ficheros de múltiple enlace, al menos puedo dar
-  a entender la estructura plana del árbol.
+  Para lograr que mi trabajo sea correcto, si bien no puedo
+  hacer un sistema de ficheros de múltiple enlace, al menos
+  puedo dar a entender la estructura plana del árbol.
 
   @code liotree 
     |TESIS/                                           > El directorio relativo al proyecto de tesis.
@@ -177,9 +177,9 @@ pensamientos que pueden o no, en un futuro, tomar relevancia.
   Bien, para hoy 19/02/2023, el experimento que corría duró ya
   al menos dos días desde su ejecución (y sigue en ejecución).
   La cuenta se va al rededor de 15000 iteraciones totales
-  divididas en 100 iteraciones del optimizador por cada elemento
-  de la base de datos original, con 75 elementos cada base de
-  datos. Una en búsqueda de Veff y otra con Veff_lift.
+  divididas en 100 iteraciones del optimizador por cada
+  elemento de la base de datos original, con 75 elementos cada
+  base de datos. Una en búsqueda de Veff y otra con Veff_lift.
   Cada optimización buscará al mejor en 50 épocas, lo que le
   da cierta lentitud al proceso.
 
@@ -194,6 +194,16 @@ pensamientos que pueden o no, en un futuro, tomar relevancia.
   Esto es un problema grave, si es posible que los elementos
   encontrados tengan sentido, estaré contento, si no... Esto
   fue tiempo perdido.
+
+  $$ dS vs AdS
+  El concepto de dS discutido en esta sección será meramente
+  en pos de la clasificación dellos vacíos.
+  En el esquema a continuación se puede observar la
+  clasificación utilizada, permitiendo ilustrar el concepto de
+  forma simplificada.
+  $$
+
+  .image  
 
 * Diario
   A partir de aquí comienzo a redactar miscelaneos necesarios
@@ -226,8 +236,9 @@ pensamientos que pueden o no, en un futuro, tomar relevancia.
      |                            original. Algunos extras en caso de ser necesario. ||
    @end
 
-   ^Nota
+   ^^ CORREO_URGENTE
    Hoy llegó el correo del Coordinador, la propuesta de tesis
    debe entregarse a más tardar el 18 del presente mes.
+   ^^
 
 ** Mar 05 de Marzo del 2023
