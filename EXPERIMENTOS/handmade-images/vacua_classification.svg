@@ -23,30 +23,44 @@
     <stop offset="0%"   style="stop-color:#CCff00;stop-opacity:0.2" />
     <stop offset="100%" style="stop-color:#ffCCff;stop-opacity:0.2" />
   </linearGradient>
+
+  <g id="cart_background">
+    <rect id="back1" x="0" y="0" width="600" height="600" stroke="black" stroke-width="2" fill="url(#grad1)" />
+    <rect id="back2" x="0" y="0" width="600" height="600" stroke="black" stroke-width="2" fill="url(#grad2)" />
+  </g>
+
+  <polyline id="x_arrow_head" points="05,05 00,00 00,10" fill="#ff3355" />
+  <polyline id="y_arrow_head" points="05,00 00,05 10,05" fill="#ff00ff" />
+
+  <g id="cart_arrows">
+    <line x1="0" y1="50%" x2="100%" y2="50%" stroke="#ff3355" stroke-width="1" />
+    <text x="100%" y="50%" dy="-0.5em" dx="-4em" font-size="14" fill="black">
+      Min(&#120524;)
+    </text>
+    <use x="595" y="295" xlink:href="#x_arrow_head" />
+
+    <line x1="50%" y1="0" x2="50%" y2="100%" stroke="#ff00ff" stroke-width="1" />
+    <text x="50%" y="0%" dy=" 2em" dx=" 0.5em" font-size="14" fill="black">
+      &#x1D6EC;
+    </text>
+    <use x="295" y="0" xlink:href="#y_arrow_head"/>
+  </g>
+
+  <g id="cart_diagram_template">
+    <use xlink:href="#cart_background" />
+    <use xlink:href="#cart_arrows" />
+  </g>
+
 </defs>
 <style>
   text {
-  font-family: "QTBookmann";
+  font-family: "QTTechnote";
   }
 </style>
 
 <!--Cartesian plane-->
 
-<rect id="back1" x="0" y="0" width="600" height="600" fill="none" stroke="black" stroke-width="2" fill="url(#grad1)" />
-<rect id="back2" x="0" y="0" width="600" height="600" fill="none" stroke="black" stroke-width="2" fill="url(#grad2)" />
-
-<g id="cart_arrows">
-  <line x1="0" y1="50%" x2="100%" y2="50%" stroke="#ff3355" stroke-width="2" />
-  <text x="100%" y="50%" dy="-0.5em" dx="-4em" font-size="14" fill="black">
-    Min(&#120524;)
-  </text>
-
-  <line x1="50%" y1="0" x2="50%" y2="100%" stroke="#ff00ff" stroke-width="2" />
-  <line x1="0" y1="300" x2="600" y2="300" stroke="#ff3355" stroke-width="2" />
-  <text x="100%" y="50%" dy="-0.5em" dx="-4em" font-size="14" fill="black">
-    Min(&#120524;)
-  </text>
-</g>
+<use xlink:href="#cart_diagram_template" />
 
 <!--Vacua Names-->
 <!-- Second quadrant Stable dS-->
