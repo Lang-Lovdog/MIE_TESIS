@@ -97,6 +97,8 @@ pensamientos que pueden o no, en un futuro, tomar relevancia.
     |- setup.sh                                       > Script de configuración del entorno virtual de Pyrhon.
     |- PresentaciónXX                                 > En caso de realizar alguna presentación, ésta llevará el nombre
     |                                                 respetando el patrón (plantilla de nombre). ||
+    |- hyp                                            > Hipótesis y propuestas relevantes, algunas cosas que haya desarrollado
+    |                                                 lo suficiente para una correcta presentación.
   @end
 
 ** Lista de presentaciones
@@ -216,11 +218,16 @@ pensamientos que pueden o no, en un futuro, tomar relevancia.
      |- lvdsl                     > Módulo del Lovdog Swapland ||
      |-- k_theory/                > La teoría en revisión actual ||
      |--- vars.py                 > Variables de la función potencial, definición simbólica de la función potencial, Hess y
-     |                            # autovalores. Además de algunas funciones auxiliares para fijar coeficientes/módulos y
-     |                            # precisión decimal de operación para sympy. ||
+     |                            autovalores. Además de algunas funciones auxiliares para fijar coeficientes/módulos y
+     |                            precisión decimal de operación para sympy. ||
      |-- potentials.py            > Definición de las funciones de evaluación, tanto de la versión lifting como de la
-     |                            # original. (Sujeto a cambio de nombre) ||
+     |                            original. (Sujeto a cambio de nombre) ||
      |-- plots.py                 > Graficación de las funciones, las principales serán inspiradas en el experimento
-     |                            # original. Algunos extras en caso de ser necesario. ||
+     |                            original. Algunos extras en caso de ser necesario. ||
    @end
 
+   ^Nota
+   Hoy llegó el correo del Coordinador, la propuesta de tesis
+   debe entregarse a más tardar el 18 del presente mes.
+
+** Mar 05 de Marzo del 2023
