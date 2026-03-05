@@ -226,7 +226,7 @@ pensamientos que pueden o no, en un futuro, tomar relevancia.
    El próximo paso es la reesttructuración del Lovdog_Swampland
 
    @code liotree
-   | Lovdog_Swampland/           > Carpeta del proyecto                                                                    ||
+     | Lovdog_Swampland/           > Carpeta del proyecto                                                                    ||
      |- lvdsl                      > Módulo del Lovdog Swapland                                                              ||
      |-- k_theory/                 > La teoría en revisión actual                                                            ||
      |--- vars.py                  > Variables de la función potencial, definición simbólica de la función potencial, Hess y
