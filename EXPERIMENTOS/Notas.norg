@@ -4,7 +4,7 @@ description: Aquí se describen detalles e ideas posiblemente relevantes a la te
 authors: Brandon Marquez Salazar (Lang Lovdog Inu Oókami)
 categories: meta.journal
 created: 2026-02-06T14:41:43-0600
-updated: 2026-03-03T15:29:15-0600
+updated: 2026-03-04T16:48:51-0600
 version: 1.1.1
 @end
 
@@ -61,44 +61,44 @@ pensamientos que pueden o no, en un futuro, tomar relevancia.
   puedo dar a entender la estructura plana del árbol.
 
   @code liotree 
-    |TESIS/                                           > El directorio relativo al proyecto de tesis.
-    |- EXPERIMENTOS/                                  > El directorio donde realizo los códigos y cosas por el estilo.
-    |-- CESAR-BRITO_ORIGINAL-DATA/                    > Información del experimento original 
-    |-- Lovdog_Swampland/                             > El código donde estoy replicando el experimento del Dr. Cesar.
-    |--- MetastableVacua.py                           > Módulo que contiene la función potencial y sus descriptores
-    |                                                 correspondientes. ||
-    |--- BusquedaGeneticos.py                         > Este script es la primera versión que implementa los
-    |                                                 metaheurísticos en Python. Originalmente PSO y Genéticos. ||
-    |--- test_fitness_function.py                     > Aquí únicamente se evalúan los elementos según los resultados
-    |                                                 esperados.  ||
-    |-- Mathematica_Stuff/                            > Código de Mathematica donde analizo sobre el experimento,
-    |                                                 sintaxis, etc. ||
-    |-- 'Tópico Selecto - Algoritmos Bioinspirados/'  > Directorio correspondiente a la UDA de algoritmos bioinspirados,
-    |--- pso.c
-    |--- pso.h
-    |--- vacua.c
-    |--- vacua.h
-    |--- test.c
-    |--- test_multi.sh
-    |--- resultados.txt
-    |                                                 curso en el cual se estudian algoritmos de optimización
-    |                                                 metaheurísticos, la razón de contener este directorio aquí es que
-    |                                                 el enfoque del curso está dirigido al proyecto, dándole un carácter
-    |                                                 de documentación/experimentación necesaria. ||
-    |- venv/                                          > Producto del "setup.sh", es el entorno virtual donde se encuentran
-    |                                                 los paquetes correspondientes al proyecto,  sin éste, no es posible
-    |                                                 (ni recomendable) realizar ejecuciones del proyecto.
-    |- Makefile                                       > Este es un archivo maestro que permite ejecutar cualquier código
-    |                                                 simulación, prueba o tarea dentro del proyecto. ||
-    |- Notas.norg                                     > Este meta-journal
-    |- requirements.txt                               > Lista de paquetes y módulos necesarios para el proyecto. Si acaso
-    |                                                 algún error de dependencias, verifíque las versiones a la fecha
-    |                                                 última de instalación estable: 11/02/2026.
-    |- setup.sh                                       > Script de configuración del entorno virtual de Pyrhon.
-    |- PresentaciónXX                                 > En caso de realizar alguna presentación, ésta llevará el nombre
-    |                                                 respetando el patrón (plantilla de nombre). ||
-    |- hyp                                            > Hipótesis y propuestas relevantes, algunas cosas que haya desarrollado
-    |                                                 lo suficiente para una correcta presentación.
+  | TESIS/                                          > El directorio relativo al proyecto de tesis.                           ||
+  |- EXPERIMENTOS/                                  > El directorio donde realizo los códigos y cosas por el estilo.         ||
+  |-- CESAR-BRITO_ORIGINAL-DATA/                    > Información del experimento original                                   ||
+  |-- Lovdog_Swampland/                             > El código donde estoy replicando el experimento del Dr. Cesar.         ||
+  |--- MetastableVacua.py                           > Módulo que contiene la función potencial y sus descriptores
+  |                                                 correspondientes.                                                        ||
+  |--- BusquedaGeneticos.py                         > Este script es la primera versión que implementa los
+  |                                                 metaheurísticos en Python. Originalmente PSO y Genéticos.                ||
+  |--- test_fitness_function.py                     > Aquí únicamente se evalúan los elementos según los resultados
+  |                                                 esperados.                                                               ||
+  |-- Mathematica_Stuff/                            > Código de Mathematica donde analizo sobre el experimento,
+  |                                                 sintaxis, etc.                                                           ||
+  |-- 'Tópico Selecto - Algoritmos Bioinspirados/'  > Directorio correspondiente a la UDA de algoritmos bioinspirados,
+  |                                                 curso en el cual se estudian algoritmos de optimización
+  |                                                 metaheurísticos, la razón de contener este directorio aquí es que
+  |                                                 el enfoque del curso está dirigido al proyecto, dándole un carácter
+  |                                                 de documentación/experimentación necesaria.                              ||
+  |--- pso.c
+  |--- pso.h
+  |--- vacua.c
+  |--- vacua.h
+  |--- test.c
+  |--- test_multi.sh
+  |--- resultados.txt
+  |- venv/                                          > Producto del "setup.sh", es el entorno virtual donde se encuentran
+  |                                                 los paquetes correspondientes al proyecto,  sin éste, no es posible
+  |                                                 (ni recomendable) realizar ejecuciones del proyecto.                     ||
+  |- Makefile                                       > Este es un archivo maestro que permite ejecutar cualquier código
+  |                                                 simulación, prueba o tarea dentro del proyecto.                          ||
+  |- Notas.norg                                     > Este meta-journal                                                      ||
+  |- requirements.txt                               > Lista de paquetes y módulos necesarios para el proyecto. Si acaso
+  |                                                 algún error de dependencias, verifíque las versiones a la fecha
+  |                                                 última de instalación estable: 11/02/2026.                               ||
+  |- setup.sh                                       > Script de configuración del entorno virtual de Pyrhon.                 ||
+  |- PresentaciónXX                                 > En caso de realizar alguna presentación, ésta llevará el nombre
+  |                                                 respetando el patrón (plantilla de nombre).                              ||
+  |- hyp                                            > Hipótesis y propuestas relevantes, algunas cosas que haya desarrollado
+  |                                                 lo suficiente para una correcta presentación.                            ||
   @end
 
 ** Lista de presentaciones
@@ -193,7 +193,7 @@ pensamientos que pueden o no, en un futuro, tomar relevancia.
 
   Esto es un problema grave, si es posible que los elementos
   encontrados tengan sentido, estaré contento, si no... Esto
-  fue tiempo perdido.
+ fue tiempo perdido.
 
   $$ dS vs AdS
   El concepto de dS discutido en esta sección será meramente
@@ -226,16 +226,16 @@ pensamientos que pueden o no, en un futuro, tomar relevancia.
    El próximo paso es la reesttructuración del Lovdog_Swampland
 
    @code liotree
-     |Lovdog_Swampland/           > Carpeta del proyecto ||
-     |- lvdsl                     > Módulo del Lovdog Swapland ||
-     |-- k_theory/                > La teoría en revisión actual ||
-     |--- vars.py                 > Variables de la función potencial, definición simbólica de la función potencial, Hess y
-     |                            autovalores. Además de algunas funciones auxiliares para fijar coeficientes/módulos y
-     |                            precisión decimal de operación para sympy. ||
-     |-- potentials.py            > Definición de las funciones de evaluación, tanto de la versión lifting como de la
-     |                            original. (Sujeto a cambio de nombre) ||
-     |-- plots.py                 > Graficación de las funciones, las principales serán inspiradas en el experimento
-     |                            original. Algunos extras en caso de ser necesario. ||
+   | Lovdog_Swampland/           > Carpeta del proyecto                                                                    ||
+     |- lvdsl                      > Módulo del Lovdog Swapland                                                              ||
+     |-- k_theory/                 > La teoría en revisión actual                                                            ||
+     |--- vars.py                  > Variables de la función potencial, definición simbólica de la función potencial, Hess y
+     |                             autovalores. Además de algunas funciones auxiliares para fijar coeficientes/módulos y
+     |                             precisión decimal de operación para sympy.                                                ||
+     |-- potentials.py             > Definición de las funciones de evaluación, tanto de la versión lifting como de la
+     |                             original. (Sujeto a cambio de nombre)                                                     ||
+     |-- plots.py                  > Graficación de las funciones, las principales serán inspiradas en el experimento
+     |                             original. Algunos extras en caso de ser necesario.                                        ||
    @end
 
    ^^ CORREO_URGENTE
