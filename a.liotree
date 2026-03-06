@@ -1,13 +1,16 @@
 | TESIS/                                          > El directorio relativo al proyecto de tesis.                           ||
 |- EXPERIMENTOS/                                  > El directorio donde realizo los códigos y cosas por el estilo.         ||
+|=-
 |-- CESAR-BRITO_ORIGINAL-DATA/                    > Información del experimento original                                   ||
 |-- Lovdog_Swampland/                             > El código donde estoy replicando el experimento del Dr. Cesar.         ||
+|=-
 |--- MetastableVacua.py                           > Módulo que contiene la función potencial y sus descriptores
 |                                                 correspondientes.                                                        ||
 |--- BusquedaGeneticos.py                         > Este script es la primera versión que implementa los
 |                                                 metaheurísticos en Python. Originalmente PSO y Genéticos.                ||
 |--- test_fitness_function.py                     > Aquí únicamente se evalúan los elementos según los resultados
 |                                                 esperados.                                                               ||
+|==
 |-- Mathematica_Stuff/                            > Código de Mathematica donde analizo sobre el experimento,
 |                                                 sintaxis, etc.                                                           ||
 |-- 'Tópico Selecto - Algoritmos Bioinspirados/'  > Directorio correspondiente a la UDA de algoritmos bioinspirados,
@@ -15,6 +18,7 @@
 |                                                 metaheurísticos, la razón de contener este directorio aquí es que
 |                                                 el enfoque del curso está dirigido al proyecto, dándole un carácter
 |                                                 de documentación/experimentación necesaria.                              ||
+|=-
 |--- pso.c
 |--- pso.h
 |--- vacua.c
@@ -22,6 +26,8 @@
 |--- test.c
 |--- test_multi.sh
 |--- resultados.txt
+|==
+|==
 |- venv/                                          > Producto del "setup.sh", es el entorno virtual donde se encuentran
 |                                                 los paquetes correspondientes al proyecto,  sin éste, no es posible
 |                                                 (ni recomendable) realizar ejecuciones del proyecto.                     ||
