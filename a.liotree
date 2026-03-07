@@ -40,5 +40,5 @@
 |- setup.sh                                       > Script de configuración del entorno virtual de Pyrhon.                 ||
 |- PresentaciónXX                                 > En caso de realizar alguna presentación, ésta llevará el nombre
 |                                                 respetando el patrón (plantilla de nombre).                              ||
-|- hyp                                            > Hipótesis y propuestas relevantes, algunas cosas que haya desarrollado
+|- hyp/                                           > Hipótesis y propuestas relevantes, algunas cosas que haya desarrollado
 |                                                 lo suficiente para una correcta presentación.                            ||
