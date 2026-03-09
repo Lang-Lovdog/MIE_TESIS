@@ -6,6 +6,8 @@
 |=-
 |--- __this__dir__
 |--- ;[name].plt;
+|--- ;[name].qtplt;
+|--- ;[name].wxplt;
 |--- fixed-s-t-paper.plt                          > Comportamiento della función potencial s fixed $\tau$ fixed. pap. vals.||
 |--- fixed-s-t.plt                                > Comportamiento della función potencial s fixed $\tau$ fixed.           ||
 |--- fixed-t.plt                                  > Comportamiento della función potencial s fixed $\tau$ fixed.           ||
