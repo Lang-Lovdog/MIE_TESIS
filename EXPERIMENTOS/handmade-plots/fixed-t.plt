@@ -1,0 +1,138 @@
+# Choix du terminal (décommentez celui qui fonctionne chez vous)
+#set terminal qt size 1300,510
+ set terminal pdfcairo size 24cm,15cm enhanced font 'Times,12'
+# set terminal wxt size 1300,510
+# set terminal x11 size 1300,510
+
+
+# Nom du fichier CSV (à adapter)
+CSVSerie = 0
+CSVElements = 21 #21
+TotalDesDoneesDansFichier = 99
+
+# Utiliser des valeurs originales [1] ou des valeurs rencontrées [0]
+Originale = 0
+
+min(a,b) = a<b ? a : b
+
+while(CSVSerie<CSVElements){
+  filename = sprintf("found_solutions_AdS_fv_%d.csv", CSVSerie)
+
+# Séparateur
+    set datafile separator comma
+
+# Styles
+    set style line 1 lc rgb 'blue'   lw 2
+    set style line 2 lc rgb 'red'    lw 2
+
+    SolutionDansCSV = 0
+    if(Originale==1){ TotalDesDoneesDansFichier = 1 }
+    while(SolutionDansCSV<TotalDesDoneesDansFichier){
+      SolutionDansCSV = SolutionDansCSV + 1
+
+# Lecture des coefficients de la première ligne de données (ligne 2)
+# Nouveaux coefficients (colonnes sans _O) si Originale=0
+        stats filename using 5 +Originale every ::SolutionDansCSV::SolutionDansCSV nooutput; AH3        = STATS_min
+        stats filename using 7 +Originale every ::SolutionDansCSV::SolutionDansCSV nooutput; AF3        = STATS_min
+        stats filename using 9 +Originale every ::SolutionDansCSV::SolutionDansCSV nooutput; AF5        = STATS_min
+        stats filename using 11+Originale every ::SolutionDansCSV::SolutionDansCSV nooutput; A3N3       = STATS_min
+        stats filename using 13+Originale every ::SolutionDansCSV::SolutionDansCSV nooutput; AD5        = STATS_min
+# Champs s et tau (communs)
+        stats filename using 14           every ::SolutionDansCSV::SolutionDansCSV nooutput; s0         = STATS_min
+        stats filename using 15           every ::SolutionDansCSV::SolutionDansCSV nooutput; tau0       = STATS_min
+# Tachionique indicateur
+        stats filename using 21           every ::SolutionDansCSV::SolutionDansCSV nooutput; tach       = STATS_min
+# Nombre d'élement dans le base de données
+        stats filename using 1            every ::SolutionDansCSV::SolutionDansCSV nooutput; NbElements = STATS_min
+# Valeurs propres et potential
+        stats filename using 2            every ::SolutionDansCSV::SolutionDansCSV nooutput; V          = STATS_min
+        stats filename using 17           every ::SolutionDansCSV::SolutionDansCSV nooutput; Lambda1    = STATS_min
+        stats filename using 19           every ::SolutionDansCSV::SolutionDansCSV nooutput; Lambda1    = STATS_min
+
+# Affichage des valeurs lues (pour vérification)
+        print "AH3 .............. ", AH3
+        print "AF3 .............. ", AF3
+        print "AF5 .............. ", AF5
+        print "A3N3 ............. ", A3N3
+        print "AD5 .............. ", AD5
+        print "s0 ............... ", s0
+        print "tau0 ............. ", tau0
+        print "Element .......... ", SolutionDansCSV
+        print "ID ............... ", NbElements
+        print "Base de donnees .. ", CSVSerie
+        print "Tachionique ...... ", tach==0? "Non" : "Oui"
+        print "Expansion ........ ", V<0? "AdS" : "dS"
+        if(tach==1){
+            continue
+        }
+        set output sprintf("ExportedPlots/%s/plot_CSV-%d_E-%d.pdf", V<0? "AdS" : "dS", CSVSerie, SolutionDansCSV)
+
+# Définition des fonctions
+        Veff(s, tau)      = AH3*s/tau**3 + AF3/(s*tau**3) + AF5/tau**4 + A3N3/tau**3
+        Veff_lift(s, tau) = Veff(s, tau) + AD5/(sqrt(s)*tau**(2.5))
+
+# Plages principales
+        s_min   = 0.5 * s0
+        s_max   = 2.5 * s0
+        tau_min = 0.5 * tau0
+        tau_max = 5.5 * tau0
+
+# Plage pour l'encart (zoom sur τ)
+        tau_zoom_min = 0.9 * tau0
+        tau_zoom_max = 2.1 * tau0
+
+set xzeroaxis lc rgb 'black' lw 1 lt 1  # ligne horizontale à y=0
+set yzeroaxis lc rgb 'black' lw 1 lt 1  # ligne verticale à x=0
+set key outside 
+# Début du multiplot
+        set multiplot layout 2,2 title sprintf('Base de données %d. Element %d. Originalment %s', CSVSerie, SolutionDansCSV, V<0? "AdS" : "dS")
+
+# --- Grand graphique de V(s) ---
+        set xlabel 's'
+        set ylabel 'V(s, τ₀)'
+        set title sprintf('V(s) avec s = %.4f', s0)
+        plot [s=s_min:s_max] Veff_lift(s, tau0) ls 1 title 'avec AD5', \
+                             Veff     (s, tau0) ls 2 title 'sans AD5'
+
+# --- Grand graphique de V(τ) ---
+        #set size 1,1
+        #set origin 0,0
+        set xlabel 'τ'
+        set ylabel 'V(s₀, τ)'
+        set yrange [*:*]
+        set title sprintf('V(s) avec τ = %.4f', tau0, SolutionDansCSV, CSVSerie)
+        set grid
+        plot [tau=tau_min:tau_max] Veff_lift(s0, tau) ls 1 title 'avec AD5', \
+        Veff     (s0, tau) ls 2 title 'sans AD5'
+
+# --- Encart (zoom) --- Deprecated
+#        set size 0.45,0.45
+#        set origin 0.55,0.1
+#        set xlabel 'τ (zoom)'
+#        set ylabel 'V'
+#        set title 'Zoom (0.9τ₀ à 2.1τ₀)'
+#        set xrange [tau_zoom_min:tau_zoom_max]
+#        set yrange [*:*]   # laisser Gnuplot ajuster l'échelle verticale
+#        set grid
+# On ne trace que la courbe avec lifting (celle de l'encart original)
+#        plot [tau=tau_zoom_min:tau_zoom_max] Veff_lift(s0, tau) ls 1 notitle
+
+        unset border #lc rgb 'black' lw 2
+        set xtics axis
+        set ytics axis
+# Graphique 3 : scatter V vs min(lambda)
+        set origin 0,0
+        set size   1,0.45
+        set xlabel 'min(λ)'
+        set ylabel 'V'
+        set title 'Scatter des solutions'
+        set grid
+        plot filename using (min($17,$19)):2 with points pt 2 ps 0.3 lc rgb 'blue' title 'autres', \
+                   '' using (min($17,$19)):2 every ::SolutionDansCSV::SolutionDansCSV with points pt 7 ps 0.5 lc rgb 'red' title 'courante'
+
+        unset multiplot
+
+        pause(3)
+    }
+    CSVSerie = CSVSerie + 1
+}

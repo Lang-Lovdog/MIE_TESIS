@@ -4,9 +4,11 @@ description: Aquí se describen detalles e ideas posiblemente relevantes a la te
 authors: Brandon Marquez Salazar (Lang Lovdog Inu Oókami)
 categories: meta.journal
 created: 2026-02-06T14:41:43-0600
-updated: 2026-03-04T16:48:51-0600
+updated: 2026-03-07T01:37:01-0600
 version: 1.1.1
 @end
+
+{:../index.norg:}[Index]
 
 Este archivo servirá como complemento a mi diario de tesis
 para poder tener comentarios que en la generalidad serían
@@ -106,18 +108,6 @@ pensamientos que pueden o no, en un futuro, tomar relevancia.
     |                                                 respetando el patrón (plantilla de nombre).                             ||
     |- hyp                                            > Hipótesis y propuestas relevantes, algunas cosas que haya desarrollado
     |                                                 lo suficiente para una correcta presentación.                           ||
-
-  @end
-
-  @code c
-
-  int main (void) {
-    while(1){
-      /* Infinite
-      loop */
-    }
-    return 0;
-  }
 
   @end
 
@@ -270,3 +260,9 @@ pensamientos que pueden o no, en un futuro, tomar relevancia.
 ** Mar 05 de Marzo del 2023
    Hoy hubo un apagón mientras realizaba mis diagramas, los
    cambios serán subidos.
+
+
+___
+   ===
+
+{:../index.norg:}[Index]
