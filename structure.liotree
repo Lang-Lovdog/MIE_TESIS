@@ -13,7 +13,7 @@
 |--- fixed-s-t-paper.plt                          > Comportamiento della función potencial s fixed $\tau$ fixed. pap. vals.||
 |--- fixed-s-t.plt                                > Comportamiento della función potencial s fixed $\tau$ fixed.           ||
 |--- fixed-t.plt                                  > Comportamiento della función potencial s fixed $\tau$ fixed.           ||
-|--- fixed-t-3d-.qtplt                           > Comportamiento della función potencial s fixed $\tau$ fixed.           ||
+|--- fixed-t-3d-.qtplt                            > Comportamiento della función potencial s fixed $\tau$ fixed.           ||
 |--- fixed-s-t-o.plt                              > Comportamiento della función potencial s fixed $\tau$ fixed. val. orig.||
 |==
 |-- analyse-des-programmes/                       > Textes et reflexions sur le code.                                      ||
@@ -34,7 +34,7 @@
 |-- __this__dir__
 |-- ;found_solutions__dS_fv_[d].csv;              > Resultados de la búsqueda metaheurística.                              ||
 |-- ;found_solutions_AdS_fv_[d].csv;              > Resultados de la búsqueda metaheurística.                              ||
-|==
+|=-
 |--- lvdsl/                                       > Módulo del Lovdog Swapland                                             ||
 |=-
 |---- k_theory/                                   > La teoría en revisión actual                                           ||
