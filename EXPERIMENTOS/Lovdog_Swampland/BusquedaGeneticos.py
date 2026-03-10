@@ -13,6 +13,13 @@ from MetastableVacua       import set_fixed_value
 from test_fitness_function import datos_del_csv_mathematica        as from_csv
 from test_fitness_function import variables                        as vnms      # Convierte del convenio de este proyecto al del de mathematica
 
+### Datetime as DDMMYYYY for directory name
+from datetime import datetime
+import os
+now = datetime.now()
+dt_string = now.strftime("%d%m%Y")
+dirname = "VacuaFound_" + dt_string
+
 vacua_parametros__dS = {
     "obj_func": ff1,
     "bounds": FloatVar(
@@ -104,7 +111,7 @@ def dS_search():
         found_solutions_rows.append(data_collected)
 
     found_solutions = pd.DataFrame(found_solutions_rows)
-    found_solutions.to_csv("found_solutions__dS.csv")
+    found_solutions.to_csv(f"{dirname}/found_solutions__dS.csv")
 
 def AdS_search():
 
@@ -155,7 +162,7 @@ def AdS_search():
         found_solutions_rows.append(data_collected)
 
     found_solutions = pd.DataFrame(found_solutions_rows)
-    found_solutions.to_csv("found_solutions_AdS.csv")
+    found_solutions.to_csv(f"{dirname}/found_solutions_AdS.csv")
 
 def dS_search_fixed_vars():
 
@@ -221,7 +228,7 @@ def dS_search_fixed_vars():
             found_solutions_rows.append(data_collected)
 
         found_solutions = pd.DataFrame(found_solutions_rows)
-        found_solutions.to_csv(f"found_solutions__dS_fv_{k}.csv")
+        found_solutions.to_csv(f"{dirname}/found_solutions__dS_fv_{k}.csv")
         k+=1
 
 def AdS_search_fixed_vars():
@@ -293,12 +300,13 @@ def AdS_search_fixed_vars():
             found_solutions_rows.append(data_collected)
 
         found_solutions = pd.DataFrame(found_solutions_rows)
-        found_solutions.to_csv(f"found_solutions_AdS_fv_{k}.csv")
+        found_solutions.to_csv(f"{dirname}/found_solutions_AdS_fv_{k}.csv")
         k+=1
 
 
 if __name__ == "__main__":
-    dS_search()
+    os.makedirs(dirname, exist_ok=True)
     AdS_search()
-    dS_search_fixed_vars()
     AdS_search_fixed_vars()
+    dS_search()
+    dS_search_fixed_vars()

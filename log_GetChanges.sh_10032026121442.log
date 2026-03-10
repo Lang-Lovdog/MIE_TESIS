@@ -1,0 +1,181 @@
+Updating b0a9850..3350623
+Fast-forward
+ .../ExportedPlots/AdS/plot_CSV-0_E-28.pdf          | Bin 21522 -> 21523 bytes
+ .../ExportedPlots/AdS/plot_CSV-0_E-71.pdf          | Bin 21476 -> 21477 bytes
+ .../ExportedPlots/AdS/plot_CSV-1_E-13.pdf          | Bin 21604 -> 21603 bytes
+ .../ExportedPlots/AdS/plot_CSV-1_E-17.pdf          | Bin 21661 -> 21660 bytes
+ .../ExportedPlots/AdS/plot_CSV-1_E-2.pdf           | Bin 21747 -> 21747 bytes
+ .../ExportedPlots/AdS/plot_CSV-1_E-30.pdf          | Bin 21692 -> 21691 bytes
+ .../ExportedPlots/AdS/plot_CSV-1_E-6.pdf           | Bin 21685 -> 21685 bytes
+ .../ExportedPlots/AdS/plot_CSV-1_E-63.pdf          | Bin 21684 -> 21684 bytes
+ .../ExportedPlots/AdS/plot_CSV-1_E-70.pdf          | Bin 21727 -> 21726 bytes
+ .../ExportedPlots/AdS/plot_CSV-2_E-24.pdf          | Bin 20449 -> 20448 bytes
+ .../ExportedPlots/AdS/plot_CSV-2_E-35.pdf          | Bin 20162 -> 20162 bytes
+ .../ExportedPlots/AdS/plot_CSV-2_E-41.pdf          | Bin 20113 -> 20113 bytes
+ .../ExportedPlots/AdS/plot_CSV-2_E-52.pdf          | Bin 20271 -> 20272 bytes
+ .../ExportedPlots/AdS/plot_CSV-2_E-61.pdf          | Bin 20312 -> 20312 bytes
+ .../ExportedPlots/AdS/plot_CSV-2_E-70.pdf          | Bin 20378 -> 20377 bytes
+ .../ExportedPlots/AdS/plot_CSV-2_E-76.pdf          | Bin 20227 -> 20227 bytes
+ .../ExportedPlots/AdS/plot_CSV-2_E-84.pdf          | Bin 20129 -> 20130 bytes
+ .../ExportedPlots/AdS/plot_CSV-2_E-85.pdf          | Bin 20391 -> 20390 bytes
+ .../ExportedPlots/AdS/plot_CSV-2_E-90.pdf          | Bin 20434 -> 20434 bytes
+ .../ExportedPlots/AdS/plot_CSV-2_E-98.pdf          | Bin 20373 -> 20373 bytes
+ .../ExportedPlots/AdS/plot_CSV-3_E-41.pdf          | Bin 20591 -> 20591 bytes
+ .../ExportedPlots/AdS/plot_CSV-4_E-10.pdf          | Bin 21475 -> 21475 bytes
+ .../ExportedPlots/AdS/plot_CSV-4_E-18.pdf          | Bin 21531 -> 21531 bytes
+ .../ExportedPlots/AdS/plot_CSV-4_E-2.pdf           | Bin 21590 -> 21590 bytes
+ .../ExportedPlots/AdS/plot_CSV-4_E-3.pdf           | Bin 21591 -> 21591 bytes
+ .../ExportedPlots/AdS/plot_CSV-4_E-32.pdf          | Bin 21469 -> 21469 bytes
+ .../ExportedPlots/AdS/plot_CSV-4_E-36.pdf          | Bin 21558 -> 21558 bytes
+ .../ExportedPlots/AdS/plot_CSV-4_E-60.pdf          | Bin 21513 -> 21513 bytes
+ .../ExportedPlots/AdS/plot_CSV-4_E-76.pdf          | Bin 21320 -> 21320 bytes
+ .../ExportedPlots/AdS/plot_CSV-4_E-79.pdf          | Bin 21477 -> 21477 bytes
+ .../ExportedPlots/AdS/plot_CSV-4_E-88.pdf          | Bin 21433 -> 21433 bytes
+ .../ExportedPlots/AdS/plot_CSV-4_E-91.pdf          | Bin 21568 -> 21567 bytes
+ .../ExportedPlots/dS/plot_CSV-0_E-11.pdf           | Bin 21289 -> 21289 bytes
+ .../ExportedPlots/dS/plot_CSV-0_E-14.pdf           | Bin 21410 -> 21411 bytes
+ .../ExportedPlots/dS/plot_CSV-0_E-22.pdf           | Bin 21161 -> 21162 bytes
+ .../ExportedPlots/dS/plot_CSV-0_E-27.pdf           | Bin 21378 -> 21378 bytes
+ .../ExportedPlots/dS/plot_CSV-0_E-3.pdf            | Bin 21165 -> 21165 bytes
+ .../ExportedPlots/dS/plot_CSV-0_E-78.pdf           | Bin 21287 -> 21286 bytes
+ .../ExportedPlots/dS/plot_CSV-0_E-81.pdf           | Bin 21429 -> 21429 bytes
+ .../ExportedPlots/dS/plot_CSV-0_E-97.pdf           | Bin 21478 -> 21478 bytes
+ .../ExportedPlots/dS/plot_CSV-1_E-11.pdf           | Bin 21593 -> 21592 bytes
+ .../ExportedPlots/dS/plot_CSV-1_E-32.pdf           | Bin 21516 -> 21515 bytes
+ .../ExportedPlots/dS/plot_CSV-1_E-33.pdf           | Bin 21470 -> 21469 bytes
+ .../ExportedPlots/dS/plot_CSV-1_E-52.pdf           | Bin 21480 -> 21480 bytes
+ .../ExportedPlots/dS/plot_CSV-1_E-56.pdf           | Bin 21221 -> 21220 bytes
+ .../ExportedPlots/dS/plot_CSV-1_E-69.pdf           | Bin 21659 -> 21659 bytes
+ .../ExportedPlots/dS/plot_CSV-1_E-86.pdf           | Bin 21724 -> 21723 bytes
+ .../ExportedPlots/dS/plot_CSV-1_E-96.pdf           | Bin 21660 -> 21659 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-1.pdf            | Bin 20252 -> 20252 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-11.pdf           | Bin 20299 -> 20299 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-13.pdf           | Bin 20402 -> 20401 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-16.pdf           | Bin 20220 -> 20219 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-17.pdf           | Bin 20244 -> 20243 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-18.pdf           | Bin 20295 -> 20294 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-19.pdf           | Bin 20224 -> 20224 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-2.pdf            | Bin 20317 -> 20317 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-20.pdf           | Bin 20099 -> 20098 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-21.pdf           | Bin 20009 -> 20008 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-22.pdf           | Bin 20155 -> 20154 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-23.pdf           | Bin 20291 -> 20290 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-26.pdf           | Bin 20325 -> 20324 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-29.pdf           | Bin 20293 -> 20293 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-30.pdf           | Bin 20270 -> 20269 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-32.pdf           | Bin 20195 -> 20195 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-36.pdf           | Bin 20010 -> 20010 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-37.pdf           | Bin 20376 -> 20376 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-38.pdf           | Bin 20280 -> 20280 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-39.pdf           | Bin 20221 -> 20221 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-42.pdf           | Bin 20347 -> 20346 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-47.pdf           | Bin 20139 -> 20139 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-48.pdf           | Bin 20294 -> 20294 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-49.pdf           | Bin 20467 -> 20467 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-50.pdf           | Bin 20175 -> 20175 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-51.pdf           | Bin 20230 -> 20230 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-53.pdf           | Bin 20334 -> 20334 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-54.pdf           | Bin 20161 -> 20160 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-55.pdf           | Bin 20262 -> 20262 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-56.pdf           | Bin 20361 -> 20361 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-57.pdf           | Bin 20351 -> 20351 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-58.pdf           | Bin 20111 -> 20111 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-59.pdf           | Bin 20341 -> 20341 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-62.pdf           | Bin 20143 -> 20143 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-63.pdf           | Bin 20225 -> 20226 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-65.pdf           | Bin 20252 -> 20252 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-67.pdf           | Bin 20398 -> 20397 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-69.pdf           | Bin 20368 -> 20367 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-71.pdf           | Bin 20396 -> 20396 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-73.pdf           | Bin 20169 -> 20169 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-74.pdf           | Bin 20332 -> 20332 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-75.pdf           | Bin 20134 -> 20134 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-78.pdf           | Bin 20218 -> 20219 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-79.pdf           | Bin 20127 -> 20127 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-8.pdf            | Bin 20280 -> 20279 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-80.pdf           | Bin 20254 -> 20254 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-86.pdf           | Bin 20269 -> 20269 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-87.pdf           | Bin 20130 -> 20130 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-88.pdf           | Bin 20352 -> 20351 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-89.pdf           | Bin 20327 -> 20327 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-9.pdf            | Bin 20169 -> 20168 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-92.pdf           | Bin 20326 -> 20326 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-93.pdf           | Bin 20422 -> 20422 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-95.pdf           | Bin 20230 -> 20229 bytes
+ .../ExportedPlots/dS/plot_CSV-2_E-97.pdf           | Bin 20475 -> 20475 bytes
+ .../ExportedPlots/dS/plot_CSV-3_E-63.pdf           | Bin 20667 -> 20667 bytes
+ .../ExportedPlots/dS/plot_CSV-3_E-90.pdf           | Bin 20534 -> 20533 bytes
+ .../ExportedPlots/dS/plot_CSV-4_E-1.pdf            | Bin 21529 -> 21529 bytes
+ .../ExportedPlots/dS/plot_CSV-4_E-17.pdf           | Bin 21460 -> 21461 bytes
+ .../ExportedPlots/dS/plot_CSV-4_E-20.pdf           | Bin 21607 -> 21606 bytes
+ .../ExportedPlots/dS/plot_CSV-4_E-30.pdf           | Bin 21280 -> 21281 bytes
+ .../ExportedPlots/dS/plot_CSV-4_E-31.pdf           | Bin 21478 -> 21477 bytes
+ .../ExportedPlots/dS/plot_CSV-4_E-43.pdf           | Bin 21411 -> 21411 bytes
+ .../ExportedPlots/dS/plot_CSV-4_E-48.pdf           | Bin 21526 -> 21525 bytes
+ .../ExportedPlots/dS/plot_CSV-4_E-52.pdf           | Bin 21532 -> 21531 bytes
+ .../ExportedPlots/dS/plot_CSV-4_E-59.pdf           | Bin 21386 -> 21385 bytes
+ .../ExportedPlots/dS/plot_CSV-4_E-6.pdf            | Bin 21507 -> 21507 bytes
+ .../ExportedPlots/dS/plot_CSV-4_E-62.pdf           | Bin 21545 -> 21545 bytes
+ .../ExportedPlots/dS/plot_CSV-4_E-65.pdf           | Bin 21422 -> 21423 bytes
+ .../ExportedPlots/dS/plot_CSV-4_E-82.pdf           | Bin 21296 -> 21294 bytes
+ .../ExportedPlots/dS/plot_CSV-4_E-83.pdf           | Bin 21558 -> 21556 bytes
+ .../ExportedPlots/dS/plot_CSV-4_E-95.pdf           | Bin 21399 -> 21398 bytes
+ .../ExportedPlots/dS/plot_CSV-5_E-1.pdf            | Bin 21320 -> 21320 bytes
+ .../ExportedPlots/dS/plot_CSV-5_E-18.pdf           | Bin 21015 -> 21015 bytes
+ .../ExportedPlots/dS/plot_CSV-5_E-38.pdf           | Bin 21240 -> 21240 bytes
+ .../ExportedPlots/dS/plot_CSV-5_E-61.pdf           | Bin 21235 -> 21235 bytes
+ .../ExportedPlots/dS/plot_CSV-5_E-66.pdf           | Bin 21264 -> 21265 bytes
+ .../ExportedPlots/dS/plot_CSV-5_E-72.pdf           | Bin 21153 -> 21153 bytes
+ .../ExportedPlots/dS/plot_CSV-5_E-8.pdf            | Bin 21452 -> 21452 bytes
+ .../ExportedPlots/dS/plot_CSV-5_E-80.pdf           | Bin 21168 -> 21168 bytes
+ .../ExportedPlots/dS/plot_CSV-5_E-83.pdf           | Bin 21197 -> 21197 bytes
+ .../ExportedPlots/dS/plot_CSV-5_E-93.pdf           | Bin 21164 -> 21164 bytes
+ .../ExportedPlots/dS/plot_CSV-5_E-95.pdf           | Bin 21205 -> 21205 bytes
+ .../ExportedPlots/dS/plot_CSV-7_E-12.pdf           | Bin 21223 -> 21223 bytes
+ .../ExportedPlots/dS/plot_CSV-7_E-13.pdf           | Bin 21041 -> 21041 bytes
+ .../ExportedPlots/dS/plot_CSV-7_E-18.pdf           | Bin 21212 -> 21212 bytes
+ .../ExportedPlots/dS/plot_CSV-7_E-32.pdf           | Bin 21162 -> 21162 bytes
+ .../ExportedPlots/dS/plot_CSV-7_E-38.pdf           | Bin 21442 -> 21441 bytes
+ .../ExportedPlots/dS/plot_CSV-7_E-41.pdf           | Bin 21272 -> 21272 bytes
+ .../ExportedPlots/dS/plot_CSV-7_E-42.pdf           | Bin 21221 -> 21221 bytes
+ .../ExportedPlots/dS/plot_CSV-7_E-48.pdf           | Bin 21433 -> 21433 bytes
+ .../ExportedPlots/dS/plot_CSV-7_E-50.pdf           | Bin 21418 -> 21418 bytes
+ .../ExportedPlots/dS/plot_CSV-7_E-7.pdf            | Bin 21251 -> 21251 bytes
+ EXPERIMENTOS/handmade-plots/fixed-t-3d-.qtplt      | 146 ++++++
+ .../MarquezSalazarBrandon-Reporte01.aux            |   7 +
+ .../MarquezSalazarBrandon-Reporte01.fdb_latexmk    | 166 +++++++
+ .../MarquezSalazarBrandon-Reporte01.fls            | 246 ++++++++++
+ .../MarquezSalazarBrandon-Reporte01.log            | 538 +++++++++++++++++++++
+ .../MarquezSalazarBrandon-Reporte01.pdf            | Bin 0 -> 20029 bytes
+ .../MarquezSalazarBrandon-Reporte01.synctex.gz     | Bin 0 -> 3425 bytes
+ .../MarquezSalazarBrandon-Reporte01.tex            |  25 +
+ .../MarquezSalazarBrandon-Reporte01.xdv            | Bin 0 -> 18244 bytes
+ hyp/Reporte01.TEX/graph/lifted-vacua-hist.tex      |  52 ++
+ hyp/Reporte01.TEX/graph/stable-vacua-hist.tex      |  26 +
+ log.log                                            | 139 ------
+ logSaveChanges.sh_09032026160701.log               |  63 ---
+ log_GetChanges.sh_09032026164930.log               |   0
+ log_GetChanges.sh_09032026165012.log               |   1 -
+ log_GetChanges.sh_09032026165108.log               | 447 -----------------
+ log_SaveChanges.sh_09032026164731.log              |   0
+ log_SaveChanges.sh_09032026165150.log              |   0
+ structure.liotree                                  |  18 +-
+ 160 files changed, 1222 insertions(+), 652 deletions(-)
+ create mode 100644 EXPERIMENTOS/handmade-plots/fixed-t-3d-.qtplt
+ create mode 100644 hyp/Reporte01.TEX/MarquezSalazarBrandon-Reporte01.aux
+ create mode 100644 hyp/Reporte01.TEX/MarquezSalazarBrandon-Reporte01.fdb_latexmk
+ create mode 100644 hyp/Reporte01.TEX/MarquezSalazarBrandon-Reporte01.fls
+ create mode 100644 hyp/Reporte01.TEX/MarquezSalazarBrandon-Reporte01.log
+ create mode 100644 hyp/Reporte01.TEX/MarquezSalazarBrandon-Reporte01.pdf
+ create mode 100644 hyp/Reporte01.TEX/MarquezSalazarBrandon-Reporte01.synctex.gz
+ create mode 100644 hyp/Reporte01.TEX/MarquezSalazarBrandon-Reporte01.tex
+ create mode 100644 hyp/Reporte01.TEX/MarquezSalazarBrandon-Reporte01.xdv
+ create mode 100644 hyp/Reporte01.TEX/graph/lifted-vacua-hist.tex
+ create mode 100644 hyp/Reporte01.TEX/graph/stable-vacua-hist.tex
+ delete mode 100644 log.log
+ delete mode 100644 logSaveChanges.sh_09032026160701.log
+ delete mode 100644 log_GetChanges.sh_09032026164930.log
+ delete mode 100644 log_GetChanges.sh_09032026165012.log
+ delete mode 100644 log_GetChanges.sh_09032026165108.log
+ delete mode 100644 log_SaveChanges.sh_09032026164731.log
+ delete mode 100644 log_SaveChanges.sh_09032026165150.log

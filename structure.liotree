@@ -1,6 +1,8 @@
 | MIE_TESIS/                                      > El directorio relativo al proyecto de tesis.                           ||
 |- EXPERIMENTOS/                                  > El directorio donde realizo los códigos y cosas por el estilo.         ||
 |=-
+|-- Makefile                                      > Este es un archivo maestro que permite ejecutar cualquier código
+|                                                 simulación, prueba o tarea dentro del proyecto.                          ||
 |-- CESAR-BRITO_ORIGINAL-DATA/                    > Información del experimento original                                   ||
 |-- handmade-plots/                               > Gráficas que necesite hacer. Fuera de la estructura del módulo.        ||
 |=-
@@ -53,8 +55,6 @@
 |-- venv/                                         > Producto del "setup.sh", es el entorno virtual donde se encuentran
 |                                                 los paquetes correspondientes al proyecto,  sin éste, no es posible
 |                                                 (ni recomendable) realizar ejecuciones del proyecto.                     ||
-|-- Makefile                                      > Este es un archivo maestro que permite ejecutar cualquier código
-|                                                 simulación, prueba o tarea dentro del proyecto.                          ||
 |-- requirements.txt                              > Lista de paquetes y módulos necesarios para el proyecto. Si acaso
 |                                                 algún error de dependencias, verifíque las versiones a la fecha
 |                                                 última de instalación estable: 11/02/2026.                               ||
