@@ -11,6 +11,7 @@
 |--- fixed-s-t-paper.plt                          > Comportamiento della función potencial s fixed $\tau$ fixed. pap. vals.||
 |--- fixed-s-t.plt                                > Comportamiento della función potencial s fixed $\tau$ fixed.           ||
 |--- fixed-t.plt                                  > Comportamiento della función potencial s fixed $\tau$ fixed.           ||
+|--- fixed-t-3d-.qtplt                           > Comportamiento della función potencial s fixed $\tau$ fixed.           ||
 |--- fixed-s-t-o.plt                              > Comportamiento della función potencial s fixed $\tau$ fixed. val. orig.||
 |==
 |-- analyse-des-programmes/                       > Textes et reflexions sur le code.                                      ||
@@ -75,7 +76,6 @@
 |==
 |-- Notas.norg                                    > Este meta-journal                                                      ||
 |==
-|- structure.liotree                              > Este es un archivo que permite el acceso a la estructura del proyecto. ||
 |- ;Presentación[XX].TEX/;                        > En caso de realizar alguna presentación, ésta llevará el nombre
 |                                                 respetando el patrón (plantilla de nombre).                              ||
 |=-
@@ -85,6 +85,19 @@
 |==
 |- hyp/                                           > Hipótesis y propuestas relevantes, algunas cosas que haya desarrollado
 |                                                 lo suficiente para una correcta presentación.                            ||
+|=-
+|-- Reporte01.TEX/                                > Primer reporde de avances, respecto a las implementaciones y resultados
+|                                                 gráficos al día de hoy 10 de Marzo del 2026                              ||
+|=-
+|--- graph/                                       >  ||
+|=-
+|--- ;*.tex;                                      >  ||
+|--- stable-vacua-hist.tex                        >  ||
+|--- lifted-vacua-hist.tex                        >  ||
+|==
+|--- ;MarquezSalazarBrandon-Reporte01.[tex|pdf];  >  ||
+|==
+|==
 |- PIE/                                           > Trabajos de la clase de Proyecto de Investigación en Ing. Electrónica. ||
 |=-
 |-- ;P0[1]/;                                      > Presentación 01 Presenta una investigación como tuya                   ||
@@ -113,4 +126,5 @@
 |-- lstautodedent.sty
 |==
 |- SaveChanges.sh                                 > The file that saves and pushes to GitHub when needed, all in Tesis dir ||
-|- GetChanges.sh                                 > The file that saves and pushes to GitHub when needed, all in Tesis dir ||
+|- GetChanges.sh                                  > The file that saves and pushes to GitHub when needed, all in Tesis dir ||
+|- structure.liotree                              > Este es un archivo que permite el acceso a la estructura del proyecto. ||
