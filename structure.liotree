@@ -14,6 +14,7 @@
 |--- fixed-s-t.plt                                > Comportamiento della función potencial s fixed $\tau$ fixed.           ||
 |--- fixed-t.plt                                  > Comportamiento della función potencial s fixed $\tau$ fixed.           ||
 |--- fixed-t-3d-.qtplt                            > Comportamiento della función potencial s fixed $\tau$ fixed.           ||
+|--- fixed-t-3d-.wxplt                            > Comportamiento della función potencial s fixed $\tau$ fixed.           ||
 |--- fixed-s-t-o.plt                              > Comportamiento della función potencial s fixed $\tau$ fixed. val. orig.||
 |==
 |-- analyse-des-programmes/                       > Textes et reflexions sur le code.                                      ||
@@ -74,6 +75,7 @@
 |--- test_multi.sh
 |--- resultados.txt
 |==
+|==
 |-- Notas.norg                                    > Este meta-journal                                                      ||
 |==
 |- ;Presentación[XX].TEX/;                        > En caso de realizar alguna presentación, ésta llevará el nombre
@@ -90,6 +92,7 @@
 |-- Reporte01.TEX/                                > Primer reporde de avances, respecto a las implementaciones y resultados
 |                                                 gráficos al día de hoy 10 de Marzo del 2026                              ||
 |=-
+|-- __this__dir__
 |--- graph/                                       >  ||
 |=-
 |--- ;*.tex;                                      >  ||
@@ -97,6 +100,7 @@
 |--- lifted-vacua-hist.tex                        >  ||
 |==
 |--- ;MarquezSalazarBrandon-Reporte01.[tex|pdf];  >  ||
+|--- bibliography.bib
 |==
 |==
 |- PIE/                                           > Trabajos de la clase de Proyecto de Investigación en Ing. Electrónica. ||

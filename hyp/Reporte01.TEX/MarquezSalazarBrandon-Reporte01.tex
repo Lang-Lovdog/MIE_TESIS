@@ -5,22 +5,26 @@
 \usepackage{polyglossia}
 \usepackage{multicol}
 \usepackage{booktabs}
+\usepackage[backend=biber]{biblatex}
 \usepackage{pgfplots}
 \usepackage{pgfplotstable}
 \pgfplotsset{compat=1.18}
 
 \pgfplotstableset{col sep=comma, trim cells=true, format=file}
+\bibliography{bibliography.bib}
 
 \begin{document}
 
 \chapter{Introducción}
 
 Bioinspired algorithms are models inspired by the nature
-allowing us to understand and or predict the behaviour of complex systems.
+allowing us to understand and or predict the behaviour of
+complex systems \cite{Cotta_2017}.
 
-\pgfplotstableread[
-]
-{../../EXPERIMENTOS/Lovdog_Swampland/VacuaFound_17022026/found_solutions_AdS_fv_0.csv}\losDatos
+
+%\pgfplotstableread[
+%]
+%{../../EXPERIMENTOS/Lovdog_Swampland/VacuaFound_17022026/found_solutions_AdS_fv_0.csv}\losDatos
 
 
 \end{document}
