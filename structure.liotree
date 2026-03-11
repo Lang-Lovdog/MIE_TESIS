@@ -1,4 +1,8 @@
 | MIE_TESIS/                                      > El directorio relativo al proyecto de tesis.                           ||
+|-- ArticlesAndBooks/
+|=-
+|--- ;[Articles].pdf;                             > ||
+|==
 |- EXPERIMENTOS/                                  > El directorio donde realizo los códigos y cosas por el estilo.         ||
 |=-
 |-- Makefile                                      > Este es un archivo maestro que permite ejecutar cualquier código
