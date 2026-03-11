@@ -8,7 +8,7 @@ set tics font ",7"
 
 # Nom du fichier CSV (à adapter)
 CSVSerie = 0
-CSVElements = 4 #21
+CSVElements = 21 #21
 TotalDesDoneesDansFichier = 99
 
 # Utiliser des valeurs originales [1] ou des valeurs rencontrées [0]

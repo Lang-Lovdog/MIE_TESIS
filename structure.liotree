@@ -22,6 +22,9 @@
 |--- ;plot-s-t.[tex|pdf];                         > Pour graphiquer la fonction potential                                  ||
 |==
 |-- handmade-images/                              > Imágenes, posiblemente .svg, .kra, .puml, etc.                         ||
+|=-
+|--- ;[Element].[png|svg|kra|puml];               > Imágenes, posiblemente .svg, .kra, .puml, etc.                         ||
+|==
 |-- Lovdog_Swampland/                             > El código donde estoy replicando el experimento del Dr. Cesar.         ||
 |=-
 |--- MetastableVacua.py                           > Módulo que contiene la función potencial y sus descriptores
@@ -93,14 +96,38 @@
 |                                                 gráficos al día de hoy 10 de Marzo del 2026                              ||
 |=-
 |-- __this__dir__
-|--- graph/                                       >  ||
+|--- img/
 |=-
-|--- ;*.tex;                                      >  ||
-|--- stable-vacua-hist.tex                        >  ||
-|--- lifted-vacua-hist.tex                        >  ||
+|---- ;[*].pdf;                                   >  ||
+|---- ;[*].png;                                   >  ||
+|---- ;[*].svg;                                   >  ||
+|---- ;[*].jpg;                                   >  ||
+|---- ;[*].jpeg;                                  >  ||
 |==
-|--- ;MarquezSalazarBrandon-Reporte01.[tex|pdf];  >  ||
+|--- graph/                                        >  ||
+|=-
+|---- ;*.tex;                                      >  ||
+|---- stable-vacua-hist.tex                        >  ||
+|---- lifted-vacua-hist.tex                        >  ||
+|==
+|--- Chapters/
+|=-
+|---- 01.- Introducción.tex                       > ||
+|---- 01.- Introducción/                          > ||
+|=-
+|----- wolfram-definitions.tex                    > ||
+|----- python-definitions.tex                     > ||
+|----- flowchart-optimization.puml                > ||
+|==
+|---- 03.- HipótesisYPropuestas.tex               > ||
+|==
+|--- ;MarquezSalazarBrandon-Reporte01.[tex|pdf];  > ||
 |--- bibliography.bib
+|--- fonts/                                       > Fuentes a utilizar ||
+|=-
+|---- ;VictorMono-[type].ttf;                     > ||
+|==
+|==
 |==
 |==
 |- PIE/                                           > Trabajos de la clase de Proyecto de Investigación en Ing. Electrónica. ||

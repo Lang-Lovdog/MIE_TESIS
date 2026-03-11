@@ -1,26 +1,71 @@
 %! TEX TS-Program = Xelatex
-\documentclass[12pt]{report}
+\documentclass[12pt]{book}
 
 \usepackage{fontspec}
 \usepackage{polyglossia}
+\setmainlanguage{english}
 \usepackage{multicol}
 \usepackage{booktabs}
+\usepackage{dirtytalk}
 \usepackage[backend=biber]{biblatex}
+\addbibresource{bibliography.bib}
 \usepackage{pgfplots}
 \usepackage{pgfplotstable}
 \pgfplotsset{compat=1.18}
+\usepackage{listings}
+\usepackage{tikz}
+
+\newfontfamily\victormono{VictorMono}[
+    Path = fonts/,
+    Extension = .ttf,
+    UprightFont = *-Regular,
+    ItalicFont = *-Italic,
+    BoldFont = *-Bold,
+    % Optional: Enable ligatures if you like them (e.g., != becoming ≠)
+    Contextuals = Alternate,
+    Ligatures = TeX,
+    Scale = 0.7
+]
+
+% Set up the listings style
+\lstset{
+    basicstyle=\footnotesize\victormono, % Use the custom font here
+    breaklines=true,
+    keywordstyle=\color{blue}\bfseries,
+    commentstyle=\color{gray}\itshape, % This will trigger the cursive italics
+    stringstyle=\color{purple},
+    showstringspaces=false,
+    % Change giant ugly astericks to small ones
+ literate={(*)}{\textasteriskcentered}{1}
+}
+
+
+\makeatletter
+\lst@CCPutMacro
+    \lst@ProcessOther {"2A}{%
+      \lst@ttfamily 
+         {\raisebox{2pt}{*}}% used with ttfamily
+         {\raisebox{0.3pt}{*}}% used with other fonts
+      }
+    \@empty\z@\@empty
+\makeatother  
+
 
 \pgfplotstableset{col sep=comma, trim cells=true, format=file}
-\bibliography{bibliography.bib}
+
+\title{Report on Metaheuristic Optimization over String Theory
+Conjectures Model}
+
+\author{Brandon Marquez Salazar}
+
+\date{May 2026}
 
 \begin{document}
 
-\chapter{Introducción}
+\maketitle
 
-Bioinspired algorithms are models inspired by the nature
-allowing us to understand and or predict the behaviour of
-complex systems \cite{Cotta_2017}.
-
+\input{Chapters/01.- Introducción.tex}
+\input{Chapters/03.- HipótesisYPropuestas.tex}
 
 %\pgfplotstableread[
 %]

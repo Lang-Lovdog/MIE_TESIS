@@ -1,0 +1,42 @@
+\begin{lstlisting}[language=mathematica]
+changmoduli = ({\[Tau] -> E^-\[Phi] vol^(1/2), \[Rho] -> vol^( 1/3)} /. {vol -> (\[Tau] Exp[\[Phi]])^(3/2)});
+Print["VH3="]
+VH3 = (AH3 Exp[2 \[Phi]])/\[Rho]^6 /. changmoduli /. {\[Phi] -> Log[1/s]}
+Print["V03="]
+VO3 = AO3 PowerExpand[(\[Rho]^((q - 6)/2) \[Tau]^-3) /. changmoduli] /. {\[Phi] -> Log[1/s]} /. {q -> 3}
+Print["AF5="]
+VF5 = AF5 PowerExpand[(\[Rho]^(3 - p) \[Tau]^-4) /. changmoduli] /. {\[Phi] -> Log[1/s]} /. {p -> 5}
+VF5 = AF5/\[Tau]^4;
+Print["VF3="]
+VF3 = (AF3 Exp[4 \[Phi]])/\[Rho]^6 /. changmoduli /. {\[Phi] -> Log[1/s]}
+Print["VD5="]
+VR6 = AR6 PowerExpand[(\[Rho]^-1 \[Tau]^-2) /. changmoduli];
+VD5 = AD5/(Sqrt[s] \[Tau]^(5/2))
+Vins = AA Exp[-aa \[Tau]];
+Print["Vreal = "]
+Vreal = VH3 + VF3 + VD5 + VF5 + VO3 + 0 Vins
+var = {s, \[Tau]};
+NM = Length[var];
+(*
+Potential descriptors section:
+mij .......... is the hessian of the potential        |
+detmij ....... is the determinant of the hessian      |
+trmij ........ is the trace of the hessian            |
+diV .......... is the divergent of the potential      |
+egval ........ stores the eigenvalues of the hessian  |
+pfun ......... the function which likely evaluates    |
+               the potential and extract the egvals   |
+               which later are used to return a value |
+               $\lambda_1,2$ $\leq$ 0. This value is  |
+                 the sum of both egvals or 0 for each |
+                 semidefinite positive egval          |
+ *)
+Print["Hessian of the potential = "]
+mij = Simplify[ Table[D[Vreal, var[[i]], var[[j]]], {i, 1, NM}, {j, 1, NM}]]
+detmij = Det[mij];
+trmij = Tr[mij];
+diV = Simplify[Table[D[Vreal, var[[i]]], {i, 1, NM}]];
+egval = Eigenvalues[ Table[D[Vreal, var[[i]], var[[j]]], {i, 1, 2}, {j, 1, 2}]];
+pfun = Function[{s, \[Tau]}, 10^4 If[egval[[1]] < 0, egval[[1]], 0] + 10^4 If[egval[[2]] < 0, egval[[2]], 0]];
+\end{lstlisting}
+

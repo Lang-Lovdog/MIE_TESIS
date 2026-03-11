@@ -1,0 +1,9 @@
+@startuml
+
+: Define moduli ;
+: Define coefficients
+  regarding fluxes ;
+: Define potential function 
+  based on fluxes ;
+
+@enduml

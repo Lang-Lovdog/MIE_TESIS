@@ -1,17 +1,21 @@
 # Fdb version 4
-["biber MarquezSalazarBrandon-Reporte01"] 1773187044.96628 "MarquezSalazarBrandon-Reporte01.bcf" "MarquezSalazarBrandon-Reporte01.bbl" "MarquezSalazarBrandon-Reporte01" 1773187044.99944 2
-  "MarquezSalazarBrandon-Reporte01.bcf" 1773187044.92726 108139 ce496be465077a32b964af0d41680380 "xelatex"
-  "bibliography.bib" 1773186775.31126 2815 caba56afb18a70ad06ecf27967a4ffae ""
+["biber MarquezSalazarBrandon-Reporte01"] 1773270594.27786 "MarquezSalazarBrandon-Reporte01.bcf" "MarquezSalazarBrandon-Reporte01.bbl" "MarquezSalazarBrandon-Reporte01" 1773272838.08308 0
+  "MarquezSalazarBrandon-Reporte01.bcf" 1773272837.88865 108676 506bbed6bd2d01ae9cf80600b8025243 "xelatex"
+  "bibliography.bib" 1773266189.69759 4044 b89fd09e1104e5ae12a394c3b4398b11 ""
   (generated)
   "MarquezSalazarBrandon-Reporte01.bbl"
   "MarquezSalazarBrandon-Reporte01.blg"
   (rewritten before read)
-["xdvipdfmx"] 1773186847.91264 "MarquezSalazarBrandon-Reporte01.xdv" "MarquezSalazarBrandon-Reporte01.pdf" "MarquezSalazarBrandon-Reporte01" 1773187029.18009 0
-  "MarquezSalazarBrandon-Reporte01.xdv" 1773187044.92726 2704 aa50c6309d7da6bac8a46dc1e6253b7c "xelatex"
+["xdvipdfmx"] 1773272837.93383 "MarquezSalazarBrandon-Reporte01.xdv" "MarquezSalazarBrandon-Reporte01.pdf" "MarquezSalazarBrandon-Reporte01" 1773272838.08434 0
+  "MarquezSalazarBrandon-Reporte01.xdv" 1773272837.88865 120320 0c1d4636d3bcdb817ac36461c5efcb66 "xelatex"
   (generated)
   "MarquezSalazarBrandon-Reporte01.pdf"
   (rewritten before read)
-["xelatex"] 1773187044.07981 "MarquezSalazarBrandon-Reporte01.tex" "MarquezSalazarBrandon-Reporte01.xdv" "MarquezSalazarBrandon-Reporte01" 1773187044.99955 0
+["xelatex"] 1773272836.92324 "MarquezSalazarBrandon-Reporte01.tex" "MarquezSalazarBrandon-Reporte01.xdv" "MarquezSalazarBrandon-Reporte01" 1773272838.08313 0
+  "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1768914358 3524 cb3e574dea2d1052e39280babc910dc8 ""
+  "/usr/share/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1768914358 1524 4414a8315f39513458b80dfc63bff03a ""
+  "/usr/share/texmf-dist/fonts/tfm/public/cm/cmr12.tfm" 1768914358 1288 655e228510b4c2a1abe905c368440826 ""
+  "/usr/share/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1768914358 1124 6c73e740cf17375f03eec0ee63599741 ""
   "/usr/share/texmf-dist/tex/generic/iftex/iftex.sty" 1768914358 7984 7dbb9280f03c0a315425f1b4f35d43ee ""
   "/usr/share/texmf-dist/tex/generic/infwarerr/infwarerr.sty" 1768914358 8356 7bbb2c2373aa810be568c29e333da8ed ""
   "/usr/share/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty" 1768914358 17865 1a9bd36b4f98178fa551aca822290953 ""
@@ -115,10 +119,10 @@
   "/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code.tex" 1768914358 71792 dba1b75b15201895eb36f142f13b3238 ""
   "/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code.tex" 1768914358 3286 c17079ba50483e1ac1721268ea016041 ""
   "/usr/share/texmf-dist/tex/generic/unicode-data/UnicodeData.txt" 1768914358 2175362 f50a0495d2000b7d6dd979cb40e00ba2 ""
+  "/usr/share/texmf-dist/tex/latex/base/bk12.clo" 1768914358 8285 fc77e7da98ddd80716440c25e77162dc ""
+  "/usr/share/texmf-dist/tex/latex/base/book.cls" 1768914358 23268 24ec0168da5de0ccc9a2593a79692068 ""
   "/usr/share/texmf-dist/tex/latex/base/fontenc.sty" 1768914358 5275 0d62fb62162c7ab056e941ef18c5076d ""
   "/usr/share/texmf-dist/tex/latex/base/ifthen.sty" 1768914358 5525 9dced5929f36b19fa837947f5175b331 ""
-  "/usr/share/texmf-dist/tex/latex/base/report.cls" 1768914358 23203 7ac64169eac711b8259b91f4833984f3 ""
-  "/usr/share/texmf-dist/tex/latex/base/size12.clo" 1768914358 8449 ffe4ba2166a344827c3a832d1d5e0a91 ""
   "/usr/share/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx" 1768914358 1818 9ed166ac0a9204a8ebe450ca09db5dde ""
   "/usr/share/texmf-dist/tex/latex/biblatex/bbx/standard.bbx" 1768914358 25680 409c3f3d570418bc545e8065bebd0688 ""
   "/usr/share/texmf-dist/tex/latex/biblatex/biblatex.cfg" 1768914358 69 249fa6df04d948e51b6d5c67bea30c42 ""
@@ -129,7 +133,10 @@
   "/usr/share/texmf-dist/tex/latex/biblatex/blx-dm.def" 1768914358 32761 18d14e3b502c120f79b2184de4e21d14 ""
   "/usr/share/texmf-dist/tex/latex/biblatex/blx-unicode.def" 1768914358 3786 1f89d14780f0ad89ab94652b37f4e9b8 ""
   "/usr/share/texmf-dist/tex/latex/biblatex/cbx/numeric.cbx" 1768914358 4629 cda468e8a0b1cfa0f61872e171037a4b ""
+  "/usr/share/texmf-dist/tex/latex/biblatex/lbx/american.lbx" 1768914358 169 40f2892b6b9cee1ffa9c07b78605a5a1 ""
+  "/usr/share/texmf-dist/tex/latex/biblatex/lbx/english.lbx" 1768914358 40021 daa5a82ed0967f3ac4b77cb8384cac55 ""
   "/usr/share/texmf-dist/tex/latex/booktabs/booktabs.sty" 1768914358 6078 f1cb470c9199e7110a27851508ed7a5c ""
+  "/usr/share/texmf-dist/tex/latex/dirtytalk/dirtytalk.sty" 1768914358 1915 75d8498f106e3f673b6267693e944869 ""
   "/usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty" 1768914358 46850 d87daedc2abdc653769a6f1067849fe0 ""
   "/usr/share/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty" 1768914358 164981 148a15871e0e3c3101b8203733535af2 ""
   "/usr/share/texmf-dist/tex/latex/fontspec/fontspec.cfg" 1768914358 549 c4adac819276241fea8eb79c5ab7b99e ""
@@ -147,6 +154,11 @@
   "/usr/share/texmf-dist/tex/latex/l3backend/l3backend-xetex.def" 1768914358 31593 96a7f07a08af85a2bbfee2e0a9cdbb50 ""
   "/usr/share/texmf-dist/tex/latex/l3kernel/expl3.sty" 1768914358 6565 f51d809db6193fae7b06c1bc26ca8f75 ""
   "/usr/share/texmf-dist/tex/latex/l3packages/xparse/xparse.sty" 1768914358 9783 ab4bee47700c04aadedb8da27591b0ab ""
+  "/usr/share/texmf-dist/tex/latex/listings/listings.cfg" 1768914358 1865 301ae3c26fb8c0243307b619a6aa2dd3 ""
+  "/usr/share/texmf-dist/tex/latex/listings/listings.sty" 1768914358 81640 997090b6c021dc4af9ee00a97b85c5b4 ""
+  "/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty" 1768914358 206518 4eb59a801ad842a713fa168c34227290 ""
+  "/usr/share/texmf-dist/tex/latex/listings/lstmisc.sty" 1768914358 77051 be68720e5402397a830abb9eed5a2cb4 ""
+  "/usr/share/texmf-dist/tex/latex/listings/lstpatch.sty" 1768914358 353 9024412f43e92cd5b21fe9ded82d0610 ""
   "/usr/share/texmf-dist/tex/latex/logreq/logreq.def" 1768914358 1620 fb1c32b818f2058eca187e5c41dfae77 ""
   "/usr/share/texmf-dist/tex/latex/logreq/logreq.sty" 1768914358 6187 b27afc771af565d3a9ff1ca7d16d0d46 ""
   "/usr/share/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty" 1768914358 1090 bae35ef70b3168089ef166db3e66f5b2 ""
@@ -161,6 +173,7 @@
   "/usr/share/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty" 1768914358 325 f9f16d12354225b7dd52a3321f085955 ""
   "/usr/share/texmf-dist/tex/latex/pgfplots/pgfplots.sty" 1768914358 4904 ee78b44e85d6fccf08cd99370557481e ""
   "/usr/share/texmf-dist/tex/latex/pgfplots/pgfplotstable.sty" 1768914358 1440 4c1495abf57fc4dd215ebbf2a95b1cf8 ""
+  "/usr/share/texmf-dist/tex/latex/polyglossia/gloss-english.ldf" 1768914358 6435 fc2baa086c6073e5becdc949b3c912ff ""
   "/usr/share/texmf-dist/tex/latex/polyglossia/gloss-latex.ldf" 1768914358 965 b87f5d90da9ae322732c2f38762d0ba0 ""
   "/usr/share/texmf-dist/tex/latex/polyglossia/polyglossia.sty" 1768914358 62759 49291ce0d24a6fce6ac84ff6deec2987 ""
   "/usr/share/texmf-dist/tex/latex/tools/array.sty" 1768914358 14552 27664839421e418b87f56fa4c6f66b1a ""
@@ -169,10 +182,15 @@
   "/usr/share/texmf-dist/tex/latex/xcolor/xcolor.sty" 1768914358 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1768914358 42062 f0989bac22b9e284a0b08b30db5de8a5 ""
   "/var/lib/texmf/web2c/xetex/xelatex.fmt" 1773185371 5639488 8805725e3a712a3e2f42dc9486816d52 ""
-  "MarquezSalazarBrandon-Reporte01.aux" 1773187044.92326 463 28239e3cc2ef3ac9d08e0ac6eaf79381 "xelatex"
-  "MarquezSalazarBrandon-Reporte01.bbl" 0 -1 0 "biber MarquezSalazarBrandon-Reporte01"
-  "MarquezSalazarBrandon-Reporte01.run.xml" 1773187044.92726 2500 d39742233f10512cb9ed21ad2785dcd5 "xelatex"
-  "MarquezSalazarBrandon-Reporte01.tex" 1773187043.29926 691 1c3f196b96348d19485c2047f348a86f ""
+  "Chapters/01.- Introducción.tex" 1773270788.20094 3875 d69f2ae573c9aa1621b111bb1f6b6788 ""
+  "Chapters/01.- Introducción/python-definitions.tex" 1773270510.15298 1417 53f1f26fecf47b9d7d6b2d1417bc3abe ""
+  "Chapters/01.- Introducción/wolfram-definitions.tex" 1773270465.30499 1885 1528360771bdc90d5b44dfb103be55f7 ""
+  "Chapters/03.- HipótesisYPropuestas.tex" 1773272835.56065 800 db4d27b46eef64a46992867de9452d39 ""
+  "MarquezSalazarBrandon-Reporte01.aux" 1773272837.88865 2050 8a82a9a55363ee4b243e62b5f03ed87f "xelatex"
+  "MarquezSalazarBrandon-Reporte01.bbl" 1773270594.81697 12235 09a82dd8be46dc793ad759dbaf49279d "biber MarquezSalazarBrandon-Reporte01"
+  "MarquezSalazarBrandon-Reporte01.run.xml" 1773272837.88865 2563 70957d7fcf6cf558bcef5214a8fce84c "xelatex"
+  "MarquezSalazarBrandon-Reporte01.tex" 1773272583.02069 1770 8cf449d7c49f82a22d11b1a9620ee2f4 ""
+  "bibliography.bib" 1773266189.69759 4044 b89fd09e1104e5ae12a394c3b4398b11 ""
   (generated)
   "MarquezSalazarBrandon-Reporte01.aux"
   "MarquezSalazarBrandon-Reporte01.bcf"

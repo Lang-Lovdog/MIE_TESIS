@@ -1,0 +1,283 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global/global}
+    \entry{Becker2007}{book}{}{}
+      \name{author}{3}{}{%
+        {{hash=3aabae218a792d13e471d57d8417deb7}{%
+           family={Becker},
+           familyi={B\bibinitperiod},
+           given={Katrin},
+           giveni={K\bibinitperiod}}}%
+        {{hash=f75c2262353bee26e837262427809c26}{%
+           family={Becker},
+           familyi={B\bibinitperiod},
+           given={Melanie},
+           giveni={M\bibinitperiod}}}%
+        {{hash=a21ee9458cd511176c2a40339112f381}{%
+           family={Schwarz},
+           familyi={S\bibinitperiod},
+           given={John\bibnamedelima H.},
+           giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{69792e37132899b90681314a3aef69d7}
+      \strng{fullhash}{69792e37132899b90681314a3aef69d7}
+      \strng{fullhashraw}{69792e37132899b90681314a3aef69d7}
+      \strng{bibnamehash}{69792e37132899b90681314a3aef69d7}
+      \strng{authorbibnamehash}{69792e37132899b90681314a3aef69d7}
+      \strng{authornamehash}{69792e37132899b90681314a3aef69d7}
+      \strng{authorfullhash}{69792e37132899b90681314a3aef69d7}
+      \strng{authorfullhashraw}{69792e37132899b90681314a3aef69d7}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{String Theory and M-Theory}
+      \field{year}{2007}
+      \field{pages}{756}
+      \range{pages}{1}
+      \verb{urlraw}
+      \verb https://openlibrary.org/books/OL7767114M/String_Theory_and_M-Theory
+      \endverb
+      \verb{url}
+      \verb https://openlibrary.org/books/OL7767114M/String_Theory_and_M-Theory
+      \endverb
+      \warn{\item book entry 'Becker2007' (bibliography.bib): Invalid format 'January 15, 2007' of date field 'date' - ignoring}
+    \endentry
+    \entry{Cotta_2017}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=583f6e5b3c448041b353b3b3bcc0576f}{%
+           family={Cotta},
+           familyi={C\bibinitperiod},
+           given={Carlos},
+           giveni={C\bibinitperiod}}}%
+        {{hash=8cb2e2e8283c8b16d9de81739ca48fa0}{%
+           family={Schaefer},
+           familyi={S\bibinitperiod},
+           given={Robert},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier BV}%
+      }
+      \strng{namehash}{d674bd6e581374cf3cf90b63132bfff0}
+      \strng{fullhash}{d674bd6e581374cf3cf90b63132bfff0}
+      \strng{fullhashraw}{d674bd6e581374cf3cf90b63132bfff0}
+      \strng{bibnamehash}{d674bd6e581374cf3cf90b63132bfff0}
+      \strng{authorbibnamehash}{d674bd6e581374cf3cf90b63132bfff0}
+      \strng{authornamehash}{d674bd6e581374cf3cf90b63132bfff0}
+      \strng{authorfullhash}{d674bd6e581374cf3cf90b63132bfff0}
+      \strng{authorfullhashraw}{d674bd6e581374cf3cf90b63132bfff0}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1877-7503}
+      \field{journaltitle}{Journal of Computational Science}
+      \field{month}{11}
+      \field{title}{Bioinspired algorithms and complex systems}
+      \field{volume}{23}
+      \field{year}{2017}
+      \field{pages}{192{\bibrangedash }194}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1016/j.jocs.2017.11.010
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1016/j.jocs.2017.11.010
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1016/j.jocs.2017.11.010
+      \endverb
+    \endentry
+    \entry{Damian_2022}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=5bcc50dbe015eb3962ca10513f9502b0}{%
+           family={Damian},
+           familyi={D\bibinitperiod},
+           given={Cesar},
+           giveni={C\bibinitperiod}}}%
+        {{hash=0b668ceafd82e54e4897c8a9369694e8}{%
+           family={Loaiza-Brito},
+           familyi={L\bibinithyphendelim B\bibinitperiod},
+           given={Oscar},
+           giveni={O\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Springer Science}%
+        {Business Media LLC}%
+      }
+      \strng{namehash}{e7ae1a28f538843915d17a89da94bb18}
+      \strng{fullhash}{e7ae1a28f538843915d17a89da94bb18}
+      \strng{fullhashraw}{e7ae1a28f538843915d17a89da94bb18}
+      \strng{bibnamehash}{e7ae1a28f538843915d17a89da94bb18}
+      \strng{authorbibnamehash}{e7ae1a28f538843915d17a89da94bb18}
+      \strng{authornamehash}{e7ae1a28f538843915d17a89da94bb18}
+      \strng{authorfullhash}{e7ae1a28f538843915d17a89da94bb18}
+      \strng{authorfullhashraw}{e7ae1a28f538843915d17a89da94bb18}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1434-6052}
+      \field{journaltitle}{The European Physical Journal C}
+      \field{month}{12}
+      \field{number}{12}
+      \field{title}{Metastable vacua from torsion and machine learning}
+      \field{volume}{82}
+      \field{year}{2022}
+      \verb{doi}
+      \verb 10.1140/epjc/s10052-022-11118-x
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1140/epjc/s10052-022-11118-x
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1140/epjc/s10052-022-11118-x
+      \endverb
+    \endentry
+    \entry{Game2020}{unpublished}{}{}
+      \name{author}{3}{}{%
+        {{hash=ccc2a241653637c77138eb2ccb5b3601}{%
+           family={Game},
+           familyi={G\bibinitperiod},
+           given={Pravin\bibnamedelima S},
+           giveni={P\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=64628a2d13fd99c043da09ecd127bb40}{%
+           family={Vaze},
+           familyi={V\bibinitperiod},
+           given={Vinod},
+           giveni={V\bibinitperiod}}}%
+        {{hash=9ddb87558d3669cd03b8cdb287f58d33}{%
+           family={M},
+           familyi={M\bibinitperiod},
+           given={Emmanuel},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{1c09ab862cfed66cf3dfd3739f68b3fd}
+      \strng{fullhash}{1c09ab862cfed66cf3dfd3739f68b3fd}
+      \strng{fullhashraw}{1c09ab862cfed66cf3dfd3739f68b3fd}
+      \strng{bibnamehash}{1c09ab862cfed66cf3dfd3739f68b3fd}
+      \strng{authorbibnamehash}{1c09ab862cfed66cf3dfd3739f68b3fd}
+      \strng{authornamehash}{1c09ab862cfed66cf3dfd3739f68b3fd}
+      \strng{authorfullhash}{1c09ab862cfed66cf3dfd3739f68b3fd}
+      \strng{authorfullhashraw}{1c09ab862cfed66cf3dfd3739f68b3fd}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In today's day and time solving real-world complex problems has become fundamentally vital and critical task. Many of these are combinatorial problems, where optimal solutions are sought rather than exact solutions. Traditional optimization methods are found to be effective for small scale problems. However, for real-world large scale problems, traditional methods either do not scale up or fail to obtain optimal solutions or they end-up giving solutions after a long running time. Even earlier artificial intelligence based techniques used to solve these problems could not give acceptable results. However, last two decades have seen many new methods in AI based on the characteristics and behaviors of the living organisms in the nature which are categorized as bio-inspired or nature inspired optimization algorithms. These methods, are also termed meta-heuristic optimization methods, have been proved theoretically and implemented using simulation as well used to create many useful applications. They have been used extensively to solve many industrial and engineering complex problems due to being easy to understand, flexible, simple to adapt to the problem at hand and most importantly their ability to come out of local optima traps. This local optima avoidance property helps in finding global optimal solutions. This paper is aimed at understanding how nature has inspired many optimization algorithms, basic categorization of them, major bio-inspired optimization algorithms invented in recent time with their applications.}
+      \field{eprintclass}{cs.NE}
+      \field{eprinttype}{arXiv}
+      \field{title}{Bio-inspired Optimization: metaheuristic algorithms for optimization}
+      \field{year}{2020}
+      \verb{eprint}
+      \verb http://arxiv.org/abs/2003.11637v1
+      \endverb
+      \verb{file}
+      \verb ~/.local/share/cobib/Game2020.pdf
+      \endverb
+    \endentry
+    \entry{Rickles_2014}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=05cdd4885f371a02bf52a1e4eb92a809}{%
+           family={Rickles},
+           familyi={R\bibinitperiod},
+           given={Dean},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Berlin Heidelberg}%
+      }
+      \strng{namehash}{05cdd4885f371a02bf52a1e4eb92a809}
+      \strng{fullhash}{05cdd4885f371a02bf52a1e4eb92a809}
+      \strng{fullhashraw}{05cdd4885f371a02bf52a1e4eb92a809}
+      \strng{bibnamehash}{05cdd4885f371a02bf52a1e4eb92a809}
+      \strng{authorbibnamehash}{05cdd4885f371a02bf52a1e4eb92a809}
+      \strng{authornamehash}{05cdd4885f371a02bf52a1e4eb92a809}
+      \strng{authorfullhash}{05cdd4885f371a02bf52a1e4eb92a809}
+      \strng{authorfullhashraw}{05cdd4885f371a02bf52a1e4eb92a809}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9783642451287}
+      \field{issn}{2197-6619}
+      \field{journaltitle}{The Frontiers Collection}
+      \field{title}{A Brief History of String Theory: From Dual Models to M-Theory}
+      \field{year}{2014}
+      \verb{doi}
+      \verb 10.1007/978-3-642-45128-7
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1007/978-3-642-45128-7
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1007/978-3-642-45128-7
+      \endverb
+    \endentry
+    \entry{Yang_2016}{inbook}{}{}
+      \name{author}{1}{}{%
+        {{hash=8b9a8afb4153d569a17f211b83af9fac}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Xin-She},
+           giveni={X\bibinithyphendelim S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer International Publishing}%
+      }
+      \strng{namehash}{8b9a8afb4153d569a17f211b83af9fac}
+      \strng{fullhash}{8b9a8afb4153d569a17f211b83af9fac}
+      \strng{fullhashraw}{8b9a8afb4153d569a17f211b83af9fac}
+      \strng{bibnamehash}{8b9a8afb4153d569a17f211b83af9fac}
+      \strng{authorbibnamehash}{8b9a8afb4153d569a17f211b83af9fac}
+      \strng{authornamehash}{8b9a8afb4153d569a17f211b83af9fac}
+      \strng{authorfullhash}{8b9a8afb4153d569a17f211b83af9fac}
+      \strng{authorfullhashraw}{8b9a8afb4153d569a17f211b83af9fac}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Advances in Unconventional Computing}
+      \field{isbn}{9783319339214}
+      \field{issn}{2194-7295}
+      \field{month}{7}
+      \field{title}{Nature-Inspired Computation: An Unconventional Approach to Optimization}
+      \field{year}{2016}
+      \field{pages}{543{\bibrangedash }560}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1007/978-3-319-33921-4_20
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1007/978-3-319-33921-4_20
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1007/978-3-319-33921-4_20
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
