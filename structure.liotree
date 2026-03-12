@@ -5,7 +5,8 @@
 |==
 |- EXPERIMENTOS/                                  > El directorio donde realizo los códigos y cosas por el estilo.         ||
 |=-
-|-- Makefile                                      > Este es un archivo maestro que permite ejecutar cualquier código
+|-- __this__dir__
+-- Makefile                                      > Este es un archivo maestro que permite ejecutar cualquier código
 |                                                 simulación, prueba o tarea dentro del proyecto.                          ||
 |-- CESAR-BRITO_ORIGINAL-DATA/                    > Información del experimento original                                   ||
 |-- handmade-plots/                               > Gráficas que necesite hacer. Fuera de la estructura del módulo.        ||
@@ -67,13 +68,19 @@
 |                                                 algún error de dependencias, verifíque las versiones a la fecha
 |                                                 última de instalación estable: 11/02/2026.                               ||
 |-- setup.sh                                      > Script de configuración del entorno virtual de Pyrhon.                 ||
-|-- "Tópico Selecto - Algoritmos Bioinspirados/"  > Directorio correspondiente a la UDA de algoritmos bioinspirados,
+|-- Tópico Selecto - Algoritmos Bioinspirados/    > Directorio correspondiente a la UDA de algoritmos bioinspirados,
 |                                                 curso en el cual se estudian algoritmos de optimización
 |                                                 metaheurísticos, la razón de contener este directorio aquí es que
 |                                                 el enfoque del curso está dirigido al proyecto, dándole un carácter
 |                                                 de documentación/experimentación necesaria.                              ||
 |=-
 |--- __this__dir__
+|--- ags.h
+|--- ags.c
+|--- ags_main.c
+|--- AGS.c > AGS original del Dr. Capulín ||
+|--- ags_multi.sh
+|--- resultados_ags.txt
 |--- pso.c
 |--- pso.h
 |--- vacua.c
