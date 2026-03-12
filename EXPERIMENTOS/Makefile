@@ -42,16 +42,27 @@ bio_enjambre_build:
 	cd "./Tópico Selecto - Algoritmos Bioinspirados" &&\
 	gcc -c pso.c  -g -Wall &&\
 	gcc -c test.c -g -Wall &&\
-	gcc -o exe pso.o test.o -lm -g -Wall
+	gcc -o exe pso.o test.o -lm -g -Wall ;\
+	read -p " :: END OF PROCESS :: " a
 
-bio_enjambre:
+bio_enjambre_run:
 	cd "./Tópico Selecto - Algoritmos Bioinspirados" &&\
-	./exe
+	./exe ; \
+	read -p " :: END OF PROCESS :: " a
 
 
-bio_enjambre_it:
+
+bio_genetico_build:
 	cd "./Tópico Selecto - Algoritmos Bioinspirados" &&\
-	./test_multi.sh
+	gcc -c ags.c  -g -Wall &&\
+	gcc -c ags_main.c -g -Wall &&\
+	gcc -o ags_exe ags.o ags_main.o -lm -g -Wall ; \
+	read -p " :: END OF PROCESS :: " a
+
+bio_genetico_run:
+	cd "./Tópico Selecto - Algoritmos Bioinspirados" &&\
+	./ags_exe ; \
+	read -p " :: END OF PROCESS :: " a
 
 help:
 	@echo "make configure ............... # Configura el entorno (bash y python venv)"
@@ -62,7 +73,7 @@ help:
 	@echo "make mathics ................. # Ejecuta el script de Mathematica"
 	@echo "make update_pip .............. # Actualiza las dependencias del proyecto de Python"
 	@echo "make py ...................... # Ejecuta Python en el entorno virtual"
-	@echo "make bio_enjambre ............ # Ejecuta el algoritmo de enjambre (curso bioinspirados)"
-	@echo "make bio_enjambre_build ...... # Compila el algoritmo de enjambre y lo ejecuta"
-	@echo "make bio_enjambre_it ......... # Ejecuta el script iterativo"
-	@echo "make bio_enjambre_it_build ... # Compila el algoritmo de enjambre y Ejecuta el script iterativo"
+	@echo "make bio_enjambre_run ........ # Ejecuta el algoritmo de enjambre (curso bioinspirados)"
+	@echo "make bio_enjambre_build ...... # Compila el algoritmo de enjambre"
+	@echo "make bio_genetico_run ........ # Ejecuta el algoritmo genético (curso bioinspirados)"
+	@echo "make bio_genetico_build ...... # Compila el algoritmo genético"
