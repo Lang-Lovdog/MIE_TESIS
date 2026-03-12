@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025/VoidLinux) (preloaded format=xelatex 2026.3.10)  11 MAR 2026 17:47
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025/VoidLinux) (preloaded format=xelatex 2026.3.10)  12 MAR 2026 15:50
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -890,7 +890,7 @@ LaTeX Font Info:    Font shape `TU/VictorMono(0)/m/it' will be
 File: lstlang1.sty 2024/09/23 1.10c listings language file
 )
 
-[6])) (./Chapters/03.- HipótesisYPropuestas.tex
+[6]) (./Chapters/01.- Introducción/flowchart-optimization.tex.tex)) (./Chapters/03.- HipótesisYPropuestas.tex
 
 [7]
 
@@ -910,12 +910,12 @@ Package logreq Info: Writing requests to 'MarquezSalazarBrandon-Reporte01.run.xm
 
  ) 
 Here is how much of TeX's memory you used:
- 42522 strings out of 473832
- 1036890 string characters out of 5735447
+ 42610 strings out of 473832
+ 1039401 string characters out of 5735447
  3029450 words of memory out of 5000000
- 65081 multiletter control sequences out of 15000+600000
+ 65166 multiletter control sequences out of 15000+600000
  559926 words of font info for 61 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  99i,6n,105p,1672b,9140s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on MarquezSalazarBrandon-Reporte01.xdv (9 pages, 120320 bytes).
+Output written on MarquezSalazarBrandon-Reporte01.xdv (9 pages, 131028 bytes).

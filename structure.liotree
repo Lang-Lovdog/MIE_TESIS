@@ -126,7 +126,7 @@
 |=-
 |----- wolfram-definitions.tex                    > ||
 |----- python-definitions.tex                     > ||
-|----- flowchart-optimization.puml                > ||
+|----- flowchart-optimization.tex.puml            > ||
 |==
 |---- 03.- HipótesisYPropuestas.tex               > ||
 |==

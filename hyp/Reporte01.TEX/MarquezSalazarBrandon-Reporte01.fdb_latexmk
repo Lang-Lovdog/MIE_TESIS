@@ -1,17 +1,17 @@
 # Fdb version 4
-["biber MarquezSalazarBrandon-Reporte01"] 1773270594.27786 "MarquezSalazarBrandon-Reporte01.bcf" "MarquezSalazarBrandon-Reporte01.bbl" "MarquezSalazarBrandon-Reporte01" 1773272838.08308 0
-  "MarquezSalazarBrandon-Reporte01.bcf" 1773272837.88865 108676 506bbed6bd2d01ae9cf80600b8025243 "xelatex"
+["biber MarquezSalazarBrandon-Reporte01"] 1773270594.27786 "MarquezSalazarBrandon-Reporte01.bcf" "MarquezSalazarBrandon-Reporte01.bbl" "MarquezSalazarBrandon-Reporte01" 1773352232.50056 0
+  "MarquezSalazarBrandon-Reporte01.bcf" 1773352232.24923 108676 506bbed6bd2d01ae9cf80600b8025243 "xelatex"
   "bibliography.bib" 1773266189.69759 4044 b89fd09e1104e5ae12a394c3b4398b11 ""
   (generated)
   "MarquezSalazarBrandon-Reporte01.bbl"
   "MarquezSalazarBrandon-Reporte01.blg"
   (rewritten before read)
-["xdvipdfmx"] 1773272837.93383 "MarquezSalazarBrandon-Reporte01.xdv" "MarquezSalazarBrandon-Reporte01.pdf" "MarquezSalazarBrandon-Reporte01" 1773272838.08434 0
-  "MarquezSalazarBrandon-Reporte01.xdv" 1773272837.88865 120320 0c1d4636d3bcdb817ac36461c5efcb66 "xelatex"
+["xdvipdfmx"] 1773352232.29863 "MarquezSalazarBrandon-Reporte01.xdv" "MarquezSalazarBrandon-Reporte01.pdf" "MarquezSalazarBrandon-Reporte01" 1773352232.50176 0
+  "MarquezSalazarBrandon-Reporte01.xdv" 1773352232.24923 131028 56cda963c3caae8451cccd9002d8a6d2 "xelatex"
   (generated)
   "MarquezSalazarBrandon-Reporte01.pdf"
   (rewritten before read)
-["xelatex"] 1773272836.92324 "MarquezSalazarBrandon-Reporte01.tex" "MarquezSalazarBrandon-Reporte01.xdv" "MarquezSalazarBrandon-Reporte01" 1773272838.08313 0
+["xelatex"] 1773352231.06043 "MarquezSalazarBrandon-Reporte01.tex" "MarquezSalazarBrandon-Reporte01.xdv" "MarquezSalazarBrandon-Reporte01" 1773352232.50062 0
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1768914358 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1768914358 1524 4414a8315f39513458b80dfc63bff03a ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmr12.tfm" 1768914358 1288 655e228510b4c2a1abe905c368440826 ""
@@ -182,13 +182,14 @@
   "/usr/share/texmf-dist/tex/latex/xcolor/xcolor.sty" 1768914358 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1768914358 42062 f0989bac22b9e284a0b08b30db5de8a5 ""
   "/var/lib/texmf/web2c/xetex/xelatex.fmt" 1773185371 5639488 8805725e3a712a3e2f42dc9486816d52 ""
-  "Chapters/01.- Introducción.tex" 1773270788.20094 3875 d69f2ae573c9aa1621b111bb1f6b6788 ""
+  "Chapters/01.- Introducción.tex" 1773352177.36524 3941 e56aa9b041d159c21004970142bd7f50 ""
+  "Chapters/01.- Introducción/flowchart-optimization.tex.tex" 1773352230.25724 2809 32786afdcd858cb321e8e985227eb17d ""
   "Chapters/01.- Introducción/python-definitions.tex" 1773270510.15298 1417 53f1f26fecf47b9d7d6b2d1417bc3abe ""
   "Chapters/01.- Introducción/wolfram-definitions.tex" 1773270465.30499 1885 1528360771bdc90d5b44dfb103be55f7 ""
-  "Chapters/03.- HipótesisYPropuestas.tex" 1773272835.56065 800 db4d27b46eef64a46992867de9452d39 ""
-  "MarquezSalazarBrandon-Reporte01.aux" 1773272837.88865 2050 8a82a9a55363ee4b243e62b5f03ed87f "xelatex"
+  "Chapters/03.- HipótesisYPropuestas.tex" 1773272959.97663 800 db4d27b46eef64a46992867de9452d39 ""
+  "MarquezSalazarBrandon-Reporte01.aux" 1773352232.24923 2050 8a82a9a55363ee4b243e62b5f03ed87f "xelatex"
   "MarquezSalazarBrandon-Reporte01.bbl" 1773270594.81697 12235 09a82dd8be46dc793ad759dbaf49279d "biber MarquezSalazarBrandon-Reporte01"
-  "MarquezSalazarBrandon-Reporte01.run.xml" 1773272837.88865 2563 70957d7fcf6cf558bcef5214a8fce84c "xelatex"
+  "MarquezSalazarBrandon-Reporte01.run.xml" 1773352232.24923 2563 70957d7fcf6cf558bcef5214a8fce84c "xelatex"
   "MarquezSalazarBrandon-Reporte01.tex" 1773272583.02069 1770 8cf449d7c49f82a22d11b1a9620ee2f4 ""
   "bibliography.bib" 1773266189.69759 4044 b89fd09e1104e5ae12a394c3b4398b11 ""
   (generated)

@@ -331,6 +331,9 @@ INPUT Chapters/01.- Introducción/python-definitions.tex
 INPUT /usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
 INPUT /usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
 INPUT /usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
+INPUT ./Chapters/01.- Introducción/flowchart-optimization.tex.tex
+INPUT ./Chapters/01.- Introducción/flowchart-optimization.tex.tex
+INPUT Chapters/01.- Introducción/flowchart-optimization.tex.tex
 INPUT ./Chapters/03.- HipótesisYPropuestas.tex
 INPUT ./Chapters/03.- HipótesisYPropuestas.tex
 INPUT Chapters/03.- HipótesisYPropuestas.tex
