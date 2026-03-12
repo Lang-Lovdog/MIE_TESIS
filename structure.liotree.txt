@@ -1,4 +1,8 @@
 | MIE_TESIS/                                      > El directorio relativo al proyecto de tesis.                           ||
+|-- ArticlesAndBooks/
+|=-
+|--- ;[Articles].pdf;                             > ||
+|==
 |- EXPERIMENTOS/                                  > El directorio donde realizo los códigos y cosas por el estilo.         ||
 |=-
 |-- Makefile                                      > Este es un archivo maestro que permite ejecutar cualquier código
@@ -14,6 +18,7 @@
 |--- fixed-s-t.plt                                > Comportamiento della función potencial s fixed $\tau$ fixed.           ||
 |--- fixed-t.plt                                  > Comportamiento della función potencial s fixed $\tau$ fixed.           ||
 |--- fixed-t-3d-.qtplt                            > Comportamiento della función potencial s fixed $\tau$ fixed.           ||
+|--- fixed-t-3d-.wxplt                            > Comportamiento della función potencial s fixed $\tau$ fixed.           ||
 |--- fixed-s-t-o.plt                              > Comportamiento della función potencial s fixed $\tau$ fixed. val. orig.||
 |==
 |-- analyse-des-programmes/                       > Textes et reflexions sur le code.                                      ||
@@ -30,11 +35,11 @@
 |--- test_fitness_function.py                     > Aquí únicamente se evalúan los elementos según los resultados
 |                                                 esperados.                                                               ||
 |--- ;VacuaFound_[DDMMYYYY]/;                     > Las salidas de la búsqueda metaheurística.                             ||
-|=- > Vacua Found |
+|=-
 |-- __this__dir__
 |-- ;found_solutions__dS_fv_[d].csv;              > Resultados de la búsqueda metaheurística.                              ||
 |-- ;found_solutions_AdS_fv_[d].csv;              > Resultados de la búsqueda metaheurística.                              ||
-|=-
+|==
 |--- lvdsl/                                       > Módulo del Lovdog Swapland                                             ||
 |=-
 |---- k_theory/                                   > La teoría en revisión actual                                           ||
@@ -43,11 +48,11 @@
 |                                                 potencial, Hess y autovalores. Además de algunas funciones auxiliares
 |                                                 para fijar coeficientes/módulos y precisión decimal de operación para
 |                                                 sympy.                                                                   ||
-|==
 |-- potentials.py                                 > Definición de las funciones de evaluación, tanto de la versión lifting
 |                                                 como de la original. (Sujeto a cambio de nombre).                        ||
 |-- plots.py                                      > Graficación de las funciones, las principales serán inspiradas en el
 |                                                 experimento original. Algunos extras en caso de ser necesario.           ||
+|==
 |==
 |==
 |-- Mathematica_Stuff/                            > Código de Mathematica donde analizo sobre el experimento,
@@ -89,6 +94,7 @@
 |-- Reporte01.TEX/                                > Primer reporde de avances, respecto a las implementaciones y resultados
 |                                                 gráficos al día de hoy 10 de Marzo del 2026                              ||
 |=-
+|-- __this__dir__
 |--- graph/                                       >  ||
 |=-
 |--- ;*.tex;                                      >  ||
@@ -96,6 +102,7 @@
 |--- lifted-vacua-hist.tex                        >  ||
 |==
 |--- ;MarquezSalazarBrandon-Reporte01.[tex|pdf];  >  ||
+|--- bibliography.bib
 |==
 |==
 |- PIE/                                           > Trabajos de la clase de Proyecto de Investigación en Ing. Electrónica. ||
