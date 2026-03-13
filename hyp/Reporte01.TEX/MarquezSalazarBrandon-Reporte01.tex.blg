@@ -1,0 +1,5 @@
+[0] Config.pm:328> INFO - This is Biber 2.21
+[0] Config.pm:331> INFO - Logfile is '/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/MIE_TESIS/hyp/Reporte01.TEX/MarquezSalazarBrandon-Reporte01.tex.blg'
+[41] biber:342> INFO - === Fri Mar 13, 2026, 11:56:43
+[160] Utils.pm:479> ERROR - Cannot find '/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/MIE_TESIS/hyp/Reporte01.TEX/MarquezSalazarBrandon-Reporte01.tex.bcf'!
+[160] Biber.pm:137> INFO - ERRORS: 1

@@ -96,9 +96,24 @@ Which resulted in the following when implemented into python:
 
 \input{Chapters/01.- Introducción/python-definitions.tex}
 
-\subsubsection{Wrokflow Context}
+\subsubsection{Codeflow Context}
 
 Rather than just showing the code the structure of the wolfram
-optimization implementation follows the flow below:
+optimization implementation follows the flow described in the
+figure \ref{fig:flowchart_optimization_wolfram}.
 
-\input{Chapters/01.- Introducción/flowchart-optimization.tex}
+\begin{figure}[h]
+   \input{Chapters/01.- Introducción/flowchart-optimization.tex}
+   \caption{Wolfram Optimization Codeflow}
+   \label{fig:flowchart_optimization_wolfram}
+\end{figure}
+
+For the \textbf{simulate annealing} fitness function, the errors  used
+were some algebraic/geometrical behaviour descriptors of the
+effective potential such as the \textbf{mass matrix} (Jacobian of the 
+effective potential), \textbf{squared divergence} and the \textbf{potential}
+value itself.
+
+The new implementation used the same structure as in \cite{Damian_2022}
+with the only difference on the language, the frameworks used
+and the metaheuristic algorithm implemented.
