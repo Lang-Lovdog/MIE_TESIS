@@ -11,9 +11,20 @@
 \addbibresource{bibliography.bib}
 \usepackage{pgfplots}
 \usepackage{pgfplotstable}
+\usepackage{amsmath}
+\usepackage{newtxtext,newtxmath}
 \pgfplotsset{compat=1.18}
 \usepackage{listings}
 \usepackage{tikz}
+
+\usetikzlibrary{shapes.geometric, arrows, positioning}
+
+% Estilos bajo norma ISO/ANSI (Sintaxis Clásica)
+\tikzstyle{startstop} = [ellipse, draw=black, thick, minimum width=3cm, minimum height=1cm, text centered]
+\tikzstyle{process} = [rectangle, draw=black, thick, minimum width=3.5cm, minimum height=1cm, font=\footnotesize, text centered, align=center]
+\tikzstyle{io} = [trapezium, draw=black, thick, trapezium left angle=70, trapezium right angle=110, minimum width=3.5cm, minimum height=1cm, text centered]
+\tikzstyle{decision} = [diamond, draw=black, thick, aspect=2, minimum width=3cm, text centered]
+\tikzstyle{arrow} = [thick, ->, >=stealth]
 
 \newfontfamily\victormono{VictorMono}[
     Path = fonts/,

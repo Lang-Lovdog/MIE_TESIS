@@ -1,17 +1,17 @@
-[0] Config.pm:328> INFO - This is Biber 2.21
-[0] Config.pm:331> INFO - Logfile is 'MarquezSalazarBrandon-Reporte01.blg'
-[56] biber:342> INFO - === Wed Mar 11, 2026, 17:09:54
-[67] Biber.pm:421> INFO - Reading 'MarquezSalazarBrandon-Reporte01.bcf'
-[103] Biber.pm:1002> INFO - Found 6 citekeys in bib section 0
-[111] Biber.pm:4487> INFO - Processing section 0
-[116] Biber.pm:4678> INFO - Looking for bibtex file 'bibliography.bib' for section 0
-[117] bibtex.pm:1713> INFO - LaTeX decoding ...
-[124] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliography.bib'
-[167] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[167] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[167] Biber.pm:4307> INFO - Sorting list 'nty/global//global/global/global' of type 'entry' with template 'nty' and locale 'en-US'
-[167] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
-[172] bbl.pm:676> INFO - Writing 'MarquezSalazarBrandon-Reporte01.bbl' with encoding 'UTF-8'
-[173] bbl.pm:779> INFO - Output to MarquezSalazarBrandon-Reporte01.bbl
-[173] Biber.pm:132> WARN - book entry 'Becker2007' (bibliography.bib): Invalid format 'January 15, 2007' of date field 'date' - ignoring
-[173] Biber.pm:134> INFO - WARNINGS: 1
+[1] Config.pm:328> INFO - This is Biber 2.21
+[1] Config.pm:331> INFO - Logfile is 'MarquezSalazarBrandon-Reporte01.blg'
+[106] biber:342> INFO - === Thu Mar 12, 2026, 22:24:28
+[183] Biber.pm:421> INFO - Reading 'MarquezSalazarBrandon-Reporte01.bcf'
+[272] Biber.pm:1002> INFO - Found 6 citekeys in bib section 0
+[284] Biber.pm:4487> INFO - Processing section 0
+[296] Biber.pm:4678> INFO - Looking for bibtex file 'bibliography.bib' for section 0
+[298] bibtex.pm:1713> INFO - LaTeX decoding ...
+[308] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliography.bib'
+[407] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[407] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[407] Biber.pm:4307> INFO - Sorting list 'nty/global//global/global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[407] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
+[417] bbl.pm:676> INFO - Writing 'MarquezSalazarBrandon-Reporte01.bbl' with encoding 'UTF-8'
+[422] bbl.pm:779> INFO - Output to MarquezSalazarBrandon-Reporte01.bbl
+[423] Biber.pm:132> WARN - book entry 'Becker2007' (bibliography.bib): Invalid format 'January 15, 2007' of date field 'date' - ignoring
+[423] Biber.pm:134> INFO - WARNINGS: 1

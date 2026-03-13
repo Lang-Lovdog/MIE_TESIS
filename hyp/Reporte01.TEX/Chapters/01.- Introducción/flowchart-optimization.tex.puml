@@ -1,9 +1,10 @@
 @startuml
 :Define **moduli**;
-note left: s and $\\tau$
+note left: <latex>s</latex> and <latex>\tau</latex>
 :Define coefficients
 regarding **fluxes**;
 :Define **potential**
 **function** based on
 **fluxes**;
+:Obtain 
 @enduml
