@@ -113,11 +113,11 @@
 |---- ;[*].jpg;                                   >  ||
 |---- ;[*].jpeg;                                  >  ||
 |==
-|--- graph/                                        >  ||
+|--- graph/                                       >  ||
 |=-
-|---- ;*.tex;                                      >  ||
-|---- stable-vacua-hist.tex                        >  ||
-|---- lifted-vacua-hist.tex                        >  ||
+|---- ;*.tex;                                     >  ||
+|---- stable-vacua-hist.tex                       >  ||
+|---- lifted-vacua-hist.tex                       >  ||
 |==
 |--- Chapters/
 |=-
@@ -127,6 +127,7 @@
 |----- wolfram-definitions.tex                    > ||
 |----- python-definitions.tex                     > ||
 |----- flowchart-optimization.tex.puml            > ||
+|----- flowchart-optimization.tex                 > ||
 |==
 |---- 03.- HipótesisYPropuestas.tex               > ||
 |==
