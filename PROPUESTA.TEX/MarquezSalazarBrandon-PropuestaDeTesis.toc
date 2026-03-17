@@ -1,0 +1,14 @@
+\xpg@aux {}{spanish}
+\contentsline {section}{\numberline {1}Introducción}{2}{}%
+\contentsline {subsection}{\numberline {1.1}Objetivos}{2}{}%
+\contentsline {subsubsection}{\numberline {1.1.1}Objetivo general}{2}{}%
+\contentsline {subsubsection}{\numberline {1.1.2}Objetivos específicos}{2}{}%
+\contentsline {subsection}{\numberline {1.2}Justificación}{3}{}%
+\contentsline {subsection}{\numberline {1.3}Antecedentes}{3}{}%
+\contentsline {subsubsection}{\numberline {1.3.1}Metaheurísticas}{3}{}%
+\contentsline {subsubsection}{\numberline {1.3.2}Aplicaciones de los NIM en la investigación}{3}{}%
+\contentsline {subsubsection}{\numberline {1.3.3}Objetivos específicos}{3}{}%
+\contentsline {subsection}{\numberline {1.4}Antecedentes}{4}{}%
+\contentsline {subsubsection}{\numberline {1.4.1}Metaheurísticas}{4}{}%
+\contentsline {subsubsection}{\numberline {1.4.2}Aplicaciones de los NIM en la investigación}{4}{}%
+\contentsline {section}{\numberline {2}Cronograma}{4}{}%

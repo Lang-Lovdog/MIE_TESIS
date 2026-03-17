@@ -4,89 +4,54 @@
 
 El uso de herramientas computacionales ha tenido un impacto
 significativo dentro de la investigación científica \cite{Du_2004}.
-Desde el desarrollo de sistemas simples de tareas de
-automatización y gestión de datos \cite{WOS:A1985ACW9900019},
+Dicho impacto abarca desde el desarrollo de sistemas simples de
+tareas de automatización y gestión de datos \cite{WOS:A1985ACW9900019},
 hasta modernas aproximaciones de inteligencia artificial basada
-en tensores \cite{Yenduri_2024, Wilson_2014}.
+en tensores \cite{Yenduri_2024, Wilson_2014}, pasando por
+herramientas de \textit{Machine Learning} (ML).
 
-\subsection{Sistemas inspirados en la naturaleza}
+En este contexto, los métodos inspirados en la naturaleza
+(\textit{Nature-Inspired Methods, NIM}) han emergido como una
+alternativa robusta para resolver problemas de optimización
+donde los métodos analíticos tradicionales resultan
+insuficientes. Estos algoritmos se basan en el comportamiento
+de seres vivos, procesos físicos, interacciones químicas,
+entre otros \cite{YANG20203, WOS:000975679700001}.
 
-Dentro de este ámbito se encuentran los \textit{nature-inspired methods} 
-(NIM) o métodos inspirados en la naturaleza. Dichos métodos
-se basan en el comportamiento de seres vivos, procesos físicos,
-interacciones protéicas, entre otros \cite{YANG20203, WOS:000975679700001}.
-
-El objetivo principal es la creación de un conjunto de reglas
-simples que puedan describir un comportamiento más complejo;
-generalmente estos métodos permiten la exploración dentro del
-espacio de búsqueda \cite{YANG20203, Yang2010, Yang2017, Lones_2014}.
+Las metaheurísticas, en particular, implementan reglas locales
+simples para dar lugar a comportamientos complejos. Su
+principal ventaja radica en la capacidad de equilibrar la
+exploración de nuevas regiones con la explotación de soluciones
+prometedoras, permitiendo encontrar óptimos en modelos cuya
+estructura subyacente o función de costo es desconocida o
+altamente no lineal \cite{YANG20203, Yang2017}.
 
 Este tipo de implementaciones permiten encontrar soluciones en
 modelos cuyo comportamiento es desconocido. Tal como se
 menciona en \cite{Eiben_2015}, la optimización consiste en la
 búsqueda de valores de entrada óptimos para un modelo.
 
-\subsubsection{Heurísticas, metaheurísticas y NIM}
+Un caso crítico de aplicación se encuentra en la exploración de
+paisajes de soluciones (\textit{landscapes}) derivados de modelos de
+física teórica, como la teoría de cuerdas. Computacionalmente,
+estos problemas se traducen en la búsqueda de mínimos estables
+dentro de un hiperespacio de parámetros de gran magnitud.
+Debido al comportamiento caótico y la presencia de múltiples
+óptimos locales, la implementación de metaheurísticas se
+presenta como un recurso computacional valioso para guiar la
+búsqueda hacia configuraciones estables de manera eficiente.
 
-Una diferenciación necesaria dentro de esta área es el uso de
-heurística, metaheurística y método inspirado en la naturaleza.
+\subsection{Objetivos}
 
-Mientras las heurísticas son métodos que permiten la búsqueda
-de posibles soluciones, su diferencia con las metaheurísiticas
-es que estas últimas tiene un comportamiento más complejo que
-puede equipararse al aprendizaje \cite{Lones_2014, Yang2017}.
+\subsubsection{Objetivo general}
 
-Por su parte, un NIM suele tomar reglas del proceso a imitar y
-crear un conjunto de pasos a seguir de forma iterativa a fin de 
-producir comportamientos complejos, muchas veces adaptivos e
-\say{\textit{inteligentes}} \cite{Holland_1992, Yang2017, Eiben_2015}.
+Implementar diversos NIM para la optimización de los
+coeficientes de una función potencial en el marco de la
+K-teoría dentro de la teoría de cuerdas, con el fin de
+identificar y caracterizar una mayor cantidad de vacíos
+estables.
 
-\subsubsection{Exploración y explotación}
 
-Generalmente los modelos en los que se utilizan los NIM definen
-espacios no lineales donde métodos deterministas que,
-generalmente, requieren de gradientes o de conocimiento previo
-del comportamiento del sistema, suelen fallar o quedarse en
-óptimos locales \cite{WOS:000975679700001, Yang2017}.
-
-El comportamiento de los modelos más deterministas permiten
-afinar un punto dentro de los límites propuestos en el espacio
-de búsqueda, precisión que, generalmente, los modelos
-metaheurícos pierden a cambio de la perspectiva global \cite{Yang2017}.
-
-Dicha búsqueda o mapeo suele llamarse exploración, mientras que
-el refinamiento determinístico de puntos óptimos es llamado
-explotación.
-
-\subsection{Teoría de cuerdas}
-
-La teoría de cuerdas en una rama de la física que propone a las
-partículas fundamentales del universo  como cuerdas de energía
-unidimensionales en vez de puntos adimensionale, lo que ha
-permitido obtener modelos matemáticos más estables \cite{Becker2007}.
-
-Además de lo anterior, la teoría de cuerdas apunta a la
-posibilidad de definir la gravedad en términos cuánticos \cite{Rickles_2014}.
-
-Entre los principales objetivos de la investigación en teoría
-de cuerdas se encuentran la construcción de un modelo que
-nos permita describir las partículas de nuestro universo.
-
-\subsubsection{El \textit{landscape} y el \textit{swampland}}
-
-La teoría de cuerdas por sí misma es un marco teórico que
-permite modelar distintos universos. Cada universo se rige
-por un conjunto de leyes que se derivan de las diferentes
-interacciones entre sus cuerdas.
-
-Existen un conjunto de teorías y conjeturas que han permitido
-dirigir la investigación, sin embargo, el proceso sigue siendo
-exhaustivo matemáticamente y topológicamente \cite{Rickles_2014}.
-
-Debido a lo anterior, la teoría de cuerdas ha enfrentado uno de
-sus mayores retos: el \textit{landscape}. Este se refiere a la gran
-cantidad de universos posibles.
-
-Por su parte, el \textit{swampland} se refiere al conjunto de universos
-verosímiles a un modelo estable del universo que, sin embargo,
-son inestables o inconsistentes \cite{Vafa2005}.
+\input{Capítulos/01.01.00.-Objetivos.tex}
+\input{Capítulos/01.02.00.-Justificación.tex}
+\input{Capítulos/01.03.00.-Antecedentes.tex}

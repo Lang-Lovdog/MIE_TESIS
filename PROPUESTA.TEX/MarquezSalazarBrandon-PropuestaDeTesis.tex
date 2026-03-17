@@ -1,6 +1,6 @@
 %!Tex ts-program = xelatex
 %!TEX jobname = MarquezSalazarBrandon-PropuestaDeTesis
-\documentclass[12pt, letterpaper]{article} % Correct size for your thesis
+\documentclass[10pt, letterpaper]{article} % Correct size for your thesis
 
 \usepackage{amsmath}
 \usepackage{amsthm}
@@ -11,10 +11,13 @@
 \usepackage{graphicx}
 \usepackage{dirtytalk}
 \usepackage{tikz}
-\usepackage{xcolor}
+\usepackage[dvipsnames]{xcolor}
 \usepackage{pagecolor} % Optional: allows \nopagecolor if needed
 \usepackage{wallpaper}
-\usepackage[margin=1.5in, inner=1.8in, outer=1.2in]{geometry}
+\usepackage{pgfornament}
+\usepackage{pgfgantt}
+\usepackage{calc}
+\usepackage[margin=1.5in, inner=1.5in, outer=1.4in]{geometry}
 
 \setmainlanguage{spanish}
 \usepackage[backend=biber, sorting=none]{biblatex}
@@ -68,15 +71,17 @@
     \color{black}
 \fi
 
-\title{Propuesta de tesis}
-\author{Brandon Marquez Salazar}
-\date{}
+%\title{Propuesta de tesis}
+%\author{Brandon Marquez Salazar}
+%\date{}
 
 \addbibresource{bibliography.bib}
 
 \begin{document}
- \maketitle 
+ \input{Capítulos/00.00.00.-Portada.tex}
+ \tableofcontents\newpage
  \input{Capítulos/01.00.00.-Introducción.tex}
  \input{Capítulos/01.01.00.-Objetivos.tex}
  \input{Capítulos/01.03.00.-Antecedentes.tex}
+ \input{Capítulos/01.05.00.-Cronograma.tex}
 \end{document}

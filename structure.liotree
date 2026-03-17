@@ -154,8 +154,14 @@
 |=-
 |--- ;QTBookmann-[type].otf;                      > ||
 |==
+|-- img/
+|=-
+|--- ;[*].png;                                    > ||
+|--- ;[*].j[e]pg;                                 > ||
+|==
 |-- Capítulos/                                    > ||
 |=-
+|--- 00.00.00.-Portada.tex
 |--- 01.00.00.-Introducción.tex
 |--- 01.01.00.-Objetivos.tex
 |--- 01.02.00.-Justificación.tex
@@ -167,6 +173,7 @@
 |==
 |-- MarquezSalazarBrandon-PropuestaDeTesis.tex    > ||
 |-- bibliography.bib                              > ||
+|-- ;[*].txt;
 |==
 |- TESIS.TEX/                                     > Directorio della tesis.                                                ||
 |=-
