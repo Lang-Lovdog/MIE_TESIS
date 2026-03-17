@@ -1,0 +1,5 @@
+PWD /home/lang_lovdog/Documentos/ACAD/MAESTRÍA/TESIS/PROPUESTA.TEX
+INPUT /opt/texlive/2025/texmf.cnf
+INPUT /opt/texlive/2025/texmf-dist/web2c/texmf.cnf
+INPUT /opt/texlive/2025/texmf-var/web2c/xetex/xelatex.fmt
+OUTPUT texput.log
