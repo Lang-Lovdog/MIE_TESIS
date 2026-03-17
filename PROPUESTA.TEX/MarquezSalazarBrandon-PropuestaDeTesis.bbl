@@ -1,0 +1,828 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{Du_2004}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=3f79fb13c57a91bb57a69f1cd97b6cc8}{%
+           family={Du},
+           familyi={D\bibinitperiod},
+           given={Qiang},
+           giveni={Q\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Springer Science}%
+        {Business Media LLC}%
+      }
+      \strng{namehash}{3f79fb13c57a91bb57a69f1cd97b6cc8}
+      \strng{fullhash}{3f79fb13c57a91bb57a69f1cd97b6cc8}
+      \strng{fullhashraw}{3f79fb13c57a91bb57a69f1cd97b6cc8}
+      \strng{bibnamehash}{3f79fb13c57a91bb57a69f1cd97b6cc8}
+      \strng{authorbibnamehash}{3f79fb13c57a91bb57a69f1cd97b6cc8}
+      \strng{authornamehash}{3f79fb13c57a91bb57a69f1cd97b6cc8}
+      \strng{authorfullhash}{3f79fb13c57a91bb57a69f1cd97b6cc8}
+      \strng{authorfullhashraw}{3f79fb13c57a91bb57a69f1cd97b6cc8}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1862-2763}
+      \field{journaltitle}{Science in China Series A: Mathematics}
+      \field{month}{1}
+      \field{number}{S1}
+      \field{title}{Some perspective on the Large Scale Scientific Computation Research}
+      \field{volume}{47}
+      \field{year}{2004}
+      \field{pages}{1{\bibrangedash }3}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1007/bf02894554
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1007/bf02894554
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1007/bf02894554
+      \endverb
+    \endentry
+    \entry{WOS:A1985ACW9900019}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=09752cbb5cbbb50bd5a938e579450cbb}{%
+           family={MCMILLAN},
+           familyi={M\bibinitperiod},
+           given={T},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {English}%
+      }
+      \list{location}{1}{%
+        {70 MAIN ST, PETERBOROUGH, NH 03458}%
+      }
+      \list{publisher}{1}{%
+        {BYTE PUBL INC}%
+      }
+      \strng{namehash}{09752cbb5cbbb50bd5a938e579450cbb}
+      \strng{fullhash}{09752cbb5cbbb50bd5a938e579450cbb}
+      \strng{fullhashraw}{09752cbb5cbbb50bd5a938e579450cbb}
+      \strng{bibnamehash}{09752cbb5cbbb50bd5a938e579450cbb}
+      \strng{authorbibnamehash}{09752cbb5cbbb50bd5a938e579450cbb}
+      \strng{authornamehash}{09752cbb5cbbb50bd5a938e579450cbb}
+      \strng{authorfullhash}{09752cbb5cbbb50bd5a938e579450cbb}
+      \strng{authorfullhashraw}{09752cbb5cbbb50bd5a938e579450cbb}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0279-4721}
+      \field{journaltitle}{POPULAR COMPUTING}
+      \field{number}{6}
+      \field{title}{SCIENTIFIC COMPUTING}
+      \field{type}{Editorial Material}
+      \field{volume}{4}
+      \field{year}{1985}
+      \field{pages}{67}
+      \range{pages}{1}
+    \endentry
+    \entry{Yenduri_2024}{article}{}{}
+      \name{author}{12}{}{%
+        {{hash=f2edf883d67d61800ccfd4df673131bf}{%
+           family={Yenduri},
+           familyi={Y\bibinitperiod},
+           given={Gokul},
+           giveni={G\bibinitperiod}}}%
+        {{hash=b40bebde76c53d2d6673a265d3b53abd}{%
+           family={Ramalingam},
+           familyi={R\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=dc3f1672fe856ae38675ba6b61b460df}{%
+           family={Selvi},
+           familyi={S\bibinitperiod},
+           given={G.\bibnamedelimi Chemmalar},
+           giveni={G\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=725ae775298735267aaf2535d8bdaf41}{%
+           family={Supriya},
+           familyi={S\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=940fa42d495ac87907ebc0a4bf68f580}{%
+           family={Srivastava},
+           familyi={S\bibinitperiod},
+           given={Gautam},
+           giveni={G\bibinitperiod}}}%
+        {{hash=1ccf1f693c09a46480091807a5ae6b6a}{%
+           family={Maddikunta},
+           familyi={M\bibinitperiod},
+           given={Praveen\bibnamedelimb Kumar\bibnamedelima Reddy},
+           giveni={P\bibinitperiod\bibinitdelim K\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=b3d1df814c7c6ff47395109480a1595f}{%
+           family={Raj},
+           familyi={R\bibinitperiod},
+           given={G.\bibnamedelimi Deepti},
+           giveni={G\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=d7e586fba06530b4fd0d9d8958d91b40}{%
+           family={Jhaveri},
+           familyi={J\bibinitperiod},
+           given={Rutvij\bibnamedelima H.},
+           giveni={R\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=41d0a6ff1900cebecaff2eb0094ea230}{%
+           family={Prabadevi},
+           familyi={P\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=95a81c9902743f598da2616f71e3827d}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Weizheng},
+           giveni={W\bibinitperiod}}}%
+        {{hash=4d9fbc50e12486f11ef599cf2f3ffe11}{%
+           family={Vasilakos},
+           familyi={V\bibinitperiod},
+           given={Athanasios\bibnamedelima V.},
+           giveni={A\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=7ac9945d951cbe5c1fe607093cfc29c4}{%
+           family={Gadekallu},
+           familyi={G\bibinitperiod},
+           given={Thippa\bibnamedelima Reddy},
+           giveni={T\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Institute of Electrical}%
+        {Electronics Engineers (IEEE)}%
+      }
+      \strng{namehash}{5254569aa4602511f5f16d9d158d97ae}
+      \strng{fullhash}{01bda5b21662bf634676d251584c4111}
+      \strng{fullhashraw}{01bda5b21662bf634676d251584c4111}
+      \strng{bibnamehash}{5254569aa4602511f5f16d9d158d97ae}
+      \strng{authorbibnamehash}{5254569aa4602511f5f16d9d158d97ae}
+      \strng{authornamehash}{5254569aa4602511f5f16d9d158d97ae}
+      \strng{authorfullhash}{01bda5b21662bf634676d251584c4111}
+      \strng{authorfullhashraw}{01bda5b21662bf634676d251584c4111}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2169-3536}
+      \field{journaltitle}{IEEE Access}
+      \field{title}{GPT (Generative Pre-Trained Transformer){—} A Comprehensive Review on Enabling Technologies, Potential Applications, Emerging Challenges, and Future Directions}
+      \field{volume}{12}
+      \field{year}{2024}
+      \field{pages}{54608{\bibrangedash }54649}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1109/access.2024.3389497
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1109/ACCESS.2024.3389497
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1109/ACCESS.2024.3389497
+      \endverb
+    \endentry
+    \entry{Wilson_2014}{article}{}{}
+      \name{author}{13}{}{%
+        {{hash=fda30198609a1ab29a82b93d4e8f347b}{%
+           family={Wilson},
+           familyi={W\bibinitperiod},
+           given={Greg},
+           giveni={G\bibinitperiod}}}%
+        {{hash=b7fb429a64159c8c2fcffb2fd5ebe322}{%
+           family={Aruliah},
+           familyi={A\bibinitperiod},
+           given={D.\bibnamedelimi A.},
+           giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=6c3d75b262ff31c4c460a38dcfaa01c7}{%
+           family={Brown},
+           familyi={B\bibinitperiod},
+           given={C.\bibnamedelimi Titus},
+           giveni={C\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=b16058072ea614ed866525e9be15f25c}{%
+           family={Chue\bibnamedelima Hong},
+           familyi={C\bibinitperiod\bibinitdelim H\bibinitperiod},
+           given={Neil\bibnamedelima P.},
+           giveni={N\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=5b594bb95226424e0f98be76162893ba}{%
+           family={Davis},
+           familyi={D\bibinitperiod},
+           given={Matt},
+           giveni={M\bibinitperiod}}}%
+        {{hash=91190d61d09ab97ca2c781ad67b5f9c5}{%
+           family={Guy},
+           familyi={G\bibinitperiod},
+           given={Richard\bibnamedelima T.},
+           giveni={R\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=8508b37dea0eb874d042fab5661d8436}{%
+           family={Haddock},
+           familyi={H\bibinitperiod},
+           given={Steven\bibnamedelimb H.\bibnamedelimi D.},
+           giveni={S\bibinitperiod\bibinitdelim H\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=4f0a2e62c8bf12f5509d6709d5b3740e}{%
+           family={Huff},
+           familyi={H\bibinitperiod},
+           given={Kathryn\bibnamedelima D.},
+           giveni={K\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=7784363e87d22b678f93bf2eacf80944}{%
+           family={Mitchell},
+           familyi={M\bibinitperiod},
+           given={Ian\bibnamedelima M.},
+           giveni={I\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=af302f6b1171db4b3b2979f068a9bafe}{%
+           family={Plumbley},
+           familyi={P\bibinitperiod},
+           given={Mark\bibnamedelima D.},
+           giveni={M\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=c4d2f08c21ed761216cc2d3fbc149959}{%
+           family={Waugh},
+           familyi={W\bibinitperiod},
+           given={Ben},
+           giveni={B\bibinitperiod}}}%
+        {{hash=91dea6e30a123bc417a445b1cbca2b1d}{%
+           family={White},
+           familyi={W\bibinitperiod},
+           given={Ethan\bibnamedelima P.},
+           giveni={E\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=6b64b7b7d69826da072783c99973005f}{%
+           family={Wilson},
+           familyi={W\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod}}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=4b548404b858e93369534cd3032976da}{%
+           family={Eisen},
+           familyi={E\bibinitperiod},
+           given={Jonathan\bibnamedelima A.},
+           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Public Library of Science (PLoS)}%
+      }
+      \strng{namehash}{4996f01033f1e72efe036963c2f02dac}
+      \strng{fullhash}{7a5c13e00333b1b2b1950b80a4cc7512}
+      \strng{fullhashraw}{7a5c13e00333b1b2b1950b80a4cc7512}
+      \strng{bibnamehash}{4996f01033f1e72efe036963c2f02dac}
+      \strng{authorbibnamehash}{4996f01033f1e72efe036963c2f02dac}
+      \strng{authornamehash}{4996f01033f1e72efe036963c2f02dac}
+      \strng{authorfullhash}{7a5c13e00333b1b2b1950b80a4cc7512}
+      \strng{authorfullhashraw}{7a5c13e00333b1b2b1950b80a4cc7512}
+      \strng{editorbibnamehash}{4b548404b858e93369534cd3032976da}
+      \strng{editornamehash}{4b548404b858e93369534cd3032976da}
+      \strng{editorfullhash}{4b548404b858e93369534cd3032976da}
+      \strng{editorfullhashraw}{4b548404b858e93369534cd3032976da}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1545-7885}
+      \field{journaltitle}{PLoS Biology}
+      \field{month}{1}
+      \field{number}{1}
+      \field{title}{Best Practices for Scientific Computing}
+      \field{volume}{12}
+      \field{year}{2014}
+      \field{pages}{e1001745}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1371/journal.pbio.1001745
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1371/journal.pbio.1001745
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1371/journal.pbio.1001745
+      \endverb
+    \endentry
+    \entry{YANG20203}{incollection}{}{}
+      \name{author}{2}{}{%
+        {{hash=8b9a8afb4153d569a17f211b83af9fac}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Xin-She},
+           giveni={X\bibinithyphendelim S\bibinitperiod}}}%
+        {{hash=4da3141c7b9071383b038f7e7a96ebca}{%
+           family={Karamanoglu},
+           familyi={K\bibinitperiod},
+           given={Mehmet},
+           giveni={M\bibinitperiod}}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=8b9a8afb4153d569a17f211b83af9fac}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Xin-She},
+           giveni={X\bibinithyphendelim S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Academic Press}%
+      }
+      \strng{namehash}{41ae154636cb5582a5d4938cb9c3f3a2}
+      \strng{fullhash}{41ae154636cb5582a5d4938cb9c3f3a2}
+      \strng{fullhashraw}{41ae154636cb5582a5d4938cb9c3f3a2}
+      \strng{bibnamehash}{41ae154636cb5582a5d4938cb9c3f3a2}
+      \strng{authorbibnamehash}{41ae154636cb5582a5d4938cb9c3f3a2}
+      \strng{authornamehash}{41ae154636cb5582a5d4938cb9c3f3a2}
+      \strng{authorfullhash}{41ae154636cb5582a5d4938cb9c3f3a2}
+      \strng{authorfullhashraw}{41ae154636cb5582a5d4938cb9c3f3a2}
+      \strng{editorbibnamehash}{8b9a8afb4153d569a17f211b83af9fac}
+      \strng{editornamehash}{8b9a8afb4153d569a17f211b83af9fac}
+      \strng{editorfullhash}{8b9a8afb4153d569a17f211b83af9fac}
+      \strng{editorfullhashraw}{8b9a8afb4153d569a17f211b83af9fac}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Nature-inspired algorithms can be flexible and efficient for solving optimization problems. There are a wide spectrum of nature-inspired algorithms in the literature, and most of such algorithms are based on swarm intelligence. This chapter provides an overview of some widely used algorithms for optimization. Their main characteristics will be discussed in comparison with traditional algorithms such as gradient-based algorithms. Some open problems concerning swarm intelligence and nature-inspired computation will be highlighted.}
+      \field{booktitle}{Nature-Inspired Computation and Swarm Intelligence}
+      \field{isbn}{978-0-12-819714-1}
+      \field{title}{Chapter 1 - Nature-inspired computation and swarm intelligence: a state-of-the-art overview}
+      \field{year}{2020}
+      \field{pages}{3\bibrangedash 18}
+      \range{pages}{16}
+      \verb{doi}
+      \verb https://doi.org/10.1016/B978-0-12-819714-1.00010-5
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/B9780128197141000105
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/B9780128197141000105
+      \endverb
+      \keyw{algorithm,ant colony optimization,bat algorithm,cuckoo search,differential evolution,firefly algorithm,flower pollination algorithm,genetic algorithm,nature-inspired computation,optimization,particle swarm optimization,swarm intelligence}
+    \endentry
+    \entry{WOS:000975679700001}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=14af98a467ca0c066290ba1a7253e261}{%
+           family={Ma},
+           familyi={M\bibinitperiod},
+           given={Zhongqiang},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=84250931c1d0f4c7145a260df15e1edd}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={Guohua},
+           giveni={G\bibinitperiod}}}%
+        {{hash=d94afbc27d84d6e232201b6f0b6938ca}{%
+           family={Suganthan},
+           familyi={S\bibinitperiod},
+           given={Ponnuthurai\bibnamedelima Nagaratnam},
+           giveni={P\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=568c469b02a0e1545199879e5a1899a0}{%
+           family={Song},
+           familyi={S\bibinitperiod},
+           given={Aijuan},
+           giveni={A\bibinitperiod}}}%
+        {{hash=9051bdbb997a4def1af1eb5ea7d9302d}{%
+           family={Luo},
+           familyi={L\bibinitperiod},
+           given={Qizhang},
+           giveni={Q\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {English}%
+      }
+      \list{location}{1}{%
+        {RADARWEG 29, 1043 NX AMSTERDAM, NETHERLANDS}%
+      }
+      \list{publisher}{1}{%
+        {ELSEVIER}%
+      }
+      \strng{namehash}{e3e825d65a971279a1254586b58adf25}
+      \strng{fullhash}{9e3fa5f8ad3ad59fdd36ea7c2b1300dd}
+      \strng{fullhashraw}{9e3fa5f8ad3ad59fdd36ea7c2b1300dd}
+      \strng{bibnamehash}{e3e825d65a971279a1254586b58adf25}
+      \strng{authorbibnamehash}{e3e825d65a971279a1254586b58adf25}
+      \strng{authornamehash}{e3e825d65a971279a1254586b58adf25}
+      \strng{authorfullhash}{9e3fa5f8ad3ad59fdd36ea7c2b1300dd}
+      \strng{authorfullhashraw}{9e3fa5f8ad3ad59fdd36ea7c2b1300dd}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Metaheuristics are popularly used in various fields, and they have attracted much attention in the scientific and industrial communities. In recent years, the number of new metaheuristic names has been continuously growing. Generally, the inventors attribute the novelties of these new algorithms to inspirations from either biology, human behaviors, physics, or other phenomena. In addition, these new algorithms, compared against basic versions of other metaheuristics using classical benchmark problems, show competitive performances. However, many new metaheuristics are not rigorously tested on challenging benchmark suites and are not compared with state-of-the-art metaheuristic variants. Therefore, in this study, we exhaustively tabulate more than 500 meta -heuristics. In particular, several representative metaheuristics are introduced from two aspects, namely, the inspirational source and the essential operators for generating solutions. To comparatively evaluate the per-formance of the state-of-the-art and newly proposed metaheuristics, 11 newly proposed metaheuristics (generally with high numbers of citations) and 4 state-of-the-art metaheuristics are comprehensively compared on the CEC2017 benchmark suite. For fair comparisons, a parameter tuning tool named irace is used to automatically configure the parameters of all 15 algorithms. In addition, whether these algorithms have a search bias to the origin (i.e., the center of the search space) is investigated. All the experimental results are analyzed by several nonparametric statistical methods, including the Bayesian rank-sum test, Friedman test, Wilcoxon signed-rank test, critical difference plot and Bayesian signed-rank test. Moreover, the convergence, diversity, and the trade-off between exploration and exploitation of these 15 algorithms are also analyzed. The results show that the performance of the newly proposed EBCM algorithm performs similarly to the 4 compared algorithms and has the same properties and behaviors, such as convergence, diversity, exploration and exploitation trade-offs, in many aspects. However, the other 10 recent metaheuristics are less efficient and robust than the 4 state-of-the-art metaheuristics. The performance of all 15 of the algorithms is likely to deteriorate due to certain transformations, while the 4 state-of-the-art metaheuristics are less affected by transformations such as the shifting of the global optimal point away from the center of the search space. It should be noted that, except EBCM, the other 10 new algorithms are inferior to the 4 state-of-the-art algorithms in terms of convergence speed and global search ability on CEC 2017 functions. Moreover, the other 10 new algorithms are rougher (i.e., present in their behavior with high oscillations) in terms of the trade-off between exploitation and exploration and population diversity compared with the 4 state-of-the-art algorithms. Finally, several important issues relevant to the metaheuristic research area are discussed and some potential research directions are suggested.}
+      \field{issn}{2210-6502}
+      \field{journaltitle}{SWARM AND EVOLUTIONARY COMPUTATION}
+      \field{month}{3}
+      \field{title}{Performance assessment and exhaustive listing of 500+nature-inspired metaheuristic algorithms}
+      \field{type}{Article}
+      \field{volume}{77}
+      \field{year}{2023}
+      \verb{doi}
+      \verb 10.1016/j.swevo.2023.101248
+      \endverb
+      \keyw{Metaheuristics; Nature-inspired; Parameter tuning; Search bias to origin; Performance evaluation; Nonparametric tests}
+    \endentry
+    \entry{Yang2010}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=8b9a8afb4153d569a17f211b83af9fac}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Xin-She},
+           giveni={X\bibinithyphendelim S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Luniver Press}%
+      }
+      \strng{namehash}{8b9a8afb4153d569a17f211b83af9fac}
+      \strng{fullhash}{8b9a8afb4153d569a17f211b83af9fac}
+      \strng{fullhashraw}{8b9a8afb4153d569a17f211b83af9fac}
+      \strng{bibnamehash}{8b9a8afb4153d569a17f211b83af9fac}
+      \strng{authorbibnamehash}{8b9a8afb4153d569a17f211b83af9fac}
+      \strng{authornamehash}{8b9a8afb4153d569a17f211b83af9fac}
+      \strng{authorfullhash}{8b9a8afb4153d569a17f211b83af9fac}
+      \strng{authorfullhashraw}{8b9a8afb4153d569a17f211b83af9fac}
+      \field{extraname}{1}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Nature-Inspired Metaheuristic Algorithms}
+      \field{year}{2010}
+      \field{pages}{160}
+      \range{pages}{1}
+      \verb{urlraw}
+      \verb https://openlibrary.org/books/OL35708732M/Nature-Inspired_Metaheuristic_Algorithms
+      \endverb
+      \verb{url}
+      \verb https://openlibrary.org/books/OL35708732M/Nature-Inspired_Metaheuristic_Algorithms
+      \endverb
+      \warn{\item book entry 'Yang2010' (bibliography.bib): Invalid format 'Jul 25, 2010' of date field 'date' - ignoring}
+    \endentry
+    \entry{Yang2017}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=8b9a8afb4153d569a17f211b83af9fac}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Xin-She},
+           giveni={X\bibinithyphendelim S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{8b9a8afb4153d569a17f211b83af9fac}
+      \strng{fullhash}{8b9a8afb4153d569a17f211b83af9fac}
+      \strng{fullhashraw}{8b9a8afb4153d569a17f211b83af9fac}
+      \strng{bibnamehash}{8b9a8afb4153d569a17f211b83af9fac}
+      \strng{authorbibnamehash}{8b9a8afb4153d569a17f211b83af9fac}
+      \strng{authornamehash}{8b9a8afb4153d569a17f211b83af9fac}
+      \strng{authorfullhash}{8b9a8afb4153d569a17f211b83af9fac}
+      \strng{authorfullhashraw}{8b9a8afb4153d569a17f211b83af9fac}
+      \field{extraname}{2}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Nature-Inspired Algorithms and Applied Optimization}
+      \field{year}{2017}
+      \field{pages}{330}
+      \range{pages}{1}
+      \verb{urlraw}
+      \verb https://openlibrary.org/books/OL27946749M/Nature-Inspired_Algorithms_and_Applied_Optimization
+      \endverb
+      \verb{url}
+      \verb https://openlibrary.org/books/OL27946749M/Nature-Inspired_Algorithms_and_Applied_Optimization
+      \endverb
+      \warn{\item book entry 'Yang2017' (bibliography.bib): Invalid format 'Oct 10, 2017' of date field 'date' - ignoring}
+    \endentry
+    \entry{Lones_2014}{inproceedings}{}{}
+      \name{author}{1}{}{%
+        {{hash=5b55e90a4595654fadc047e5bed78075}{%
+           family={Lones},
+           familyi={L\bibinitperiod},
+           given={Michael\bibnamedelima A.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{5b55e90a4595654fadc047e5bed78075}
+      \strng{fullhash}{5b55e90a4595654fadc047e5bed78075}
+      \strng{fullhashraw}{5b55e90a4595654fadc047e5bed78075}
+      \strng{bibnamehash}{5b55e90a4595654fadc047e5bed78075}
+      \strng{authorbibnamehash}{5b55e90a4595654fadc047e5bed78075}
+      \strng{authornamehash}{5b55e90a4595654fadc047e5bed78075}
+      \strng{authorfullhash}{5b55e90a4595654fadc047e5bed78075}
+      \strng{authorfullhashraw}{5b55e90a4595654fadc047e5bed78075}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the Companion Publication of the 2014 Annual Conference on Genetic and Evolutionary Computation}
+      \field{month}{7}
+      \field{series}{GECCO {’}14}
+      \field{title}{Metaheuristics in nature-inspired algorithms}
+      \field{year}{2014}
+      \field{pages}{1419{\bibrangedash }1422}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1145/2598394.2609841
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1145/2598394.2609841
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1145/2598394.2609841
+      \endverb
+    \endentry
+    \entry{Eiben_2015}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=37f918f86142087e36a5d91ce7026b2c}{%
+           family={Eiben},
+           familyi={E\bibinitperiod},
+           given={A.E.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=e20acd00c580a24c04314a6ddc680a86}{%
+           family={Smith},
+           familyi={S\bibinitperiod},
+           given={J.E.},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Berlin Heidelberg}%
+      }
+      \strng{namehash}{aa9f836d8318138e1fb4ed8c5103a345}
+      \strng{fullhash}{aa9f836d8318138e1fb4ed8c5103a345}
+      \strng{fullhashraw}{aa9f836d8318138e1fb4ed8c5103a345}
+      \strng{bibnamehash}{aa9f836d8318138e1fb4ed8c5103a345}
+      \strng{authorbibnamehash}{aa9f836d8318138e1fb4ed8c5103a345}
+      \strng{authornamehash}{aa9f836d8318138e1fb4ed8c5103a345}
+      \strng{authorfullhash}{aa9f836d8318138e1fb4ed8c5103a345}
+      \strng{authorfullhashraw}{aa9f836d8318138e1fb4ed8c5103a345}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9783662448748}
+      \field{issn}{1619-7127}
+      \field{journaltitle}{Natural Computing Series}
+      \field{title}{Introduction to Evolutionary Computing}
+      \field{year}{2015}
+      \verb{doi}
+      \verb 10.1007/978-3-662-44874-8
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1007/978-3-662-44874-8
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1007/978-3-662-44874-8
+      \endverb
+    \endentry
+    \entry{Holland_1992}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=d489561d244344393eb26a974d85d1ba}{%
+           family={Holland},
+           familyi={H\bibinitperiod},
+           given={John\bibnamedelima H.},
+           giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {The MIT Press}%
+      }
+      \strng{namehash}{d489561d244344393eb26a974d85d1ba}
+      \strng{fullhash}{d489561d244344393eb26a974d85d1ba}
+      \strng{fullhashraw}{d489561d244344393eb26a974d85d1ba}
+      \strng{bibnamehash}{d489561d244344393eb26a974d85d1ba}
+      \strng{authorbibnamehash}{d489561d244344393eb26a974d85d1ba}
+      \strng{authornamehash}{d489561d244344393eb26a974d85d1ba}
+      \strng{authorfullhash}{d489561d244344393eb26a974d85d1ba}
+      \strng{authorfullhashraw}{d489561d244344393eb26a974d85d1ba}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780262275552}
+      \field{month}{4}
+      \field{title}{Adaptation in Natural and Artificial Systems: An Introductory Analysis with Applications to Biology, Control, and Artificial Intelligence}
+      \field{year}{1992}
+      \verb{doi}
+      \verb 10.7551/mitpress/1090.001.0001
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.7551/mitpress/1090.001.0001
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.7551/mitpress/1090.001.0001
+      \endverb
+    \endentry
+    \entry{Becker2007}{book}{}{}
+      \name{author}{3}{}{%
+        {{hash=3aabae218a792d13e471d57d8417deb7}{%
+           family={Becker},
+           familyi={B\bibinitperiod},
+           given={Katrin},
+           giveni={K\bibinitperiod}}}%
+        {{hash=f75c2262353bee26e837262427809c26}{%
+           family={Becker},
+           familyi={B\bibinitperiod},
+           given={Melanie},
+           giveni={M\bibinitperiod}}}%
+        {{hash=a21ee9458cd511176c2a40339112f381}{%
+           family={Schwarz},
+           familyi={S\bibinitperiod},
+           given={John\bibnamedelima H.},
+           giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{69792e37132899b90681314a3aef69d7}
+      \strng{fullhash}{69792e37132899b90681314a3aef69d7}
+      \strng{fullhashraw}{69792e37132899b90681314a3aef69d7}
+      \strng{bibnamehash}{69792e37132899b90681314a3aef69d7}
+      \strng{authorbibnamehash}{69792e37132899b90681314a3aef69d7}
+      \strng{authornamehash}{69792e37132899b90681314a3aef69d7}
+      \strng{authorfullhash}{69792e37132899b90681314a3aef69d7}
+      \strng{authorfullhashraw}{69792e37132899b90681314a3aef69d7}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{String Theory and M-Theory}
+      \field{year}{2007}
+      \field{pages}{756}
+      \range{pages}{1}
+      \verb{urlraw}
+      \verb https://openlibrary.org/books/OL7767114M/String_Theory_and_M-Theory
+      \endverb
+      \verb{url}
+      \verb https://openlibrary.org/books/OL7767114M/String_Theory_and_M-Theory
+      \endverb
+      \warn{\item book entry 'Becker2007' (bibliography.bib): Invalid format 'January 15, 2007' of date field 'date' - ignoring}
+    \endentry
+    \entry{Rickles_2014}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=05cdd4885f371a02bf52a1e4eb92a809}{%
+           family={Rickles},
+           familyi={R\bibinitperiod},
+           given={Dean},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Berlin Heidelberg}%
+      }
+      \strng{namehash}{05cdd4885f371a02bf52a1e4eb92a809}
+      \strng{fullhash}{05cdd4885f371a02bf52a1e4eb92a809}
+      \strng{fullhashraw}{05cdd4885f371a02bf52a1e4eb92a809}
+      \strng{bibnamehash}{05cdd4885f371a02bf52a1e4eb92a809}
+      \strng{authorbibnamehash}{05cdd4885f371a02bf52a1e4eb92a809}
+      \strng{authornamehash}{05cdd4885f371a02bf52a1e4eb92a809}
+      \strng{authorfullhash}{05cdd4885f371a02bf52a1e4eb92a809}
+      \strng{authorfullhashraw}{05cdd4885f371a02bf52a1e4eb92a809}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9783642451287}
+      \field{issn}{2197-6619}
+      \field{journaltitle}{The Frontiers Collection}
+      \field{title}{A Brief History of String Theory: From Dual Models to M-Theory}
+      \field{year}{2014}
+      \verb{doi}
+      \verb 10.1007/978-3-642-45128-7
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1007/978-3-642-45128-7
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1007/978-3-642-45128-7
+      \endverb
+    \endentry
+    \entry{Vafa2005}{unpublished}{}{}
+      \name{author}{1}{}{%
+        {{hash=9bb2a2ed1567f070b3932817dc57b53f}{%
+           family={Vafa},
+           familyi={V\bibinitperiod},
+           given={Cumrun},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{9bb2a2ed1567f070b3932817dc57b53f}
+      \strng{fullhash}{9bb2a2ed1567f070b3932817dc57b53f}
+      \strng{fullhashraw}{9bb2a2ed1567f070b3932817dc57b53f}
+      \strng{bibnamehash}{9bb2a2ed1567f070b3932817dc57b53f}
+      \strng{authorbibnamehash}{9bb2a2ed1567f070b3932817dc57b53f}
+      \strng{authornamehash}{9bb2a2ed1567f070b3932817dc57b53f}
+      \strng{authorfullhash}{9bb2a2ed1567f070b3932817dc57b53f}
+      \strng{authorfullhashraw}{9bb2a2ed1567f070b3932817dc57b53f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Recent developments in string theory suggest that string theory landscape of vacua is vast. It is natural to ask if this landscape is as vast as allowed by consistent-looking effective field theories. We use universality ideas from string theory to suggest that this is not the case, and that the landscape is surrounded by an even more vast swampland of consistent-looking semiclassical effective field theories, which are actually inconsistent. Identification of the boundary of the landscape is a central question which is at the heart of the meaning of universality properties of consistent quantum gravitational theories. We propose certain finiteness criteria as one relevant factor in identifying this boundary (based on talks given at the Einstein Symposium in Alexandria, at the 2005 Simons Workshop in Mathematics and Physics, and the talk to have been presented at Strings 2005).}
+      \field{eprintclass}{hep-th}
+      \field{eprinttype}{arXiv}
+      \field{title}{The String Landscape and the Swampland}
+      \field{year}{2005}
+      \verb{eprint}
+      \verb http://arxiv.org/abs/hep-th/0509212v2
+      \endverb
+      \verb{file}
+      \verb ~/.local/share/cobib/Vafa2005.pdf
+      \endverb
+    \endentry
+    \entry{Palti_2019}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=f651ed8120ab7a81faa41e40bccf9711}{%
+           family={Palti},
+           familyi={P\bibinitperiod},
+           given={Eran},
+           giveni={E\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley}%
+      }
+      \strng{namehash}{f651ed8120ab7a81faa41e40bccf9711}
+      \strng{fullhash}{f651ed8120ab7a81faa41e40bccf9711}
+      \strng{fullhashraw}{f651ed8120ab7a81faa41e40bccf9711}
+      \strng{bibnamehash}{f651ed8120ab7a81faa41e40bccf9711}
+      \strng{authorbibnamehash}{f651ed8120ab7a81faa41e40bccf9711}
+      \strng{authornamehash}{f651ed8120ab7a81faa41e40bccf9711}
+      \strng{authorfullhash}{f651ed8120ab7a81faa41e40bccf9711}
+      \strng{authorfullhashraw}{f651ed8120ab7a81faa41e40bccf9711}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1521-3978}
+      \field{journaltitle}{Fortschritte der Physik}
+      \field{month}{4}
+      \field{number}{6}
+      \field{title}{The Swampland: Introduction and Review}
+      \field{volume}{67}
+      \field{year}{2019}
+      \verb{doi}
+      \verb 10.1002/prop.201900037
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1002/prop.201900037
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1002/prop.201900037
+      \endverb
+    \endentry
+    \entry{Prasad_2014}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=cf53061fa6c64646c21cce3a2358d53a}{%
+           family={Prasad},
+           familyi={P\bibinitperiod},
+           given={J},
+           giveni={J\bibinitperiod}}}%
+        {{hash=664ff8c42377a29f19e5988f129bad9f}{%
+           family={Souradeep},
+           familyi={S\bibinitperiod},
+           given={T},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IOP Publishing}%
+      }
+      \strng{namehash}{218f5af1b9bc18f91c9ec306ae9c81d4}
+      \strng{fullhash}{218f5af1b9bc18f91c9ec306ae9c81d4}
+      \strng{fullhashraw}{218f5af1b9bc18f91c9ec306ae9c81d4}
+      \strng{bibnamehash}{218f5af1b9bc18f91c9ec306ae9c81d4}
+      \strng{authorbibnamehash}{218f5af1b9bc18f91c9ec306ae9c81d4}
+      \strng{authornamehash}{218f5af1b9bc18f91c9ec306ae9c81d4}
+      \strng{authorfullhash}{218f5af1b9bc18f91c9ec306ae9c81d4}
+      \strng{authorfullhashraw}{218f5af1b9bc18f91c9ec306ae9c81d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1742-6596}
+      \field{journaltitle}{Journal of Physics: Conference Series}
+      \field{month}{3}
+      \field{title}{Cosmological parameter estimation using Particle Swarm Optimization}
+      \field{volume}{484}
+      \field{year}{2014}
+      \field{pages}{12047}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1088/1742-6596/484/1/012047
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1088/1742-6596/484/1/012047
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1088/1742-6596/484/1/012047
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

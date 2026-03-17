@@ -1,0 +1,18 @@
+[0] Config.pm:328> INFO - This is Biber 2.21
+[0] Config.pm:331> INFO - Logfile is 'MarquezSalazarBrandon-PropuestaDeTesis.blg'
+[96] biber:342> INFO - === Mon Mar 16, 2026, 22:33:40
+[115] Biber.pm:421> INFO - Reading 'MarquezSalazarBrandon-PropuestaDeTesis.bcf'
+[176] Biber.pm:1002> INFO - Found 16 citekeys in bib section 0
+[191] Biber.pm:4487> INFO - Processing section 0
+[204] Biber.pm:4678> INFO - Looking for bibtex file 'bibliography.bib' for section 0
+[206] bibtex.pm:1713> INFO - LaTeX decoding ...
+[239] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliography.bib'
+[384] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[384] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[384] Biber.pm:4307> INFO - Sorting list 'none/global//global/global/global' of type 'entry' with template 'none' and locale 'es-ES'
+[396] bbl.pm:676> INFO - Writing 'MarquezSalazarBrandon-PropuestaDeTesis.bbl' with encoding 'UTF-8'
+[402] bbl.pm:779> INFO - Output to MarquezSalazarBrandon-PropuestaDeTesis.bbl
+[404] Biber.pm:132> WARN - book entry 'Yang2010' (bibliography.bib): Invalid format 'Jul 25, 2010' of date field 'date' - ignoring
+[404] Biber.pm:132> WARN - book entry 'Yang2017' (bibliography.bib): Invalid format 'Oct 10, 2017' of date field 'date' - ignoring
+[404] Biber.pm:132> WARN - book entry 'Becker2007' (bibliography.bib): Invalid format 'January 15, 2007' of date field 'date' - ignoring
+[404] Biber.pm:134> INFO - WARNINGS: 3
