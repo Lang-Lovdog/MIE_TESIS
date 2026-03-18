@@ -435,6 +435,9 @@ INPUT /usr/share/texmf-dist/tex/generic/pgfornament/vectorian/vectorian88.pgf
 INPUT ./pergaminum-balanced.png
 INPUT ./pergaminum-balanced.png
 INPUT ./pergaminum-balanced.png
+INPUT ./pergaminum-balanced.png
+INPUT ./pergaminum-balanced.png
+INPUT ./pergaminum-balanced.png
 INPUT MarquezSalazarBrandon-PropuestaDeTesis.aux
 INPUT MarquezSalazarBrandon-PropuestaDeTesis.run.xml
 OUTPUT MarquezSalazarBrandon-PropuestaDeTesis.run.xml

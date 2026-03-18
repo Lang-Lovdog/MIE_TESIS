@@ -12,3 +12,4 @@
 \contentsline {subsubsection}{\numberline {1.4.1}Metaheurísticas}{4}{}%
 \contentsline {subsubsection}{\numberline {1.4.2}Aplicaciones de los NIM en la investigación}{4}{}%
 \contentsline {section}{\numberline {2}Cronograma}{4}{}%
+\contentsline {section}{Bibliografía}{5}{}%

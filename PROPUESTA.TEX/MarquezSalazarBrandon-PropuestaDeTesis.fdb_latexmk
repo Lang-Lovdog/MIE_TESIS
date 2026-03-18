@@ -1,17 +1,17 @@
 # Fdb version 4
-["biber MarquezSalazarBrandon-PropuestaDeTesis"] 1773790860.98716 "MarquezSalazarBrandon-PropuestaDeTesis.bcf" "MarquezSalazarBrandon-PropuestaDeTesis.bbl" "MarquezSalazarBrandon-PropuestaDeTesis" 1773791753.96385 0
-  "MarquezSalazarBrandon-PropuestaDeTesis.bcf" 1773791752.65704 108014 77c6176c14faec8d2582df29abeb1d53 "xelatex"
+["biber MarquezSalazarBrandon-PropuestaDeTesis"] 1773792088.47638 "MarquezSalazarBrandon-PropuestaDeTesis.bcf" "MarquezSalazarBrandon-PropuestaDeTesis.bbl" "MarquezSalazarBrandon-PropuestaDeTesis" 1773792092.80556 0
+  "MarquezSalazarBrandon-PropuestaDeTesis.bcf" 1773792091.45703 108419 c3d18b364789218c74ac63c63519304d "xelatex"
   "bibliography.bib" 1773776447.8057 18781 c11a2ef4676dee54ab674888bfb5f2d4 ""
   (generated)
   "MarquezSalazarBrandon-PropuestaDeTesis.bbl"
   "MarquezSalazarBrandon-PropuestaDeTesis.blg"
   (rewritten before read)
-["xdvipdfmx"] 1773791752.71675 "MarquezSalazarBrandon-PropuestaDeTesis.xdv" "MarquezSalazarBrandon-PropuestaDeTesis.pdf" "MarquezSalazarBrandon-PropuestaDeTesis" 1773791753.96511 0
-  "MarquezSalazarBrandon-PropuestaDeTesis.xdv" 1773791752.65704 208692 aaa086124c4e605c1d6219a337eb3e73 "xelatex"
+["xdvipdfmx"] 1773792091.51941 "MarquezSalazarBrandon-PropuestaDeTesis.xdv" "MarquezSalazarBrandon-PropuestaDeTesis.pdf" "MarquezSalazarBrandon-PropuestaDeTesis" 1773792092.80685 0
+  "MarquezSalazarBrandon-PropuestaDeTesis.xdv" 1773792091.46103 237252 b06c3bdb77ae4359818d76a97f41ca6f "xelatex"
   (generated)
   "MarquezSalazarBrandon-PropuestaDeTesis.pdf"
   (rewritten before read)
-["xelatex"] 1773791751.48663 "MarquezSalazarBrandon-PropuestaDeTesis.tex" "MarquezSalazarBrandon-PropuestaDeTesis.xdv" "MarquezSalazarBrandon-PropuestaDeTesis" 1773791753.96391 0
+["xelatex"] 1773792090.2836 "MarquezSalazarBrandon-PropuestaDeTesis.tex" "MarquezSalazarBrandon-PropuestaDeTesis.xdv" "MarquezSalazarBrandon-PropuestaDeTesis" 1773792092.80565 0
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1768914358 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1768914358 916 f87d7c45f9c908e672703b83b72241a3 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm" 1768914358 924 9904cf1d39e9767e7a3622f2a125a565 ""
@@ -200,17 +200,17 @@
   "/usr/share/texmf-dist/tex/latex/xkeyval/xkeyval.sty" 1768914358 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1768914358 42062 f0989bac22b9e284a0b08b30db5de8a5 ""
   "/var/lib/texmf/web2c/xetex/xelatex.fmt" 1773185371 5639488 8805725e3a712a3e2f42dc9486816d52 ""
-  "Capítulos/00.00.00.-Portada.tex" 1773782299.95745 2263 4c7f427d031597c6dece5c399c34dd1f ""
+  "Capítulos/00.00.00.-Portada.tex" 1773791951.96905 2256 a3ff408e117d15a94575ee212629025a ""
   "Capítulos/01.00.00.-Introducción.tex" 1773784286.59336 2589 ed764132de9747c9dc608ad9256a4bce ""
   "Capítulos/01.01.00.-Objetivos.tex" 1773784190.67737 1193 290689ec435befceeb20008bf8b57816 ""
   "Capítulos/01.02.00.-Justificación.tex" 1773784487.24934 85 77546f37233180b3f24b1223fa79e073 ""
   "Capítulos/01.03.00.-Antecedentes.tex" 1773784609.98536 721 16c7c37bb4a9f9522e469f8f4691ab88 ""
-  "Capítulos/01.05.00.-Cronograma.tex" 1773791749.55704 3744 0381781aed75a5bb73cb715a5f8c5d48 ""
-  "MarquezSalazarBrandon-PropuestaDeTesis.aux" 1773791752.65304 2451 a85e659b6382c7809a20c6628898c922 "xelatex"
-  "MarquezSalazarBrandon-PropuestaDeTesis.bbl" 1773790861.60908 25903 12e325d2949cbed3b8e98a90c8d4acd6 "biber MarquezSalazarBrandon-PropuestaDeTesis"
-  "MarquezSalazarBrandon-PropuestaDeTesis.run.xml" 1773791752.65704 2580 bf8136377c0b16e2e64c5ded58526d8b "xelatex"
-  "MarquezSalazarBrandon-PropuestaDeTesis.tex" 1773785941.07729 2230 3993b91f0e2dcf1bd7b72b9fa18e6764 ""
-  "MarquezSalazarBrandon-PropuestaDeTesis.toc" 1773791752.65704 972 1e999479c91e086121e84f702e69b45f "xelatex"
+  "Capítulos/01.05.00.-Cronograma.tex" 1773791767.16904 3744 0381781aed75a5bb73cb715a5f8c5d48 ""
+  "MarquezSalazarBrandon-PropuestaDeTesis.aux" 1773792091.45703 3246 f2e8286fc606317dbc028adc0d9b251d "xelatex"
+  "MarquezSalazarBrandon-PropuestaDeTesis.bbl" 1773792088.99303 25903 12e325d2949cbed3b8e98a90c8d4acd6 "biber MarquezSalazarBrandon-PropuestaDeTesis"
+  "MarquezSalazarBrandon-PropuestaDeTesis.run.xml" 1773792091.46103 2580 bf8136377c0b16e2e64c5ded58526d8b "xelatex"
+  "MarquezSalazarBrandon-PropuestaDeTesis.tex" 1773792086.67303 2291 4b558ea6b72a9662d97f547ba746883a ""
+  "MarquezSalazarBrandon-PropuestaDeTesis.toc" 1773792091.46103 1017 2504aec2ea2712a2314593061fb1bc76 "xelatex"
   "bibliography.bib" 1773776447.8057 18781 c11a2ef4676dee54ab674888bfb5f2d4 ""
   "img/dicis_png.png" 1773779901.14818 76328 7ce4196abc36517d0ce81faa84787e0f ""
   "pergaminum-balanced.png" 1773776447.8257 1799713 2786742fc56e3d97c787e04ce6ace4f5 ""
