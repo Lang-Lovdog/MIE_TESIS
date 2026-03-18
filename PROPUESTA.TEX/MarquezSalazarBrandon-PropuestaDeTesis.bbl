@@ -462,7 +462,6 @@
       \verb{url}
       \verb https://openlibrary.org/books/OL27946749M/Nature-Inspired_Algorithms_and_Applied_Optimization
       \endverb
-      \warn{\item book entry 'Yang2017' (bibliography.bib): Invalid format 'Oct 10, 2017' of date field 'date' - ignoring}
     \endentry
     \entry{Eiben_2015}{book}{}{}
       \name{author}{2}{}{%

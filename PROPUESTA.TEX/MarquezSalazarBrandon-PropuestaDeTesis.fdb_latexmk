@@ -1,17 +1,17 @@
 # Fdb version 4
-["biber MarquezSalazarBrandon-PropuestaDeTesis"] 1773792088.47638 "MarquezSalazarBrandon-PropuestaDeTesis.bcf" "MarquezSalazarBrandon-PropuestaDeTesis.bbl" "MarquezSalazarBrandon-PropuestaDeTesis" 1773792092.80556 0
-  "MarquezSalazarBrandon-PropuestaDeTesis.bcf" 1773792091.45703 108419 c3d18b364789218c74ac63c63519304d "xelatex"
-  "bibliography.bib" 1773776447.8057 18781 c11a2ef4676dee54ab674888bfb5f2d4 ""
+["biber MarquezSalazarBrandon-PropuestaDeTesis"] 1773792231.09264 "MarquezSalazarBrandon-PropuestaDeTesis.bcf" "MarquezSalazarBrandon-PropuestaDeTesis.bbl" "MarquezSalazarBrandon-PropuestaDeTesis" 1773792235.61721 0
+  "MarquezSalazarBrandon-PropuestaDeTesis.bcf" 1773792234.20503 108419 c3d18b364789218c74ac63c63519304d "xelatex"
+  "bibliography.bib" 1773792231.04503 18784 d52f7eae51e0ac7b5ba4876b7bba4a41 ""
   (generated)
   "MarquezSalazarBrandon-PropuestaDeTesis.bbl"
   "MarquezSalazarBrandon-PropuestaDeTesis.blg"
   (rewritten before read)
-["xdvipdfmx"] 1773792091.51941 "MarquezSalazarBrandon-PropuestaDeTesis.xdv" "MarquezSalazarBrandon-PropuestaDeTesis.pdf" "MarquezSalazarBrandon-PropuestaDeTesis" 1773792092.80685 0
-  "MarquezSalazarBrandon-PropuestaDeTesis.xdv" 1773792091.46103 237252 b06c3bdb77ae4359818d76a97f41ca6f "xelatex"
+["xdvipdfmx"] 1773792234.26703 "MarquezSalazarBrandon-PropuestaDeTesis.xdv" "MarquezSalazarBrandon-PropuestaDeTesis.pdf" "MarquezSalazarBrandon-PropuestaDeTesis" 1773792235.61846 0
+  "MarquezSalazarBrandon-PropuestaDeTesis.xdv" 1773792234.20903 237252 0584f33310d2d3688893c2a5defeda07 "xelatex"
   (generated)
   "MarquezSalazarBrandon-PropuestaDeTesis.pdf"
   (rewritten before read)
-["xelatex"] 1773792090.2836 "MarquezSalazarBrandon-PropuestaDeTesis.tex" "MarquezSalazarBrandon-PropuestaDeTesis.xdv" "MarquezSalazarBrandon-PropuestaDeTesis" 1773792092.80565 0
+["xelatex"] 1773792232.97937 "MarquezSalazarBrandon-PropuestaDeTesis.tex" "MarquezSalazarBrandon-PropuestaDeTesis.xdv" "MarquezSalazarBrandon-PropuestaDeTesis" 1773792235.61729 0
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1768914358 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1768914358 916 f87d7c45f9c908e672703b83b72241a3 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm" 1768914358 924 9904cf1d39e9767e7a3622f2a125a565 ""
@@ -206,12 +206,11 @@
   "Capítulos/01.02.00.-Justificación.tex" 1773784487.24934 85 77546f37233180b3f24b1223fa79e073 ""
   "Capítulos/01.03.00.-Antecedentes.tex" 1773784609.98536 721 16c7c37bb4a9f9522e469f8f4691ab88 ""
   "Capítulos/01.05.00.-Cronograma.tex" 1773791767.16904 3744 0381781aed75a5bb73cb715a5f8c5d48 ""
-  "MarquezSalazarBrandon-PropuestaDeTesis.aux" 1773792091.45703 3246 f2e8286fc606317dbc028adc0d9b251d "xelatex"
-  "MarquezSalazarBrandon-PropuestaDeTesis.bbl" 1773792088.99303 25903 12e325d2949cbed3b8e98a90c8d4acd6 "biber MarquezSalazarBrandon-PropuestaDeTesis"
-  "MarquezSalazarBrandon-PropuestaDeTesis.run.xml" 1773792091.46103 2580 bf8136377c0b16e2e64c5ded58526d8b "xelatex"
-  "MarquezSalazarBrandon-PropuestaDeTesis.tex" 1773792086.67303 2291 4b558ea6b72a9662d97f547ba746883a ""
-  "MarquezSalazarBrandon-PropuestaDeTesis.toc" 1773792091.46103 1017 2504aec2ea2712a2314593061fb1bc76 "xelatex"
-  "bibliography.bib" 1773776447.8057 18781 c11a2ef4676dee54ab674888bfb5f2d4 ""
+  "MarquezSalazarBrandon-PropuestaDeTesis.aux" 1773792234.20503 3246 6ded6468118d389a5c7c3e015fcbc545 "xelatex"
+  "MarquezSalazarBrandon-PropuestaDeTesis.bbl" 1773792231.65703 25780 5d4d25803cbd95db5f82a3d60058f653 "biber MarquezSalazarBrandon-PropuestaDeTesis"
+  "MarquezSalazarBrandon-PropuestaDeTesis.run.xml" 1773792234.20903 2580 bf8136377c0b16e2e64c5ded58526d8b "xelatex"
+  "MarquezSalazarBrandon-PropuestaDeTesis.tex" 1773792106.30503 2291 4b558ea6b72a9662d97f547ba746883a ""
+  "MarquezSalazarBrandon-PropuestaDeTesis.toc" 1773792234.20903 1017 2504aec2ea2712a2314593061fb1bc76 "xelatex"
   "img/dicis_png.png" 1773779901.14818 76328 7ce4196abc36517d0ce81faa84787e0f ""
   "pergaminum-balanced.png" 1773776447.8257 1799713 2786742fc56e3d97c787e04ce6ace4f5 ""
   (generated)
