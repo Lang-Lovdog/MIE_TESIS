@@ -1,19 +1,109 @@
 %! Tex main = MarquezSalazarBrandon-PropuestaDeTesis.tex
 \subsection{Antecedentes}
 
-El uso de métodos metaheuríticos dentro de áreas de
-investigación de alto rigor como la química y la cosmología han
-permitido demostrar que, a pesar de carecer de formalidad
-matemática teórica, son aplicables y exitosos.
+\subsubsection{NIM en la investigación}
 
-\subsubsection{Metaheurísticas}
+El ámbito de la investigación de alto rigor, como el que
+caracteriza a la química o la cosmología, suele asociarse con
+métodos matemáticos formalmente fundamentados. Sin embargo, en
+las últimas décadas, los métodos metaheurísticos han irrumpido
+en estos campos con resultados notables. Su aplicación has
+permitido demostrar que, a pesar de carecer de la formalidad
+matemática teórica que tradicionalmente se exige en estas
+disciplinas, resultan ser herramientas perfectamente aplicables
+y, en muchos contextos, altamente efectivas \cite{Wang_2010, Prasad_2014}.
 
-\subsubsection{Aplicaciones de los NIM en la investigación}
+Esta efectividad se traduce en logros concretos: una reducción
+sustancial del coste computacional y, cuando el modelo está
+bien sintonizado y la función objetivo correctamente definida,
+una precisión superior gracias a sus capacidades de explotación,
+llegando incluso a superar los valores obtenidos mediante
+enfoques tradicionales \cite{Megantoro_2025}.
 
-Estos métodos suelen ser útiles en sistemas cuyo comportamiento
-desconocido, cuando los modelos son bastante complejo o los
-espacios de búsqueda son de dimensiones superiores (e.g. $< 5$).
+\subsubsection{Aplicaciones metaheurísticas en la exploración de configuraciones de vacío}
 
-Tal como en \cite{Prasad_2014}, donde se utilizó el PSO como
-método de optimización obteniendo buenos resultados.
+El uso de metaheurísticas para explorar el espacio de configuraciones en
+teoría de cuerdas ha demostrado mejoras significativas en eficiencia,
+capacidad de descubrimiento y precisión respecto a los métodos de búsqueda
+aleatoria. A continuación se reseñan los principales avances agrupados por
+las cualidades que dichas técnicas han evidenciado.
 
+
+\paragraph{Eficiencia en la búsqueda}
+
+El trabajo pionero de \textcite{Abel_2014} estableció que los algoritmos
+genéticos son órdenes de magnitud más eficientes que el escaneo aleatorio
+para localizar configuraciones con propiedades fenomenológicas específicas
+dentro de modelos fermiónicos libres. Este resultado fue relevante para
+demostrar que, aunque el espacio de búsqueda es inmenso (del orden de
+\(2^{51}\) configuraciones posibles), la estructura del paisaje permite
+que métodos guiados por selección y cruce converjan rápidamente hacia
+regiones de interés.
+
+Posteriormente, el trabajo de \textcite{Bizet_2020} reportó más de sesenta mil
+configuraciones de flujo con puntos críticos en compactificaciones Tipo
+IIB, empleando un algoritmo genético acoplado a una red neuronal. Este
+enfoque híbrido permitió reducir drásticamente el tiempo de cómputo
+respecto a la fuerza bruta, evidenciando que la sinergia entre
+metaheurísticas y aprendizaje automático puede escalar la exploración
+a espacios de mayor complejidad.
+
+\paragraph{Capacidad de descubrimiento y generación de nuevas configuraciones}
+
+Más allá de la búsqueda eficiente, las metaheurísticas han demostrado
+capacidad para generar configuraciones novedosas no reportadas
+previamente. \cite{He_2025} utilizó templado simulado
+(\foreignlanguage{english}{\textit{simulated annealing}}) para construir
+\foreignlanguage{english}{\textit{brane tilings}} geométricamente
+consistentes, logrando descubrir un nuevo
+\foreignlanguage{english}{\textit{tiling}} con 26 campos cuánticos que no
+aparecía en catálogos exhaustivos previos. Este trabajo evidencia que las
+metaheurísticas no solo optimizan dentro de espacios conocidos, sino que
+pueden explorar regiones inéditas del espacio de soluciones.
+
+\paragraph{Precisión y calidad de las soluciones}
+ 
+En el ámbito de la clasificación geométrica, \cite{Gao_2022} alcanzó
+precisiones superiores al 99.9\% en la predicción de politopos que
+conducen a orientifolds de Calabi-Yau y vacíos Tipo IIB. Aunque su enfoque
+principal es una red neuronal convolucional, el proceso de entrenamiento
+y validación cruzada demuestra que los métodos computacionales pueden
+capturar patrones sutiles en los datos de entrada (las coordenadas de los
+politopos) y traducirlos en predicciones de alta calidad sobre la
+viabilidad de las configuraciones resultantes.
+
+\paragraph{Exploración de regiones de transición}
+
+Un avance particularmente relevante para el problema de optimización de
+potenciales es el reportado por \cite{Lanza_2025}. Mediante técnicas de
+aprendizaje automático, los autores identificaron regiones de "penumbra"
+(zonas de transición entre el interior del espacio de módulos y sus
+límites asintóticos) donde aparecen configuraciones metaestables con
+energía positiva. Aunque su enfoque no es puramente metaheurístico, el
+trabajo demuestra que dichas regiones albergan estructuras finas del
+potencial que son susceptibles de ser exploradas mediante métodos de
+optimización global.
+
+\paragraph{Contexto metodológico complementario}
+
+Finalmente, \cite{De_Luca_2025} abordó el problema desde una perspectiva
+numérica diferente: la resolución directa de ecuaciones diferenciales
+parciales mediante redes neuronales. Si bien no emplea metaheurísticas, su
+trabajo contextualiza la necesidad de métodos computacionales robustos
+para atacar problemas geométricos en compactificaciones, y establece un
+punto de comparación respecto a enfoques alternativos para construir
+métricas y configuraciones de vacío.
+
+\paragraph{Hacia una extensión del enfoque}
+
+Los trabajos aquí reseñados muestran una tendencia clara: el uso de
+metaheurísticas permite explorar eficientemente el paisaje de vacíos. En
+particular, \cite{Damian_2022} implementó templado simulado para
+identificar más de 170 configuraciones dS estables en compactificaciones
+Tipo IIB con torsión, demostrando la viabilidad del método. No obstante,
+dicho estudio se limitó a un único algoritmo estocástico. El presente
+trabajo se propone extender este análisis mediante la implementación
+y comparación de un conjunto más amplio de metaheurísticas, con el fin de
+evaluar su desempeño relativo y determinar si es posible incrementar la
+cantidad de vacíos estables identificados respecto a lo reportado en
+\cite{Damian_2022}.

@@ -1,6 +1,6 @@
 # Choix du terminal (décommentez celui qui fonctionne chez vous)
 #set terminal qt size 1300,510
- set terminal pdfcairo size 24cm,15cm enhanced font 'Times,12'
+ set terminal pdfcairo size 24cm,15cm enhanced font 'VictorMono,12'
 # set terminal wxt size 1300,510
 # set terminal x11 size 1300,510
 
@@ -94,43 +94,58 @@ set key outside
         plot [s=s_min:s_max] Veff_lift(s, tau0) ls 1 title 'avec AD5', \
                              Veff     (s, tau0) ls 2 title 'sans AD5'
 
+
 # --- Grand graphique de V(τ) ---
-        #set size 1,1
-        #set origin 0,0
-        set xlabel 'τ'
-        set ylabel 'V(s₀, τ)'
-        set yrange [*:*]
-        set title sprintf('V(s) avec τ = %.4f', tau0, SolutionDansCSV, CSVSerie)
-        set grid
-        plot [tau=tau_min:tau_max] Veff_lift(s0, tau) ls 1 title 'avec AD5', \
-        Veff     (s0, tau) ls 2 title 'sans AD5'
+       #set size 1,1
+       #set origin 0,0
+       set xlabel 'τ'
+       set ylabel 'V(s₀, τ)'
+       set yrange [*:*]
+       set title sprintf('V(s) avec τ = %.4f', tau0, SolutionDansCSV, CSVSerie)
+       set grid
+       plot [tau=tau_min:tau_max] Veff_lift(s0, tau) ls 1 title 'avec AD5', \
+       Veff     (s0, tau) ls 2 title 'sans AD5'
 
-# --- Encart (zoom) --- Deprecated
-#        set size 0.45,0.45
-#        set origin 0.55,0.1
-#        set xlabel 'τ (zoom)'
-#        set ylabel 'V'
-#        set title 'Zoom (0.9τ₀ à 2.1τ₀)'
-#        set xrange [tau_zoom_min:tau_zoom_max]
-#        set yrange [*:*]   # laisser Gnuplot ajuster l'échelle verticale
-#        set grid
-# On ne trace que la courbe avec lifting (celle de l'encart original)
-#        plot [tau=tau_zoom_min:tau_zoom_max] Veff_lift(s0, tau) ls 1 notitle
 
-        unset border #lc rgb 'black' lw 2
-        set xtics axis
-        set ytics axis
-# Graphique 3 : scatter V vs min(lambda)
-        set origin 0,0
-        set size   1,0.45
-        set xlabel 'min(λ)'
-        set ylabel 'V'
-        set title 'Scatter des solutions'
-        set grid
-        plot filename using (min($17,$19)):2 with points pt 2 ps 0.3 lc rgb 'blue' title 'autres', \
-                   '' using (min($17,$19)):2 every ::SolutionDansCSV::SolutionDansCSV with points pt 7 ps 0.5 lc rgb 'red' title 'courante'
+       unset border #lc rgb 'black' lw 2
+       set xtics axis
+       set ytics axis
+       set xlabel 'min(λ)'
+       set ylabel 'V'
+       set title 'Scatter des solutions'
+       set grid
+       plot filename using (min($17,$19)):2 with points pt 2 ps 0.3 lc rgb 'blue' title 'autres', \
+                  '' using (min($17,$19)):2 every ::SolutionDansCSV::SolutionDansCSV with points pt 7 ps 0.5 lc rgb 'red' title 'courante'
 
-        unset multiplot
+# 3d geaph options for tracing heights
+       set pm3d
+       set palette rgbformulae 33,13,10
+       set xlabel 'τ'
+       set hidden3d
+       set style fill transparent solid 0.4
+       set ylabel 's'
+       set zlabel 'V(s, τ)'
+       set isosamples 120, 120
+# Set the view angle
+       set view 60, 310
+       s_min   = 0.01 * s0
+       s_max   = 2.3 * s0
+       tau_min = 0.01 * tau0
+       tau_max = 5.9 * tau0
+       set zrange [*:*]
+       test_val = Veff_lift(s0, tau0)
+
+        if (test_val == test_val) {
+            splot [tau=tau_zoom_min:tau_zoom_max][s=s_min:s_max] Veff_lift(s, tau) ls 1
+        } else {
+            print sprintf(">>> Skipping 3D plot for Element %d: Veff_lift is undefined.", SolutionDansCSV)
+        }
+#       splot [tau=tau_zoom_min:tau_zoom_max][s=s_min:s_max] Veff_lift(s, tau) ls 1
+
+       unset pm3d
+       unset hidden3d
+
+       unset multiplot
 
         pause(3)
     }

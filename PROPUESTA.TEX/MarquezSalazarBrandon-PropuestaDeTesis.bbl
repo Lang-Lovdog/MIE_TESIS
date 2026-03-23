@@ -506,6 +506,242 @@
       \verb http://dx.doi.org/10.1007/978-3-662-44874-8
       \endverb
     \endentry
+    \entry{Lanza_2025}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=191caf582d170eb1e78a46ff5aed1108}{%
+           family={Lanza},
+           familyi={L\bibinitperiod},
+           given={Stefano},
+           giveni={S\bibinitperiod}}}%
+        {{hash=a5dc58a087fc1ba64be960ab9792b8c9}{%
+           family={Westphal},
+           familyi={W\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Springer Science}%
+        {Business Media LLC}%
+      }
+      \strng{namehash}{24c085cb3dc72e94ddf125a2c88d3229}
+      \strng{fullhash}{24c085cb3dc72e94ddf125a2c88d3229}
+      \strng{fullhashraw}{24c085cb3dc72e94ddf125a2c88d3229}
+      \strng{bibnamehash}{24c085cb3dc72e94ddf125a2c88d3229}
+      \strng{authorbibnamehash}{24c085cb3dc72e94ddf125a2c88d3229}
+      \strng{authornamehash}{24c085cb3dc72e94ddf125a2c88d3229}
+      \strng{authorfullhash}{24c085cb3dc72e94ddf125a2c88d3229}
+      \strng{authorfullhashraw}{24c085cb3dc72e94ddf125a2c88d3229}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1029-8479}
+      \field{journaltitle}{Journal of High Energy Physics}
+      \field{month}{5}
+      \field{number}{5}
+      \field{title}{Uplifts in the penumbra: features of the moduli potential away from infinite-distance boundaries}
+      \field{volume}{2025}
+      \field{year}{2025}
+      \verb{doi}
+      \verb 10.1007/jhep05(2025)071
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1007/JHEP05(2025)071
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1007/JHEP05(2025)071
+      \endverb
+    \endentry
+    \entry{De_Luca_2025}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=4444b70e665bf813a3174523c0b8dd6f}{%
+           family={De\bibnamedelima Luca},
+           familyi={D\bibinitperiod\bibinitdelim L\bibinitperiod},
+           given={G.\bibnamedelimi Bruno},
+           giveni={G\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Springer Science}%
+        {Business Media LLC}%
+      }
+      \strng{namehash}{4444b70e665bf813a3174523c0b8dd6f}
+      \strng{fullhash}{4444b70e665bf813a3174523c0b8dd6f}
+      \strng{fullhashraw}{4444b70e665bf813a3174523c0b8dd6f}
+      \strng{bibnamehash}{4444b70e665bf813a3174523c0b8dd6f}
+      \strng{authorbibnamehash}{4444b70e665bf813a3174523c0b8dd6f}
+      \strng{authornamehash}{4444b70e665bf813a3174523c0b8dd6f}
+      \strng{authorfullhash}{4444b70e665bf813a3174523c0b8dd6f}
+      \strng{authorfullhashraw}{4444b70e665bf813a3174523c0b8dd6f}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1029-8479}
+      \field{journaltitle}{Journal of High Energy Physics}
+      \field{month}{9}
+      \field{number}{9}
+      \field{title}{Machine Learning gravity compactifications on negatively curved manifolds}
+      \field{volume}{2025}
+      \field{year}{2025}
+      \verb{doi}
+      \verb 10.1007/jhep09(2025)090
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1007/JHEP09(2025)090
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1007/JHEP09(2025)090
+      \endverb
+    \endentry
+    \entry{Wolpert_1997}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=9e3b028ab5fe6676668bb388f38a5dea}{%
+           family={Wolpert},
+           familyi={W\bibinitperiod},
+           given={D.H.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=27dff62574d6d47b2419ae464415e631}{%
+           family={Macready},
+           familyi={M\bibinitperiod},
+           given={W.G.},
+           giveni={W\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Institute of Electrical}%
+        {Electronics Engineers (IEEE)}%
+      }
+      \strng{namehash}{e5a91da6001162a1dd1c4014f232ce1d}
+      \strng{fullhash}{e5a91da6001162a1dd1c4014f232ce1d}
+      \strng{fullhashraw}{e5a91da6001162a1dd1c4014f232ce1d}
+      \strng{bibnamehash}{e5a91da6001162a1dd1c4014f232ce1d}
+      \strng{authorbibnamehash}{e5a91da6001162a1dd1c4014f232ce1d}
+      \strng{authornamehash}{e5a91da6001162a1dd1c4014f232ce1d}
+      \strng{authorfullhash}{e5a91da6001162a1dd1c4014f232ce1d}
+      \strng{authorfullhashraw}{e5a91da6001162a1dd1c4014f232ce1d}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1089-778X}
+      \field{journaltitle}{IEEE Transactions on Evolutionary Computation}
+      \field{month}{4}
+      \field{number}{1}
+      \field{title}{No free lunch theorems for optimization}
+      \field{volume}{1}
+      \field{year}{1997}
+      \field{pages}{67{\bibrangedash }82}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1109/4235.585893
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1109/4235.585893
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1109/4235.585893
+      \endverb
+    \endentry
+    \entry{Damian_2022}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=5bcc50dbe015eb3962ca10513f9502b0}{%
+           family={Damian},
+           familyi={D\bibinitperiod},
+           given={Cesar},
+           giveni={C\bibinitperiod}}}%
+        {{hash=0b668ceafd82e54e4897c8a9369694e8}{%
+           family={Loaiza-Brito},
+           familyi={L\bibinithyphendelim B\bibinitperiod},
+           given={Oscar},
+           giveni={O\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Springer Science}%
+        {Business Media LLC}%
+      }
+      \strng{namehash}{e7ae1a28f538843915d17a89da94bb18}
+      \strng{fullhash}{e7ae1a28f538843915d17a89da94bb18}
+      \strng{fullhashraw}{e7ae1a28f538843915d17a89da94bb18}
+      \strng{bibnamehash}{e7ae1a28f538843915d17a89da94bb18}
+      \strng{authorbibnamehash}{e7ae1a28f538843915d17a89da94bb18}
+      \strng{authornamehash}{e7ae1a28f538843915d17a89da94bb18}
+      \strng{authorfullhash}{e7ae1a28f538843915d17a89da94bb18}
+      \strng{authorfullhashraw}{e7ae1a28f538843915d17a89da94bb18}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1434-6052}
+      \field{journaltitle}{The European Physical Journal C}
+      \field{month}{12}
+      \field{number}{12}
+      \field{title}{Metastable vacua from torsion and machine learning}
+      \field{volume}{82}
+      \field{year}{2022}
+      \verb{doi}
+      \verb 10.1140/epjc/s10052-022-11118-x
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1140/epjc/s10052-022-11118-x
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1140/epjc/s10052-022-11118-x
+      \endverb
+    \endentry
+    \entry{Wang_2010}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=16b34d0515b2524249f9fd63ab83a11f}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Yanchao},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=7ef2e914ab9be6e51b4acec59f3cb58e}{%
+           family={Lv},
+           familyi={L\bibinitperiod},
+           given={Jian},
+           giveni={J\bibinitperiod}}}%
+        {{hash=b91cb5d0661220eb12d7c6c739583449}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Li},
+           giveni={L\bibinitperiod}}}%
+        {{hash=ccd23038c081b0c57fcffdfea7a5ef2a}{%
+           family={Ma},
+           familyi={M\bibinitperiod},
+           given={Yanming},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Physical Society (APS)}%
+      }
+      \strng{namehash}{acc3e2542fcc8799049788464f999765}
+      \strng{fullhash}{7cc4514e84e1723efecdccec821f572d}
+      \strng{fullhashraw}{7cc4514e84e1723efecdccec821f572d}
+      \strng{bibnamehash}{acc3e2542fcc8799049788464f999765}
+      \strng{authorbibnamehash}{acc3e2542fcc8799049788464f999765}
+      \strng{authornamehash}{acc3e2542fcc8799049788464f999765}
+      \strng{authorfullhash}{7cc4514e84e1723efecdccec821f572d}
+      \strng{authorfullhashraw}{7cc4514e84e1723efecdccec821f572d}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1550-235X}
+      \field{journaltitle}{Physical Review B}
+      \field{month}{9}
+      \field{number}{9}
+      \field{title}{Crystal structure prediction via particle-swarm optimization}
+      \field{volume}{82}
+      \field{year}{2010}
+      \verb{doi}
+      \verb 10.1103/physrevb.82.094116
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1103/PhysRevB.82.094116
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1103/PhysRevB.82.094116
+      \endverb
+    \endentry
     \entry{Prasad_2014}{article}{}{}
       \name{author}{2}{}{%
         {{hash=cf53061fa6c64646c21cce3a2358d53a}{%
@@ -530,8 +766,8 @@
       \strng{authornamehash}{218f5af1b9bc18f91c9ec306ae9c81d4}
       \strng{authorfullhash}{218f5af1b9bc18f91c9ec306ae9c81d4}
       \strng{authorfullhashraw}{218f5af1b9bc18f91c9ec306ae9c81d4}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1742-6596}
@@ -550,6 +786,275 @@
       \endverb
       \verb{url}
       \verb http://dx.doi.org/10.1088/1742-6596/484/1/012047
+      \endverb
+    \endentry
+    \entry{Megantoro_2025}{article}{}{}
+      \name{author}{6}{}{%
+        {{hash=803faacbb11193799cfee5e38e27b357}{%
+           family={Megantoro},
+           familyi={M\bibinitperiod},
+           given={Prisma},
+           giveni={P\bibinitperiod}}}%
+        {{hash=e7479e936f636a2461d4c47e13ee3391}{%
+           family={Halim},
+           familyi={H\bibinitperiod},
+           given={Syahirah\bibnamedelima Abd},
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=d609ad026f2605a58a609e09a34bb3bc}{%
+           family={Kamari},
+           familyi={K\bibinitperiod},
+           given={Nor\bibnamedelimb Azwan\bibnamedelima Mohamed},
+           giveni={N\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=0f5639fa90774c1de74e618386dad5bb}{%
+           family={Awalin},
+           familyi={A\bibinitperiod},
+           given={Lilik\bibnamedelima Jamilatul},
+           giveni={L\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=0a42b53c6298b0151f56550df1a4877e}{%
+           family={Ali},
+           familyi={A\bibinitperiod},
+           given={Mohd\bibnamedelima Syukri},
+           giveni={M\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=08a31f2c9f3746dfedfab5743b4b9594}{%
+           family={Rosli},
+           familyi={R\bibinitperiod},
+           given={Hazwani\bibnamedelima Mohd},
+           giveni={H\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier BV}%
+      }
+      \strng{namehash}{eb68a7c65d9df8d4c22029ebe8c6dd38}
+      \strng{fullhash}{9148e8edfc792448de7c2f78a2dc63ea}
+      \strng{fullhashraw}{9148e8edfc792448de7c2f78a2dc63ea}
+      \strng{bibnamehash}{eb68a7c65d9df8d4c22029ebe8c6dd38}
+      \strng{authorbibnamehash}{eb68a7c65d9df8d4c22029ebe8c6dd38}
+      \strng{authornamehash}{eb68a7c65d9df8d4c22029ebe8c6dd38}
+      \strng{authorfullhash}{9148e8edfc792448de7c2f78a2dc63ea}
+      \strng{authorfullhashraw}{9148e8edfc792448de7c2f78a2dc63ea}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2352-4847}
+      \field{journaltitle}{Energy Reports}
+      \field{month}{6}
+      \field{title}{Optimizing reactive power dispatch with metaheuristic algorithms: A review of renewable distributed generation integration with intermittency considerations}
+      \field{volume}{13}
+      \field{year}{2025}
+      \field{pages}{397{\bibrangedash }423}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1016/j.egyr.2024.12.020
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1016/j.egyr.2024.12.020
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1016/j.egyr.2024.12.020
+      \endverb
+    \endentry
+    \entry{Abel_2014}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=533913b3f4c2d4375bf6a5239d2e6c66}{%
+           family={Abel},
+           familyi={A\bibinitperiod},
+           given={Steven},
+           giveni={S\bibinitperiod}}}%
+        {{hash=25265ec7b587bce64c2fbdb1bbbfa1af}{%
+           family={Rizos},
+           familyi={R\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Springer Science}%
+        {Business Media LLC}%
+      }
+      \strng{namehash}{16ca7335844ced3249b7306f8a8532cd}
+      \strng{fullhash}{16ca7335844ced3249b7306f8a8532cd}
+      \strng{fullhashraw}{16ca7335844ced3249b7306f8a8532cd}
+      \strng{bibnamehash}{16ca7335844ced3249b7306f8a8532cd}
+      \strng{authorbibnamehash}{16ca7335844ced3249b7306f8a8532cd}
+      \strng{authornamehash}{16ca7335844ced3249b7306f8a8532cd}
+      \strng{authorfullhash}{16ca7335844ced3249b7306f8a8532cd}
+      \strng{authorfullhashraw}{16ca7335844ced3249b7306f8a8532cd}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1029-8479}
+      \field{journaltitle}{Journal of High Energy Physics}
+      \field{month}{8}
+      \field{number}{8}
+      \field{title}{Genetic algorithms and the search for viable string vacua}
+      \field{volume}{2014}
+      \field{year}{2014}
+      \verb{doi}
+      \verb 10.1007/jhep08(2014)010
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1007/JHEP08(2014)010
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1007/JHEP08(2014)010
+      \endverb
+    \endentry
+    \entry{Bizet_2020}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=873d59bf514e5243a9ce42463d2b7fe0}{%
+           family={Bizet},
+           familyi={B\bibinitperiod},
+           given={Nana\bibnamedelima Cabo},
+           giveni={N\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=5bcc50dbe015eb3962ca10513f9502b0}{%
+           family={Damian},
+           familyi={D\bibinitperiod},
+           given={Cesar},
+           giveni={C\bibinitperiod}}}%
+        {{hash=0b668ceafd82e54e4897c8a9369694e8}{%
+           family={Loaiza-Brito},
+           familyi={L\bibinithyphendelim B\bibinitperiod},
+           given={Oscar},
+           giveni={O\bibinitperiod}}}%
+        {{hash=089dcb218213f8045f6f34a83d6f8513}{%
+           family={Mayorga\bibnamedelima Peña},
+           familyi={M\bibinitperiod\bibinitdelim P\bibinitperiod},
+           given={Damián\bibnamedelima Kaloni},
+           giveni={D\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=1c60e200300e0638bf79e81d0e25e0b9}{%
+           family={Montañez-Barrera},
+           familyi={M\bibinithyphendelim B\bibinitperiod},
+           given={J.\bibnamedelimi A.},
+           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Springer Science}%
+        {Business Media LLC}%
+      }
+      \strng{namehash}{b8d3cc263a499a4fac2345f4b20ed23b}
+      \strng{fullhash}{b46669d213598cf316867a7b249174e7}
+      \strng{fullhashraw}{b46669d213598cf316867a7b249174e7}
+      \strng{bibnamehash}{b8d3cc263a499a4fac2345f4b20ed23b}
+      \strng{authorbibnamehash}{b8d3cc263a499a4fac2345f4b20ed23b}
+      \strng{authornamehash}{b8d3cc263a499a4fac2345f4b20ed23b}
+      \strng{authorfullhash}{b46669d213598cf316867a7b249174e7}
+      \strng{authorfullhashraw}{b46669d213598cf316867a7b249174e7}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1434-6052}
+      \field{journaltitle}{The European Physical Journal C}
+      \field{month}{8}
+      \field{number}{8}
+      \field{title}{Testing swampland conjectures with machine learning}
+      \field{volume}{80}
+      \field{year}{2020}
+      \verb{doi}
+      \verb 10.1140/epjc/s10052-020-8332-9
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1140/epjc/s10052-020-8332-9
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1140/epjc/s10052-020-8332-9
+      \endverb
+    \endentry
+    \entry{He_2025}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=a4fd5a8285710d8bd6688b748c7cc5fd}{%
+           family={He},
+           familyi={H\bibinitperiod},
+           given={Yang-Hui},
+           giveni={Y\bibinithyphendelim H\bibinitperiod}}}%
+        {{hash=620bc2ec845c50e13bab996ec46943fb}{%
+           family={Jejjala},
+           familyi={J\bibinitperiod},
+           given={Vishnu},
+           giveni={V\bibinitperiod}}}%
+        {{hash=adacb29b50f9398778427fab9e7518aa}{%
+           family={Silva},
+           familyi={S\bibinitperiod},
+           given={Tomás\bibnamedelima S.R.},
+           giveni={T\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier BV}%
+      }
+      \strng{namehash}{b7859496c53cc77878210c563d971ae5}
+      \strng{fullhash}{b7859496c53cc77878210c563d971ae5}
+      \strng{fullhashraw}{b7859496c53cc77878210c563d971ae5}
+      \strng{bibnamehash}{b7859496c53cc77878210c563d971ae5}
+      \strng{authorbibnamehash}{b7859496c53cc77878210c563d971ae5}
+      \strng{authornamehash}{b7859496c53cc77878210c563d971ae5}
+      \strng{authorfullhash}{b7859496c53cc77878210c563d971ae5}
+      \strng{authorfullhashraw}{b7859496c53cc77878210c563d971ae5}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0370-2693}
+      \field{journaltitle}{Physics Letters B}
+      \field{month}{3}
+      \field{title}{Metaheuristic generation of brane tilings}
+      \field{volume}{862}
+      \field{year}{2025}
+      \field{pages}{139365}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.physletb.2025.139365
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1016/j.physletb.2025.139365
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1016/j.physletb.2025.139365
+      \endverb
+    \endentry
+    \entry{Gao_2022}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=b5ecefa5e74745f1373c15347bb0c72f}{%
+           family={Gao},
+           familyi={G\bibinitperiod},
+           given={Xin},
+           giveni={X\bibinitperiod}}}%
+        {{hash=c540868e508473b686f56dced3df80d1}{%
+           family={Zou},
+           familyi={Z\bibinitperiod},
+           given={Hao},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Physical Society (APS)}%
+      }
+      \strng{namehash}{fab4d596a139c36681fc59221fe32916}
+      \strng{fullhash}{fab4d596a139c36681fc59221fe32916}
+      \strng{fullhashraw}{fab4d596a139c36681fc59221fe32916}
+      \strng{bibnamehash}{fab4d596a139c36681fc59221fe32916}
+      \strng{authorbibnamehash}{fab4d596a139c36681fc59221fe32916}
+      \strng{authornamehash}{fab4d596a139c36681fc59221fe32916}
+      \strng{authorfullhash}{fab4d596a139c36681fc59221fe32916}
+      \strng{authorfullhashraw}{fab4d596a139c36681fc59221fe32916}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2470-0029}
+      \field{journaltitle}{Physical Review D}
+      \field{month}{2}
+      \field{number}{4}
+      \field{title}{Applying machine learning to the Calabi-Yau orientifolds with string vacua}
+      \field{volume}{105}
+      \field{year}{2022}
+      \verb{doi}
+      \verb 10.1103/physrevd.105.046017
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1103/PhysRevD.105.046017
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1103/PhysRevD.105.046017
       \endverb
     \endentry
   \enddatalist

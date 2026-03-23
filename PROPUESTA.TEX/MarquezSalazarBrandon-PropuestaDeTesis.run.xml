@@ -58,6 +58,8 @@
       <file>numeric.bbx</file>
       <file>numeric.cbx</file>
       <file>biblatex.cfg</file>
+      <file>english.lbx</file>
+      <file>american.lbx</file>
       <file>spanish.lbx</file>
     </requires>
   </internal>

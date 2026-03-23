@@ -3,6 +3,7 @@
 
 typedef int lovdog_log_var;
 
+#ifndef lovdog_log_setup
 #define lovdog_log_setup extern lovdog_log_var lovdog_log
 
 #define lovdog_startlog      if(lovdog_log & 0b1000){
@@ -10,6 +11,9 @@ typedef int lovdog_log_var;
 
 #define lovdog_startverb(vl) if(lovdog_log & vl){
 #define lovdog_endverb       }
+#endif
+
+#include <stdio.h>
 
 void lovdog_log_level(lovdog_log_var vl);
 
@@ -26,7 +30,7 @@ void lovdog_log_level(lovdog_log_var vl);
 // La partícula requiere saber en cuántas dimensiones
 // estará moviéndose. Dichas dimensiones definirán al vector
 // posición y al vector velocidad.
-typedef struct { 
+typedef struct PARTICULA{ 
   long double *Xi;   //Posicion
   long double *Vi;   //Velocidad
   long double *Pi;   //Mejor Posicion Historica
@@ -39,33 +43,22 @@ typedef struct {
 // Este conjunto actuará para encontrar soluciones
 // Cada solución es repensada según los valores históricos
 // y valores presentes.
-typedef struct{
+typedef struct ENJAMBRE{ // Iniciando en 2N+3
   PARTICULA         *Part;                    // Arreglo de partículas
-  unsigned int       CantidadDeParticulas;    // Número de partículas
+  unsigned int       CantidadDeParticulas;    // Número de partículas [0]
   unsigned int       CantidadDeDimensiones;   // Número de dimensiones del espacio de búsqueda
   unsigned int       MejorParticulaDelGrupo;  // ID de la mejor partícula del grupo
-  unsigned int       MaximoDeIteraciones;     // Número máximo d'iteraciones a realizar
-  long double        C1;                      // Coeficiente de influencia individual
-  long double        C2;                      // Coeficiente de influencia social
+  unsigned int       MaximoDeIteraciones;     // Número máximo d'iteraciones a realizar  [1]
+  long double        C1;                      // Coeficiente de influencia individual    [2]
+  long double        C2;                      // Coeficiente de influencia social        [3]
   const long double *LimitesSuperiores;       // Limites Superiores de las dimensions del espacio de búsqueda
   const long double *LimitesInferiores;       // Limites Inferiores de las dimensions del espacio de búsqueda
-  long double        K;                       // Factor de constricción (convergencia)
-  long double        W;                       // Peso de inercia
-  long double        Constriccion;            // Factor de constricción (convergencia)
+  long double        K;                       // Factor de constricción (convergencia)   [4]
+  long double        W;                       // Peso de inercia                         [5]
+  long double        Constriccion;            // Factor de constricción (convergencia)   [6]
+  unsigned char      TipoPSO;                 // Tipo de Actualización                   [7]
+                                              // 0b1(maximiza) 0b0(minimiza) 0b01(clamp) 0b001(constrain) 0b0001(inercia)
 }ENJAMBRE;
-
-// Esta estructura fungirá en la versión 0.0.2 del framework
-// estará planificada para póstumos usos de la biblioteca en
-// aplicaciones más extensibles.
-typedef struct SINTONIZACION{
-  long double  constriccion;
-  long double  c1;
-  long double  c2;
-  unsigned int max_iter;
-  unsigned int cant_part;
-  unsigned int cant_dim;
-  unsigned int execution_times;
-}SINTONIZACION;
 
 
 /* La función a evaluar, regresa el valor de fitness (precisión)
@@ -78,6 +71,42 @@ typedef long double (*FitnessFunction)(
     long double          *__ValoresDeParametros__,
     unsigned int          __CantidadDeParametros__,
     const long double    *__ParametrosDeOperacion__);
+
+/* Esta estructura fungirá en la versión 0.0.2 del framework
+* estará planificada para póstumos usos de la biblioteca en
+* aplicaciones más extensibles.
+* Los descriptores variarán según el bio inspirado a utilizar,
+* sin embargo, los elementos base serán siempre los mismos
+* [0]:          Dimensiones del espacio de búsqueda
+* [1,N]:        Límites superiores
+* [N+1,2N]:     Límites inferiores
+* [2N+1]:       Bioinspirado a utilizar
+* [2N+2,...]:   Elementos del bioinspirado
+*/ 
+
+typedef struct BIO_PROCESO {
+  long double         *__descriptores__;
+  unsigned int         __iteraciones__;
+  char*                __log__;
+  char*                __results__;
+  unsigned int         __nivel_de_log__;
+  FitnessFunction      __FuncionDeFitness__;
+  const long double   *__ParametrosDeOperacion__;
+} BIO_PROCESO;
+
+// Operadores generales
+
+/* Creación de archivo de log */
+void CrearLog(
+   char *__ArchivoDeLog__,
+   FILE** __log__
+);
+
+/*Crear archivo de resultados */
+void CrearResultados(
+   char *__ArchivoDeResultados__,
+   FILE** __results__
+);
 
 
 // Operadores del enjambre (métodos)
@@ -120,6 +149,12 @@ void ImprimeParticula(
   const PARTICULA    *__Particula__,
   const unsigned int  __CantidadDeParametros__
   );
+/* Función para copiar partícula a partícula*/
+void CopiaParticula(
+    PARTICULA* __Destino__,
+    PARTICULA* __Origen__,
+    const unsigned int __CantidadDeParametros__
+);
 /* Permite visualizar los parámetros del enjambre, y las partículas
  * que le componen.*/
 void ImprimeEnjambre(
@@ -199,5 +234,7 @@ PARTICULA ProcesoPSO(
     const long double        __ValorPesoGlobalC2__,
     const long double       *__ParametrosDeOperacion__
   );
+
+void EjecutaBioinspirado(const BIO_PROCESO* __ProcesoBioinspirado__);
 
 #endif

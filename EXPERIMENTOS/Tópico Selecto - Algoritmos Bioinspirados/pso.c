@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <time.h>
+#include <string.h>
 
 
 FitnessFunction FuncionObjetivo;
@@ -162,8 +163,22 @@ void ImprimeParticula(
   printf("\nParticula,Pfit=%Lf",__Particula__->Pfit);
 }
 
-void ImprimeEnjambre(ENJAMBRE *__Enjambre__)
-{ for(unsigned int i=0; i<__Enjambre__->CantidadDeParticulas; ++i) //Para cada particula i
+void CopiaParticula(
+    PARTICULA* __Destino__,
+    PARTICULA* __Origen__,
+    const unsigned int     __CantidadDeParametros__
+){
+  if(!__Destino__ || !__Origen__) return;
+  if(!__Destino__->Xi || !__Destino__->Vi || !__Destino__->Pi) return;
+  memcpy(__Destino__->Xi, __Origen__->Xi, __CantidadDeParametros__*sizeof(long double));
+  memcpy(__Destino__->Vi, __Origen__->Vi, __CantidadDeParametros__*sizeof(long double));
+  memcpy(__Destino__->Pi, __Origen__->Pi, __CantidadDeParametros__*sizeof(long double));
+  __Destino__->Xfit =  __Origen__->Xfit;
+  __Destino__->Pfit =  __Origen__->Pfit;
+}
+
+void ImprimeEnjambre(ENJAMBRE *__Enjambre__) {
+  for(unsigned int i=0; i<__Enjambre__->CantidadDeParticulas; ++i) //Para cada particula i
     ImprimeParticulaID(__Enjambre__,i);
 }
 
@@ -378,17 +393,80 @@ void ActualizarMejoresPosicionesMax(ENJAMBRE *__Enjambre__){
     }
 }
 
+void EjecutaBioinspirado(const BIO_PROCESO *__ProcesoBioinspirado__){
+  ENJAMBRE *enjambre;
+  unsigned int descriptor_index = 2*__ProcesoBioinspirado__->__descriptores__[0]+1;
+  unsigned int inflim_index = 1;
+  unsigned int suplim_index = 1+__ProcesoBioinspirado__->__descriptores__[0];
+  lovdog_log = __ProcesoBioinspirado__->__nivel_de_log__;
+  enjambre=CrearEnjambre(
+      __ProcesoBioinspirado__->__descriptores__[descriptor_index], // Cantidad de partículas
+      __ProcesoBioinspirado__->__descriptores__[0] // Cantidad de dimensiones
+  );
+  FuncionObjetivo = __ProcesoBioinspirado__->__FuncionDeFitness__;
+  InicializarEnjambre(enjambre,
+      __ProcesoBioinspirado__->__descriptores__[descriptor_index+4],//Factor Constricción,
+      __ProcesoBioinspirado__->__descriptores__[descriptor_index+5],//Factor Inercia,
+      __ProcesoBioinspirado__->__descriptores__[descriptor_index+2],//Valor Peso Personal C1,
+      __ProcesoBioinspirado__->__descriptores__[descriptor_index+3],//Valor Peso Global C2,
+      __ProcesoBioinspirado__->__descriptores__[descriptor_index+1],//Numero Máximo De Iteraciones,
+      __ProcesoBioinspirado__->__descriptores__+inflim_index,//Limite Inferior,
+      __ProcesoBioinspirado__->__descriptores__+suplim_index//Limite Superior
+  );
+  EvaluacionInicialEnjambreMin(enjambre, __ProcesoBioinspirado__->__ParametrosDeOperacion__);
 
-/*long double FuncionObjetivo(long double *__ValoresDeParametros__, unsigned int __CantidadDeParametros__){
-  unsigned int k;
-  long double fit, aux = 0;
-  // Maximar la siguiente funcion:
-  //   f(x,y)=50-(x-5)^2-(y-5)^2; 
-  //fit=250-pow(Xi[0]+7,2)-pow(Xi[1]-3,2)-pow(Xi[2]-3,2)-pow(Xi[3]-5,2)-pow(Xi[4]-8,2);
+  FILE
+    *LogFile=NULL,
+    *ResultsFile=NULL;
 
-  // Funcion Rastriging (Buscamos el valor 0)
-  for (k=0; k<__CantidadDeParametros__; k++)
-    aux += pow(__ValoresDeParametros__[k],2)-10*cos(6.283185*__ValoresDeParametros__[k])+10;
-  fit = 100 - aux; // El valor d'a precisión se ponderará en una escala del 1 al 100
-  return fit;
-}*/
+  CrearLog(__ProcesoBioinspirado__->__log__, &LogFile);
+  CrearResultados(__ProcesoBioinspirado__->__results__, &ResultsFile);
+
+  lovdog_startlog
+  printf("\n ===== Inicialización ======\n");
+  ImprimeEnjambre(enjambre);
+  lovdog_endlog
+
+
+  unsigned int n=0; while(n<__ProcesoBioinspirado__->__iteraciones__){
+    //ActualizarVelocidad(enjambre);
+    //ActualizarVelocidadClamping(enjambre);
+    ActualizarVelocidadInerciaW(enjambre);
+    ActualizarPosicion(enjambre);
+    EvaluarEnjambreMin(enjambre, __ProcesoBioinspirado__->__ParametrosDeOperacion__);
+    ActualizarMejoresPosicionesMin(enjambre);
+    lovdog_startlog
+    printf("\n ===== Iteración %u ======\n",n);
+    ImprimeEnjambre(enjambre);
+    printf("\n");
+    lovdog_endlog
+    ++n;
+  }
+  printf("@ Mejor Partícula : \n{");
+  ImprimeParticulaID(enjambre, enjambre->MejorParticulaDelGrupo);
+  printf("\n}\n");
+  EliminarEnjambre(enjambre);
+}
+
+void CrearLog(
+   char *__ArchivoDeLog__,
+   FILE ** __log__
+){
+  if(!__ArchivoDeLog__) return;
+  if(__ArchivoDeLog__[0]=='\0') return;
+  if(!__log__) return;
+  if(*__log__) return;
+  *__log__ = fopen(__ArchivoDeLog__,"w");
+}
+
+void CrearResults(
+   char *__ArchivoDeResultados__,
+   FILE ** __results__
+){
+  if(!__ArchivoDeResultados__) return;
+  if(__ArchivoDeResultados__[0]=='\0') return;
+  if(!__results__) return;
+  if(*__results__) return;
+  *__results__ = fopen(__ArchivoDeResultados__,"w");
+}
+

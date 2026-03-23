@@ -83,9 +83,9 @@
 |--- resultados_ags.txt
 |--- pso.c
 |--- pso.h
+|--- test.c
 |--- vacua.c
 |--- vacua.h
-|--- test.c
 |--- test_multi.sh
 |--- resultados.txt
 |==
@@ -154,6 +154,11 @@
 |=-
 |--- ;QTBookmann-[type].otf;                      > ||
 |==
+|-- symbols/
+|=-
+|--- ;[*].pdf;                                    > ||
+|--- ;[*].tex;                                    > ||
+|==
 |-- img/
 |=-
 |--- ;[*].png;                                    > ||
@@ -170,6 +175,9 @@
 |--- 01.05.00.-Cronograma.tex
 |--- 01.06.00.-Resultados.tex
 |--- 02.00.00.-DatosSECIHTI.tex
+|--- 02.01.00.-MetasDelProyecto.tex
+|--- 02.02.00.-ImpactoCientíficoDelProyecto.tex
+|--- 02.03.00.-AportaciónProbPrior.tex
 |==
 |-- MarquezSalazarBrandon-PropuestaDeTesis.tex    > ||
 |-- bibliography.bib                              > ||
@@ -183,5 +191,6 @@
 |-- lstautodedent.sty
 |==
 |- SaveChanges.sh                                 > The file that saves and pushes to GitHub when needed, all in Tesis dir ||
-|- GetChanges.sh                                  > The file that saves and pushes to GitHub when needed, all in Tesis dir ||
+|- GetChanges.sh                                  > The file that just pulls from GitHub when needed, all in Tesis dir ||
 |- structure.liotree                              > Este es un archivo que permite el acceso a la estructura del proyecto. ||
+
