@@ -22,6 +22,30 @@ test_fitness:
 		cd $(ProjectDir)  && \
 	  python3 test_fitness_function.py
 
+solutions_counter:
+	. venv/bin/activate && \
+		cd $(ProjectDir)  && \
+		python3 SolutionsCounter.py ; \
+		read -p " :: END OF PROCESS :: " a
+
+solutions_counter_o:
+	. venv/bin/activate && \
+		cd $(ProjectDir)  && \
+		python3 SolutionsCounter_O.py ; \
+		read -p " :: END OF PROCESS :: " a
+
+solutions_plot_o:
+	. venv/bin/activate && \
+		cd $(ProjectDir)  && \
+		python3 PlotOriginal.py ; \
+		read -p " :: END OF PROCESS :: " a
+
+solutions_plot:
+	. venv/bin/activate && \
+		cd $(ProjectDir)  && \
+		python3 PlotVacuaFound.py ; \
+		read -p " :: END OF PROCESS :: " a
+
 configure:
 	bash setup.sh
 
@@ -63,6 +87,7 @@ bio_genetico_run:
 	cd "./Tópico Selecto - Algoritmos Bioinspirados" &&\
 	./ags_exe ; \
 	read -p " :: END OF PROCESS :: " a
+
 
 help:
 	@echo "make configure ............... # Configura el entorno (bash y python venv)"

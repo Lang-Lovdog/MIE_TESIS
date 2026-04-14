@@ -1,4 +1,8 @@
 | MIE_TESIS/                                      > El directorio relativo al proyecto de tesis.                           ||
+|-- ../../../../overleaf/MarquezSalazarBrandon-Art__culo-COMIA-Abril-2026/
+|=-
+|----- __this__dir__
+|==
 |-- ArticlesAndBooks/
 |=-
 |--- ;[Articles].pdf;                             > ||
@@ -6,9 +10,12 @@
 |- EXPERIMENTOS/                                  > El directorio donde realizo los códigos y cosas por el estilo.         ||
 |=-
 |-- __this__dir__
--- Makefile                                       > Este es un archivo maestro que permite ejecutar cualquier código
+--- Makefile                                      > Este es un archivo maestro que permite ejecutar cualquier código
 |                                                 simulación, prueba o tarea dentro del proyecto.                          ||
 |-- CESAR-BRITO_ORIGINAL-DATA/                    > Información del experimento original                                   ||
+|=-
+|--- ;[*].csv;                                    > ||
+|==
 |-- handmade-plots/                               > Gráficas que necesite hacer. Fuera de la estructura del módulo.        ||
 |=-
 |--- __this__dir__
@@ -32,12 +39,79 @@
 |==
 |-- Lovdog_Swampland/                             > El código donde estoy replicando el experimento del Dr. Cesar.         ||
 |=-
+|--- __this__dir__
 |--- MetastableVacua.py                           > Módulo que contiene la función potencial y sus descriptores
 |                                                 correspondientes.                                                        ||
 |--- BusquedaGeneticos.py                         > Este script es la primera versión que implementa los
 |                                                 metaheurísticos en Python. Originalmente PSO y Genéticos.                ||
 |--- test_fitness_function.py                     > Aquí únicamente se evalúan los elementos según los resultados
 |                                                 esperados.                                                               ||
+|--- SolutionsCounter.py                          > Contador de soluciones (archivos VacuaFound_DDMMAAAA), clasificación
+|                                                 de todo el contenido encontrado en los diferentes experimentos (usa
+|                                                 lista de python con los nombres de los directorios a examinar            ||
+|--- SolutionsCounter_O.py                        > Contador de soluciones (archivos VacuaFound_DDMMAAAA), clasificación
+|                                                 de todo el contenido encontrado en los diferentes experimentos (usa
+|                                                 lista de python con los nombres de los directorios a examinar            ||
+|--- PlotOriginal.py                              > Módulo que grafica las soluciones encontradas por el Dr. Cesar         ||
+|--- PlotVacuaFound.py
+|--- Pasarela.sh
+|-- VacuaFoundPlots/
+|=-
+|-- ;[DDMMYYYY]/;                                 >  Gráfica de las salidas de la búsqueda metaheurística.
+|                                                    | --- ;VacuaFound[DDMMYYYY]/;
+|                                                    |   =-
+|                                                    |     -- __this__dir__
+|                                                    |     -- dS/
+|                                                    |       =-
+|                                                    |       --- ;Plot_VacuaFound_[DDMMYYYY]_E[int].eps;
+|                                                    |       --- Pasarela.sh
+|                                                    |       ==
+|                                                    |     -- AdS/
+|                                                    |       =-
+|                                                    |       --- ;Plot_VacuaFound_[DDMMYYYY]_E[int].eps;
+|                                                    |       --- Pasarela.sh
+|                                                    |       ==
+|                                                    |   ==
+|                                                    ||
+|=-
+|-- ;found_solutions_[_]dS_fv_[d]/;              > Resultados de la búsqueda metaheurística.                              ||
+|=-
+|--- ;Plot_E[index].eps;                       > Gráfica en formato eps ||
+|==
+|==
+|==
+|-- OriginalSolutions/                           > Plots de los elementos originales (Damian_2022)                        ||
+|=-
+|--- __this__dir__
+|--- ;Solution-[XYZ].eps;
+|--- ;Solution-[XYZ].eps.eps;
+|==
+|- ;SolutionsCounter_Resumen[_O]/;        > ||
+|=-
+|-- ;ResumenDel[DDMMAAAA].json;                   > El archivo tendrá la forma:
+|                                                  "post lift": {
+|                                                     "dS":  { "stable": [int], "unstable": [int] },
+|                                                     "AdS": { "stable": [int], "unstable": [int] },
+|                                                  }
+|                                                  "pre lifting": {
+|                                                     "dS":  { "to dS": [int],  "to AdS": [int] },
+|                                                     "AdS": { "to dS": [int],  "to AdS": [int] },
+|                                                  }
+|                                                 ||
+|-- ;Histograma1[DDMMAAAA].eps;                   > Histograma de barra dividida con base en dS AdS y división por
+|                                                 estabilidad                                                              ||
+|-- ;Histograma2[DDMMAAAA].eps;                   > Histograma de barra dividida con base en dS AdS y división por
+|                                                 comportamiento tras levantamiento                                        ||
+|-- DescripcionDeResumen.txt                      > El archivo tendrá la forma:
+|                                                   [DDMMAAAA]
+|                                                   Archivos:
+|                                                   VacuaFoundXXYYZZZZ/
+|                                                   VacuaFoundAABBCCCC/
+|                                                   Registros ignorados
+|                                                   a,b,c,... (int)
+|                                                   ...
+|                                                 ||
+|==
 |--- ;VacuaFound_[DDMMYYYY]/;                     > Las salidas de la búsqueda metaheurística.                             ||
 |=-
 |-- __this__dir__

@@ -4,7 +4,7 @@ description: Aquí se describen detalles e ideas posiblemente relevantes a la te
 authors: Brandon Marquez Salazar (Lang Lovdog Inu Oókami)
 categories: meta.journal
 created: 2026-02-06T14:41:43-0600
-updated: 2026-03-07T01:37:01-0600
+updated: 2026-03-29T15:57:10-0600
 version: 1.1.1
 @end
 
@@ -17,6 +17,11 @@ poco relevantes al trabajo y más relevantes a mi pensamiento.
 Como punto de partida, estos comentarios no se centrarán en
 ser la documentación del código, sino un mero escape de
 pensamientos que pueden o no, en un futuro, tomar relevancia.
+
+^^ Sobre el proyecto
+El proyecto está basado en el artículo *Mestastable Vacua with
+Torsion and Machine Learning* de Damian et al.
+^^
 
 * Definición del problema
 
@@ -257,12 +262,66 @@ pensamientos que pueden o no, en un futuro, tomar relevancia.
    debe entregarse a más tardar el 18 del presente mes.
    ^^
 
-** Mar 05 de Marzo del 2023
+** Mar 05 de Marzo del 2026
    Hoy hubo un apagón mientras realizaba mis diagramas, los
    cambios serán subidos.
 
+** Mar 17 de marzo del 2026
+   Tuve que pedir prórroga para {# CORREO_URGENTE}[la propuesta]. No había logrado
+   aterrizar el documento de propuesta de tesis y lo que
+   llevaba no fue acertado, exceso de teoría, carencia de
+   acciones tangibles.
+  
+   $$ Preguntas del 17Mar2026
+   ¿Qué tanto es tantito?
+   $$
 
-___
+
+** Dom 23 de Marzo del 2026
+   Después de analizar los al rededor de 11 979 soluciones del 
+   experimento he llegado a vislumbrar comportamientos curiosos
+   que me gustaría plantear.
+
+   Lo primero es que, desgraciadamente la reestructuración aún
+   está en proceso, por lo tanto continúo con el Legacy.
+
+   Por otro lado, debido a los apagones todas las iteraciones
+   quedaron a la mitad, por lo que al final la mayoría de los
+   experimentos quedaron incompletos, aunque 11 979 soluciones
+   son bastantes para este primer experimento.
+
+   Bien, ahora que el contexto del código está bien planteado,
+   explico algo: las soluciones buscadas, han sido buscadas con
+   la función de potencial efectivo y sus comportamientos son
+   algo curiosos, por lo que veo imperesante su mención:
+
+   - Al momento del análisis pre-levantamiento (no lifting)
+   -- Existen vacíos en expansión $V_eff > 0$
+   -- Existen vacíos esperables AdS $V_eff < 0$
+   - Al momento de aplicar el levantamiento
+   -- Algunos vacíos pasan de ser AdS a dS
+   -- Algunos vacíos pasan de ser dS a AdS
+   -- Algunos vacíos conservan su estado sin gran alteración
+   -- Algunos vacíos conservan su estado pero cambian radicalmente su comportamiento
+   - Tal como es mencionado en mi diario de tesis (libro físico):
+   -- Se usaron valores de -100, 100 para todos los coeficientes de contribución de los flujos
+   -- Los módulos fueron propuestos en un rango de 1e-20, 100 (no usados hasta el momento en el experimento)
+   -- El comportamiento de la contribución A3N3 es coherente con lo esperado aún sin ser restricto a valores
+      definidos negativos
+   - Otro punto importante (también descrito nell diario de tesis) es la diferencia entre las magnitudes obtenidas por el
+     optimizador, si bien el comportamiento de los flujos fue como se esperaba, el orden de los elementos era bastante más
+     alto que los valores originales.
+
+
+   Para el análisis de los resultados se hicieron un script de
+   gnuplot para las gráficas de los elementos encontrados y
+   un script de python para los elementos originales del
+   {# Sobre el proyecto}[experimento del Dr. Cesar].
+   Probablemente se migre al menos un elemento para graficación
+   para el paper. (o una exportación en gnuplot a eps).
+
+   ___
    ===
 
 {:../index.norg:}[Index]
+

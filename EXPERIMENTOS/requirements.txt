@@ -1,4 +1,6 @@
 numpy
+cupy-cuda12x
+nvidia-cuda-nvrtc-cu12
 matplotlib
 pandas
 scipy
