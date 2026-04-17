@@ -1,0 +1,1198 @@
+%! TEX program = xelatex
+\documentclass[10pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage{fontspec}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{tocloft}
+
+% Set fonts for e-reader
+\setmainfont{QTBookmann}
+\setmonofont{VictorMono Nerd Font}[
+    SizeFeatures={Size=8},
+    Color=000000
+]
+
+% High contrast colors for e-reader
+\definecolor{codebg}{RGB}{255,255,255}
+\definecolor{codeframe}{RGB}{0,0,0}
+\definecolor{keyword}{RGB}{0,0,139}
+\definecolor{comment}{RGB}{139,0,0}
+\definecolor{string}{RGB}{0,100,0}
+\definecolor{number}{RGB}{0,0,0}
+
+% Configure listings
+\lstdefinestyle{ereader}{
+    backgroundcolor=\color{codebg},
+    frame=single,
+    framesep=3pt,
+    framerule=1pt,
+    rulecolor=\color{codeframe},
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{keyword}\bfseries,
+    commentstyle=\color{comment},
+    stringstyle=\color{string},
+    numberstyle=\color{number},
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+
+\lstset{style=ereader}
+
+% Define JSON language
+\lstdefinelanguage{JSON}{
+    basicstyle=\ttfamily\footnotesize,
+    numbers=left,
+    numberstyle=\color{number},
+    frame=single,
+    framesep=3pt,
+    framerule=1pt,
+    rulecolor=\color{codeframe},
+    stringstyle=\color{string},
+    showstringspaces=false,
+    breaklines=true,
+    literate=
+     *{0}{{{\color{number}0}}}{1}
+      {1}{{{\color{number}1}}}{1}
+      {2}{{{\color{number}2}}}{1}
+      {3}{{{\color{number}3}}}{1}
+      {4}{{{\color{number}4}}}{1}
+      {5}{{{\color{number}5}}}{1}
+      {6}{{{\color{number}6}}}{1}
+      {7}{{{\color{number}7}}}{1}
+      {8}{{{\color{number}8}}}{1}
+      {9}{{{\color{number}9}}}{1}
+      {:}{{{\color{keyword}{:}}}}{1}
+      {,}{{{\color{keyword}{,}}}}{1}
+      {\{}{{{\color{keyword}{\{}}}}{1}
+      {\}}{{{\color{keyword}{\}}}}}{1}
+      {[}{{{\color{keyword}{[}}}}{1}
+      {]}{{{\color{keyword}{]}}}}{1},
+}
+
+% Chapter formatting
+\titleformat{\chapter}[display]
+{\normalfont\LARGE\bfseries}{\chaptertitlename\ \thechapter}{0pt}{\Huge}
+\titleformat{\section}
+{\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}
+{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+
+% Page layout
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{\leftmark}
+\fancyhead[LO]{\rightmark}
+
+\begin{document}
+
+\title{\Huge\textbf{LovdogModelSelector}\\ \Large Automated ML Framework}
+\author{}
+\date{}
+\maketitle
+
+\tableofcontents
+
+\chapter{Data Management Core (LovdogDF.py)}
+
+The \textbf{LovdogDataFrames} class is the central data management system that orchestrates all data loading, organization, and preprocessing. It serves as the foundation upon which feature extraction and model selection are built.
+
+\section{Main Class: LovdogDataFrames}
+
+\begin{lstlisting}[language=Python]
+class LovdogDataFrames:
+    def __init__(self, json_file_path=None, 
+                 loader_function=None):
+        self.json_file_path = json_file_path
+        self.loader_function = loader_function
+        self.json_data = None
+        self.frames = {}
+        self.class_names = []
+        
+        if json_file_path:
+            self.load_json(json_file_path)
+\end{lstlisting}
+
+\textbf{Explanation:}
+The constructor initializes the data management system with two key parameters:
+\begin{itemize}
+\item \texttt{json\_file\_path}: Path to a JSON configuration file that defines your data sources, classes, and loading parameters
+\item \texttt{loader\_function}: A custom function that handles the actual data loading from files (defaults to a simple path returner)
+\end{itemize}
+
+The class maintains several important data structures:
+\begin{itemize}
+\item \texttt{frames}: A dictionary where keys are class names and values are lists of loaded data (images, arrays, etc.)
+\item \texttt{class\_names}: List of all unique class labels found in the data
+\item \texttt{extra\_data}: Stores additional metadata for each class
+\end{itemize}
+
+\section{JSON Configuration System}
+
+\begin{lstlisting}[language=JSON]
+{
+    "csv": "Features_Table.csv",
+    "class1": {
+        "class": "positive",
+        "path": ["data/class1/"],
+        "extra": {
+            "cols": 100, 
+            "rows": 100, 
+            "type": "2d"
+        }
+    },
+    "class2": {
+        "class": "negative", 
+        "path": ["data/class2/"],
+        "extra": {
+            "cols": 100, 
+            "rows": 100, 
+            "type": "2d"
+        }
+    }
+}
+\end{lstlisting}
+
+\textbf{Explanation:}
+The JSON configuration provides a declarative way to define your entire dataset:
+\begin{itemize}
+\item \texttt{csv}: Optional name for the output features table
+\item Each class definition contains:
+  \begin{itemize}
+  \item \texttt{class}: The label for this category
+  \item \texttt{path}: List of directories or files containing data
+  \item \texttt{extra}: Loading parameters specific to your data format
+  \end{itemize}
+\end{itemize}
+
+The \texttt{extra} parameters are passed to the loader function and typically include:
+\begin{itemize}
+\item \texttt{cols}, \texttt{rows}: Dimensions for reshaping 1D data to 2D
+\item \texttt{type}: Data format (\texttt{'2d'}, \texttt{'2drow'})
+\item \texttt{delimiter}: For text file parsing
+\end{itemize}
+
+\section{Data Loading and Processing}
+
+\subsection{JSON Parsing and Data Loading}
+
+\begin{lstlisting}[language=Python]
+def _parse_json(self):
+    """Internal method to parse the loaded JSON data using the provided loader function."""
+    if not self.json_data:
+        raise ValueError("No JSON data loaded. Call load_json() first.")
+
+    # Reset state
+    self.frames = {}
+    self.extra_data = {}
+    self.class_names = []
+
+    # Get the CSV name
+    self.feature_table_name = self.json_data.get("csv", "Features_Table.csv")
+
+    # Iterate through the JSON items
+    for key, value in self.json_data.items():
+        if key == "csv":
+            continue
+
+        if isinstance(value, dict):
+            class_name = value.get("class", f"Unknown_Class_{key}")
+            paths = value.get("path", [])
+            extra = value.get("extra", {})
+
+            self.extra_data[class_name] = extra
+            self.class_names.append(class_name)
+            self.frames[class_name] = []  # Initialize the list for this class
+
+            print(f"[INFO] Loading data for class: {class_name}")
+            for path in paths:
+                path_obj = Path(path)
+                if path_obj.is_file():
+                    # USE THE PROVIDED LOADER FUNCTION HERE
+                    loaded_data = self.loader_function(path_obj, extra)
+                    self._add_loaded_data(loaded_data, class_name)
+\end{lstlisting}
+
+\textbf{Explanation:}
+This method is the workhorse that processes the JSON configuration:
+\begin{enumerate}
+\item \textbf{Resets internal state} to ensure clean loading
+\item \textbf{Extracts CSV name} for future feature table export
+\item \textbf{Iterates through each class definition} in the JSON
+\item \textbf{Processes each path} for the class (files or directories)
+\item \textbf{Uses the loader function} to actually load the data
+\item \textbf{Organizes data by class} in the \texttt{frames} dictionary
+\end{enumerate}
+
+The method handles both individual files and directories recursively, making it flexible for various data organization schemes.
+
+\section{Data Balancing Methods}
+
+\subsection{Class Balancing}
+
+\begin{lstlisting}[language=Python]
+def balance_frames(self, method='undersample', random_state=None):
+    """
+    Balance the frames at the data loading level (before feature extraction).
+    
+    Parameters:
+    -----------
+    method : str, default='undersample'
+        Method to balance classes: 'undersample' or 'oversample'
+    
+    random_state : int, optional
+        Random seed for reproducibility
+    """
+    if not self.frames:
+        raise ValueError("No data loaded. Load data first.")
+    
+    # Get class distribution
+    class_counts = {cls: len(frames) for cls, frames in self.frames.items()}
+    print(f"Original class distribution: {class_counts}")
+    
+    if method == 'undersample':
+        self._undersample_frames(random_state)
+    elif method == 'oversample':
+        self._oversample_frames(random_state)
+\end{lstlisting}
+
+\textbf{Explanation:}
+Class imbalance is a common problem in machine learning. This method provides two strategies:
+
+\begin{itemize}
+\item \textbf{Undersampling}: Reduces samples from majority classes to match the minority class count
+\item \textbf{Oversampling}: Increases samples from minority classes using bootstrapping
+\end{itemize}
+
+\textbf{Why balance at frame level?}
+\begin{itemize}
+\item Prevents bias in feature extraction
+\item Ensures equal representation during model training
+\item More effective than balancing after feature extraction
+\end{itemize}
+
+\subsection{Undersampling Implementation}
+
+\begin{lstlisting}[language=Python]
+def _undersample_frames(self, random_state=None):
+    """Undersample frames to match the minority class"""
+    if random_state is not None:
+        random.seed(random_state)
+        np.random.seed(random_state)
+    
+    # Find the minority class count
+    class_counts = [len(frames) for frames in self.frames.values()]
+    minority_count = min(class_counts)
+    
+    # Undersample each class
+    balanced_frames = {}
+    for class_name, frames in self.frames.items():
+        if len(frames) > minority_count:
+            # Undersample
+            balanced_frames[class_name] = random.sample(frames, minority_count)
+        else:
+            # Keep all samples
+            balanced_frames[class_name] = frames
+    
+    self.frames = balanced_frames
+\end{lstlisting}
+
+\textbf{Explanation:}
+Undersampling works by:
+\begin{enumerate}
+\item \textbf{Finding the smallest class} (minority count)
+\item \textbf{For each class} with more samples than the minority:
+  \begin{itemize}
+  \item Randomly select a subset of size \texttt{minority\_count}
+  \item Uses \texttt{random.sample()} for non-replacement sampling
+  \end{itemize}
+\item \textbf{Preserves all samples} from classes with fewer samples
+\end{enumerate}
+
+\textbf{Advantages:}
+\begin{itemize}
+\item Faster training (fewer samples)
+\item Reduces computational requirements
+\item Prevents model from being biased toward majority classes
+\end{itemize}
+
+\subsection{Oversampling Implementation}
+
+\begin{lstlisting}[language=Python]
+def _oversample_frames(self, random_state=None):
+    """Oversample frames to match the majority class"""
+    if random_state is not None:
+        random.seed(random_state)
+        np.random.seed(random_state)
+    
+    # Find the majority class count
+    class_counts = [len(frames) for frames in self.frames.values()]
+    majority_count = max(class_counts)
+    
+    # Oversample each class
+    balanced_frames = {}
+    for class_name, frames in self.frames.items():
+        if len(frames) < majority_count:
+            # Oversample with replacement
+            balanced_frames[class_name] = resample(
+                frames, 
+                replace=True, 
+                n_samples=majority_count, 
+                random_state=random_state
+            )
+        else:
+            # Keep all samples
+            balanced_frames[class_name] = frames
+    
+    self.frames = balanced_frames
+\end{lstlisting}
+
+\textbf{Explanation:}
+Oversampling works by:
+\begin{enumerate}
+\item \textbf{Finding the largest class} (majority count)
+\item \textbf{For each class} with fewer samples than the majority:
+  \begin{itemize}
+  \item Uses \texttt{resample()} with replacement to create new samples
+  \item Bootstraps existing samples to reach \texttt{majority\_count}
+  \end{itemize}
+\item \textbf{Preserves all samples} from classes with sufficient samples
+\end{enumerate}
+
+\textbf{Advantages:}
+\begin{itemize}
+\item Preserves all original data
+\item Better for small datasets
+\item Can improve model performance on minority classes
+\end{itemize}
+
+\section{Data Access Methods}
+
+\begin{lstlisting}[language=Python]
+def get_data_dict(self):
+    """Return the frames dictionary"""
+    return self.frames.copy()
+
+def get_class_names(self):
+    """Return the list of class names"""
+    return self.class_names.copy()
+
+def get_total_samples(self):
+    """Return total number of samples across all classes"""
+    return sum(len(frames) for frames in self.frames.values())
+\end{lstlisting}
+
+\textbf{Explanation:}
+These accessor methods provide controlled access to the internal data:
+\begin{itemize}
+\item \texttt{get\_data\_dict()}: Returns a copy of the frames dictionary to prevent accidental modification
+\item \texttt{get\_class\_names()}: Provides the list of unique class labels
+\item \texttt{get\_total\_samples()}: Calculates the total dataset size
+\end{itemize}
+
+\textbf{Design Philosophy:}
+\begin{itemize}
+\item \textbf{Encapsulation}: Internal data structures are protected
+\item \textbf{Immutability}: Returns copies to prevent external modifications
+\item \textbf{Convenience}: Easy access to commonly needed information
+\end{itemize}
+
+\chapter{Data Loading Utilities (LovdogData.py)}
+
+The \textbf{LovdogData} module provides specialized loading functions for different data formats, particularly focused on 2D array data commonly used in image processing and computer vision.
+
+\section{Main Loading Function}
+
+\begin{lstlisting}[language=Python]
+def load_file_with_extra(file_path, extra_info=None):
+    if extra_info is None:
+        raise ValueError("extra_info must be provided")
+
+    if 'type' not in extra_info.keys():
+        raise ValueError("type must be provided in extra_info")
+
+    if extra_info['type'] == '2d':
+        return load_file_with_extra_2d(file_path, extra_info)
+    elif extra_info['type'].lower() == '2drow':
+        return load_file_with_extra_2dRow(file_path, extra_info)
+    else:
+        raise ValueError("Valid types are '2d', '2drow', '1drow (not implemented yet)'")
+\end{lstlisting}
+
+\textbf{Explanation:}
+This function serves as a dispatcher that routes to the appropriate loading function based on the data type specified in \texttt{extra\_info}:
+
+\begin{itemize}
+\item \texttt{'2d'}: For files containing a single 2D array
+\item \texttt{'2drow'}: For files where each line represents a flattened 2D array
+\item \texttt{'1drow'}: Reserved for future 1D data implementations
+\end{itemize}
+
+\textbf{Key Features:}
+\begin{itemize}
+\item \textbf{Type safety}: Validates that \texttt{extra\_info} contains required parameters
+\item \textbf{Extensibility}: Easy to add new data format handlers
+\item \textbf{Error handling}: Clear error messages for missing or invalid parameters
+\end{itemize}
+
+\section{2D Array Loading}
+
+\begin{lstlisting}[language=Python]
+def load_file_with_extra_2d(file_path, extra_info=None):
+    """
+    Loads a file containing a single 2D array.
+    """
+    if extra_info is None:
+        extra_info = {}
+    
+    file_path = Path(file_path)
+    if not file_path.exists():
+        print(f"Error: File not found: {file_path}")
+        return []
+
+    # Get the essential shape information
+    try:
+        cols = int(extra_info['cols'])
+        rows = int(extra_info['rows'])
+    except KeyError:
+        print(f"Error: 'cols' and 'rows' must be provided in extra_info for file {file_path}.")
+        return []
+    
+    frames_per_file = []
+    delimiter = extra_info.get('delimiter', None)
+    
+    try:
+        frame_2d = np.loadtxt(file_path, delimiter=delimiter).reshape((rows, cols))
+        frames_per_file.append(frame_2d)
+                
+        print(f"DEBUG: Loaded {len(frames_per_file)} frames from {file_path}")
+        return frames_per_file
+\end{lstlisting}
+
+\textbf{Explanation:}
+This function loads files that contain a single 2D array:
+
+\begin{enumerate}
+\item \textbf{File validation}: Checks if the file exists
+\item \textbf{Parameter extraction}: Gets dimensions from \texttt{extra\_info}
+\item \textbf{Data loading}: Uses \texttt{np.loadtxt()} to read the file
+\item \textbf{Reshaping}: Converts flattened data to 2D using specified dimensions
+\item \textbf{Return format}: Always returns a list (for consistency)
+\end{enumerate}
+
+\textbf{Typical Use Cases:}
+\begin{itemize}
+\item Single images stored as text files
+\item Pre-computed feature matrices
+\item 2D sensor data readings
+\end{itemize}
+
+\section{2D Row-wise Loading}
+
+\begin{lstlisting}[language=Python]
+def load_file_with_extra_2dRow(file_path, extra_info=None):
+    """
+    Loads a file where each line is a flattened 1D array representing a single frame.
+    """
+    # [Parameter validation similar to above]
+    
+    try:
+        with open(file_path, 'r') as f:
+            for line_num, line in enumerate(f):
+                # Skip empty lines
+                if not line.strip():
+                    continue
+                
+                # Convert the line of text into a list of numbers
+                data_1d = np.loadtxt([line], delimiter=delimiter)
+                
+                # Check if the line has the correct number of elements
+                expected_elements = cols * rows
+                if data_1d.size != expected_elements:
+                    print(f"Warning: Line {line_num+1} has {data_1d.size} elements, "
+                          f"but {expected_elements} are needed for a {rows}x{cols} frame. Skipping line.")
+                    continue
+                
+                # Reshape the 1D array into a 2D frame
+                frame_2d = data_1d.reshape((rows, cols))
+                frames_per_file.append(frame_2d)
+\end{lstlisting}
+
+\textbf{Explanation:}
+This function handles files where each line represents a separate 2D array:
+
+\begin{enumerate}
+\item \textbf{Line-by-line processing}: Reads each line independently
+\item \textbf{Data validation}: Checks if each line has the correct number of elements
+\item \textbf{Individual reshaping}: Converts each line to a 2D array
+\item \textbf{Robust error handling}: Skips invalid lines but continues processing
+\end{enumerate}
+
+\textbf{Typical Use Cases:}
+\begin{itemize}
+\item Time series of 2D data (video frames, sensor sequences)
+\item Multiple observations in a single file
+\item Batch processing of related 2D arrays
+\end{itemize}
+
+\textbf{Key Differences from \texttt{load\_file\_with\_extra\_2d}:}
+\begin{itemize}
+\item Returns \textbf{multiple frames} (one per valid line)
+\item Handles \textbf{mixed valid/invalid} data gracefully
+\item Suitable for \textbf{sequential data} processing
+\end{itemize}
+
+\section{Data Augmentation}
+
+\begin{lstlisting}[language=Python]
+def translate_px_aug(px, extra_info):
+    if extra_info is None:
+        extra_info = {}
+
+    offset_x = extra_info.get('offset_x', 1)
+    offset_y = extra_info.get('offset_y', 1)
+    tremble  = extra_info.get('tremble', True)
+    
+    px_new = px.copy()  # Start with a copy of the original list
+
+    for p in px:
+        # Translate the pixels positively
+        px_mod = np.roll(p, shift=offset_y, axis=0)
+        px_mod = np.roll(px_mod, shift=offset_x, axis=1)
+        np.append(px_new, px_mod)
+
+    if tremble:
+        for p in px:
+            # Translate the pixels negatively
+            px_mod = np.roll(p, shift=-offset_y, axis=0)
+            px_mod = np.roll(px_mod, shift=-offset_x, axis=1)
+            np.append(px_new, px_mod)
+
+    return np.array(px_new)
+\end{lstlisting}
+
+\textbf{Explanation:}
+This function provides data augmentation through pixel translation:
+
+\begin{itemize}
+\item \textbf{Positive translation}: Shifts pixels right/down using \texttt{np.roll()}
+\item \textbf{Negative translation}: Shifts pixels left/up (when \texttt{tremble=True})
+\item \textbf{Circular boundary handling}: \texttt{np.roll()} wraps around edges
+\item \textbf{Parameter control}: Translation amounts configurable via \texttt{extra\_info}
+\end{itemize}
+
+\textbf{Augmentation Benefits:}
+\begin{itemize}
+\item \textbf{Increased dataset size} without collecting new data
+\item \textbf{Improved model robustness} to spatial variations
+\item \textbf{Reduced overfitting} by presenting varied examples
+\end{itemize}
+
+\textbf{Use with LovdogDataFrames:}
+\begin{lstlisting}[language=Python]
+# Apply augmentation to loaded data
+data_loader.augmentation_data(translate_px_aug, 
+                             {'offset_x': 2, 'offset_y': 2, 'tremble': True})
+\end{lstlisting}
+
+\chapter{Feature Extraction (LovdogLBP.py)}
+
+The \textbf{LBPFeatures} class implements Local Binary Pattern feature extraction, a powerful texture analysis technique commonly used in image processing and computer vision applications.
+
+\section{Main Class: LBPFeatures}
+
+\begin{lstlisting}[language=Python]
+class LBPFeatures:
+    features = [
+        "File",
+        "mean",
+        "variance", 
+        "correlation",
+        "contrast",
+        "homogeneity",
+        "class"
+    ]
+    verbose = 1
+
+    def __init__(self, data_loader=None):
+        self.data_loader = data_loader
+        self.LBP = {}
+        self.features_table = pd.DataFrame(columns=self.features)
+        
+        # LBP parameters with defaults
+        self.ratio = 1
+        self.points = 8
+        self.method = "uniform"
+        self.window_size = [3]
+\end{lstlisting}
+
+\textbf{Explanation:}
+The LBPFeatures class extracts texture features using the Local Binary Pattern algorithm:
+
+\begin{itemize}
+\item \texttt{features}: Defines the output feature columns (statistical measures)
+\item \texttt{data\_loader}: Reference to a LovdogDataFrames instance for data access
+\item \texttt{LBP}: Stores intermediate LBP images for each class
+\item \texttt{features\_table}: Final DataFrame containing extracted features
+\end{itemize}
+
+\textbf{LBP Parameters:}
+\begin{itemize}
+\item \texttt{points}: Number of circularly symmetric neighbor points (typically 8, 16, or 24)
+\item \texttt{ratio}: Radius of the circle (scaled by points)
+\item \texttt{method}: LBP variant ('default', 'ror', 'uniform', 'var')
+\item \texttt{window\_size}: For sliding window analysis of LBP images
+\end{itemize}
+
+\section{LBP Computation}
+
+\begin{lstlisting}[language=Python]
+def compute_lbp_from_data_loader(self):
+    """
+    Compute LBP features using data from the LovdogDataFrames object.
+    """
+    if self.data_loader is None:
+        raise ValueError("No data loader provided. Call set_data_loader() first.")
+    
+    frames_dict = self.data_loader.get_data_dict()
+    class_names = self.data_loader.get_class_names()
+
+    for class_name in class_names:
+        print(f"  Processing class: {class_name}")
+        self.LBP[class_name] = []
+        
+        for i, frame in enumerate(frames_dict[class_name]):
+            # Convert frame to uint8 if needed
+            if isinstance(frame, np.ndarray):
+                # Normalize and convert to uint8 for LBP processing
+                frame_normalized = cv.normalize(frame, None, 0, 255, cv.NORM_MINMAX).astype(np.uint8)
+                lbp = local_binary_pattern(frame_normalized, self.points, self.ratio, self.method).astype(np.uint8)
+                
+                # Use a generic filename or index
+                file_id = f"{class_name}_{i:04d}"
+                self.LBP[class_name].append({"File": file_id, "LBP": lbp, "class": class_name})
+\end{lstlisting}
+
+\textbf{Explanation:}
+This method processes data from the data loader through the LBP pipeline:
+
+\begin{enumerate}
+\item \textbf{Data access}: Retrieves frames organized by class from the data loader
+\item \textbf{Normalization}: Converts input data to 8-bit format required by LBP
+\item \textbf{LBP computation}: Applies the Local Binary Pattern algorithm
+\item \textbf{Result storage}: Stores LBP images with metadata for later feature extraction
+\end{enumerate}
+
+\textbf{LBP Algorithm Overview:}
+\begin{itemize}
+\item \textbf{Local analysis}: Examines each pixel relative to its neighbors
+\item \textbf{Binary patterns}: Creates binary codes representing local texture
+\item \textbf{Rotation invariance}: 'uniform' method provides rotation-invariant features
+\item \textbf{Texture encoding}: Converts local texture patterns into numerical codes
+\end{itemize}
+
+\section{Feature Extraction from LBP}
+
+\begin{lstlisting}[language=Python]
+def compute_features_from_lbp(self):
+    """Compute features from LBP images (works with both old and new data sources)"""
+    bin_total = 25
+    bin_value = 0
+    for c in self.LBP.keys():
+        print(f"Processing {c} images...")
+        fd_size = len(self.LBP[c])
+        bin_value = fd_size // bin_total
+        fd_count = 0
+        for i in self.LBP[c]:
+            for ws in self.window_size:
+                result = self.lbp_window_analysis(i, ws, _class=c)
+                self.features_table = LBPFeatures.append_features_row(result, self.features_table)
+            if fd_count % bin_value == 0:
+                print("*", end="", flush=True)
+            fd_count += 1
+\end{lstlisting}
+
+\textbf{Explanation:}
+This method converts LBP images into statistical features:
+
+\begin{itemize}
+\item \textbf{Progress tracking}: Visual feedback during processing
+\item \textbf{Window analysis}: Applies sliding window to extract local features
+\item \textbf{Multiple scales}: Processes each window size specified
+\item \textbf{Feature aggregation}: Combines results into final feature table
+\end{itemize}
+
+\textbf{Progress Indicators:}
+\begin{itemize}
+\item \texttt{bin\_total}: Number of progress markers to display
+\item \texttt{bin\_value}: Calculates how many processed per marker
+\item Visual feedback helps monitor long-running feature extraction
+\end{itemize}
+
+\section{Window-based Feature Analysis}
+
+\begin{lstlisting}[language=Python]
+@staticmethod
+def lbp_window_analysis(lbp_img, window_size, _class=None):
+    x = 0
+    y = 0
+    lbp_image = lbp_img["LBP"]
+    lbp_file = lbp_img["File"]
+    analysis = []
+    run_boggle = [ "-", "\\", "|", "/" ]
+    idx_boggle = 0
+
+    if window_size < 0:
+        # Process entire image as single window
+        lbp_feat = LBPFeatures.get_features_from_window(lbp_image)
+        lbp_feat["File"] = lbp_file
+        if _class is not None:
+            lbp_feat["class"] = _class
+        analysis.append(lbp_feat)
+        return pd.DataFrame(analysis, columns=LBPFeatures.features)
+    
+    # Sliding window approach
+    for x in range(lbp_image.shape[0] - window_size):
+        for y in range(lbp_image.shape[1] - window_size):
+            window = lbp_image[x:x + window_size, y:y + window_size]
+            lbp_feat = LBPFeatures.get_features_from_window(window)
+            lbp_feat["File"] = lbp_file
+            if _class is not None:
+                lbp_feat["class"] = _class
+            analysis.append(lbp_feat)
+            # Progress animation
+            print(run_boggle[idx_boggle], end="", flush=True)
+            idx_boggle = idx_boggle + 1 if idx_boggle < 3 else 0
+            print("\b", end="", flush=True)
+\end{lstlisting}
+
+\textbf{Explanation:}
+This method implements sliding window analysis of LBP images:
+
+\begin{itemize}
+\item \textbf{Two modes}: Whole-image analysis (window\_size < 0) or sliding window
+\item \textbf{Sliding window}: Extracts features from overlapping sub-regions
+\item \textbf{Progress animation}: Rotating cursor shows processing activity
+\item \textbf{Feature aggregation}: Collects features from all window positions
+\end{itemize}
+
+\textbf{Window Analysis Benefits:}
+\begin{itemize}
+\item \textbf{Spatial information}: Captures local texture variations
+\item \textbf{Multi-scale analysis}: Different window sizes capture different texture scales
+\item \textbf{Robust features}: Averages out local noise through multiple observations
+\end{itemize}
+
+\section{GLCM Feature Extraction}
+
+\begin{lstlisting}[language=Python]
+@staticmethod
+def get_features_from_window(window):
+    features = {}
+    glcm = graycomatrix(window, [1], [0], symmetric=True, normed=True, levels=59)
+    features["mean"] = graycoprops(glcm, 'mean')[0][0]
+    features["variance"] = graycoprops(glcm, 'variance')[0][0]
+    features["correlation"] = graycoprops(glcm, 'correlation')[0][0]
+    features["contrast"] = graycoprops(glcm, 'contrast')[0][0]
+    features["homogeneity"] = graycoprops(glcm, 'homogeneity')[0][0]
+    return features
+\end{lstlisting}
+
+\textbf{Explanation:}
+This static method computes Gray-Level Co-occurrence Matrix (GLCM) features from LBP windows:
+
+\begin{itemize}
+\item \textbf{GLCM computation}: Creates a matrix showing how pixel pairs co-occur
+\item \textbf{Parameter choices}:
+  \begin{itemize}
+  \item \texttt{distance=1}: Neighboring pixels
+  \item \texttt{angle=0}: Horizontal direction
+  \item \texttt{symmetric=True}: Reduces computation and provides rotational invariance
+  \item \texttt{levels=59}: Quantization levels for LBP values (8-bit range)
+  \end{itemize}
+\item \textbf{Statistical features}: Five key texture measures
+\end{itemize}
+
+\textbf{GLCM Feature Definitions:}
+\begin{itemize}
+\item \textbf{Mean}: Average gray level intensity
+\item \textbf{Variance}: Spread of gray level distribution
+\item \textbf{Correlation}: Linear dependency of gray levels
+\item \textbf{Contrast}: Local intensity variations (edge strength)
+\item \textbf{Homogeneity}: Closeness of element distribution to GLCM diagonal
+\end{itemize}
+
+\section{Machine Learning Data Preparation}
+
+\begin{lstlisting}[language=Python]
+def get_ml_data(self, include_file=False):
+    """
+    Return features and labels in standard scikit-learn format.
+    
+    Args:
+        include_file (bool): Whether to include the 'File' column in features
+    
+    Returns:
+        tuple: (X_features, y_labels) where:
+               X_features: numpy array or DataFrame of features
+               y_labels: numpy array or Series of class labels
+    """
+    if include_file:
+        X = self.features_table.drop('class', axis=1)
+    else:
+        X = self.features_table.drop(['File', 'class'], axis=1)
+    
+    y = self.features_table['class']
+    return X, y
+\end{lstlisting}
+
+\textbf{Explanation:}
+This method converts the feature table into standard machine learning format:
+
+\begin{itemize}
+\item \texttt{include\_file=False}: Standard case, returns only numerical features
+\item \texttt{include\_file=True}: Includes filename for debugging or tracking
+\item \textbf{X}: Feature matrix (samples × features)
+\item \textbf{y}: Label vector (samples × 1)
+\end{itemize}
+
+\textbf{Compatibility:}
+\begin{itemize}
+\item Direct input to scikit-learn classifiers
+\item Compatible with train/test splitting
+\item Works with cross-validation and grid search
+\end{itemize}
+
+\chapter{Model Selection (LovdogMS.py)}
+
+The \textbf{ModelSelection} class is the core of the automated machine learning framework, providing comprehensive model evaluation, hyperparameter tuning, and performance analysis.
+
+\section{Main Class: ModelSelection}
+
+\begin{lstlisting}[language=Python]
+class ModelSelection:
+    def __init__(
+        self, 
+        name: str, 
+        # Multiple data input options for flexibility
+        csv_path: Optional[str] = None,
+        features_dataframe: Optional[pd.DataFrame] = None,
+        ml_data_tuple: Optional[Tuple] = None,
+        # Dataset configuration
+        target_column: str = "class",
+        test_size: float = 0.2,
+        random_state: Optional[int] = None,
+        # Performance optimization
+        best_only_mode: bool = False,
+        # Output configuration
+        plots_output_directory: str = "plots",
+        # Classifier configuration
+        classifiers_dict: Optional[Dict[str, Any]] = None,
+        grid_parameters_dict: Optional[Dict[str, Any]] = None
+    ):
+\end{lstlisting}
+
+\textbf{Explanation:}
+The ModelSelection class provides a unified interface for automated model evaluation:
+
+\begin{itemize}
+\item \texttt{name}: Unique identifier for tracking multiple experiments
+\item \textbf{Multiple data inputs}: CSV files, DataFrames, or direct (X,y) tuples
+\item \texttt{target\_column}: Specifies which column contains class labels
+\item \texttt{test\_size}: Train/test split ratio (0.2 = 80\% train, 20\% test)
+\item \texttt{best\_only\_mode}: Optimizes performance by only analyzing the best model
+\item \texttt{plots\_output\_directory}: Where to save diagnostic plots
+\end{itemize}
+
+\textbf{Data Input Flexibility:}
+\begin{itemize}
+\item \texttt{csv\_path}: Direct file loading for quick experiments
+\item \texttt{features\_dataframe}: Pre-loaded pandas DataFrame
+\item \texttt{ml\_data\_tuple}: Direct (X,y) input from LBP feature extraction
+\end{itemize}
+
+\section{Default Classifier Configuration}
+
+\begin{lstlisting}[language=Python]
+default_classifiers = {
+    'SVC': SVC(),
+    'KNeighbors': KNeighborsClassifier(),
+    'RandomForest': RandomForestClassifier(),
+    'LogisticRegression': LogisticRegression(max_iter=850),
+}
+
+default_grid_parameters = {
+    'SVC': {
+        'clf__C': [0.001, 0.01, 0.1, 1, 10, 20],
+        'clf__kernel': ['poly', 'sigmoid', 'rbf'],
+        'clf__gamma': ['scale', 'auto'],
+    },
+    'RandomForest': {
+        'clf__min_samples_split': [2, 4, 8, 16],
+        'clf__n_estimators': [72, 144, 288, 576],
+        'clf__max_depth': [3, 9, 27],
+    }
+}
+\end{lstlisting}
+
+\textbf{Explanation:}
+The framework includes four well-established classifiers with optimized parameter grids:
+
+\begin{itemize}
+\item \textbf{Support Vector Classifier (SVC)}: Effective for high-dimensional data
+\item \textbf{K-Nearest Neighbors}: Simple, interpretable, good for small datasets
+\item \textbf{Random Forest}: Robust, handles non-linear relationships well
+\item \textbf{Logistic Regression}: Fast, good baseline, probabilistic outputs
+\end{itemize}
+
+\textbf{Parameter Grid Design:}
+\begin{itemize}
+\item \textbf{Exponential scales}: For regularization parameters (0.001 to 20)
+\item \textbf{Power-of-two progressions}: For ensemble sizes (72 to 576)
+\item \textbf{Multiple strategies}: Different kernel types, splitting criteria
+\item \textbf{Computational efficiency}: Balanced between exploration and computation time
+\end{itemize}
+
+\section{Core Model Selection Process}
+
+\begin{lstlisting}[language=Python]
+def selectModels(self):
+    """Run grid search for all classifiers, including AUC calculation"""
+    self.results = {}
+    all_metrics = []
+    
+    for tag, algorithm in self.classifiers.items():
+        print(f"Training {tag}...")
+        
+        # Prepare pipeline
+        pipe = Pipeline([
+            ('scaler', StandardScaler()),
+            ('clf', algorithm)
+        ])
+        
+        # SetUp grid
+        modelsGrid = GridSearchCV(
+            pipe,
+            param_grid=self.gridParameters[tag],
+            scoring={
+                "accuracy": "accuracy",
+                "precision": "precision_weighted",
+                "recall": "recall_weighted", 
+                "f1": "f1_weighted"
+            },
+            refit="accuracy",
+            cv=5,
+            n_jobs=-1,
+            verbose=1
+        )
+\end{lstlisting}
+
+\textbf{Explanation:}
+The main model selection method implements a comprehensive evaluation pipeline:
+
+\begin{enumerate}
+\item \textbf{Pipeline construction}: StandardScaler + Classifier for consistent preprocessing
+\item \textbf{GridSearchCV setup}: Exhaustive hyperparameter search with cross-validation
+\item \textbf{Multi-metric evaluation}: Accuracy, Precision, Recall, F1-score
+\item \textbf{Parallel processing}: \texttt{n\_jobs=-1} uses all available CPU cores
+\item \textbf{5-fold cross-validation}: Robust performance estimation
+\end{enumerate}
+
+\textbf{Pipeline Benefits:}
+\begin{itemize}
+\item \textbf{Automatic scaling}: Features standardized before classification
+\item \textbf{Prevention of data leakage}: Scaling fitted only on training folds
+\item \textbf{Consistent preprocessing}: Same transformation for all models
+\end{itemize}
+
+\section{Comprehensive Performance Metrics}
+
+\begin{lstlisting}[language=Python]
+# Calculate all basic metrics
+accuracy = accuracy_score(self.test_data['y'], y_pred)
+precision = precision_score(self.test_data['y'], y_pred, average='weighted')
+recall = recall_score(self.test_data['y'], y_pred, average='weighted')
+f1 = f1_score(self.test_data['y'], y_pred, average='weighted')
+
+# Calculate AUC if the model supports probability predictions
+auc_score = None
+if hasattr(best_model, 'predict_proba'):
+    try:
+        y_pred_proba = best_model.predict_proba(self.test_data['x'])
+        
+        # For multi-class classification, use One-vs-Rest approach
+        if len(np.unique(self.test_data['y'])) > 2:
+            y_test_bin = label_binarize(self.test_data['y'], 
+                                      classes=np.unique(self.test_data['y']))
+            # Calculate micro-average AUC
+            fpr, tpr, _ = roc_curve(y_test_bin.ravel(), y_pred_proba.ravel())
+            auc_score = auc(fpr, tpr)
+        else:
+            # For binary classification
+            fpr, tpr, _ = roc_curve(self.test_data['y'], y_pred_proba[:, 1])
+            auc_score = auc(fpr, tpr)
+\end{lstlisting}
+
+\textbf{Explanation:}
+The framework computes multiple performance metrics for comprehensive model evaluation:
+
+\begin{itemize}
+\item \textbf{Accuracy}: Overall correct classification rate
+\item \textbf{Precision}: Ratio of true positives to predicted positives
+\item \textbf{Recall}: Ratio of true positives to actual positives  
+\item \textbf{F1-score}: Harmonic mean of precision and recall
+\item \textbf{AUC-ROC}: Area Under ROC Curve for probabilistic models
+\end{itemize}
+
+\textbf{Metric Selection Rationale:}
+\begin{itemize}
+\item \textbf{Weighted averages}: Handle multi-class and imbalanced datasets
+\item \textbf{AUC calculation}: Only for models supporting probability predictions
+\item \textbf{Micro-averaging}: For multi-class AUC computation
+\item \textbf{Comprehensive view}: Different metrics highlight different strengths
+\end{itemize}
+
+\section{Best Model Selection}
+
+\begin{lstlisting}[language=Python]
+# Determine the best classifier (considering AUC if available)
+if not self.metrics_df.empty:
+    # Prefer classifiers that have AUC scores for ranking
+    has_auc_df = self.metrics_df[self.metrics_df['AUC_Score'] != 'N/A'].copy()
+    if not has_auc_df.empty:
+        # Convert AUC_Score to float for sorting
+        has_auc_df['AUC_Score'] = has_auc_df['AUC_Score'].astype(float)
+        best_idx = has_auc_df['AUC_Score'].idxmax()
+        self.best_model_tag = has_auc_df.loc[best_idx, 'Classifier']
+    else:
+        # Fallback to accuracy if no AUC available
+        best_idx = self.metrics_df['Accuracy'].idxmax()
+        self.best_model_tag = self.metrics_df.loc[best_idx, 'Classifier']
+    
+    self.best_model = self.results[self.best_model_tag]['best_estimator']
+\end{lstlisting}
+
+\textbf{Explanation:}
+The framework implements a smart best-model selection strategy:
+
+\begin{enumerate}
+\item \textbf{Priority to AUC}: If available, AUC is preferred for model ranking
+\item \textbf{Fallback to accuracy}: For models without probability outputs
+\item \textbf{Automatic type conversion}: Handles string 'N/A' values gracefully
+\item \textbf{Model retrieval}: Stores both the best model and its metadata
+\end{enumerate}
+
+\textbf{Why Prefer AUC?}
+\begin{itemize}
+\item \textbf{Threshold-independent}: Not affected by classification threshold choice
+\item \textbf{Probability quality}: Measures how well probabilities are calibrated
+\item \textbf{Robust to imbalance}: Works well with unbalanced class distributions
+\end{itemize}
+
+\section{Diagnostic Visualization}
+
+\begin{lstlisting}[language=Python]
+def generatePlots(self):
+    """Generate plots - only for best classifier if best_only=True, otherwise for all"""
+    if self.best_only_mode:
+        self._generatePlotsForBest()
+    else:
+        self._generatePlotsForAll()
+
+def _generateLearningCurve(self, tag):
+    """Generate learning curve for a specific classifier"""
+    model = self.results[tag]['best_estimator']
+    
+    train_sizes, train_scores, test_scores = learning_curve(
+        model, self.data, self.target, cv=5, n_jobs=-1,
+        train_sizes=np.linspace(0.1, 1.0, 5),
+        scoring='accuracy'
+    )
+\end{lstlisting}
+
+\textbf{Explanation:}
+The framework generates three types of diagnostic plots:
+
+\begin{itemize}
+\item \textbf{Learning Curves}: Show how performance changes with training set size
+\item \textbf{ROC Curves}: Display trade-off between true positive and false positive rates
+\item \textbf{Confusion Matrices}: Detailed breakdown of classification errors
+\end{itemize}
+
+\textbf{Plot Generation Modes:}
+\begin{itemize}
+\item \texttt{best\_only\_mode=True}: Only generate plots for the best-performing model
+\item \texttt{best\_only\_mode=False}: Generate plots for all evaluated models
+\end{itemize}
+
+\textbf{Learning Curve Interpretation:}
+\begin{itemize}
+\item \textbf{Large gap}: Indicates overfitting (model too complex)
+\item \textbf{Convergence}: Both curves plateau at similar levels (good fit)
+\item \textbf{Poor performance}: Both curves remain low (underfitting)
+\end{itemize}
+
+\section{Model Persistence and Export}
+
+\begin{lstlisting}[language=Python]
+def saveModels(self, path):
+    """Save all trained models to disk"""
+    os.makedirs(path, exist_ok=True)
+    for tag, result in self.results.items():
+        joblib.dump(result['best_estimator'], f"{path}/{tag}.joblib")
+
+def getMetricsDataFrame(self):
+    """Create a DataFrame with all metrics including AUC for CSV export"""
+    if self.metrics_df.empty:
+        # If selectModels hasn't been run, create basic metrics dataframe
+        metrics_data = []
+        for tag, result in self.results.items():
+            metrics_data.append({
+                'Classifier': tag,
+                'Accuracy': result['test_accuracy'],
+                'Precision': result['test_precision'],
+                'Recall': result['test_recall'],
+                'F1_Score': result['test_f1'],
+                'AUC_Score': result['test_auc'] if result['test_auc'] is not None else 'N/A',
+                'CV_Score': result['cv_best_score'],
+                'Best_Params': str(result['best_params']),
+                'Supports_Probability': result['supports_proba']
+            })
+        
+        self.metrics_df = pd.DataFrame(metrics_data)
+    
+    return self.metrics_df
+\end{lstlisting}
+
+\textbf{Explanation:}
+The framework provides comprehensive model and results export:
+
+\begin{itemize}
+\item \textbf{Model serialization}: All trained models saved using joblib
+\item \textbf{Directory creation}: Automatic creation of output directories
+\item \textbf{Comprehensive metrics}: Detailed performance statistics in DataFrame format
+\item \textbf{CSV export ready}: Direct compatibility with spreadsheet software
+\item \textbf{Parameter documentation}: Best hyperparameters included for reproducibility
+\end{itemize}
+
+\textbf{Export Benefits:}
+\begin{itemize}
+\item \textbf{Reproducibility}: All models and parameters saved
+\item \textbf{Analysis ready}: Metrics formatted for further statistical analysis
+\item \textbf{Deployment ready}: Trained models can be loaded for inference
+\item \textbf{Documentation}: Complete record of experimental results
+\end{itemize}
+
+\end{document}
