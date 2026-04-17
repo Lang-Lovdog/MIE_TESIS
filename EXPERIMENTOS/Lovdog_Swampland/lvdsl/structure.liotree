@@ -1,0 +1,27 @@
+| lvdsl/                                           > Módulo del Lovdog Swapland                                             ||
+|-- __this__dir__
+|---- ../../../ > Directorio de la TESIS ||
+|=-
+|----- structure.liotree                           > Estructura de la tesis completa                                        ||
+|==
+|---- __init__.py
+|---- xp.py                                        > Implementa lo necesario para procesamiento numérico, detecta tarjeta
+|                                                  gráfica para decidir sobre cupy o numpy                                  ||
+|---- structure.liotree                            > Estructura independiente del módulo                                    ||
+|---- k_theory/                                    > La teoría en revisión actual                                           ||
+|=-
+|------- __init__.py
+|------- vars.py                                   > Variables de la función potencial, definición simbólica de la función
+|                                                  potencial, Hess y autovalores. Además de algunas funciones auxiliares
+|                                                  para fijar coeficientes/módulos y precisión decimal de operación para
+|                                                  sympy.                                                                   ||
+|------- potentials.py                             > Definición de las funciones de evaluación, tanto de la versión lifting
+|                                                  como de la original. (Sujeto a cambio de nombre).                        ||
+|------- plots.py                                  > Graficación de las funciones, las principales serán inspiradas en el
+|                                                  experimento original. Algunos extras en caso de ser necesario.           ||
+|---- bioinspirados/
+|=-
+|------- __init__.py
+|------- defs.py
+|==
+|==

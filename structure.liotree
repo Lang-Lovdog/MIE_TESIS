@@ -120,6 +120,7 @@
 |==
 |--- lvdsl/                                       > Módulo del Lovdog Swapland                                             ||
 |=-
+|--- structure.liotree                            > Estructura independiente del módulo  (actualizado)                     ||
 |---- k_theory/                                   > La teoría en revisión actual                                           ||
 |=-
 |--- vars.py                                      > Variables de la función potencial, definición simbólica de la función
