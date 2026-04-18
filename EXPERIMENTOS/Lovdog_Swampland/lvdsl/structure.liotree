@@ -19,9 +19,15 @@
 |                                                  como de la original. (Sujeto a cambio de nombre).                        ||
 |------- plots.py                                  > Graficación de las funciones, las principales serán inspiradas en el
 |                                                  experimento original. Algunos extras en caso de ser necesario.           ||
-|---- bioinspirados/
+|==
+|---- bioinspired/
 |=-
 |------- __init__.py
 |------- defs.py
+|------- EDAs.py
 |==
+|---- data/
+|=-
+-------- from_csv.py
 |==
+

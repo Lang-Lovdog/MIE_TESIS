@@ -7,22 +7,22 @@
 import sys
 import                          matplotlib.pyplot    as plt #type: ignore
 import                          sympy                as sp  #type: ignore
-from   xp                import xp
-from   xp                import np
-from   xp                import HAS_GPU
-from   vars              import V_lambda                    as v
-from   vars              import V_lifting_lambda            as v_l
-from   vars              import VHess_lambda                as hess
-from   vars              import V_liftingHess_lambda        as hess_l
-from   vars              import VHess_eig_lambda            as eig
-from   vars              import V_liftingHess_eig_lambda    as eig_l
-from   vars              import V_Hess_tr_lambda            as tr
-from   vars              import V_liftingHess_tr_lambda     as tr_l
-from   vars              import V_gradient_lambda           as dv
-from   vars              import V_lifting_gradient_lambda   as dv_l
-from   vars              import V_Hess_det_lambda           as det
-from   vars              import V_liftingHess_det_lambda    as det_l
-from   vars              import variables_numericas
+from   ..xp              import xp
+from   ..xp              import np
+from   ..xp              import HAS_GPU
+from   .vars              import V_lambda                    as v
+from   .vars              import V_lifting_lambda            as v_l
+from   .vars              import VHess_lambda                as hess
+from   .vars              import V_liftingHess_lambda        as hess_l
+from   .vars              import VHess_eig_lambda            as eig
+from   .vars              import V_liftingHess_eig_lambda    as eig_l
+from   .vars              import V_Hess_tr_lambda            as tr
+from   .vars              import V_liftingHess_tr_lambda     as tr_l
+from   .vars              import V_gradient_lambda           as dv
+from   .vars              import V_lifting_gradient_lambda   as dv_l
+from   .vars              import V_Hess_det_lambda           as det
+from   .vars              import V_liftingHess_det_lambda    as det_l
+from   .vars              import variables_numericas
 ## IMPORTS
 
 

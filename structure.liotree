@@ -74,19 +74,19 @@
 |                                                    |   ==
 |                                                    ||
 |=-
-|-- ;found_solutions_[_]dS_fv_[d]/;              > Resultados de la búsqueda metaheurística.                              ||
+|--- ;found_solutions_[_]dS_fv_[d]/;              > Resultados de la búsqueda metaheurística.                              ||
 |=-
-|--- ;Plot_E[index].eps;                       > Gráfica en formato eps ||
+|----- ;Plot_E[index].eps;                       > Gráfica en formato eps ||
 |==
 |==
 |==
-|-- OriginalSolutions/                           > Plots de los elementos originales (Damian_2022)                        ||
+|--- OriginalSolutions/                           > Plots de los elementos originales (Damian_2022)                        ||
 |=-
-|--- __this__dir__
-|--- ;Solution-[XYZ].eps;
-|--- ;Solution-[XYZ].eps.eps;
+|----- __this__dir__
+|----- ;Solution-[XYZ].eps;
+|----- ;Solution-[XYZ].eps.eps;
 |==
-|- ;SolutionsCounter_Resumen[_O]/;        > ||
+|--- ;SolutionsCounter_Resumen[_O]/;        > ||
 |=-
 |-- ;ResumenDel[DDMMAAAA].json;                   > El archivo tendrá la forma:
 |                                                  "post lift": {

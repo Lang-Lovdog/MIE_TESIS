@@ -7,7 +7,7 @@ import sys
 ## IMPORTS
 import sympy             as sp  #type: ignore
 from   sympy             import lambdify
-from   xp                import HAS_GPU
+from   ..xp              import HAS_GPU
 ## IMPORTS
 
 ##### Opciones globales
