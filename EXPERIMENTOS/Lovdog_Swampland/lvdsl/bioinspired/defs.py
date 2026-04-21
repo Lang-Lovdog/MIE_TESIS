@@ -5,8 +5,15 @@ from lvdsl.k_theory.potentials import fitness_function_nolift_mealpy            
 from lvdsl.k_theory.potentials import fitness_function_lift_mealpy                 as ff2
 from lvdsl.k_theory.potentials import fitness_function_fixedmoduli_nolift_mealpy   as ff3
 from lvdsl.k_theory.potentials import fitness_function_fixedmoduli_lift_mealpy     as ff4
+from lvdsl.k_theory.vars       import V_liftingHess_eig_lambda
+from lvdsl.k_theory.vars       import V_lifting_lambda
+from lvdsl.k_theory.vars       import set_fixed_value
 from lvdsl.bioinspired.EDAs    import UMDA
 from lvdsl.bioinspired.EDAs    import PBIL
+from lvdsl.data.from_csv       import read_mathematica_format
+from lvdsl.data.from_csv       import read_native_format
+from lvdsl.data.from_csv       import save_comparative_csv
+from lvdsl.data.from_csv       import variables                                    as vnms
 #from lvdsl.k_theory.potentials import autovalores_VHess
 #from lvdsl.k_theory.potentials import autovalores_VHess_AdS
 #from lvdsl.k_theory.potentials import potencial_eval
@@ -34,6 +41,19 @@ def setup_filename():
     dirname = "VacuaFound_" + dt_string
     return dirname
 
+def build_dir_name(model_name : str):
+    dir_time=setup_filename()
+    dirname = dir_time + "_" + model_name
+    return dirname
+
+def write_model_description(model, dirname : str):
+    if not os.path.exists(dirname):
+        print(f"WARN: {dirname} not found, creating it.")
+        os.makedirs(dirname)
+    filename = dirname + "/model_description.txt"
+    with open(filename, "w") as f:
+        print(model, file=f)
+
 class natureinspired_problems_k_theory:
 
     AH3_limits  = { "lb": -100    , "ub": 100     }
@@ -54,7 +74,7 @@ class natureinspired_problems_k_theory:
     lb_nomoduli_nolift=[AH3_limits.get("lb"), AF3_limits.get("lb"), AF5_limits.get("lb"), A3N3_limits.get("lb"),                     ]
     ub_nomoduli_nolift=[AH3_limits.get("ub"), AF3_limits.get("ub"), AF5_limits.get("ub"), A3N3_limits.get("ub"),                     ]
 
-    vacua_parametros_nolift = {
+    vacua_parameters_nolift = {
         "obj_func": ff1,
         "bounds": FloatVar(
             #    AH3   AF3   AF5   A3N3    s      tau
@@ -65,7 +85,7 @@ class natureinspired_problems_k_theory:
         "log_to": "MetastableVacuaReprise.log"
     }
 
-    vacua_parametros___lift = {
+    vacua_parameters___lift = {
         "obj_func": ff2,
         "bounds": FloatVar(
             #    AH3   AF3   AF5   A3N3   AD5    s      tau
@@ -76,7 +96,7 @@ class natureinspired_problems_k_theory:
         "log_to": "MetastableVacuaRepriseAdS.log"
     }
 
-    vacua_parametros_nolift_fv = {
+    vacua_parameters_nolift_fv = {
         "obj_func": ff3,
         "bounds": FloatVar(
             #    AH3   AF3   AF5   A3N3 
@@ -87,7 +107,7 @@ class natureinspired_problems_k_theory:
         "log_to": "MetastableVacuaReprise.log"
     }
 
-    vacua_parametros___lift_fv = {
+    vacua_parameters___lift_fv = {
         "obj_func": ff4,
         "bounds": FloatVar(
             #    AH3   AF3   AF5   A3N3   AD5
@@ -100,85 +120,95 @@ class natureinspired_problems_k_theory:
 
 
 class natureinspired_models:
-    params={
-        "ga": {
-            "epoch":50,
-            "pop_size":20,
-            "pc":0.9,
-            "pm":0.4
-        },
-        "pso": {
-            "epoch":50,
-            "pop_size":20,
-            "c1":2.05,
-            "c2":2.05
-        },
-        "eda": {
-            "epoch": 100,
-            "pop_size": 50,
-            "learning_rate": 0.1,
-            "selection_ratio": 0.2,
-            "p_mutation": 0.05,
-            "p_external": 0.02
-        },
-        "aco": {
-            "epoch" : 10000,
-            "pop_size" : 100,
-            "sample_count" : 25,
-            "intent_factor" : 0.5,
-            "zeta" : 1.0
-        },
-        "iwo": {
-            "epoch" : 10000,
-            "pop_size" : 100,
-            "seed_min" : 2,
-            "seed_max" : 10,
-            "exponent" : 2,
-            "sigma_start" : 1.0,
-            "sigma_end" : 0.01
-        },
-        "vcs": {
-            "epoch": 10000,
-            "pop_size": 100,
-            "lamda": 0.5,
-            "sigma": 1.5
-        },
-        "aso": {
-            "epoch": 10000,
-            "pop_size": 100,
-            "alpha": 10,
-            "beta": 0.2
-        },
-    }
+    def __init__ (self):
+        self.params={
+            "ga": {
+                "epoch":50,
+                "pop_size":20,
+                "pc":0.9,
+                "pm":0.4
+            },
+            "pso": {
+                "epoch":50,
+                "pop_size":20,
+                "c1":2.05,
+                "c2":2.05
+            },
+            "eda": {
+                "epoch": 100,
+                "pop_size": 50,
+                "learning_rate": 0.1,
+                "selection_ratio": 0.2,
+                "p_mutation": 0.05,
+                "p_external": 0.02
+            },
+            "aco": {
+                "epoch" : 10000,
+                "pop_size" : 100,
+                "sample_count" : 25,
+                "intent_factor" : 0.5,
+                "zeta" : 1.0
+            },
+            "iwo": {
+                "epoch" : 10000,
+                "pop_size" : 100,
+                "seed_min" : 2,
+                "seed_max" : 10,
+                "exponent" : 2,
+                "sigma_start" : 1.0,
+                "sigma_end" : 0.01
+            },
+            "vcs": {
+                "epoch": 10000,
+                "pop_size": 100,
+                "lamda": 0.5,
+                "sigma": 1.5
+            },
+            "aso": {
+                "epoch": 10000,
+                "pop_size": 100,
+                "alpha": 10,
+                "beta": 0.2
+            },
+        }
+
+    def set_model_param(self, name, param, value):
+        if type(name) is list or type(name) is tuple:
+            for n in name:
+                self.set_model_param(n, param, value)
+            return
+        else:
+            self.params[name][param] = value
+
     def get_model(self, name):
         if name == "GA":
-            return mp.GA.BaseGA(
+            return_model = mp.GA.BaseGA(
                 epoch    = self.params.get("ga").get("epoch"),
                 pop_size = self.params.get("ga").get("pop_size"),
                 pc       = self.params.get("ga").get("pc"),
                 pm       = self.params.get("ga").get("pm")
             )
         elif name == "PSO":
-            return mp.PSO.AIW_PSO(
+            return_model = mp.PSO.AIW_PSO(
                 epoch    = self.params.get("pso").get("epoch"),
                 pop_size = self.params.get("pso").get("pop_size"),
                 c1       = self.params.get("pso").get("c1"),
                 c2       = self.params.get("pso").get("c2")
             )
         elif name == "UMDA":
-            return UMDA(
+            return_model = UMDA(
                 epoch           = self.params.get("eda").get("epoch"),
                 pop_size        = self.params.get("eda").get("pop_size"),
                 selection_ratio = self.params.get("eda").get("selection_ratio")
             )
         elif name == "PBIL":
-            return PBIL(
+            return_model = PBIL(
                 epoch         = self.params.get("eda").get("epoch"),
                 pop_size      = self.params.get("eda").get("pop_size"),
                 learning_rate = self.params.get("eda").get("learning_rate"),
             )
         elif name == "IWO":
-            return mp.IWO.OriginalIWO(
+            return_model = mp.IWO.OriginalIWO(
                 epoch       = self.params.get("iwo").get("epoch"),
                 pop_size    = self.params.get("iwo").get("pop_size"),
                 seed_min    = self.params.get("iwo").get("seed_min"),
@@ -188,7 +218,7 @@ class natureinspired_models:
                 sigma_end   = self.params.get("iwo").get("sigma_end")
             )
         elif name == "ACO":
-            return mp.ACOR.OriginalACOR(
+            return_model = mp.ACOR.OriginalACOR(
                 epoch         = self.params.get("aco").get("epoch"),
                 pop_size      = self.params.get("aco").get("pop_size"),
                 sample_count  = self.params.get("aco").get("sample_count"),
@@ -196,14 +226,14 @@ class natureinspired_models:
                 zeta          = self.params.get("aco").get("zeta")
         )
         elif name == "VCS":
-            return mp.VCS.DevVCS(
+            return_model = mp.VCS.DevVCS(
                 epoch    = self.params.get("vcs").get("epoch"),
                 pop_size = self.params.get("vcs").get("pop_size"),
                 lamda    = self.params.get("vcs").get("lamda"),
                 sigma    = self.params.get("vcs").get("sigma")
             )
         elif name == "ASO":
-            return mp.ASO.OriginalASO(
+            return_model = mp.ASO.OriginalASO(
                 epoch    = self.params.get("aso").get("epoch"),
                 pop_size = self.params.get("aso").get("pop_size"),
                 alpha    = self.params.get("aso").get("alpha"),
@@ -211,6 +241,93 @@ class natureinspired_models:
             )
         else:
             print("Model not found: ", name)
+            return
+        return [ return_model, build_dir_name(name) ]
+
+def run_model(
+    model_name  : str,
+    params      : dict ={}       ,
+    csv_input   : str  =""       ,
+    csv_format  : str  ="Native" ,
+    lifting     : bool =True     ,
+    output      : bool =False    ,
+    iterations  : int  =100
+):
+    ni_models_object = natureinspired_models()
+    if params is not None:
+        for param, value in params.items():
+            ni_models_object.set_model_param(model_name, param, value)
+    out_dir, model_intance = ni_models_object.get_model(model_name)
+    #### If integrated CSV
+    if csv_input is not None:
+        if   csv_format == "Native":
+            df = read_native_format(csv_input)
+        elif csv_format == "Mathematica":
+            df = read_mathematica_format(csv_input, D5_Fluxes=lifting)
+        else:
+            print("CSV format not supported: ", csv_format)
+            return
+        if "AD5" not in df.columns and lifting:
+            print("lifting: No AD5 column found")
+            return
+        fixed = [ "s", "tau" ]
+        for ridx,row in df.iterrows():
+            row = row[1]
+            set_fixed_value({
+                "s"   : row[vnms["s"  ]],
+                "tau" : row[vnms["tau"]],
+            })
+            found_solutions = []
+            for fidx in range(iterations):
+                print(f"Registro {ridx} Iteración {fidx}")
+                #### Creación de un genético simple para minimización de la función ff
+                model_intance.solve(natureinspired_problems_k_theory.vacua_parameters___lift_fv)
+                #### Creación de un genético simple para minimización de la función ff
+                #### Imprimir solución
+                print(f"Solución: {model_intance.g_best.solution}, Fitness: {model_intance.g_best.target.fitness}")
+                avalores = V_liftingHess_eig_lambda(
+                    model_intance.g_best.solution[0],
+                    model_intance.g_best.solution[1],
+                    model_intance.g_best.solution[2],
+                    model_intance.g_best.solution[3],
+                    model_intance.g_best.solution[4],
+                    model_intance.g_best.solution[5],
+                    model_intance.g_best.solution[6],
+                )
+                potencial = V_lifting_lambda(
+                    model_intance.g_best.solution[0],
+                    model_intance.g_best.solution[1],
+                    model_intance.g_best.solution[2],
+                    model_intance.g_best.solution[3],
+                    model_intance.g_best.solution[4],
+                    model_intance.g_best.solution[5],
+                    model_intance.g_best.solution[6],
+                )
+                found_solutions.append({
+                    "V"         : potencial,
+                    "fitness"   : model_intance.g_best.target.fitness,
+                    "AH3"       : model_intance.g_best.solution[0],
+                    "AF3"       : model_intance.g_best.solution[1],
+                    "AF5"       : model_intance.g_best.solution[2],
+                    "A3N3"      : model_intance.g_best.solution[3],
+                    "AD5"       : model_intance.g_best.solution[4],
+                    "s"         : model_intance.g_best.solution[5],
+                    "tau"       : model_intance.g_best.solution[6],
+                    "lambda1"   : avalores[0],
+                    "lambda2"   : avalores[1],
+                    "taquiónico": "1" if min(avalores) < 0 else "0"
+                })
+            found_solutions = pd.DataFrame(found_solutions)
+            out_filename= f"{out_dir}/{ridx:04d}.csv"
+            save_comparative_csv(
+                found_solutions       ,
+                df                    ,
+                ridx                  ,
+                out_filename          ,
+                fixed_elements = fixed
+            )
+    #### If full search
+
 
 
 if __name__ == "__main__":

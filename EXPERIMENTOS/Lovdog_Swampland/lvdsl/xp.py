@@ -23,7 +23,7 @@ def import_numeric_handle():
     global np, xp, HAS_GPU
     import numpy
     try:
-        import cupy
+        import cupy #type: ignore
         HAS_GPU = True
         xp = cupy
         np = numpy
@@ -31,3 +31,6 @@ def import_numeric_handle():
         print("No se pudo importar cupy. Usando numpy.")
         np    = numpy
         xp    = np
+get_nvidia_configs()
+import_numeric_handle()
+
