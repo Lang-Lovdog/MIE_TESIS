@@ -332,6 +332,31 @@ Torsion and Machine Learning* de Damian et al.
    -- CPU: `12th Gen Intel(R) Core(TM) i5-12450H`
    -- GPU: `GA107 [GeForce RTX 2050]`
    -- Tiempo aproximado de 100 iteraciones por fila: 4 a 5 min.
+   -- Un diferido de los archivos creados por `lvdsl` en el
+      bloque de {# Listado de archivos PSO 21A2026}[texto]
+
+   ^ Listado de archivos PSO 21A2026
+   Detenido previo a finalizar la iteración 77 de la fila 11
+   @code txt
+   [lang_lovdog@theForest  00:37:51˙22:04,2026 Lovdog_Swampland] 󰩃 ls -lah1 VacuaFound_21042026_23_PSO/
+   total 296K
+   drwxr-xr-x  2 lang_lovdog lang_lovdog 4.0K Apr 22 00:43 .
+   drwxr-xr-x 14 lang_lovdog lang_lovdog 4.0K Apr 21 23:32 ..
+   -rw-r--r--  1 lang_lovdog lang_lovdog  23K Apr 21 23:56 0000.csv.csv
+   -rw-r--r--  1 lang_lovdog lang_lovdog  23K Apr 22 00:02 0001.csv.csv
+   -rw-r--r--  1 lang_lovdog lang_lovdog  22K Apr 22 00:07 0002.csv.csv
+   -rw-r--r--  1 lang_lovdog lang_lovdog  23K Apr 22 00:11 0003.csv.csv
+   -rw-r--r--  1 lang_lovdog lang_lovdog  23K Apr 22 00:16 0004.csv.csv
+   -rw-r--r--  1 lang_lovdog lang_lovdog  23K Apr 22 00:20 0005.csv.csv
+   -rw-r--r--  1 lang_lovdog lang_lovdog  24K Apr 22 00:25 0006.csv.csv
+   -rw-r--r--  1 lang_lovdog lang_lovdog  23K Apr 22 00:29 0007.csv.csv
+   -rw-r--r--  1 lang_lovdog lang_lovdog  23K Apr 22 00:34 0008.csv.csv
+   -rw-r--r--  1 lang_lovdog lang_lovdog  22K Apr 22 00:39 0009.csv.csv
+   -rw-r--r--  1 lang_lovdog lang_lovdog  23K Apr 22 00:43 0010.csv.csv
+   -rw-r--r--  1 lang_lovdog lang_lovdog  17K Apr 22 00:47 0011.csv.csv
+   -rw-r--r--  1 lang_lovdog lang_lovdog   60 Apr 21 23:50 model_description.txt
+   [lang_lovdog@theForest  00:47:35˙22:04,2026 Lovdog_Swampland] 󰩃
+   @end
 
    Estas pruebas son preliminares y únicamente fungen como
    muestra de rendimiento. {^ nota al pie 21A2026}[Los experimentos serán ejecutados
