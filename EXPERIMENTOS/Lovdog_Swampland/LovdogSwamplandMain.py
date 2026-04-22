@@ -1,9 +1,116 @@
 from lvdsl.bioinspired import  defs
+import sys
 
-defs.run_model(
-    model_name  = "PSO",
-    csv_input   = "../CESAR-BRITO_ORIGINAL-DATA/Calibracion_lifting.csv",
-    csv_format  = "Mathematica",
-    lifting     = True,
-    output      = True
-)
+def run_ga():
+  ## GA
+  defs.run_model(
+      model_name  = "GA",
+      csv_input   = "../CESAR-BRITO_ORIGINAL-DATA/Calibracion_lifting.csv",
+      csv_format  = "Mathematica",
+      lifting     = True,
+      output      = True
+  )
+
+
+def run_pso():
+  ## PSO
+  defs.run_model(
+      model_name  = "PSO",
+      csv_input   = "../CESAR-BRITO_ORIGINAL-DATA/Calibracion_lifting.csv",
+      csv_format  = "Mathematica",
+      lifting     = True,
+      output      = True
+  )
+
+
+def run_umda():
+  ## UMDA
+  defs.run_model(
+      model_name  = "UMDA",
+      csv_input   = "../CESAR-BRITO_ORIGINAL-DATA/Calibracion_lifting.csv",
+      csv_format  = "Mathematica",
+      lifting     = True,
+      output      = True
+  )
+
+
+def run_pbil():
+  ## PBIL
+  defs.run_model(
+      model_name  = "PBIL",
+      csv_input   = "../CESAR-BRITO_ORIGINAL-DATA/Calibracion_lifting.csv",
+      csv_format  = "Mathematica",
+      lifting     = True,
+      output      = True
+  )
+
+
+def run_aco():
+  ## ACO
+  defs.run_model(
+      model_name  = "ACO",
+      csv_input   = "../CESAR-BRITO_ORIGINAL-DATA/Calibracion_lifting.csv",
+      csv_format  = "Mathematica",
+      lifting     = True,
+      output      = True
+  )
+
+
+def run_iwo():
+  ## IWO
+  defs.run_model(
+      model_name  = "IWO",
+      csv_input   = "../CESAR-BRITO_ORIGINAL-DATA/Calibracion_lifting.csv",
+      csv_format  = "Mathematica",
+      lifting     = True,
+      output      = True
+  )
+
+
+def run_vcs():
+  ## VCS
+  defs.run_model(
+      model_name  = "VCS",
+      csv_input   = "../CESAR-BRITO_ORIGINAL-DATA/Calibracion_lifting.csv",
+      csv_format  = "Mathematica",
+      lifting     = True,
+      output      = True
+  )
+
+
+def run_aso():
+  ## ASO
+  defs.run_model(
+      model_name  = "ASO",
+      csv_input   = "../CESAR-BRITO_ORIGINAL-DATA/Calibracion_lifting.csv",
+      csv_format  = "Mathematica",
+      lifting     = True,
+      output      = True
+  )
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print("Uso: python LovdogSwamplandMain.py <MODELO>")
+        print("Modelos disponibles: GA, PSO, UMDA, PBIL, ACO, IWO, VCS, ASO")
+        sys.exit(1)
+
+    simulation = sys.argv[1].upper()
+    models = {
+        "GA":   run_ga,
+        "PSO":  run_pso,
+        "UMDA": run_umda,
+        "PBIL": run_pbil,
+        "ACO":  run_aco,
+        "IWO":  run_iwo,
+        "VCS":  run_vcs,
+        "ASO":  run_aso,
+    }
+
+    if simulation in models:
+        models[simulation]()
+    else:
+        print(f"Modelo '{simulation}' no reconocido.")
+        print("Disponibles:", ", ".join(models.keys()))
+        sys.exit(1)
+
+
