@@ -320,6 +320,28 @@ Torsion and Machine Learning* de Damian et al.
    Probablemente se migre al menos un elemento para graficación
    para el paper. (o una exportación en gnuplot a eps).
 
+** Martes 21 de Abril del 2026
+
+   He terminado de hacer la migración al sistema `lvdsl` con
+   implementación para `GPU`. *Ojo*, al momento todos parecen
+   funcionar con implementación `CUPY`, al momento se ha
+   probado `PSO` para medir tiempos y esto es lo conseguido:
+
+   - `AIW_PSO(epoch=50, pop_size=20, c1=2.05, c2=2.05, alpha=0.4)`
+   -- Computadora: `Thin GF63 12UCX (16R8.1)`
+   -- CPU: `12th Gen Intel(R) Core(TM) i5-12450H`
+   -- GPU: `GA107 [GeForce RTX 2050]`
+   -- Tiempo aproximado de 100 iteraciones por fila: 4 a 5 min.
+
+   Estas pruebas son preliminares y únicamente fungen como
+   muestra de rendimiento. {^ nota al pie 21A2026}[Los experimentos serán ejecutados
+   mañana ]
+
+** Miércoles 22 de Abril del 2026
+
+   ^ nota al pie 21A2026
+   A momento de escrito esto, son a las 00:31 del 22 de Abril del 2026
+
    ___
    ===
 

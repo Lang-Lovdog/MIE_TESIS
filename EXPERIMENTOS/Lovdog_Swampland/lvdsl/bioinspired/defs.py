@@ -26,25 +26,16 @@ from lvdsl.data.from_csv       import variables                                 
 from datetime import datetime
 import os
 
-precision_decimal = 30
-
-def get_precision_decimal():
-    return precision_decimal
-
-def set_precision_decimal(val : int):
-    global precision_decimal
-    precision_decimal = val
-
 
 def setup_filename():
     now = datetime.now()
-    dt_string = now.strftime("%d%m%Y_%H%M%S")
-    dirname = "VacuaFound_" + dt_string
+    dt_string = now.strftime("%d%m%Y_%H")
+    dirname = "lvdsl_outputs/VacuaFound_" + dt_string
     return dirname
 
 def build_dir_name(model_name : str):
     dir_time=setup_filename()
-    dirname = dir_time + "_" + model_name
+    dirname = dir_time + "/" + model_name
     return dirname
 
 def write_model_description(model, dirname : str):
@@ -271,17 +262,21 @@ def run_model(
         if "AD5" not in df.columns and lifting:
             print("lifting: No AD5 column found")
             return
+        if output:
+            write_model_description(model_instance, out_dir)
         fixed = [ "s", "tau" ]
         for ridx,row in df.iterrows():
             set_fixed_value({
                 "s"   : row[vnms["s"  ]],
                 "tau" : row[vnms["tau"]],
             })
+            s, tau = row[vnms["s"  ]], row[vnms["tau"]]
+            problem_to_optimize = natureinspired_problems_k_theory.vacua_parameters___lift_fv
             found_solutions = []
             for fidx in range(iterations):
                 print(f"Registro {ridx} Iteración {fidx}")
                 #### Creación de un genético simple para minimización de la función ff
-                result = model_instance.solve(natureinspired_problems_k_theory.vacua_parameters___lift_fv)
+                result = model_instance.solve(problem_to_optimize)
                 if hasattr(model_instance, 'g_best'):
                     best_solution = model_instance.g_best.solution
                     best_fitness  = model_instance.g_best.target.fitness
@@ -290,31 +285,43 @@ def run_model(
                 #### Creación de un genético simple para minimización de la función ff
                 #### Imprimir solución
                 print(f"Solución: {best_solution}, Fitness: {best_fitness}")
-                avalores = V_liftingHess_eig_lambda(*best_solution[:7])
-                potencial = V_lifting_lambda(*best_solution[:7])
+                AH3, AF3, AF5, A3N3, AD5 = best_solution
+                avalores  = V_liftingHess_eig_lambda(AH3, AF3, AF5, A3N3, AD5, tau, s)
+                potencial = V_lifting_lambda        (AH3, AF3, AF5, A3N3, AD5, tau, s)
                 found_solutions.append({
-                    "V"         : potencial,
-                    "fitness"   : best_fitness,
+                    "V"         : potencial       ,
+                    "fitness"   : best_fitness    ,
                     "AH3"       : best_solution[0],
                     "AF3"       : best_solution[1],
                     "AF5"       : best_solution[2],
                     "A3N3"      : best_solution[3],
                     "AD5"       : best_solution[4],
-                    "s"         : best_solution[5],
-                    "tau"       : best_solution[6],
-                    "lambda1"   : avalores[0],
-                    "lambda2"   : avalores[1],
+                    "s"         : s               ,
+                    "tau"       : tau             ,
+                    "lambda1"   : avalores[0]     ,
+                    "lambda2"   : avalores[1]     ,
                     "taquiónico": "1" if min(avalores) < 0 else "0"
                 })
-            found_solutions = pd.DataFrame(found_solutions)
-            out_filename= f"{out_dir}/{ridx:04d}.csv"
-            save_comparative_csv(
-                found_solutions       ,
-                df                    ,
-                ridx                  ,
-                out_filename          ,
-                fixed_elements = fixed
-            )
+                if output and fidx % 10 == 0:
+                    found_solutions_tmp = pd.DataFrame(found_solutions)
+                    out_filename= f"{out_dir}/{model_name}-{ridx:04d}.csv"
+                    save_comparative_csv(
+                        found_solutions_tmp   ,
+                        df                    ,
+                        ridx                  ,
+                        out_filename          ,
+                        fixed_elements = fixed
+                    )
+            if output:
+                found_solutions = pd.DataFrame(found_solutions)
+                out_filename= f"{out_dir}/{model_name}-{ridx:04d}.csv"
+                save_comparative_csv(
+                    found_solutions       ,
+                    df                    ,
+                    ridx                  ,
+                    out_filename          ,
+                    fixed_elements = fixed
+                )
     #### If full search
 
 

@@ -41,6 +41,9 @@ def set_evaluation_mode(vectorized: bool = False):
     global _ival_getter
     _ival_getter = _get_ival_vector if vectorized else _get_ival_scalar
 
+def to_gpu_array(x : list = []):
+    return [ xp.asarray(e) for e in x ]
+
 
 
 ##### Definición de las funciones de error
@@ -63,13 +66,11 @@ def positive_definite_trace_lift(_AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s):
     return xp.abs(val)-val
 
 def modulus_gradient_nolift(_AH3, _AF3, _AF5, _A3N3, _tau, _s):
-    diV2 = xp.pow(dv[0](_AH3,_AF3,_AF5,_A3N3,_tau,_s),2) +\
-           xp.pow(dv[1](_AH3,_AF3,_AF5,_A3N3,_tau,_s),2)
+    diV2 = xp.sum(xp.pow(dv(_AH3,_AF3,_AF5,_A3N3,_tau,_s),2))
     return diV2
 
 def modulus_gradient_lift(_AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s):
-    diV2 = xp.pow(dv_l[0](_AH3,_AF3,_AF5,_A3N3, _AD5,_tau,_s),2) +\
-           xp.pow(dv_l[1](_AH3,_AF3,_AF5,_A3N3, _AD5,_tau,_s),2)
+    diV2 = xp.sum(xp.pow(dv_l(_AH3,_AF3,_AF5,_A3N3, _AD5,_tau,_s),2))
     return diV2
 
 def tachion_level_nolift(_AH3, _AF3, _AF5, _A3N3, _tau, _s):
@@ -151,13 +152,15 @@ if HAS_GPU:
     def fitness_function_fixedmoduli_lift_mealpy(solutions):
         global variables_numericas
 
-        _AH3, _AF3, _AF5, _A3N3, _AD5 = _ival_getter(solutions)
+        args = _ival_getter(solutions)  # (_AH3, _AF3, ...)
+    # Convertir todos a arrays CuPy
+        _AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s = to_gpu_array(list(args) + [variables_numericas['tau'], variables_numericas['s']])
 
         return xp.asnumpy(
-            positive_semidefinite_potential_lift  (_AH3, _AF3, _AF5, _A3N3, _AD5, variables_numericas['tau'], variables_numericas['s']) +
-            positive_definite_trace_lift          (_AH3, _AF3, _AF5, _A3N3, _AD5, variables_numericas['tau'], variables_numericas['s']) +
-            modulus_gradient_lift                 (_AH3, _AF3, _AF5, _A3N3, _AD5, variables_numericas['tau'], variables_numericas['s']) +
-            tachion_level_lift                    (_AH3, _AF3, _AF5, _A3N3, _AD5, variables_numericas['tau'], variables_numericas['s'])
+            positive_semidefinite_potential_lift  (_AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s) +
+            positive_definite_trace_lift          (_AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s) +
+            modulus_gradient_lift                 (_AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s) +
+            tachion_level_lift                    (_AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s)
         )
 
 ##### Función de error de variables fijas

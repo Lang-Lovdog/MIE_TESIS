@@ -1,6 +1,6 @@
 import pandas as pd
 import sympy as sp
-from lvdsl.bioinspired.defs import get_precision_decimal as decpr
+from lvdsl.globals import get_precision_decimal as decpr
 
 # Configuración de visualización
 pd.set_option("display.float_format", '{:.20f}'.format)
@@ -37,7 +37,7 @@ def read_mathematica_format(archivo_csv: str, D5_Fluxes: bool = False):
         clean_serie = df[col].replace(r'.*->(.*)`.*', r'\1', regex=True)
         # Convertir a SymPy Float con la precisión configurada
         df2[names[i]] = clean_serie.apply(
-            lambda x: sp.Float(x, decpr()) if pd.notnull(x) else sp.Float(0, decpr())
+            lambda x: float(x) if pd.notnull(x) else float(0)
         )
 
     # Cálculo del estado taquiónico (basado en los nombres del diccionario)
@@ -51,7 +51,7 @@ def read_mathematica_format(archivo_csv: str, D5_Fluxes: bool = False):
     return df2
 
 def read_native_format(archivo_csv: str):
-    df = pd.read_csv(archivo_csv, index_col=None, header=None, sep=",", dtype=str)
+    df = pd.read_csv(archivo_csv, index_col=None, header=0, sep=",", dtype=str)
     ### Drop all suffixed with _O
     df = df.loc[:, ~df.columns.str.endswith('_O')]
     return df
