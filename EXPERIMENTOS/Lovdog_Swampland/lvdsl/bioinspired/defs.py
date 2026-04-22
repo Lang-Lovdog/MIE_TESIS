@@ -35,9 +35,10 @@ def set_precision_decimal(val : int):
     global precision_decimal
     precision_decimal = val
 
+
 def setup_filename():
     now = datetime.now()
-    dt_string = now.strftime("%d%m%Y")
+    dt_string = now.strftime("%d%m%Y_%H%M%S")
     dirname = "VacuaFound_" + dt_string
     return dirname
 
@@ -257,7 +258,7 @@ def run_model(
     if params is not None:
         for param, value in params.items():
             ni_models_object.set_model_param(model_name, param, value)
-    out_dir, model_intance = ni_models_object.get_model(model_name)
+    model_instance, out_dir = ni_models_object.get_model(model_name)
     #### If integrated CSV
     if csv_input is not None:
         if   csv_format == "Native":
@@ -272,7 +273,6 @@ def run_model(
             return
         fixed = [ "s", "tau" ]
         for ridx,row in df.iterrows():
-            row = row[1]
             set_fixed_value({
                 "s"   : row[vnms["s"  ]],
                 "tau" : row[vnms["tau"]],
@@ -281,38 +281,27 @@ def run_model(
             for fidx in range(iterations):
                 print(f"Registro {ridx} Iteración {fidx}")
                 #### Creación de un genético simple para minimización de la función ff
-                model_intance.solve(natureinspired_problems_k_theory.vacua_parameters___lift_fv)
+                result = model_instance.solve(natureinspired_problems_k_theory.vacua_parameters___lift_fv)
+                if hasattr(model_instance, 'g_best'):
+                    best_solution = model_instance.g_best.solution
+                    best_fitness  = model_instance.g_best.target.fitness
+                else:
+                    best_solution, best_fitness = result
                 #### Creación de un genético simple para minimización de la función ff
                 #### Imprimir solución
-                print(f"Solución: {model_intance.g_best.solution}, Fitness: {model_intance.g_best.target.fitness}")
-                avalores = V_liftingHess_eig_lambda(
-                    model_intance.g_best.solution[0],
-                    model_intance.g_best.solution[1],
-                    model_intance.g_best.solution[2],
-                    model_intance.g_best.solution[3],
-                    model_intance.g_best.solution[4],
-                    model_intance.g_best.solution[5],
-                    model_intance.g_best.solution[6],
-                )
-                potencial = V_lifting_lambda(
-                    model_intance.g_best.solution[0],
-                    model_intance.g_best.solution[1],
-                    model_intance.g_best.solution[2],
-                    model_intance.g_best.solution[3],
-                    model_intance.g_best.solution[4],
-                    model_intance.g_best.solution[5],
-                    model_intance.g_best.solution[6],
-                )
+                print(f"Solución: {best_solution}, Fitness: {best_fitness}")
+                avalores = V_liftingHess_eig_lambda(*best_solution[:7])
+                potencial = V_lifting_lambda(*best_solution[:7])
                 found_solutions.append({
                     "V"         : potencial,
-                    "fitness"   : model_intance.g_best.target.fitness,
-                    "AH3"       : model_intance.g_best.solution[0],
-                    "AF3"       : model_intance.g_best.solution[1],
-                    "AF5"       : model_intance.g_best.solution[2],
-                    "A3N3"      : model_intance.g_best.solution[3],
-                    "AD5"       : model_intance.g_best.solution[4],
-                    "s"         : model_intance.g_best.solution[5],
-                    "tau"       : model_intance.g_best.solution[6],
+                    "fitness"   : best_fitness,
+                    "AH3"       : best_solution[0],
+                    "AF3"       : best_solution[1],
+                    "AF5"       : best_solution[2],
+                    "A3N3"      : best_solution[3],
+                    "AD5"       : best_solution[4],
+                    "s"         : best_solution[5],
+                    "tau"       : best_solution[6],
                     "lambda1"   : avalores[0],
                     "lambda2"   : avalores[1],
                     "taquiónico": "1" if min(avalores) < 0 else "0"

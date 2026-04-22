@@ -25,21 +25,21 @@ from   .vars              import V_liftingHess_det_lambda    as det_l
 from   .vars              import variables_numericas
 ## IMPORTS
 
-def get_ival_scalar_lift(individual):
-    return ( individual[:,i] for i in range(individual.shape[1]) )
 
-def get_ival_vector_lift(individual):
-    return individual
+def _get_ival_scalar(x):
+    """Para entrada 1D (mealpy): devuelve los elementos como escalares."""
+    return (x[i] for i in range(len(x)))
 
+def _get_ival_vector(x):
+    """Para entrada 2D (EDAs): devuelve columnas como arrays 1D."""
+    return (x[:, i] for i in range(x.shape[1]))
 
-ival_getter = get_ival_scalar_lift
+_ival_getter = _get_ival_scalar   # modo por defecto (compatible con mealpy)
 
-def set_ival_getter(vectorized : bool = False):
-    global ival_getter
-    if vectorized:
-        ival_getter = get_ival_vector_lift
-    else:
-        ival_getter = get_ival_scalar_lift
+def set_evaluation_mode(vectorized: bool = False):
+    """Cambia el modo de desempaquetado de argumentos."""
+    global _ival_getter
+    _ival_getter = _get_ival_vector if vectorized else _get_ival_scalar
 
 
 
@@ -92,7 +92,7 @@ if HAS_GPU:
 
     def fitness_function_nolift_mealpy(solutions):
 
-        _AH3, _AF3, _AF5, _A3N3, _tau, _s = ival_getter(solutions)
+        _AH3, _AF3, _AF5, _A3N3, _tau, _s = _ival_getter(solutions)
         return xp.asnumpy(
             positive_semidefinite_potential_nolift(_AH3, _AF3, _AF5, _A3N3, _tau, _s) +
             positive_definite_trace_nolift        (_AH3, _AF3, _AF5, _A3N3, _tau, _s) +
@@ -109,7 +109,7 @@ if HAS_GPU:
         )
 
     def fitness_function_lift_mealpy(solutions):
-        _AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s = solutions
+        _AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s = _ival_getter(solutions)
         return xp.asnumpy(
             positive_semidefinite_potential_lift  (_AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s) +
             positive_definite_trace_lift          (_AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s) +
@@ -130,7 +130,7 @@ if HAS_GPU:
     def fitness_function_fixedmoduli_nolift_mealpy(solutions):
         global variables_numericas
 
-        _AH3, _AF3, _AF5, _A3N3 = solutions
+        _AH3, _AF3, _AF5, _A3N3 = _ival_getter(solutions)
 
         return xp.asnumpy(
             positive_semidefinite_potential_nolift(_AH3, _AF3, _AF5, _A3N3, variables_numericas['tau'], variables_numericas['s']) +
@@ -151,7 +151,7 @@ if HAS_GPU:
     def fitness_function_fixedmoduli_lift_mealpy(solutions):
         global variables_numericas
 
-        _AH3, _AF3, _AF5, _A3N3, _AD5 = solutions
+        _AH3, _AF3, _AF5, _A3N3, _AD5 = _ival_getter(solutions)
 
         return xp.asnumpy(
             positive_semidefinite_potential_lift  (_AH3, _AF3, _AF5, _A3N3, _AD5, variables_numericas['tau'], variables_numericas['s']) +
