@@ -240,21 +240,41 @@ Torsion and Machine Learning* de Damian et al.
 
    El próximo paso es la reesttructuración del Lovdog_Swampland
 
-   @code liotree
-
-     | Lovdog_Swampland/           > Carpeta del proyecto                                                                    ||
-     |- lvdsl                      > Módulo del Lovdog Swapland                                                              ||
-     |-- k_theory/                 > La teoría en revisión actual                                                            ||
-     |=-
-     |--- vars.py                  > Variables de la función potencial, definición simbólica de la función potencial, Hess y
-     |                             autovalores. Además de algunas funciones auxiliares para fijar coeficientes/módulos y
-     |                             precisión decimal de operación para sympy.                                                ||
-     |==
-     |-- potentials.py             > Definición de las funciones de evaluación, tanto de la versión lifting como de la
-     |                             original. (Sujeto a cambio de nombre)                                                     ||
-     |-- plots.py                  > Graficación de las funciones, las principales serán inspiradas en el experimento
-     |                             original. Algunos extras en caso de ser necesario.                                        ||
-
+*** Lovdog_Swampland project tree structure
+    @code liotree
+| Lovdog_Swampland/           > Carpeta del proyecto                                                   ||
+|- lvdsl/                     > Módulo del Lovdog Swapland                                             ||
+|=-
+|---- __init__.py
+|---- xp.py                   > Implementa lo necesario para procesamiento numérico, detecta tarjeta
+|                             gráfica para decidir sobre cupy o numpy                                  ||
+|---- globals.py              > Global variables and values                                            ||
+|---- structure.liotree       > Estructura independiente del módulo                                    ||
+|---- k_theory/               > La teoría en revisión actual                                           ||
+|=-
+|------- __init__.py
+|------- vars.py              > Variables de la función potencial, definición simbólica de la función
+|                             potencial, Hess y autovalores. Además de algunas funciones auxiliares
+|                             para fijar coeficientes/módulos y precisión decimal de operación para
+|                             sympy.                                                                   ||
+|------- potentials.py        > Definición de las funciones de evaluación, tanto de la versión lifting
+|                             como de la original. (Sujeto a cambio de nombre).                        ||
+|------- plots.py             > Graficación de las funciones, las principales serán inspiradas en el
+|                             experimento original. Algunos extras en caso de ser necesario.           ||
+|==
+|---- bioinspired/
+|=-
+|------- __init__.py
+|------- defs.py
+|------- EDAs.py
+|==
+|---- data/
+|=-
+|------- __init__.py
+-------- from_csv.py
+|==
+|==
+|
    @end
 
    ^^ CORREO_URGENTE
@@ -364,11 +384,81 @@ Torsion and Machine Learning* de Damian et al.
 
 ** Miércoles 22 de Abril del 2026
 
+   Llego a la universidad, al rededor de las 16:30h he puesto a
+   correr 3 optimizadores: pso, ga y iwo. Mañana revisaré
+   avances.
+
+** Jueves 23 de Abril del 2026
+
+   Revisando los resultado encuentro detalles della rutina
+   d'exportación, pues el módulo de volumen, los autovalores y
+   el indicador de taquiónico del sujeto original no se habían
+   exportado en el csv. Hay un error de nomenclatura que se
+   puede corregir en una línea pero no es necesario al momento.
+
+   Los procesos `PSO` y `GA` terminaron en un plazo aproximado
+   de 4 hrs, considerando que el {^ nota al pie 23A2026}[/timestamp/] final fue de al 
+   rededor de las 20:00h.
+
+   Siendo las 3:39 de la tarde, `IWO` está en su 10 iteración
+   respecto al primer elemento del experimento. Siendo un total
+   de 87 elementos en total.
+   Sin embargo, pese a la lentitud del proceso en `IWO` aún
+   con integración en `CUDA` presumiblemente habilitada, se ha
+   visto una notable capacidad para encontrar valores 
+   significativamente más acercados al original. Esto, da una
+   luz importante sobre su capacidad para encontrar vacíos pese
+   a los tiempos. [Nota]{^ nota al pie 23A2026-1}
+
+
+   Para proceder con los análisis se plantea el uso de pruebas
+   como la /T-test/ que permite comparar las diferencias
+   estadísticas de los resultados obtenidos.
+
+   Las pruebas se centrarán en comparación de dos criterios:
+   ~ La cantidad de vacíos estables obtenidos
+   ~ La magnitud de los mínimos obtenidos
+
+   Se adaptará el script de graficación al `lvdsl` con la 
+   finalidad de obtener valores clave de análisis.
+
+   Deberá haber una adición en los from_csv para obtener la
+   información seriada de los resultados.
+
+   Ya que [lvdsl]{*** Lovdog_Swampland project tree structure} tiene un formato peculiar de guardado, es 
+   posible recuperar información relevante. Concatenar todos
+   los resultados y trabajar a partir de ellos.
+
+   ___
+
+
    ^ nota al pie 21A2026
    A momento de escrito esto, son a las 00:31 del 22 de Abril del 2026
 
-   ___
-   ===
+   [Regresar al texto]{** Miércoles 22 de Abril del 2026}
+
+   ^^ nota al pie 23A2026
+   Mi terminal tiene un formato que muestra HH:MM:SS, sin embargo, se perdió el inicio.
+   Sin embargo los tiempos de creación de los archivos de configuración fueron:
+   16:31 del 22 de Abril del 2026 en todos los experimentos.
+   Y la hora de término en las terminales fue:
+   20:31 del 22 de Abril del 2026 en GA y PSO.
+
+   IWO sigue en proceso.
+   ^^
+
+   [Regresar al texto]{** Jueves 23 de Abril del 2026}
+
+   ^ nota al pie 23A2026-1
+   lvdsl utliza los valores por defecto de todo bioinspirado de
+   mealpy. Próximamente, en los experimentos con EDAs, se 
+   documentarán los parámetros considerados por defecto y los
+   usados en la optimización.
+
+   [Regresar al texto]{** Jueves 23 de Abril del 2026}
+
+ ===
+___
 
 {:../index.norg:}[Index]
 

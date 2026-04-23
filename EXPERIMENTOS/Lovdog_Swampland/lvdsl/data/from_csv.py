@@ -44,10 +44,11 @@ def read_mathematica_format(archivo_csv: str, D5_Fluxes: bool = False):
     l1, l2 = variables["lambda1"], variables["lambda2"]
     if l1 in df2.columns and l2 in df2.columns:
         df2["taquiónico"] = df2.apply(
-            lambda row: 1 if float(row[l1]) < 0 or float(row[l2]) < 0 else 0,
+            lambda row: int(1 if float(row[l1]) < 0 or float(row[l2]) < 0 else 0),
             axis=1
         )
 
+    print(df2)
     return df2
 
 def read_native_format(archivo_csv: str):
@@ -72,23 +73,20 @@ def save_comparative_csv(
 
     # Definimos el orden de las columnas para el CSV final
     # (V, fitness, flujos, coordenadas, autovalores, taquiónico)
-    ordered_keys = [
-        "V", "AH3", "AF3", "AF5", "A3N3", "AD5",
-        "s", "tau", "lambda1", "lambda2", "taquiónico"
-    ]
+    output_keys = [ key for key in variables.keys() ]
 
-    for key in ordered_keys:
+    for key in output_keys:
         # Obtenemos el nombre "público" del diccionario (ej: "tau" -> "τ")
         name = variables.get(key)
 
         # Si el valor en el diccionario es None (como en taquiónico), usamos el key
         col_name = name if name is not None else key
 
-        if col_name not in df_found.columns:
+        if key not in df_found.columns and col_name not in df_original.columns:
             continue
 
         # 1. Insertar valor encontrado (del algoritmo)
-        data_dict[col_name] = df_found[col_name].values
+        data_dict[key] = df_found[key].values
 
         # 2. Insertar columna de fitness (especial, no está en variables)
         if key == "V" and "fitness" in df_found.columns:
@@ -96,11 +94,11 @@ def save_comparative_csv(
 
         # 3. Insertar valor original de comparación (_O)
         # s, tau y fijos no llevan comparación según tu muestra
-        no_comparar = ["s", "tau", "taquiónico"] + fixed_elements
+        no_comparar = fixed_elements
         if key not in no_comparar:
             # Buscamos en la fila original usando el nombre mapeado
             if col_name in original_row:
-                data_dict[col_name + "_O"] = original_row[col_name]
+                data_dict[key + "_O"] = original_row[col_name]
 
     # Crear DataFrame y guardar
     df_out = pd.DataFrame(data_dict)

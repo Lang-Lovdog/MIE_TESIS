@@ -89,6 +89,7 @@ def run_aso():
   )
 
 if __name__ == "__main__":
+    import os
     if len(sys.argv) < 2:
         print("Uso: python LovdogSwamplandMain.py <MODELO>")
         print("Modelos disponibles: GA, PSO, UMDA, PBIL, ACO, IWO, VCS, ASO")
@@ -107,7 +108,25 @@ if __name__ == "__main__":
     }
 
     if simulation in models:
+        ## Send alarm if alarma command exists
+        #### alarma 1s "{model} started at {full_date_time}"
+        try:
+            command = "alarma 1s "
+            mesage  = f"{simulation} started at {os.popen('date').read()}"
+            os.system(command + mesage)
+        except Exception:
+            pass
+
+        #### Run model
         models[simulation]()
+
+        ### Stop model
+        try:
+            command = "alarma 1s "
+            mesage  = f"{simulation} started at {os.popen('date').read()}"
+            os.system(command + mesage)
+        except Exception:
+            pass
     else:
         print(f"Modelo '{simulation}' no reconocido.")
         print("Disponibles:", ", ".join(models.keys()))
