@@ -1,5 +1,9 @@
 | lvdsl/                                           > Módulo del Lovdog Swapland                                             ||
 |-- __this__dir__
+|---- ../ > Directorio del Lovdog_Swampland completo ||
+|=-
+|----- LovdogSwamplandMain.py
+|==
 |---- ../../../ > Directorio de la TESIS ||
 |=-
 |----- structure.liotree                           > Estructura de la tesis completa                                        ||

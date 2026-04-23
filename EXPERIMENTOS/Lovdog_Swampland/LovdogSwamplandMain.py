@@ -90,6 +90,7 @@ def run_aso():
 
 if __name__ == "__main__":
     import os
+    import datetime
     if len(sys.argv) < 2:
         print("Uso: python LovdogSwamplandMain.py <MODELO>")
         print("Modelos disponibles: GA, PSO, UMDA, PBIL, ACO, IWO, VCS, ASO")
@@ -112,8 +113,9 @@ if __name__ == "__main__":
         #### alarma 1s "{model} started at {full_date_time}"
         try:
             command = "alarma 1s "
-            mesage  = f"{simulation} started at {os.popen('date').read()}"
-            os.system(command + mesage)
+            started_at = datetime.datetime.now().strftime("%Y:%m:%d-%H:%M:%S")
+            mesage  = f"{simulation} started at {started_at}"
+            os.system(f"{command} \"{mesage}\"")
         except Exception:
             pass
 
@@ -123,8 +125,9 @@ if __name__ == "__main__":
         ### Stop model
         try:
             command = "alarma 1s "
-            mesage  = f"{simulation} started at {os.popen('date').read()}"
-            os.system(command + mesage)
+            ended_at = datetime.datetime.now().strftime("%Y:%m:%d-%H:%M:%S")
+            mesage  = f"{simulation} ended at {ended_at}"
+            os.system(f"{command} \"{mesage}\"")
         except Exception:
             pass
     else:
