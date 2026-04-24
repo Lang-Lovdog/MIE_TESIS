@@ -3,10 +3,12 @@
 |---- ../ > Directorio del Lovdog_Swampland completo ||
 |=-
 |----- LovdogSwamplandMain.py
+|----- LovdogSwamplandMain2.py
 |==
 |---- ../../../ > Directorio de la TESIS ||
 |=-
 |----- structure.liotree                           > Estructura de la tesis completa                                        ||
+|----- Notas.norg
 |==
 |---- __init__.py
 |---- xp.py                                        > Implementa lo necesario para procesamiento numérico, detecta tarjeta

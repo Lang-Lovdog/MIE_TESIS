@@ -410,7 +410,6 @@ Torsion and Machine Learning* de Damian et al.
    luz importante sobre su capacidad para encontrar vacíos pese
    a los tiempos. [Nota]{^ nota al pie 23A2026-1}
 
-
    Para proceder con los análisis se plantea el uso de pruebas
    como la /T-test/ que permite comparar las diferencias
    estadísticas de los resultados obtenidos.
@@ -428,6 +427,17 @@ Torsion and Machine Learning* de Damian et al.
    Ya que [lvdsl]{*** Lovdog_Swampland project tree structure} tiene un formato peculiar de guardado, es 
    posible recuperar información relevante. Concatenar todos
    los resultados y trabajar a partir de ellos.
+
+
+** Viernes 24 de Abril del 2026
+
+   `IWO` y `ACO` continúan en `0:21` y `2:30` respectivamente.
+   Acabo de implementar un gestor para iniciar los procesos en
+   una fila dentro de un directorio específico. De modo que los
+   procesos puedan ser interrumpidos y reanudados sin
+   reiniciar todo el proceso metaheurístico.
+
+   Aún planificando el flujo de los análisis de resultados.
 
    ___
 

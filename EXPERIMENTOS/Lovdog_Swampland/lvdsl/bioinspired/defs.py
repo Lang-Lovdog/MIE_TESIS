@@ -236,6 +236,29 @@ class natureinspired_models:
             return
         return [ return_model, build_dir_name(name) ]
 
+def handle_csv_input(csv_input : str, csv_format : str, lifting : bool):
+    if   csv_format == "Native":
+        df = read_native_format(csv_input)
+    elif csv_format == "Mathematica":
+        df = read_mathematica_format(csv_input, D5_Fluxes=lifting)
+    else:
+        print("CSV format not supported: ", csv_format)
+        return
+    if "AD5" not in df.columns and lifting:
+        print("lifting: No AD5 column found, aborting.")
+        return
+    return df
+def handle_output(model_instance, model_name, out_dir, destination):
+    if destination != "":
+        out_dir = destination + "/" + model_name
+        if(not os.path.exists(out_dir)):
+            print(f"Output directory: {out_dir} does not exist")
+            return
+        print(f"Saving output to directory {out_dir}")
+        return out_dir
+    write_model_description(model_instance, out_dir)
+    return out_dir
+
 def run_model(
     model_name  : str,
     params      : dict ={}       ,
@@ -243,7 +266,9 @@ def run_model(
     csv_format  : str  ="Native" ,
     lifting     : bool =True     ,
     output      : bool =False    ,
-    iterations  : int  =100
+    iterations  : int  =100      ,
+    start_row   : int  =0        ,
+    destination : str  =""
 ):
     ni_models_object = natureinspired_models()
     if params is not None:
@@ -252,20 +277,13 @@ def run_model(
     model_instance, out_dir = ni_models_object.get_model(model_name)
     #### If integrated CSV
     if csv_input is not None:
-        if   csv_format == "Native":
-            df = read_native_format(csv_input)
-        elif csv_format == "Mathematica":
-            df = read_mathematica_format(csv_input, D5_Fluxes=lifting)
-        else:
-            print("CSV format not supported: ", csv_format)
-            return
-        if "AD5" not in df.columns and lifting:
-            print("lifting: No AD5 column found")
-            return
+        df = handle_csv_input(csv_input, csv_format, lifting)
         if output:
-            write_model_description(model_instance, out_dir)
+            out_dir = handle_output(model_instance, model_name, out_dir, destination)
         fixed = [ "s", "tau" ]
+        print(f"Starting from row {start_row}")
         for ridx,row in df.iterrows():
+            if ridx < start_row: continue
             set_fixed_value({
                 "s"   : row[vnms["s"  ]],
                 "tau" : row[vnms["tau"]],
