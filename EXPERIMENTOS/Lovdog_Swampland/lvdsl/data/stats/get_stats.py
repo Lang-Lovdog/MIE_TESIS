@@ -1,0 +1,112 @@
+## Este script tiene la finalidad de hacer un conteo de las soluciones obtenidas en las carpetas VacuaFound.
+## Las estadísticas relevantes al momento serán
+##   - Número de soluciones totales
+##   - Número de soluciones taquiónicas
+##   - Número de valores V_eff definidos negativos
+##   - Número de valores V_eff semidefinidos positivos
+##   - Número de valores A3N3 definidos negativos
+##   - Número de valores A3N3 semidefinidos positivos
+##   - Valor promedio por archivo de cada campo
+##   - Valor promedio por directorio de cada campo 
+
+### Para hacer funcionar este script tendrá una función que recibirá el directorio a analizar
+
+
+from ...xp import xp
+import pandas #type: ignore
+import os
+import re
+
+statistics={
+    "total_solutions"     : 0,
+    "taquionic_solutions" : 0,
+    "negative_V"          : 0,
+    "positive_V"          : 0,
+    "negative_A3N3"       : 0,
+    "positive_A3N3"       : 0
+}
+
+
+#### La estructura del directorio se supone de la forma:
+#### |--- lvdsl_outputs/
+#### |=-
+#### |--- ;VacuaFound_[DDMMYYYY]_[HH]/; > Las salidas de la búsqueda metaheurística.||
+#### |=-
+#### |----- ;[MODEL];/
+#### |=-
+#### |-- __this__dir__
+#### |-- ;[MODEL]-[4d][.csv].csv; > Resultados de la búsqueda metaheurística. ||
+#### |==
+#### |==
+#### |==
+
+def get_model_dirs(directory):
+    model_dirs : list[str] = []
+    for filename in os.listdir(directory):
+        if os.path.isdir(directory+"/"+filename):
+            model_dirs.append(filename)
+    return model_dirs
+
+def get_dataframes(directory):
+    dataframes_list : list[pandas.DataFrame] = []
+    for filename in os.listdir(directory):
+        ## Corroboraremos que el formato sea el correcto para evitar archivos no deseados
+        ## Ej: AG-0002.csv
+        ## Ej: AG-0002.csv.csv
+        template=[ "[\w]*-[0-9][0-9][0-9][0-9].csv", "[\w]*-[0-9][0-9][0-9][0-9].csv.csv" ]
+        if not re.match(template[0], filename) or not re.match(template[1], filename):
+            continue
+        df=pandas.read_csv(os.path.join(directory, filename))
+        dataframes_list.append(df)
+    return dataframes_list
+
+def get_data_from(indir :str):
+    data={}
+    mdirs=get_model_dirs(indir)
+    for mdir in mdirs:
+        dfs=get_dataframes(indir+"/"+mdir)
+        data[mdir]=dfs
+    return data
+
+
+
+
+
+def get_stats(directory):
+    stats_per_file={
+        "total_solutions"     : {},
+        "taquionic_solutions" : {},
+        "negative_V"          : {},
+        "positive_V"          : {},
+        "negative_A3N3"       : {},
+        "positive_A3N3"       : {}
+    }
+    mdirs=get_model_dirs(directory)
+    df_per_model={}
+    for mdir in mdirs:
+        dfs=get_dataframes(directory+"/"+mdir)
+        df_per_model[mdir]=dfs
+    for mdir in df_per_model:
+        print("Processing "+mdir)
+        stats_per_file["total_solutions"    ][mdir]=len(df_per_model[mdir])
+        stats_per_file["taquionic_solutions"][mdir]=len(df_per_model[mdir][df_per_model[mdir]["V"]>0])
+        stats_per_file["negative_V"         ][mdir]=len(df_per_model[mdir][df_per_model[mdir]["V"]<0])
+        stats_per_file["positive_V"         ][mdir]=len(df_per_model[mdir][df_per_model[mdir]["V"]>0])
+        stats_per_file["negative_A3N3"      ][mdir]=len(df_per_model[mdir][df_per_model[mdir]["A3N3"]<0])
+        stats_per_file["positive_A3N3"      ][mdir]=len(df_per_model[mdir][df_per_model[mdir]["A3N3"]>0])
+    return stats_per_file
+
+
+# Pruebas por si acaso
+if __name__ == "__main__":
+    import sys
+    if len(sys.argv) != 2:
+        print("Usage: "+sys.argv[0]+" <directory>")
+        exit(1)
+    indir=sys.argv[1]
+    data=get_data_from(indir)
+    #for key in data:
+    #    print(f"{key} with {len(data[key])} records")
+    #stats=get_stats(indir)
+
+

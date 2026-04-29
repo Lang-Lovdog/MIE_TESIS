@@ -439,6 +439,33 @@ Torsion and Machine Learning* de Damian et al.
 
    Aún planificando el flujo de los análisis de resultados.
 
+** Lunes 27 de Abril del 2026
+   Al rededor de las 12:47h se reanudan los experimentos de `ACO`
+   e `IWO`.
+   Comienzo la integración d'as rutinas d'graficación.
+
+** Martes 28 de Abril del 2026
+   Las rutinas siguen corriendo, `ACO` se mantiene a la cabeza
+   con Iteración 54 de registro 4. Sus valores han llegado casi
+   a los límites propuestos en el código, p. ej. en uno de los
+   individuos `A3N3=-99.99940982`. `IWO` sigue siendo el más
+   lento, con tieración 10 de registro 1 al momento de escrito
+   esto (16:40h).
+
+** Miercoles 29 de Abril del 2026
+   A la hora de escrito esto (16:15) se revisan los avances con
+   `IWO` iteración 22 del elemento 0. Los resultados siguen 
+   siendo interesantes de observar. Es lento pero sus mínimos 
+   parecen realmente encontrarse en órdenes de magnitud
+   inferiores a los otros optimizadores, esto es un punto
+   relevante a considerar. Los avances de `ACO` por su parte
+   son más rápidos (iteración 83 del registro 6) y presentan
+   valores dentro de las magnitudes de los demás optimizadores.
+   Es probable que se realicen pruebas de los siguientes
+   optimizadores para reducir tiempos de /runtime/, sin embargo,
+   existe la posibilidad de un cuello de botella que realentice
+   los procesos aún en GPU.
+
    ___
 
 

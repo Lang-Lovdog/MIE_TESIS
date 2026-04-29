@@ -121,11 +121,16 @@
 |-------- ;found_solutions_AdS_fv_[d].csv;              > Resultados de la búsqueda metaheurística.                              ||
 |==
 |==
-|--- ;VacuaFound_[DDMMYYYY]/;                     > Las salidas de la búsqueda metaheurística.                             ||
+|--- lvdsl_outputs/
+|=-
+|--- ;VacuaFound_[DDMMYYYY]_[HH]/;                > Las salidas de la búsqueda metaheurística.                             ||
+|=-
+|----- ;[MODEL];/
 |=-
 |-- __this__dir__
-|-- ;found_solutions__dS_fv_[d].csv;              > Resultados de la búsqueda metaheurística.                              ||
-|-- ;found_solutions_AdS_fv_[d].csv;              > Resultados de la búsqueda metaheurística.                              ||
+|-- ;[MODEL]-[4d][.csv].csv;              > Resultados de la búsqueda metaheurística.                              ||
+|==
+|==
 |==
 |--- LovdogSwamplandMain.py
 |--- lvdsl/                                       > Módulo del Lovdog Swapland                                             ||

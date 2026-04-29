@@ -14,13 +14,6 @@ from lvdsl.data.from_csv       import read_mathematica_format
 from lvdsl.data.from_csv       import read_native_format
 from lvdsl.data.from_csv       import save_comparative_csv
 from lvdsl.data.from_csv       import variables                                    as vnms
-#from lvdsl.k_theory.potentials import autovalores_VHess
-#from lvdsl.k_theory.potentials import autovalores_VHess_AdS
-#from lvdsl.k_theory.potentials import potencial_eval
-#from lvdsl.k_theory.potentials import potencial_eval_AdS
-#from lvdsl.k_theory.potentials import set_fixed_value
-#from test_fitness_function import datos_del_csv_mathematica                        as from_csv
-#from test_fitness_function import variables                                        as vnms      # Convierte del convenio de este proyecto al del de mathematica
 
 ### Datetime as DDMMYYYY for directory name
 from datetime import datetime
