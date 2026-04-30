@@ -252,6 +252,168 @@ def handle_output(model_instance, model_name, out_dir, destination):
     write_model_description(model_instance, out_dir)
     return out_dir
 
+def get_latest_file_rows(out_dir, model_name):
+    # Initialize variables to store the latest file and its corresponding row count
+    latest_file = None
+    max_suffix = -1
+
+    # List all files in the specified directory
+    for filename in os.listdir(out_dir):
+        # Check if the filename matches the pattern
+        if filename.startswith(model_name) and filename.endswith('.csv'):
+            try:
+                # Extract the suffix value from the filename
+                suffix = int(filename[len(model_name):-4])
+
+                # Update the latest file if the current one has a higher suffix value
+                if suffix > max_suffix:
+                    latest_file = os.path.join(out_dir, filename)
+                    max_suffix = suffix
+            except ValueError:
+                # Skip files that do not have a valid integer suffix
+                continue
+
+    # If no matching file was found, return 0 rows
+    if latest_file is None:
+        return 0
+
+    # Read the number of rows in the latest file
+    with open(latest_file, 'r') as file:
+        row_count = sum(1 for line in file)
+
+    return row_count
+
+def load_last_csv_and_id(directory, model_name):
+    # Construct the path to the directory containing the model-specific directories
+    model_dir = os.path.join(directory, model_name)
+
+    # Get a list of all files in the model directory
+    files = os.listdir(model_dir)
+
+    # Filter the list to find files that match the pattern "MODEL-%4d.csv"
+    csv_files = [f for f in files if f.startswith(f"{model_name}-") and f.endswith(".csv")]
+
+    if not csv_files:
+        raise FileNotFoundError(f"No CSV files found for model {model_name} in directory {directory}")
+
+    # Sort the list of CSV files by their filenames
+    csv_files.sort()
+
+    # Get the last file (which should have the highest ID)
+    last_csv_file = csv_files[-1]
+
+    # Extract the ID from the filename (excluding the prefix and extension)
+    id_parts = last_csv_file.split("-")[1].split(".csv.csv")
+    id_number = int(id_parts[0])
+
+    # Construct the full path to the CSV file
+    csv_path = os.path.join(model_dir, last_csv_file)
+
+    # Load the DataFrame from the CSV file
+    df = pd.read_csv(csv_path)
+
+    return id_number, df
+
+
+def perform_search_fixed_s_tau(
+        df               ,
+        model_instance   ,
+        model_name       ,
+        out_dir          ,
+        fixed            ,
+        output           ,
+        start_row     = 0,
+        end_row       = 0,
+        start_iter    = 0,
+        end_iter      = 0
+):
+    if end_row > len(df) or end_row < start_row:
+        print("Error: end_row must be greater than start_row")
+        return
+    elif end_row < 1:
+        end_row = len(df)
+
+    fixed = [ "s", "tau" ]
+
+    print(f"Starting from row {start_row} until {end_row}")
+
+    for ridx,row in df[start_row:end_row].iterrows():
+        set_fixed_value({
+            "s"   : row[vnms["s"  ]],
+            "tau" : row[vnms["tau"]],
+        })
+        s, tau = row[vnms["s"  ]], row[vnms["tau"]]
+        problem_to_optimize = natureinspired_problems_k_theory.vacua_parameters___lift_fv
+        found_solutions = []
+
+        for fidx in range(start_iter, end_iter):
+            print(f"Registro {ridx} Iteración {fidx}")
+            #### Creación de un genético simple para minimización de la función ff
+            result = model_instance.solve(problem_to_optimize)
+            if hasattr(model_instance, 'g_best'):
+                best_solution = model_instance.g_best.solution
+                best_fitness  = model_instance.g_best.target.fitness
+            else:
+                best_solution, best_fitness = result
+            #### Creación de un genético simple para minimización de la función ff
+            #### Imprimir solución
+            print(f"Solución: {best_solution}, Fitness: {best_fitness}")
+            AH3, AF3, AF5, A3N3, AD5 = best_solution
+            avalores  = V_liftingHess_eig_lambda(AH3, AF3, AF5, A3N3, AD5, tau, s)
+            potencial = V_lifting_lambda        (AH3, AF3, AF5, A3N3, AD5, tau, s)
+            found_solutions.append({
+                "V"         : potencial       ,
+                "fitness"   : best_fitness    ,
+                "AH3"       : best_solution[0],
+                "AF3"       : best_solution[1],
+                "AF5"       : best_solution[2],
+                "A3N3"      : best_solution[3],
+                "AD5"       : best_solution[4],
+                "s"         : s               ,
+                "tau"       : tau             ,
+                "lambda1"   : avalores[0]     ,
+                "lambda2"   : avalores[1]     ,
+                "taquiónico": "1" if min(avalores) < 0 else "0"
+            })
+            if output and fidx % 10 == 0:
+                save_solutions(
+                    found_solutions ,
+                    out_dir         ,
+                    model_name      ,
+                    df              ,
+                    ridx            ,
+                    fixed
+                )
+        ### Save solutions for the current search row
+        save_solutions(
+            found_solutions ,
+            out_dir         ,
+            model_name      ,
+            df              ,
+            ridx            ,
+            fixed
+        )
+
+def save_solutions(
+        found_solutions ,
+        out_dir         ,
+        model_name      ,
+        df             ,
+        ridx           ,
+        fixed
+):
+    found_solutions_tmp = pd.DataFrame(found_solutions)
+    out_filename= f"{out_dir}/{model_name}-{ridx:04d}.csv"
+    save_comparative_csv(
+        found_solutions_tmp   ,
+        df                    ,
+        ridx                  ,
+        out_filename          ,
+        fixed_elements = fixed
+    )
+
+
+
 def run_model(
     model_name  : str,
     params      : dict ={}       ,
@@ -259,8 +421,8 @@ def run_model(
     csv_format  : str  ="Native" ,
     lifting     : bool =True     ,
     output      : bool =False    ,
+    recover     : bool =False    ,
     iterations  : int  =100      ,
-    start_row   : int  =0        ,
     destination : str  =""
 ):
     ni_models_object = natureinspired_models()
@@ -269,70 +431,15 @@ def run_model(
             ni_models_object.set_model_param(model_name, param, value)
     model_instance, out_dir = ni_models_object.get_model(model_name)
     #### If integrated CSV
+    found_solutions = []
     if csv_input is not None:
         df = handle_csv_input(csv_input, csv_format, lifting)
         if output:
             out_dir = handle_output(model_instance, model_name, out_dir, destination)
-        fixed = [ "s", "tau" ]
-        print(f"Starting from row {start_row}")
-        for ridx,row in df.iterrows():
-            if ridx < start_row: continue
-            set_fixed_value({
-                "s"   : row[vnms["s"  ]],
-                "tau" : row[vnms["tau"]],
-            })
-            s, tau = row[vnms["s"  ]], row[vnms["tau"]]
-            problem_to_optimize = natureinspired_problems_k_theory.vacua_parameters___lift_fv
-            found_solutions = []
-            for fidx in range(iterations):
-                print(f"Registro {ridx} Iteración {fidx}")
-                #### Creación de un genético simple para minimización de la función ff
-                result = model_instance.solve(problem_to_optimize)
-                if hasattr(model_instance, 'g_best'):
-                    best_solution = model_instance.g_best.solution
-                    best_fitness  = model_instance.g_best.target.fitness
-                else:
-                    best_solution, best_fitness = result
-                #### Creación de un genético simple para minimización de la función ff
-                #### Imprimir solución
-                print(f"Solución: {best_solution}, Fitness: {best_fitness}")
-                AH3, AF3, AF5, A3N3, AD5 = best_solution
-                avalores  = V_liftingHess_eig_lambda(AH3, AF3, AF5, A3N3, AD5, tau, s)
-                potencial = V_lifting_lambda        (AH3, AF3, AF5, A3N3, AD5, tau, s)
-                found_solutions.append({
-                    "V"         : potencial       ,
-                    "fitness"   : best_fitness    ,
-                    "AH3"       : best_solution[0],
-                    "AF3"       : best_solution[1],
-                    "AF5"       : best_solution[2],
-                    "A3N3"      : best_solution[3],
-                    "AD5"       : best_solution[4],
-                    "s"         : s               ,
-                    "tau"       : tau             ,
-                    "lambda1"   : avalores[0]     ,
-                    "lambda2"   : avalores[1]     ,
-                    "taquiónico": "1" if min(avalores) < 0 else "0"
-                })
-                if output and fidx % 10 == 0:
-                    found_solutions_tmp = pd.DataFrame(found_solutions)
-                    out_filename= f"{out_dir}/{model_name}-{ridx:04d}.csv"
-                    save_comparative_csv(
-                        found_solutions_tmp   ,
-                        df                    ,
-                        ridx                  ,
-                        out_filename          ,
-                        fixed_elements = fixed
-                    )
-            if output:
-                found_solutions = pd.DataFrame(found_solutions)
-                out_filename= f"{out_dir}/{model_name}-{ridx:04d}.csv"
-                save_comparative_csv(
-                    found_solutions       ,
-                    df                    ,
-                    ridx                  ,
-                    out_filename          ,
-                    fixed_elements = fixed
-                )
+        #### If there's any start iteration, it means is from a given csv. So, reading it.
+        if recover:
+            start_row, found_solutions = load_last_csv_and_id(out_dir, model_name)
+
     #### If full search
 
 

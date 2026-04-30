@@ -2,7 +2,7 @@ from lvdsl.bioinspired import  defs
 import sys
 
 dst_dir=""
-row_start=0
+recover=False
 
 def run_ga():
   ## GA
@@ -12,7 +12,7 @@ def run_ga():
       csv_format  = "Mathematica",
       lifting     = True,
       output      = True,
-      start_row   = row_start,
+      recover     = recover,
       destination = dst_dir
 
   )
@@ -26,7 +26,7 @@ def run_pso():
       csv_format  = "Mathematica",
       lifting     = True,
       output      = True,
-      start_row   = row_start,
+      recover     = recover,
       destination = dst_dir
 
   )
@@ -40,7 +40,7 @@ def run_umda():
       csv_format  = "Mathematica",
       lifting     = True,
       output      = True,
-      start_row   = row_start,
+      recover     = recover,
       destination = dst_dir
 
   )
@@ -54,7 +54,7 @@ def run_pbil():
       csv_format  = "Mathematica",
       lifting     = True,
       output      = True,
-      start_row   = row_start,
+      recover     = recover,
       destination = dst_dir
 
   )
@@ -68,7 +68,7 @@ def run_aco():
       csv_format  = "Mathematica",
       lifting     = True,
       output      = True,
-      start_row   = row_start,
+      recover     = recover,
       destination = dst_dir
 
   )
@@ -82,7 +82,7 @@ def run_iwo():
       csv_format  = "Mathematica",
       lifting     = True,
       output      = True,
-      start_row   = row_start,
+      recover     = recover,
       destination = dst_dir
 
   )
@@ -96,7 +96,7 @@ def run_vcs():
       csv_format  = "Mathematica",
       lifting     = True,
       output      = True,
-      start_row   = row_start,
+      recover     = recover,
       destination = dst_dir
 
   )
@@ -110,7 +110,7 @@ def run_aso():
       csv_format  = "Mathematica",
       lifting     = True,
       output      = True,
-      start_row   = row_start,
+      recover     = recover,
       destination = dst_dir
   )
 
@@ -122,15 +122,14 @@ if __name__ == "__main__":
     #global row_start
 
     if len(sys.argv) < 2:
-        print("Uso: python LovdogSwamplandMain.py <MODELO> [-d=<OUTPUT DIR>] [-s=<START ROW>]")
+        print("Uso: python LovdogSwamplandMain.py <MODELO> [-d=<OUTPUT DIR>] [-s=<START ROW>] [ -i=<START ITERATION> ]")
         print("Modelos disponibles: GA, PSO, UMDA, PBIL, ACO, IWO, VCS, ASO")
         sys.exit(1)
 
     for arg in sys.argv:
         if arg.startswith("-d"):
             dst_dir = arg.split("=")[1]
-        elif arg.startswith("-s"):
-            row_start = int(arg.split("=")[1])
+            recover = True
         else:
             simulation = arg.upper()
 

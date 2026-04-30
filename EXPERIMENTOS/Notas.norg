@@ -466,6 +466,15 @@ Torsion and Machine Learning* de Damian et al.
    existe la posibilidad de un cuello de botella que realentice
    los procesos aún en GPU.
 
+** Jueves 30 de Abril del 2026
+   A la hora de escrito esto (15:50) la computadora se
+   encontraba apagada de nuevo. Los procesos deberán ser
+   reestablecidos.
+
+   `ACO` ha logrado hasta el elemento 8, iteración 60.
+
+   `IWO` ha logrado hasta el elemento 0, iteración 20.
+
    ___
 
 
