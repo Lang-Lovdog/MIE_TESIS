@@ -69,12 +69,12 @@ void InicializarEnjambre(
   __Enjambre__->LimitesSuperiores      = __LimitesSuperiores__;
   //Dar constriccion uwu
   long double fi = __Enjambre__->C1+__Enjambre__->C2;
-  __Enjambre__->Constriccion=2/fabsl(2-fi-sqrtl(powl(fi,2)-(4*fi)));
+  __Enjambre__->Constriccion=2/fabsl(2-fi-sqrtl(fabsl(powl(fi,2)-(4*fi))));
   lovdog_startverb(0b0010)
   printf("%Lf\n",fi);
-  printf("%Lf\n",powl(fi,2)-(4*fi));
-  printf("%Lf\n",sqrtl(powl(fi,2)-(4*fi)));
-  printf("%Lf\n",fabsl(2-fi-sqrtl(powl(fi,2)-(4*fi))));
+  printf("%Lf\n",fabsl(powl(fi,2)-(4*fi)));
+  printf("%Lf\n",fabsl(sqrtl(fabsl(powl(fi,2)-(4*fi)))));
+  printf("%Lf\n",fabsl(2-fi-sqrtl(fabsl(powl(fi,2)-(4*fi)))));
   printf("%Lf\n\n",__Enjambre__->Constriccion);
   lovdog_endverb
   lovdog_startverb(0b0100)
@@ -420,7 +420,7 @@ void EjecutaBioinspirado(const BIO_PROCESO *__ProcesoBioinspirado__){
     *ResultsFile=NULL;
 
   CrearLog(__ProcesoBioinspirado__->__log__, &LogFile);
-  CrearResultados(__ProcesoBioinspirado__->__results__, &ResultsFile);
+  //CrearResultados(__ProcesoBioinspirado__->__results__, &ResultsFile);
 
   lovdog_startlog
   printf("\n ===== Inicialización ======\n");
