@@ -15,11 +15,13 @@
 |--- resultados_ags.txt
 |--- pso.c
 |--- pso.h
+|--- ;pso-[model].c;
 |--- pso-quadsum.c
 |--- pso-rastrigin.c
 |--- pso-schweffel.c
 |--- pso-foxhole.c
 |--- test.c
+|--- test.h
 |--- vacua.c
 |--- vacua.h
 |--- test_multi.sh

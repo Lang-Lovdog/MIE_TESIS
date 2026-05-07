@@ -213,6 +213,10 @@ class natureinspired_models:
             print("Model not found: ", name)
 
 
+def run_model(model_name:str, params:dict =None, csv_data:str =None, output:bool = False): # Cargamos el modelo
+    dir, model =
+
+
 if __name__ == "__main__":
     print("Problems and Models definitions")
     Models=natureinspired_models()

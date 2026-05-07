@@ -163,6 +163,7 @@
 |--- vacua.h
 |--- test_multi.sh
 |--- resultados.txt
+|--- structure.liotree
 |==
 |-- Notas.norg                                    > Este meta-journal                                                      ||
 |==
@@ -213,6 +214,10 @@
 |=-
 |---- ;VictorMono-[type].ttf;                     > ||
 |==
+|==
+|----- Reporte02.TEX/
+|=-
+|---- ReviewAftermath.tex
 |==
 |==
 |- PIE/                                           > Trabajos de la clase de Proyecto de Investigación en Ing. Electrónica. ||

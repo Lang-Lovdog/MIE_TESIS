@@ -5,6 +5,8 @@ void descansa(void) { sleep(1); }
 
 typedef struct TuningVars{
   long double constriccion;
+  long double clamping;
+  long double inertia;
   long double c1;
   long double c2;
   unsigned int max_iter;
