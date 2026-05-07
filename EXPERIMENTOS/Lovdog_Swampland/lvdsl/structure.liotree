@@ -1,12 +1,19 @@
 | lvdsl/                                           > Módulo del Lovdog Swapland                                             ||
-|-- __this__dir__
+|---- ../ > Directorio del Lovdog_Swampland completo ||
+|=-
+|----- LovdogSwamplandMain.py
+|----- LovdogSwamplandMain2.py
+|==
 |---- ../../../ > Directorio de la TESIS ||
 |=-
 |----- structure.liotree                           > Estructura de la tesis completa                                        ||
+|----- Notas.norg
 |==
+|-- __this__dir__
 |---- __init__.py
 |---- xp.py                                        > Implementa lo necesario para procesamiento numérico, detecta tarjeta
 |                                                  gráfica para decidir sobre cupy o numpy                                  ||
+|---- globals.py                                   > Global variables and values                                            ||
 |---- structure.liotree                            > Estructura independiente del módulo                                    ||
 |---- k_theory/                                    > La teoría en revisión actual                                           ||
 |=-
@@ -28,6 +35,13 @@
 |==
 |---- data/
 |=-
+|------- __init__.py
 -------- from_csv.py
+|------- stats/
+|=-
+|-------- __init__.py
+|-------- plot_stats.py
+|-------- get_stats.py
+|==
 |==
 

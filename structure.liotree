@@ -112,25 +112,56 @@
 |                                                   ...
 |                                                 ||
 |==
-|--- ;VacuaFound_[DDMMYYYY]/;                     > Las salidas de la búsqueda metaheurística.                             ||
+|--- OldStuff/ > Salidas de genéticos de la versión preliminar (artículo) ||
+|=-
+|----- ;VacuaFound_[DDMMYYYY]/;                     > Las salidas de la búsqueda metaheurística.                             ||
+|=-
+|-------- __this__dir__
+|-------- ;found_solutions__dS_fv_[d].csv;              > Resultados de la búsqueda metaheurística.                              ||
+|-------- ;found_solutions_AdS_fv_[d].csv;              > Resultados de la búsqueda metaheurística.                              ||
+|==
+|==
+|--- lvdsl_outputs/
+|=-
+|--- ;VacuaFound_[DDMMYYYY]_[HH]/;                > Las salidas de la búsqueda metaheurística.                             ||
+|=-
+|----- ;[MODEL];/
 |=-
 |-- __this__dir__
-|-- ;found_solutions__dS_fv_[d].csv;              > Resultados de la búsqueda metaheurística.                              ||
-|-- ;found_solutions_AdS_fv_[d].csv;              > Resultados de la búsqueda metaheurística.                              ||
+|-- ;[MODEL]-[4d][.csv].csv;              > Resultados de la búsqueda metaheurística.                              ||
 |==
+|==
+|==
+|--- LovdogSwamplandMain.py
 |--- lvdsl/                                       > Módulo del Lovdog Swapland                                             ||
 |=-
 |--- structure.liotree                            > Estructura independiente del módulo  (actualizado)                     ||
-|---- k_theory/                                   > La teoría en revisión actual                                           ||
+|---- __init__.py
+|---- xp.py                                        > Implementa lo necesario para procesamiento numérico, detecta tarjeta
+|                                                  gráfica para decidir sobre cupy o numpy                                  ||
+|---- globals.py                                   > Global variables and values                                            ||
+|---- k_theory/                                    > La teoría en revisión actual                                           ||
 |=-
-|--- vars.py                                      > Variables de la función potencial, definición simbólica de la función
-|                                                 potencial, Hess y autovalores. Además de algunas funciones auxiliares
-|                                                 para fijar coeficientes/módulos y precisión decimal de operación para
-|                                                 sympy.                                                                   ||
-|-- potentials.py                                 > Definición de las funciones de evaluación, tanto de la versión lifting
-|                                                 como de la original. (Sujeto a cambio de nombre).                        ||
-|-- plots.py                                      > Graficación de las funciones, las principales serán inspiradas en el
-|                                                 experimento original. Algunos extras en caso de ser necesario.           ||
+|------- __init__.py
+|------- vars.py                                   > Variables de la función potencial, definición simbólica de la función
+|                                                  potencial, Hess y autovalores. Además de algunas funciones auxiliares
+|                                                  para fijar coeficientes/módulos y precisión decimal de operación para
+|                                                  sympy.                                                                   ||
+|------- potentials.py                             > Definición de las funciones de evaluación, tanto de la versión lifting
+|                                                  como de la original. (Sujeto a cambio de nombre).                        ||
+|------- plots.py                                  > Graficación de las funciones, las principales serán inspiradas en el
+|                                                  experimento original. Algunos extras en caso de ser necesario.           ||
+|==
+|---- bioinspired/
+|=-
+|------- __init__.py
+|------- defs.py
+|------- EDAs.py
+|==
+|---- data/
+|=-
+|------- __init__.py
+-------- from_csv.py
 |==
 |==
 |==

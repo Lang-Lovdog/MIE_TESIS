@@ -14,6 +14,7 @@ def get_nvidia_configs():
             os.environ['CUDA_PATH'] = cuda_lib_path
             # Añadimos las subcarpetas de nvrtc y cuda_runtime al PATH del sistema
             os.environ['LD_LIBRARY_PATH'] = f"{cuda_lib_path}/cuda_runtime/lib:{cuda_lib_path}/nvrtc/lib:{cuda_lib_path}:{os.environ.get('LD_LIBRARY_PATH', '')}"
+            print(f"Configuración de CUDA encontrada en: {cuda_lib_path}")
     else:
         print("No se encontro ninguna virtual environment activa.")
         print("Por favor, configure una virtual environment antes de ejecutar este script.")
@@ -23,11 +24,15 @@ def import_numeric_handle():
     global np, xp, HAS_GPU
     import numpy
     try:
-        import cupy
+        import cupy #type: ignore
         HAS_GPU = True
         xp = cupy
         np = numpy
+        print("Se importo cupy.")
     except ImportError:
         print("No se pudo importar cupy. Usando numpy.")
         np    = numpy
         xp    = np
+get_nvidia_configs()
+import_numeric_handle()
+

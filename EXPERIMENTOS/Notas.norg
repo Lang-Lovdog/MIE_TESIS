@@ -240,21 +240,41 @@ Torsion and Machine Learning* de Damian et al.
 
    El próximo paso es la reesttructuración del Lovdog_Swampland
 
-   @code liotree
-
-     | Lovdog_Swampland/           > Carpeta del proyecto                                                                    ||
-     |- lvdsl                      > Módulo del Lovdog Swapland                                                              ||
-     |-- k_theory/                 > La teoría en revisión actual                                                            ||
-     |=-
-     |--- vars.py                  > Variables de la función potencial, definición simbólica de la función potencial, Hess y
-     |                             autovalores. Además de algunas funciones auxiliares para fijar coeficientes/módulos y
-     |                             precisión decimal de operación para sympy.                                                ||
-     |==
-     |-- potentials.py             > Definición de las funciones de evaluación, tanto de la versión lifting como de la
-     |                             original. (Sujeto a cambio de nombre)                                                     ||
-     |-- plots.py                  > Graficación de las funciones, las principales serán inspiradas en el experimento
-     |                             original. Algunos extras en caso de ser necesario.                                        ||
-
+*** Lovdog_Swampland project tree structure
+    @code liotree
+| Lovdog_Swampland/           > Carpeta del proyecto                                                   ||
+|- lvdsl/                     > Módulo del Lovdog Swapland                                             ||
+|=-
+|---- __init__.py
+|---- xp.py                   > Implementa lo necesario para procesamiento numérico, detecta tarjeta
+|                             gráfica para decidir sobre cupy o numpy                                  ||
+|---- globals.py              > Global variables and values                                            ||
+|---- structure.liotree       > Estructura independiente del módulo                                    ||
+|---- k_theory/               > La teoría en revisión actual                                           ||
+|=-
+|------- __init__.py
+|------- vars.py              > Variables de la función potencial, definición simbólica de la función
+|                             potencial, Hess y autovalores. Además de algunas funciones auxiliares
+|                             para fijar coeficientes/módulos y precisión decimal de operación para
+|                             sympy.                                                                   ||
+|------- potentials.py        > Definición de las funciones de evaluación, tanto de la versión lifting
+|                             como de la original. (Sujeto a cambio de nombre).                        ||
+|------- plots.py             > Graficación de las funciones, las principales serán inspiradas en el
+|                             experimento original. Algunos extras en caso de ser necesario.           ||
+|==
+|---- bioinspired/
+|=-
+|------- __init__.py
+|------- defs.py
+|------- EDAs.py
+|==
+|---- data/
+|=-
+|------- __init__.py
+-------- from_csv.py
+|==
+|==
+|
    @end
 
    ^^ CORREO_URGENTE
@@ -320,8 +340,171 @@ Torsion and Machine Learning* de Damian et al.
    Probablemente se migre al menos un elemento para graficación
    para el paper. (o una exportación en gnuplot a eps).
 
+** Martes 21 de Abril del 2026
+
+   He terminado de hacer la migración al sistema `lvdsl` con
+   implementación para `GPU`. *Ojo*, al momento todos parecen
+   funcionar con implementación `CUPY`, al momento se ha
+   probado `PSO` para medir tiempos y esto es lo conseguido:
+
+   - `AIW_PSO(epoch=50, pop_size=20, c1=2.05, c2=2.05, alpha=0.4)`
+   -- Computadora: `Thin GF63 12UCX (16R8.1)`
+   -- CPU: `12th Gen Intel(R) Core(TM) i5-12450H`
+   -- GPU: `GA107 [GeForce RTX 2050]`
+   -- Tiempo aproximado de 100 iteraciones por fila: 4 a 5 min.
+   -- Un diferido de los archivos creados por `lvdsl` en el
+      bloque de {# Listado de archivos PSO 21A2026}[texto]
+
+   ^ Listado de archivos PSO 21A2026
+   Detenido previo a finalizar la iteración 77 de la fila 11
+   @code txt
+   [lang_lovdog@theForest  00:37:51˙22:04,2026 Lovdog_Swampland] 󰩃 ls -lah1 VacuaFound_21042026_23_PSO/
+   total 296K
+   drwxr-xr-x  2 lang_lovdog lang_lovdog 4.0K Apr 22 00:43 .
+   drwxr-xr-x 14 lang_lovdog lang_lovdog 4.0K Apr 21 23:32 ..
+   -rw-r--r--  1 lang_lovdog lang_lovdog  23K Apr 21 23:56 0000.csv.csv
+   -rw-r--r--  1 lang_lovdog lang_lovdog  23K Apr 22 00:02 0001.csv.csv
+   -rw-r--r--  1 lang_lovdog lang_lovdog  22K Apr 22 00:07 0002.csv.csv
+   -rw-r--r--  1 lang_lovdog lang_lovdog  23K Apr 22 00:11 0003.csv.csv
+   -rw-r--r--  1 lang_lovdog lang_lovdog  23K Apr 22 00:16 0004.csv.csv
+   -rw-r--r--  1 lang_lovdog lang_lovdog  23K Apr 22 00:20 0005.csv.csv
+   -rw-r--r--  1 lang_lovdog lang_lovdog  24K Apr 22 00:25 0006.csv.csv
+   -rw-r--r--  1 lang_lovdog lang_lovdog  23K Apr 22 00:29 0007.csv.csv
+   -rw-r--r--  1 lang_lovdog lang_lovdog  23K Apr 22 00:34 0008.csv.csv
+   -rw-r--r--  1 lang_lovdog lang_lovdog  22K Apr 22 00:39 0009.csv.csv
+   -rw-r--r--  1 lang_lovdog lang_lovdog  23K Apr 22 00:43 0010.csv.csv
+   -rw-r--r--  1 lang_lovdog lang_lovdog  17K Apr 22 00:47 0011.csv.csv
+   -rw-r--r--  1 lang_lovdog lang_lovdog   60 Apr 21 23:50 model_description.txt
+   [lang_lovdog@theForest  00:47:35˙22:04,2026 Lovdog_Swampland] 󰩃
+   @end
+
+   Estas pruebas son preliminares y únicamente fungen como
+   muestra de rendimiento. {^ nota al pie 21A2026}[Los experimentos serán ejecutados
+   mañana ]
+
+** Miércoles 22 de Abril del 2026
+
+   Llego a la universidad, al rededor de las 16:30h he puesto a
+   correr 3 optimizadores: pso, ga y iwo. Mañana revisaré
+   avances.
+
+** Jueves 23 de Abril del 2026
+
+   Revisando los resultado encuentro detalles della rutina
+   d'exportación, pues el módulo de volumen, los autovalores y
+   el indicador de taquiónico del sujeto original no se habían
+   exportado en el csv. Hay un error de nomenclatura que se
+   puede corregir en una línea pero no es necesario al momento.
+
+   Los procesos `PSO` y `GA` terminaron en un plazo aproximado
+   de 4 hrs, considerando que el {^ nota al pie 23A2026}[/timestamp/] final fue de al 
+   rededor de las 20:00h.
+
+   Siendo las 3:39 de la tarde, `IWO` está en su 10 iteración
+   respecto al primer elemento del experimento. Siendo un total
+   de 87 elementos en total.
+   Sin embargo, pese a la lentitud del proceso en `IWO` aún
+   con integración en `CUDA` presumiblemente habilitada, se ha
+   visto una notable capacidad para encontrar valores 
+   significativamente más acercados al original. Esto, da una
+   luz importante sobre su capacidad para encontrar vacíos pese
+   a los tiempos. [Nota]{^ nota al pie 23A2026-1}
+
+   Para proceder con los análisis se plantea el uso de pruebas
+   como la /T-test/ que permite comparar las diferencias
+   estadísticas de los resultados obtenidos.
+
+   Las pruebas se centrarán en comparación de dos criterios:
+   ~ La cantidad de vacíos estables obtenidos
+   ~ La magnitud de los mínimos obtenidos
+
+   Se adaptará el script de graficación al `lvdsl` con la 
+   finalidad de obtener valores clave de análisis.
+
+   Deberá haber una adición en los from_csv para obtener la
+   información seriada de los resultados.
+
+   Ya que [lvdsl]{*** Lovdog_Swampland project tree structure} tiene un formato peculiar de guardado, es 
+   posible recuperar información relevante. Concatenar todos
+   los resultados y trabajar a partir de ellos.
+
+
+** Viernes 24 de Abril del 2026
+
+   `IWO` y `ACO` continúan en `0:21` y `2:30` respectivamente.
+   Acabo de implementar un gestor para iniciar los procesos en
+   una fila dentro de un directorio específico. De modo que los
+   procesos puedan ser interrumpidos y reanudados sin
+   reiniciar todo el proceso metaheurístico.
+
+   Aún planificando el flujo de los análisis de resultados.
+
+** Lunes 27 de Abril del 2026
+   Al rededor de las 12:47h se reanudan los experimentos de `ACO`
+   e `IWO`.
+   Comienzo la integración d'as rutinas d'graficación.
+
+** Martes 28 de Abril del 2026
+   Las rutinas siguen corriendo, `ACO` se mantiene a la cabeza
+   con Iteración 54 de registro 4. Sus valores han llegado casi
+   a los límites propuestos en el código, p. ej. en uno de los
+   individuos `A3N3=-99.99940982`. `IWO` sigue siendo el más
+   lento, con tieración 10 de registro 1 al momento de escrito
+   esto (16:40h).
+
+** Miercoles 29 de Abril del 2026
+   A la hora de escrito esto (16:15) se revisan los avances con
+   `IWO` iteración 22 del elemento 0. Los resultados siguen 
+   siendo interesantes de observar. Es lento pero sus mínimos 
+   parecen realmente encontrarse en órdenes de magnitud
+   inferiores a los otros optimizadores, esto es un punto
+   relevante a considerar. Los avances de `ACO` por su parte
+   son más rápidos (iteración 83 del registro 6) y presentan
+   valores dentro de las magnitudes de los demás optimizadores.
+   Es probable que se realicen pruebas de los siguientes
+   optimizadores para reducir tiempos de /runtime/, sin embargo,
+   existe la posibilidad de un cuello de botella que realentice
+   los procesos aún en GPU.
+
+** Jueves 30 de Abril del 2026
+   A la hora de escrito esto (15:50) la computadora se
+   encontraba apagada de nuevo. Los procesos deberán ser
+   reestablecidos.
+
+   `ACO` ha logrado hasta el elemento 8, iteración 60.
+
+   `IWO` ha logrado hasta el elemento 0, iteración 20.
+
    ___
-   ===
+
+
+   ^ nota al pie 21A2026
+   A momento de escrito esto, son a las 00:31 del 22 de Abril del 2026
+
+   [Regresar al texto]{** Miércoles 22 de Abril del 2026}
+
+   ^^ nota al pie 23A2026
+   Mi terminal tiene un formato que muestra HH:MM:SS, sin embargo, se perdió el inicio.
+   Sin embargo los tiempos de creación de los archivos de configuración fueron:
+   16:31 del 22 de Abril del 2026 en todos los experimentos.
+   Y la hora de término en las terminales fue:
+   20:31 del 22 de Abril del 2026 en GA y PSO.
+
+   IWO sigue en proceso.
+   ^^
+
+   [Regresar al texto]{** Jueves 23 de Abril del 2026}
+
+   ^ nota al pie 23A2026-1
+   lvdsl utliza los valores por defecto de todo bioinspirado de
+   mealpy. Próximamente, en los experimentos con EDAs, se 
+   documentarán los parámetros considerados por defecto y los
+   usados en la optimización.
+
+   [Regresar al texto]{** Jueves 23 de Abril del 2026}
+
+ ===
+___
 
 {:../index.norg:}[Index]
 

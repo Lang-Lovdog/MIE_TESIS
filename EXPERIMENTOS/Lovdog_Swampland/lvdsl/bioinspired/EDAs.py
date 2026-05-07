@@ -1,6 +1,7 @@
 import numpy as np
 from deap import base, creator, tools
 from ..xp import xp
+from ..k_theory.potentials import set_evaluation_mode
 
 def meallike_repr(cls):
     def __repr__(self):
@@ -28,39 +29,43 @@ class UMDA:
         self.toolbox = base.Toolbox()
 
     def solve(self, problem_dict):
-        lb = problem_dict['bounds'].lb
-        ub = problem_dict['bounds'].ub
-        fit_func = problem_dict['obj_func']
-        dim = len(lb)
+        set_evaluation_mode(vectorized=True)
+        try:
+            lb = problem_dict['bounds'].lb
+            ub = problem_dict['bounds'].ub
+            fit_func = problem_dict['obj_func']
+            dim = len(lb)
 
-        # Población inicial
-        pop = [creator.Individual(np.random.uniform(lb, ub, dim).tolist()) for _ in range(self.pop_size)]
+            # Población inicial
+            pop = [creator.Individual(np.random.uniform(lb, ub, dim).tolist()) for _ in range(self.pop_size)]
 
-        for g in range(self.epoch):
-            # EVALUACIÓN VECTORIZADA: Convertimos a CuPy una sola vez por generación
-            pop_matrix = xp.array([list(ind) for ind in pop])
-            fitnesses = fit_func(pop_matrix)
+            for g in range(self.epoch):
+                # EVALUACIÓN VECTORIZADA: Convertimos a CuPy una sola vez por generación
+                pop_matrix = xp.array([list(ind) for ind in pop])
+                fitnesses = fit_func(pop_matrix)
 
-            for ind, fit in zip(pop, fitnesses):
-                ind.fitness.values = (float(fit),)
+                for ind, fit in zip(pop, fitnesses):
+                    ind.fitness.values = (float(fit),)
 
-            # Selección del top (UMDA se basa en la élite para re-estimar)
-            selected = tools.selBest(pop, int(self.pop_size * self.sel_ratio))
+                # Selección del top (UMDA se basa en la élite para re-estimar)
+                selected = tools.selBest(pop, int(self.pop_size * self.sel_ratio))
 
-            # Estimación de la distribución en GPU
-            sel_matrix = xp.array([list(ind) for ind in selected])
-            mu = xp.mean(sel_matrix, axis=0)
-            sigma = xp.std(sel_matrix, axis=0) + 1e-6
+                # Estimación de la distribución en GPU
+                sel_matrix = xp.array([list(ind) for ind in selected])
+                mu = xp.mean(sel_matrix, axis=0)
+                sigma = xp.std(sel_matrix, axis=0) + 1e-6
 
-            # Generar siguiente generación
-            pop = []
-            for _ in range(self.pop_size):
-                # Muestreo y clipping físico
-                child = np.random.normal(xp.asnumpy(mu), xp.asnumpy(sigma))
-                child = np.clip(child, lb, ub)
-                pop.append(creator.Individual(child.tolist()))
+                # Generar siguiente generación
+                pop = []
+                for _ in range(self.pop_size):
+                    # Muestreo y clipping físico
+                    child = np.random.normal(xp.asnumpy(mu), xp.asnumpy(sigma))
+                    child = np.clip(child, lb, ub)
+                    pop.append(creator.Individual(child.tolist()))
 
-        best_ind = tools.selBest(pop, 1)[0]
+            best_ind = tools.selBest(pop, 1)[0]
+        finally:
+            set_evaluation_mode(vectorized=False)
         return np.array(best_ind), best_ind.fitness.values[0]
 
 
@@ -76,36 +81,40 @@ class PBIL:
             creator.create("Individual", list, fitness=creator.FitnessMin)
 
     def solve(self, problem_dict):
-        lb = np.array(problem_dict['bounds'].lb)
-        ub = np.array(problem_dict['bounds'].ub)
-        fit_func = problem_dict['obj_func']
-        dim = len(lb)
+        set_evaluation_mode(vectorized=True)
+        try:
+            lb = np.array(problem_dict['bounds'].lb)
+            ub = np.array(problem_dict['bounds'].ub)
+            fit_func = problem_dict['obj_func']
+            dim = len(lb)
 
-        # Vectores de probabilidad (inicializados al centro de los bounds)
-        mu_vec = (lb + ub) / 2.0
-        sigma_vec = (ub - lb) / 4.0
+            # Vectores de probabilidad (inicializados al centro de los bounds)
+            mu_vec = (lb + ub) / 2.0
+            sigma_vec = (ub - lb) / 4.0
 
-        for g in range(self.epoch):
-            # Muestreo basado en el vector actual
-            pop = []
-            for _ in range(self.pop_size):
-                child = np.random.normal(mu_vec, sigma_vec)
-                child = np.clip(child, lb, ub)
-                pop.append(creator.Individual(child.tolist()))
+            for g in range(self.epoch):
+                # Muestreo basado en el vector actual
+                pop = []
+                for _ in range(self.pop_size):
+                    child = np.random.normal(mu_vec, sigma_vec)
+                    child = np.clip(child, lb, ub)
+                    pop.append(creator.Individual(child.tolist()))
 
-            # Evaluación en GPU
-            pop_matrix = xp.array([list(ind) for ind in pop])
-            fitnesses = fit_func(pop_matrix)
+                # Evaluación en GPU
+                pop_matrix = xp.array([list(ind) for ind in pop])
+                fitnesses = fit_func(pop_matrix)
 
-            for ind, fit in zip(pop, fitnesses):
-                ind.fitness.values = (float(fit),)
+                for ind, fit in zip(pop, fitnesses):
+                    ind.fitness.values = (float(fit),)
 
-            # PBIL: Aprendizaje incremental del mejor
+                # PBIL: Aprendizaje incremental del mejor
+                best_ind = tools.selBest(pop, 1)[0]
+
+                # Actualizamos el vector mu hacia el mejor individuo
+                mu_vec = (1.0 - self.lr) * mu_vec + self.lr * np.array(best_ind)
+
             best_ind = tools.selBest(pop, 1)[0]
-
-            # Actualizamos el vector mu hacia el mejor individuo
-            mu_vec = (1.0 - self.lr) * mu_vec + self.lr * np.array(best_ind)
-
-        best_ind = tools.selBest(pop, 1)[0]
+        finally:
+            set_evaluation_mode(vectorized=False)
         return np.array(best_ind), best_ind.fitness.values[0]
 

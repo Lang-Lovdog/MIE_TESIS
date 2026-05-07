@@ -31,8 +31,8 @@ variables = {
      "A3N3": "AO3" ,
      "AF5" : "AF5" ,
      "AD5" : "AD5" ,
-     "Lambda1": "ƛ1"  ,
-     "Lambda2": "ƛ2"
+     "Eig1": "ƛ1"  ,
+     "Eig2": "ƛ2"
 }
 
 #### Obtención de los datos exportados desde mathematica

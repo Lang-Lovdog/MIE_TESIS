@@ -5,34 +5,39 @@ from lvdsl.k_theory.potentials import fitness_function_nolift_mealpy            
 from lvdsl.k_theory.potentials import fitness_function_lift_mealpy                 as ff2
 from lvdsl.k_theory.potentials import fitness_function_fixedmoduli_nolift_mealpy   as ff3
 from lvdsl.k_theory.potentials import fitness_function_fixedmoduli_lift_mealpy     as ff4
+from lvdsl.k_theory.vars       import V_liftingHess_eig_lambda
+from lvdsl.k_theory.vars       import V_lifting_lambda
+from lvdsl.k_theory.vars       import set_fixed_value
 from lvdsl.bioinspired.EDAs    import UMDA
 from lvdsl.bioinspired.EDAs    import PBIL
-#from lvdsl.k_theory.potentials import autovalores_VHess
-#from lvdsl.k_theory.potentials import autovalores_VHess_AdS
-#from lvdsl.k_theory.potentials import potencial_eval
-#from lvdsl.k_theory.potentials import potencial_eval_AdS
-#from lvdsl.k_theory.potentials import set_fixed_value
-#from test_fitness_function import datos_del_csv_mathematica                        as from_csv
-#from test_fitness_function import variables                                        as vnms      # Convierte del convenio de este proyecto al del de mathematica
+from lvdsl.data.from_csv       import read_mathematica_format
+from lvdsl.data.from_csv       import read_native_format
+from lvdsl.data.from_csv       import save_comparative_csv
+from lvdsl.data.from_csv       import variables                                    as vnms
 
 ### Datetime as DDMMYYYY for directory name
 from datetime import datetime
 import os
 
-precision_decimal = 30
-
-def get_precision_decimal():
-    return precision_decimal
-
-def set_precision_decimal(val : int):
-    global precision_decimal
-    precision_decimal = val
 
 def setup_filename():
     now = datetime.now()
-    dt_string = now.strftime("%d%m%Y")
-    dirname = "VacuaFound_" + dt_string
+    dt_string = now.strftime("%d%m%Y_%H")
+    dirname = "lvdsl_outputs/VacuaFound_" + dt_string
     return dirname
+
+def build_dir_name(model_name : str):
+    dir_time=setup_filename()
+    dirname = dir_time + "/" + model_name
+    return dirname
+
+def write_model_description(model, dirname : str):
+    if not os.path.exists(dirname):
+        print(f"WARN: {dirname} not found, creating it.")
+        os.makedirs(dirname)
+    filename = dirname + "/model_description.txt"
+    with open(filename, "w") as f:
+        print(model, file=f)
 
 class natureinspired_problems_k_theory:
 
@@ -54,7 +59,7 @@ class natureinspired_problems_k_theory:
     lb_nomoduli_nolift=[AH3_limits.get("lb"), AF3_limits.get("lb"), AF5_limits.get("lb"), A3N3_limits.get("lb"),                     ]
     ub_nomoduli_nolift=[AH3_limits.get("ub"), AF3_limits.get("ub"), AF5_limits.get("ub"), A3N3_limits.get("ub"),                     ]
 
-    vacua_parametros_nolift = {
+    vacua_parameters_nolift = {
         "obj_func": ff1,
         "bounds": FloatVar(
             #    AH3   AF3   AF5   A3N3    s      tau
@@ -65,7 +70,7 @@ class natureinspired_problems_k_theory:
         "log_to": "MetastableVacuaReprise.log"
     }
 
-    vacua_parametros___lift = {
+    vacua_parameters___lift = {
         "obj_func": ff2,
         "bounds": FloatVar(
             #    AH3   AF3   AF5   A3N3   AD5    s      tau
@@ -76,7 +81,7 @@ class natureinspired_problems_k_theory:
         "log_to": "MetastableVacuaRepriseAdS.log"
     }
 
-    vacua_parametros_nolift_fv = {
+    vacua_parameters_nolift_fv = {
         "obj_func": ff3,
         "bounds": FloatVar(
             #    AH3   AF3   AF5   A3N3 
@@ -87,7 +92,7 @@ class natureinspired_problems_k_theory:
         "log_to": "MetastableVacuaReprise.log"
     }
 
-    vacua_parametros___lift_fv = {
+    vacua_parameters___lift_fv = {
         "obj_func": ff4,
         "bounds": FloatVar(
             #    AH3   AF3   AF5   A3N3   AD5
@@ -100,85 +105,95 @@ class natureinspired_problems_k_theory:
 
 
 class natureinspired_models:
-    params={
-        "ga": {
-            "epoch":50,
-            "pop_size":20,
-            "pc":0.9,
-            "pm":0.4
-        },
-        "pso": {
-            "epoch":50,
-            "pop_size":20,
-            "c1":2.05,
-            "c2":2.05
-        },
-        "eda": {
-            "epoch": 100,
-            "pop_size": 50,
-            "learning_rate": 0.1,
-            "selection_ratio": 0.2,
-            "p_mutation": 0.05,
-            "p_external": 0.02
-        },
-        "aco": {
-            "epoch" : 10000,
-            "pop_size" : 100,
-            "sample_count" : 25,
-            "intent_factor" : 0.5,
-            "zeta" : 1.0
-        },
-        "iwo": {
-            "epoch" : 10000,
-            "pop_size" : 100,
-            "seed_min" : 2,
-            "seed_max" : 10,
-            "exponent" : 2,
-            "sigma_start" : 1.0,
-            "sigma_end" : 0.01
-        },
-        "vcs": {
-            "epoch": 10000,
-            "pop_size": 100,
-            "lamda": 0.5,
-            "sigma": 1.5
-        },
-        "aso": {
-            "epoch": 10000,
-            "pop_size": 100,
-            "alpha": 10,
-            "beta": 0.2
-        },
-    }
+    def __init__ (self):
+        self.params={
+            "ga": {
+                "epoch":50,
+                "pop_size":20,
+                "pc":0.9,
+                "pm":0.4
+            },
+            "pso": {
+                "epoch":50,
+                "pop_size":20,
+                "c1":2.05,
+                "c2":2.05
+            },
+            "eda": {
+                "epoch": 100,
+                "pop_size": 50,
+                "learning_rate": 0.1,
+                "selection_ratio": 0.2,
+                "p_mutation": 0.05,
+                "p_external": 0.02
+            },
+            "aco": {
+                "epoch" : 10000,
+                "pop_size" : 100,
+                "sample_count" : 25,
+                "intent_factor" : 0.5,
+                "zeta" : 1.0
+            },
+            "iwo": {
+                "epoch" : 10000,
+                "pop_size" : 100,
+                "seed_min" : 2,
+                "seed_max" : 10,
+                "exponent" : 2,
+                "sigma_start" : 1.0,
+                "sigma_end" : 0.01
+            },
+            "vcs": {
+                "epoch": 10000,
+                "pop_size": 100,
+                "lamda": 0.5,
+                "sigma": 1.5
+            },
+            "aso": {
+                "epoch": 10000,
+                "pop_size": 100,
+                "alpha": 10,
+                "beta": 0.2
+            },
+        }
+
+    def set_model_param(self, name, param, value):
+        if type(name) is list or type(name) is tuple:
+            for n in name:
+                self.set_model_param(n, param, value)
+            return
+        else:
+            self.params[name][param] = value
+
     def get_model(self, name):
         if name == "GA":
-            return mp.GA.BaseGA(
+            return_model = mp.GA.BaseGA(
                 epoch    = self.params.get("ga").get("epoch"),
                 pop_size = self.params.get("ga").get("pop_size"),
                 pc       = self.params.get("ga").get("pc"),
                 pm       = self.params.get("ga").get("pm")
             )
         elif name == "PSO":
-            return mp.PSO.AIW_PSO(
+            return_model = mp.PSO.AIW_PSO(
                 epoch    = self.params.get("pso").get("epoch"),
                 pop_size = self.params.get("pso").get("pop_size"),
                 c1       = self.params.get("pso").get("c1"),
                 c2       = self.params.get("pso").get("c2")
             )
         elif name == "UMDA":
-            return UMDA(
+            return_model = UMDA(
                 epoch           = self.params.get("eda").get("epoch"),
                 pop_size        = self.params.get("eda").get("pop_size"),
                 selection_ratio = self.params.get("eda").get("selection_ratio")
             )
         elif name == "PBIL":
-            return PBIL(
+            return_model = PBIL(
                 epoch         = self.params.get("eda").get("epoch"),
                 pop_size      = self.params.get("eda").get("pop_size"),
                 learning_rate = self.params.get("eda").get("learning_rate"),
             )
         elif name == "IWO":
-            return mp.IWO.OriginalIWO(
+            return_model = mp.IWO.OriginalIWO(
                 epoch       = self.params.get("iwo").get("epoch"),
                 pop_size    = self.params.get("iwo").get("pop_size"),
                 seed_min    = self.params.get("iwo").get("seed_min"),
@@ -188,7 +203,7 @@ class natureinspired_models:
                 sigma_end   = self.params.get("iwo").get("sigma_end")
             )
         elif name == "ACO":
-            return mp.ACOR.OriginalACOR(
+            return_model = mp.ACOR.OriginalACOR(
                 epoch         = self.params.get("aco").get("epoch"),
                 pop_size      = self.params.get("aco").get("pop_size"),
                 sample_count  = self.params.get("aco").get("sample_count"),
@@ -196,14 +211,14 @@ class natureinspired_models:
                 zeta          = self.params.get("aco").get("zeta")
         )
         elif name == "VCS":
-            return mp.VCS.DevVCS(
+            return_model = mp.VCS.DevVCS(
                 epoch    = self.params.get("vcs").get("epoch"),
                 pop_size = self.params.get("vcs").get("pop_size"),
                 lamda    = self.params.get("vcs").get("lamda"),
                 sigma    = self.params.get("vcs").get("sigma")
             )
         elif name == "ASO":
-            return mp.ASO.OriginalASO(
+            return_model = mp.ASO.OriginalASO(
                 epoch    = self.params.get("aso").get("epoch"),
                 pop_size = self.params.get("aso").get("pop_size"),
                 alpha    = self.params.get("aso").get("alpha"),
@@ -211,6 +226,222 @@ class natureinspired_models:
             )
         else:
             print("Model not found: ", name)
+            return
+        return [ return_model, build_dir_name(name) ]
+
+def handle_csv_input(csv_input : str, csv_format : str, lifting : bool):
+    if   csv_format == "Native":
+        df = read_native_format(csv_input)
+    elif csv_format == "Mathematica":
+        df = read_mathematica_format(csv_input, D5_Fluxes=lifting)
+    else:
+        print("CSV format not supported: ", csv_format)
+        return
+    if "AD5" not in df.columns and lifting:
+        print("lifting: No AD5 column found, aborting.")
+        return
+    return df
+def handle_output(model_instance, model_name, out_dir, destination):
+    if destination != "":
+        out_dir = destination + "/" + model_name
+        if(not os.path.exists(out_dir)):
+            print(f"Output directory: {out_dir} does not exist")
+            return
+        print(f"Saving output to directory {out_dir}")
+        return out_dir
+    write_model_description(model_instance, out_dir)
+    return out_dir
+
+def get_latest_file_rows(out_dir, model_name):
+    # Initialize variables to store the latest file and its corresponding row count
+    latest_file = None
+    max_suffix = -1
+
+    # List all files in the specified directory
+    for filename in os.listdir(out_dir):
+        # Check if the filename matches the pattern
+        if filename.startswith(model_name) and filename.endswith('.csv'):
+            try:
+                # Extract the suffix value from the filename
+                suffix = int(filename[len(model_name):-4])
+
+                # Update the latest file if the current one has a higher suffix value
+                if suffix > max_suffix:
+                    latest_file = os.path.join(out_dir, filename)
+                    max_suffix = suffix
+            except ValueError:
+                # Skip files that do not have a valid integer suffix
+                continue
+
+    # If no matching file was found, return 0 rows
+    if latest_file is None:
+        return 0
+
+    # Read the number of rows in the latest file
+    with open(latest_file, 'r') as file:
+        row_count = sum(1 for line in file)
+
+    return row_count
+
+def load_last_csv_and_id(directory, model_name):
+    # Construct the path to the directory containing the model-specific directories
+    model_dir = os.path.join(directory, model_name)
+
+    # Get a list of all files in the model directory
+    files = os.listdir(model_dir)
+
+    # Filter the list to find files that match the pattern "MODEL-%4d.csv"
+    csv_files = [f for f in files if f.startswith(f"{model_name}-") and f.endswith(".csv")]
+
+    if not csv_files:
+        raise FileNotFoundError(f"No CSV files found for model {model_name} in directory {directory}")
+
+    # Sort the list of CSV files by their filenames
+    csv_files.sort()
+
+    # Get the last file (which should have the highest ID)
+    last_csv_file = csv_files[-1]
+
+    # Extract the ID from the filename (excluding the prefix and extension)
+    id_parts = last_csv_file.split("-")[1].split(".csv.csv")
+    id_number = int(id_parts[0])
+
+    # Construct the full path to the CSV file
+    csv_path = os.path.join(model_dir, last_csv_file)
+
+    # Load the DataFrame from the CSV file
+    df = pd.read_csv(csv_path)
+
+    return id_number, df
+
+
+def perform_search_fixed_s_tau(
+        df               ,
+        model_instance   ,
+        model_name       ,
+        out_dir          ,
+        fixed            ,
+        output           ,
+        start_row     = 0,
+        end_row       = 0,
+        start_iter    = 0,
+        end_iter      = 0
+):
+    if end_row > len(df) or end_row < start_row:
+        print("Error: end_row must be greater than start_row")
+        return
+    elif end_row < 1:
+        end_row = len(df)
+
+    fixed = [ "s", "tau" ]
+
+    print(f"Starting from row {start_row} until {end_row}")
+
+    for ridx,row in df[start_row:end_row].iterrows():
+        set_fixed_value({
+            "s"   : row[vnms["s"  ]],
+            "tau" : row[vnms["tau"]],
+        })
+        s, tau = row[vnms["s"  ]], row[vnms["tau"]]
+        problem_to_optimize = natureinspired_problems_k_theory.vacua_parameters___lift_fv
+        found_solutions = []
+
+        for fidx in range(start_iter, end_iter):
+            print(f"Registro {ridx} Iteración {fidx}")
+            #### Creación de un genético simple para minimización de la función ff
+            result = model_instance.solve(problem_to_optimize)
+            if hasattr(model_instance, 'g_best'):
+                best_solution = model_instance.g_best.solution
+                best_fitness  = model_instance.g_best.target.fitness
+            else:
+                best_solution, best_fitness = result
+            #### Creación de un genético simple para minimización de la función ff
+            #### Imprimir solución
+            print(f"Solución: {best_solution}, Fitness: {best_fitness}")
+            AH3, AF3, AF5, A3N3, AD5 = best_solution
+            avalores  = V_liftingHess_eig_lambda(AH3, AF3, AF5, A3N3, AD5, tau, s)
+            potencial = V_lifting_lambda        (AH3, AF3, AF5, A3N3, AD5, tau, s)
+            found_solutions.append({
+                "V"         : potencial       ,
+                "fitness"   : best_fitness    ,
+                "AH3"       : best_solution[0],
+                "AF3"       : best_solution[1],
+                "AF5"       : best_solution[2],
+                "A3N3"      : best_solution[3],
+                "AD5"       : best_solution[4],
+                "s"         : s               ,
+                "tau"       : tau             ,
+                "lambda1"   : avalores[0]     ,
+                "lambda2"   : avalores[1]     ,
+                "taquiónico": "1" if min(avalores) < 0 else "0"
+            })
+            if output and fidx % 10 == 0:
+                save_solutions(
+                    found_solutions ,
+                    out_dir         ,
+                    model_name      ,
+                    df              ,
+                    ridx            ,
+                    fixed
+                )
+        ### Save solutions for the current search row
+        save_solutions(
+            found_solutions ,
+            out_dir         ,
+            model_name      ,
+            df              ,
+            ridx            ,
+            fixed
+        )
+
+def save_solutions(
+        found_solutions ,
+        out_dir         ,
+        model_name      ,
+        df             ,
+        ridx           ,
+        fixed
+):
+    found_solutions_tmp = pd.DataFrame(found_solutions)
+    out_filename= f"{out_dir}/{model_name}-{ridx:04d}.csv"
+    save_comparative_csv(
+        found_solutions_tmp   ,
+        df                    ,
+        ridx                  ,
+        out_filename          ,
+        fixed_elements = fixed
+    )
+
+
+
+def run_model(
+    model_name  : str,
+    params      : dict ={}       ,
+    csv_input   : str  =""       ,
+    csv_format  : str  ="Native" ,
+    lifting     : bool =True     ,
+    output      : bool =False    ,
+    recover     : bool =False    ,
+    iterations  : int  =100      ,
+    destination : str  =""
+):
+    ni_models_object = natureinspired_models()
+    if params is not None:
+        for param, value in params.items():
+            ni_models_object.set_model_param(model_name, param, value)
+    model_instance, out_dir = ni_models_object.get_model(model_name)
+    #### If integrated CSV
+    found_solutions = []
+    if csv_input is not None:
+        df = handle_csv_input(csv_input, csv_format, lifting)
+        if output:
+            out_dir = handle_output(model_instance, model_name, out_dir, destination)
+        #### If there's any start iteration, it means is from a given csv. So, reading it.
+        if recover:
+            start_row, found_solutions = load_last_csv_and_id(out_dir, model_name)
+
+    #### If full search
+
 
 
 def run_model(model_name:str, params:dict =None, csv_data:str =None, output:bool = False): # Cargamos el modelo

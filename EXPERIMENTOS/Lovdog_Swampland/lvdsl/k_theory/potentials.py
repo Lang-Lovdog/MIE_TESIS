@@ -26,6 +26,25 @@ from   .vars              import variables_numericas
 ## IMPORTS
 
 
+def _get_ival_scalar(x):
+    """Para entrada 1D (mealpy): devuelve los elementos como escalares."""
+    return (x[i] for i in range(len(x)))
+
+def _get_ival_vector(x):
+    """Para entrada 2D (EDAs): devuelve columnas como arrays 1D."""
+    return (x[:, i] for i in range(x.shape[1]))
+
+_ival_getter = _get_ival_scalar   # modo por defecto (compatible con mealpy)
+
+def set_evaluation_mode(vectorized: bool = False):
+    """Cambia el modo de desempaquetado de argumentos."""
+    global _ival_getter
+    _ival_getter = _get_ival_vector if vectorized else _get_ival_scalar
+
+def to_gpu_array(x : list = []):
+    return [ xp.asarray(e) for e in x ]
+
+
 
 ##### Definición de las funciones de error
 
@@ -47,13 +66,11 @@ def positive_definite_trace_lift(_AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s):
     return xp.abs(val)-val
 
 def modulus_gradient_nolift(_AH3, _AF3, _AF5, _A3N3, _tau, _s):
-    diV2 = xp.pow(dv[0](_AH3,_AF3,_AF5,_A3N3,_tau,_s),2) +\
-           xp.pow(dv[1](_AH3,_AF3,_AF5,_A3N3,_tau,_s),2)
+    diV2 = xp.sum(xp.pow(dv(_AH3,_AF3,_AF5,_A3N3,_tau,_s),2))
     return diV2
 
 def modulus_gradient_lift(_AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s):
-    diV2 = xp.pow(dv_l[0](_AH3,_AF3,_AF5,_A3N3,_tau,_s),2) +\
-           xp.pow(dv_l[1](_AH3,_AF3,_AF5,_A3N3,_tau,_s),2)
+    diV2 = xp.sum(xp.pow(dv_l(_AH3,_AF3,_AF5,_A3N3, _AD5,_tau,_s),2))
     return diV2
 
 def tachion_level_nolift(_AH3, _AF3, _AF5, _A3N3, _tau, _s):
@@ -61,7 +78,7 @@ def tachion_level_nolift(_AH3, _AF3, _AF5, _A3N3, _tau, _s):
     return xp.abs(f_val)-f_val
 
 def tachion_level_lift(_AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s):
-    f_val = det_l(_AH3, _AF3, _AF5, _A3N3, _tau, _s) - tr_l(_AH3, _AF3, _AF5, _A3N3, _tau, _s)/4.0
+    f_val = det_l(_AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s) - tr_l(_AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s)/4.0
     return xp.abs(f_val)-f_val
 
 if HAS_GPU:
@@ -75,7 +92,8 @@ if HAS_GPU:
         )
 
     def fitness_function_nolift_mealpy(solutions):
-        _AH3, _AF3, _AF5, _A3N3, _tau, _s = solutions
+
+        _AH3, _AF3, _AF5, _A3N3, _tau, _s = _ival_getter(solutions)
         return xp.asnumpy(
             positive_semidefinite_potential_nolift(_AH3, _AF3, _AF5, _A3N3, _tau, _s) +
             positive_definite_trace_nolift        (_AH3, _AF3, _AF5, _A3N3, _tau, _s) +
@@ -92,7 +110,7 @@ if HAS_GPU:
         )
 
     def fitness_function_lift_mealpy(solutions):
-        _AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s = solutions
+        _AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s = _ival_getter(solutions)
         return xp.asnumpy(
             positive_semidefinite_potential_lift  (_AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s) +
             positive_definite_trace_lift          (_AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s) +
@@ -113,7 +131,7 @@ if HAS_GPU:
     def fitness_function_fixedmoduli_nolift_mealpy(solutions):
         global variables_numericas
 
-        _AH3, _AF3, _AF5, _A3N3 = solutions
+        _AH3, _AF3, _AF5, _A3N3 = _ival_getter(solutions)
 
         return xp.asnumpy(
             positive_semidefinite_potential_nolift(_AH3, _AF3, _AF5, _A3N3, variables_numericas['tau'], variables_numericas['s']) +
@@ -134,13 +152,15 @@ if HAS_GPU:
     def fitness_function_fixedmoduli_lift_mealpy(solutions):
         global variables_numericas
 
-        _AH3, _AF3, _AF5, _A3N3, _AD5 = solutions
+        args = _ival_getter(solutions)  # (_AH3, _AF3, ...)
+    # Convertir todos a arrays CuPy
+        _AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s = to_gpu_array(list(args) + [variables_numericas['tau'], variables_numericas['s']])
 
         return xp.asnumpy(
-            positive_semidefinite_potential_lift  (_AH3, _AF3, _AF5, _A3N3, _AD5, variables_numericas['tau'], variables_numericas['s']) +
-            positive_definite_trace_lift          (_AH3, _AF3, _AF5, _A3N3, _AD5, variables_numericas['tau'], variables_numericas['s']) +
-            modulus_gradient_lift                 (_AH3, _AF3, _AF5, _A3N3, _AD5, variables_numericas['tau'], variables_numericas['s']) +
-            tachion_level_lift                    (_AH3, _AF3, _AF5, _A3N3, _AD5, variables_numericas['tau'], variables_numericas['s'])
+            positive_semidefinite_potential_lift  (_AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s) +
+            positive_definite_trace_lift          (_AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s) +
+            modulus_gradient_lift                 (_AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s) +
+            tachion_level_lift                    (_AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s)
         )
 
 ##### Función de error de variables fijas
@@ -198,7 +218,7 @@ else:
         )
 
 ##### Función de error de coeficientes fijos
-    def fitness_function_coef_nolift(_AH3, _AF3, _AF5, _A3N3):
+    def fitness_function_fixedmoduli_nolift(_AH3, _AF3, _AF5, _A3N3):
         global variables_numericas
         return (
             positive_semidefinite_potential_nolift(_AH3, _AF3, _AF5, _A3N3, variables_numericas['tau'], variables_numericas['s']) +
@@ -207,7 +227,7 @@ else:
             tachion_level_nolift                  (_AH3, _AF3, _AF5, _A3N3, variables_numericas['tau'], variables_numericas['s'])
         )
 
-    def fitness_function_coef_nolift_mealpy(solutions):
+    def fitness_function_fixedmoduli_nolift_mealpy(solutions):
         global variables_numericas
 
         _AH3, _AF3, _AF5, _A3N3 = solutions
@@ -219,7 +239,7 @@ else:
             tachion_level_nolift                  (_AH3, _AF3, _AF5, _A3N3, variables_numericas['tau'], variables_numericas['s'])
         )
 
-    def fitness_function_coef_lift(_AH3, _AF3, _AF5, _A3N3, _AD5):
+    def fitness_function_fixedmoduli_lift(_AH3, _AF3, _AF5, _A3N3, _AD5):
         global variables_numericas
         return (
             positive_semidefinite_potential_lift  (_AH3, _AF3, _AF5, _A3N3, _AD5, variables_numericas['tau'], variables_numericas['s']) +
@@ -228,7 +248,7 @@ else:
             tachion_level_lift                    (_AH3, _AF3, _AF5, _A3N3, _AD5, variables_numericas['tau'], variables_numericas['s'])
         )
 
-    def fitness_function_coef_lift_mealpy(solutions):
+    def fitness_function_fixedmoduli_lift_mealpy(solutions):
         global variables_numericas
 
         _AH3, _AF3, _AF5, _A3N3, _AD5 = solutions
@@ -267,7 +287,8 @@ def vhess_eigenvals_nolift(_ah3, _af3, _af5, _a3n3, _tau, _s):
     return  eig(_ah3, _af3, _af5, _a3n3, _tau, _s)
 
 def vhess_eigenvals_lift(_ah3, _af3, _af5, _a3n3, _ad5, _tau, _s):
-    return  eig_l(_ah3, _af3, _af5, _a3n3, _tau, _s)
+    return  eig_l(_ah3, _af3, _af5, _a3n3, _ad5, _tau, _s)
+
 
 
 ##### Evaluación de la función potencial

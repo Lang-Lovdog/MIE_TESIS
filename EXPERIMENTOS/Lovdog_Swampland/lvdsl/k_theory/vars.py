@@ -97,10 +97,19 @@ V_liftingHess_det_lambda   = lambdify(VARIABLES_LAMBDIFICABLES_LIFT  , V_lifting
 ### DETERMINANTE ###
 
 ##### Definición de valores fijos para búsqueda
-def set_fixed_value(values : dict):
+##def set_fixed_value(values : dict):
+##    global variables_numericas
+##    for var in values:
+##        variables_numericas[var] = values[var]
+
+def set_fixed_value(values: dict):
     global variables_numericas
-    for var in values:
-        variables_numericas[var] = values[var]
+    for var, val in values.items():
+        # Convertir sympy.Float a float nativo
+        if hasattr(val, 'evalf'):  # es un objeto sympy
+            variables_numericas[var] = float(val)
+        else:
+            variables_numericas[var] = val
 
 def set_precision_decimal(val : int):
     global precision_decimal
