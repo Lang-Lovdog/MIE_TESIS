@@ -133,6 +133,7 @@
 |==
 |==
 |--- LovdogSwamplandMain.py
+|--- StatisticAnalysis_lvdsl.qmd
 |--- lvdsl/                                       > Módulo del Lovdog Swapland                                             ||
 |=-
 |--- structure.liotree                            > Estructura independiente del módulo  (actualizado)                     ||

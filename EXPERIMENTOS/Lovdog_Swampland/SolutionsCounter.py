@@ -243,9 +243,9 @@ def __plot_registros_estabilidad__(resultados:dict):
     fig, ax = plt.subplots(figsize=(fig_width_inches, fig_height_inches))
 
     # Creación de las barras
-    rects1 = ax.bar(x - width/2, estables, width, label='Estables',
+    rects1 = ax.bar(x - width/2, estables, width, label='Stable',
                     color='#2ecc71', edgecolor='black', alpha=0.8)
-    rects2 = ax.bar(x + width/2, inestables, width, label='Inestables',
+    rects2 = ax.bar(x + width/2, inestables, width, label='Unstable',
                     color='#e74c3c', edgecolor='black', alpha=0.8)
 
     # Etiquetas y títulos profesionales
@@ -319,10 +319,10 @@ if __name__ == "__main__":
     print(f"CUDA Device: {np.cuda.runtime.getDeviceCount()} detected")
     print(f"Using Device: {np.cuda.Device(0)}")
     dirs = [
-        "VacuaFound_17022026",
-        "VacuaFound_11032026",
-        "VacuaFound_10032026",
-        "VacuaFound_09032026",
+        "OldStuff/VacuaFound_17022026",
+        "OldStuff/VacuaFound_11032026",
+        "OldStuff/VacuaFound_10032026",
+        "OldStuff/VacuaFound_09032026",
     ]
     #excluded = [ x for x in np.arange(50,100) ]
     excluded:list[int] = []

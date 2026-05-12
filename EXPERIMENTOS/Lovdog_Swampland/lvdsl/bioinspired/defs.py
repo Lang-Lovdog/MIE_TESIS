@@ -19,10 +19,19 @@ from lvdsl.data.from_csv       import variables                                 
 from datetime import datetime
 import os
 
+full_datetime=False
+
+def set_full_datetime():
+    global full_datetime
+    full_datetime=True
+
+def set_no_full_datetime():
+    global full_datetime
+    full_datetime=False
 
 def setup_filename():
     now = datetime.now()
-    dt_string = now.strftime("%d%m%Y_%H")
+    dt_string = now.strftime("%d%m%Y_%H%M%S") if full_datetime else now.strftime("%d%m%Y")
     dirname = "lvdsl_outputs/VacuaFound_" + dt_string
     return dirname
 
@@ -158,6 +167,7 @@ class natureinspired_models:
         }
 
     def set_model_param(self, name, param, value):
+        name=name.lower()
         if type(name) is list or type(name) is tuple:
             for n in name:
                 self.set_model_param(n, param, value)
@@ -333,6 +343,10 @@ def perform_search_fixed_s_tau(
     elif end_row < 1:
         end_row = len(df)
 
+    if end_iter < start_iter:
+        print("Error: end_iter must be greater than start_iter")
+        return
+
     fixed = [ "s", "tau" ]
 
     print(f"Starting from row {start_row} until {end_row}")
@@ -439,13 +453,39 @@ def run_model(
         #### If there's any start iteration, it means is from a given csv. So, reading it.
         if recover:
             start_row, found_solutions = load_last_csv_and_id(out_dir, model_name)
+            perform_search_fixed_s_tau(
+                df               ,
+                model_instance   ,
+                model_name       ,
+                out_dir          ,
+                ["s", "tau"]     ,
+                output           ,
+                start_row     = 0,
+                end_row       = 0,
+                start_iter    = 0,
+                end_iter      = iterations
+            )
+            return
+
+        perform_search_fixed_s_tau(
+            df               ,
+            model_instance   ,
+            model_name       ,
+            out_dir          ,
+            ["s", "tau"]     ,
+            output           ,
+            start_row     = 0,
+            end_row       = 0,
+            start_iter    = 0,
+            end_iter      = iterations
+        )
 
     #### If full search
 
 
 
-def run_model(model_name:str, params:dict =None, csv_data:str =None, output:bool = False): # Cargamos el modelo
-    dir, model =
+#def run_model(model_name:str, params:dict =None, csv_data:str =None, output:bool = False): # Cargamos el modelo
+#    dir, model =
 
 
 if __name__ == "__main__":

@@ -1,6 +1,7 @@
 | lvdsl/                                           > Módulo del Lovdog Swapland                                             ||
 |---- ../ > Directorio del Lovdog_Swampland completo ||
 |=-
+|----- __this__dir__
 |----- LovdogSwamplandMain.py
 |----- LovdogSwamplandMain2.py
 |==
