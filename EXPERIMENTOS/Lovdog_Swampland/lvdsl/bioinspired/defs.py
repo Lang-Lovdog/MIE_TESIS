@@ -1,5 +1,6 @@
-import mealpy as mp # type: ignore
-import pandas as pd # type: ignore
+import mealpy      as mp       # type: ignore
+import pandas      as pd       # type: ignore
+import lvdsl.utils as utils    # type: ignore
 from mealpy                    import FloatVar
 from lvdsl.k_theory.potentials import fitness_function_nolift_mealpy               as ff1
 from lvdsl.k_theory.potentials import fitness_function_lift_mealpy                 as ff2
@@ -251,6 +252,7 @@ def handle_csv_input(csv_input : str, csv_format : str, lifting : bool):
         print("lifting: No AD5 column found, aborting.")
         return
     return df
+
 def handle_output(model_instance, model_name, out_dir, destination):
     if destination != "":
         out_dir = destination + "/" + model_name
@@ -262,86 +264,42 @@ def handle_output(model_instance, model_name, out_dir, destination):
     write_model_description(model_instance, out_dir)
     return out_dir
 
-def get_latest_file_rows(out_dir, model_name):
-    # Initialize variables to store the latest file and its corresponding row count
-    latest_file = None
-    max_suffix = -1
-
-    # List all files in the specified directory
-    for filename in os.listdir(out_dir):
-        # Check if the filename matches the pattern
-        if filename.startswith(model_name) and filename.endswith('.csv'):
-            try:
-                # Extract the suffix value from the filename
-                suffix = int(filename[len(model_name):-4])
-
-                # Update the latest file if the current one has a higher suffix value
-                if suffix > max_suffix:
-                    latest_file = os.path.join(out_dir, filename)
-                    max_suffix = suffix
-            except ValueError:
-                # Skip files that do not have a valid integer suffix
-                continue
-
-    # If no matching file was found, return 0 rows
-    if latest_file is None:
-        return 0
-
-    # Read the number of rows in the latest file
-    with open(latest_file, 'r') as file:
-        row_count = sum(1 for line in file)
-
-    return row_count
-
-def load_last_csv_and_id(directory, model_name):
-    # Construct the path to the directory containing the model-specific directories
-    model_dir = os.path.join(directory, model_name)
-
-    # Get a list of all files in the model directory
-    files = os.listdir(model_dir)
-
-    # Filter the list to find files that match the pattern "MODEL-%4d.csv"
-    csv_files = [f for f in files if f.startswith(f"{model_name}-") and f.endswith(".csv")]
-
-    if not csv_files:
-        raise FileNotFoundError(f"No CSV files found for model {model_name} in directory {directory}")
-
-    # Sort the list of CSV files by their filenames
-    csv_files.sort()
-
-    # Get the last file (which should have the highest ID)
-    last_csv_file = csv_files[-1]
-
-    # Extract the ID from the filename (excluding the prefix and extension)
-    id_parts = last_csv_file.split("-")[1].split(".csv.csv")
-    id_number = int(id_parts[0])
-
-    # Construct the full path to the CSV file
-    csv_path = os.path.join(model_dir, last_csv_file)
-
-    # Load the DataFrame from the CSV file
-    df = pd.read_csv(csv_path)
-
-    return id_number, df
+def last_instance_status(out_dir, model_name):
+    ls=utils.get_file_list(out_dir)
+    ## Outdir ya contiene el nombre del modelo: VacuaFound_*/Model/
+    path=ls["Path"]
+    ls = utils.filter_by_extension(ls, ".csv")
+    ls = utils.sort_serialized_files(ls)
+    csv_file = os.path.join(path,ls[model_name][-1])
+    df = handle_csv_input(csv_file, "Native", True)
+    print(df.columns)
+    status = {
+        "path": os.path.join(path, ls[model_name][-1]),
+        "record" : len(ls[model_name])-1,
+        "iteration" : len(df)-1,
+        "found_solutions" : [ df.to_dict('records') ]
+    }
+    return status
 
 
 def perform_search_fixed_s_tau(
-        df               ,
-        model_instance   ,
-        model_name       ,
-        out_dir          ,
-        fixed            ,
-        output           ,
-        start_row     = 0,
-        end_row       = 0,
-        start_iter    = 0,
-        end_iter      = 0
+        df                  ,
+        model_instance      ,
+        model_name          ,
+        out_dir             ,
+        fixed               ,
+        output              ,
+        start_row       = 0 ,
+        end_row         = 0 ,
+        start_iter      = 0 ,
+        end_iter        = 0 ,
+        found_solutions = []
 ):
-    if end_row > len(df) or end_row < start_row:
+    if end_row < 1:
+        end_row = len(df)
+    elif end_row > len(df) or end_row < start_row:
         print("Error: end_row must be greater than start_row")
         return
-    elif end_row < 1:
-        end_row = len(df)
 
     if end_iter < start_iter:
         print("Error: end_iter must be greater than start_iter")
@@ -358,7 +316,6 @@ def perform_search_fixed_s_tau(
         })
         s, tau = row[vnms["s"  ]], row[vnms["tau"]]
         problem_to_optimize = natureinspired_problems_k_theory.vacua_parameters___lift_fv
-        found_solutions = []
 
         for fidx in range(start_iter, end_iter):
             print(f"Registro {ridx} Iteración {fidx}")
@@ -445,25 +402,28 @@ def run_model(
             ni_models_object.set_model_param(model_name, param, value)
     model_instance, out_dir = ni_models_object.get_model(model_name)
     #### If integrated CSV
-    found_solutions = []
     if csv_input is not None:
         df = handle_csv_input(csv_input, csv_format, lifting)
         if output:
             out_dir = handle_output(model_instance, model_name, out_dir, destination)
         #### If there's any start iteration, it means is from a given csv. So, reading it.
         if recover:
-            start_row, found_solutions = load_last_csv_and_id(out_dir, model_name)
+            status = last_instance_status(out_dir, model_name)
+            print(f"Recovering from {status['path']}")
+            print(f"Instance {status['record']}, Iteration {status['iteration']}")
+            #return
             perform_search_fixed_s_tau(
-                df               ,
-                model_instance   ,
-                model_name       ,
-                out_dir          ,
-                ["s", "tau"]     ,
-                output           ,
-                start_row     = 0,
-                end_row       = 0,
-                start_iter    = 0,
-                end_iter      = iterations
+                df            ,
+                model_instance,
+                model_name    ,
+                out_dir       ,
+                ["s", "tau"]  ,
+                output        ,
+                start_row     = status['record']   ,
+                end_row       = len(df)            ,
+                start_iter    = status['iteration'],
+                end_iter      = iterations         ,
+                found_solutions = status['found_solutions']
             )
             return
 
@@ -482,10 +442,6 @@ def run_model(
 
     #### If full search
 
-
-
-#def run_model(model_name:str, params:dict =None, csv_data:str =None, output:bool = False): # Cargamos el modelo
-#    dir, model =
 
 
 if __name__ == "__main__":
