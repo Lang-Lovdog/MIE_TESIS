@@ -1,0 +1,530 @@
+@document.meta
+title: Descriptor y meta-journal del proyecto de tesis
+description: Aquí se describen detalles e ideas posiblemente relevantes a la tesis o al proyecto
+authors: Brandon Marquez Salazar (Lang Lovdog Inu Oókami)
+categories: meta.journal
+created: 2026-02-06T14:41:43-0600
+updated: 2026-03-29T15:57:10-0600
+version: 1.1.1
+@end
+
+{:../index.norg:}[Index]
+
+Este archivo servirá como complemento a mi diario de tesis
+para poder tener comentarios que en la generalidad serían
+poco relevantes al trabajo y más relevantes a mi pensamiento.
+
+Como punto de partida, estos comentarios no se centrarán en
+ser la documentación del código, sino un mero escape de
+pensamientos que pueden o no, en un futuro, tomar relevancia.
+
+^^ Sobre el proyecto
+El proyecto está basado en el artículo *Mestastable Vacua with
+Torsion and Machine Learning* de Damian et al.
+^^
+
+* Definición del problema
+
+  Este es el primer punto a desarrollar, ¿qué estoy haciendo?
+  Bien, la respuesta parece clara en un inicio,
+  estoy mapeando el landscape, desde la interpretación de la
+  teoría K. Bueno, más bien, estoy mapeando el swampland.
+  Para poder continuar con este proyecto debo tener el contexto
+  de que es un paso a comprender el comportamiento del modelo.
+
+  Ahora, tengo un código en Mathematica a la que se le está
+  realizando ingeniería inversa para replicar el experimento,
+  este experimento originalmente usa Templado Simulado, luego
+  hace un refinamiento con gradiente conjugado.
+
+  Mi aproximación será con diversos métodos metaheurísticos.
+  Para lograr esto, cada aspecto del experimento original fue
+  considerado de modo que pueda tomar decisiones más adelante
+  en el proyecto.
+
+  Para la validación de mi implementación se necesita realizar
+  una corrida del método completo, para luego juzgar
+  gráficamente los resultados.
+
+  Admito que aquí es donde radica el detalle: para ver si mi
+  trabajo es implementable, debe ser probada en implementación.
+
+  Aquí otro detalle, para cerrar el capítulo. Durante este
+  cuatrimestre (Enero-Abril 2023) tomé un curso de algoritmos
+  bioinspirados. Trabajaremos en C, por lo que debo pasar a C
+  tanto la función como los descriptores de la función. Esto
+  siendo emocionante y pesado. Espero poder realizar bien el
+  proyecto y sacar algo relevante.
+
+* Estructura del proyecto
+
+  Al momento, 06/02/2026 a las 15:00, estoy procurando que el
+  proyecto tenga una estructura clara en el árbol de
+  directorios que podrá ser tomado desde mi github una vez se
+  haya formalizado todo (está público, no sé si sea bueno).
+
+  Para lograr que mi trabajo sea correcto, si bien no puedo
+  hacer un sistema de ficheros de múltiple enlace, al menos
+  puedo dar a entender la estructura plana del árbol.
+
+  @code liotree 
+
+    | TESIS/                                          > El directorio relativo al proyecto de tesis.                          ||
+    |- EXPERIMENTOS/                                  > El directorio donde realizo los códigos y cosas por el estilo.        ||
+    |=-
+    |-- CESAR-BRITO_ORIGINAL-DATA/                    > Información del experimento original                                  ||
+    |-- Lovdog_Swampland/                             > El código donde estoy replicando el experimento del Dr. Cesar.        ||
+    |=-
+    |--- MetastableVacua.py                           > Módulo que contiene la función potencial y sus descriptores
+    |                                                 correspondientes.                                                       ||
+    |--- BusquedaGeneticos.py                         > Este script es la primera versión que implementa los
+    |                                                 metaheurísticos en Python. Originalmente PSO y Genéticos.               ||
+    |--- test_fitness_function.py                     > Aquí únicamente se evalúan los elementos según los resultados
+    |                                                 esperados.                                                              ||
+    |==
+    |-- Mathematica_Stuff/                            > Código de Mathematica donde analizo sobre el experimento,
+    |                                                 sintaxis, etc.                                                          ||
+    |-- 'Tópico Selecto - Algoritmos Bioinspirados/'  > Directorio correspondiente a la UDA de algoritmos bioinspirados,
+    |                                                 curso en el cual se estudian algoritmos de optimización
+    |                                                 metaheurísticos, la razón de contener este directorio aquí es que
+    |                                                 el enfoque del curso está dirigido al proyecto, dándole un carácter
+    |                                                 de documentación/experimentación necesaria.                             ||
+    |=-
+    |--- pso.c
+    |--- pso.h
+    |--- vacua.c
+    |--- vacua.h
+    |--- test.c
+    |--- test_multi.sh
+    |--- resultados.txt
+    |==
+    |==
+    |- venv/                                          > Producto del "setup.sh", es el entorno virtual donde se encuentran
+    |                                                 los paquetes correspondientes al proyecto,  sin éste, no es posible
+    |                                                 (ni recomendable) realizar ejecuciones del proyecto.                    ||
+    |- Makefile                                       > Este es un archivo maestro que permite ejecutar cualquier código
+    |                                                 simulación, prueba o tarea dentro del proyecto.                         ||
+    |- Notas.norg                                     > Este meta-journal                                                     ||
+    |- requirements.txt                               > Lista de paquetes y módulos necesarios para el proyecto. Si acaso
+    |                                                 algún error de dependencias, verifíque las versiones a la fecha
+    |                                                 última de instalación estable: 11/02/2026.                              ||
+    |- setup.sh                                       > Script de configuración del entorno virtual de Pyrhon.                ||
+    |- PresentaciónXX                                 > En caso de realizar alguna presentación, ésta llevará el nombre
+    |                                                 respetando el patrón (plantilla de nombre).                             ||
+    |- hyp                                            > Hipótesis y propuestas relevantes, algunas cosas que haya desarrollado
+    |                                                 lo suficiente para una correcta presentación.                           ||
+
+  @end
+
+** Lista de presentaciones
+    - Presentación 01: Presentación sobre la teoría de cuerdas,
+      el doctor Ascencio realizó observaciones sobre algunos
+      conceptos teóricos que se registraron en el diario de
+      tesis. La información aún no ha sido actualizada, es poco
+      probable que se llegue a realizar dicha actualización.
+
+* Makefile
+
+  Estoy consciente de que no debería ser una documentación
+  del proyecto, pero valdrá la pena considerar que el makefile
+  fungirá de forma importante en todo el proyecto, siendo el
+  archivo maestro para compilar y correr código; pero estoy
+  pensando en la forma correcta de implementarlo. Una de las
+  ideas es usar un sistema simple de sufijos y prefijos que
+  ofrezcan contexto suficiente, permitiendo el polimorfismo
+  necesario en los nombres. Pues, por ejemplo, si quiero una
+  ejecución del optimizador, para hacerlo sería 'make optimiza'
+  con la implicación de que podría ser la versión de python
+  base, la versión final formal, la versión en c, o la de
+  wolfram. Por lo tanto habré de sostener contexto en la
+  llamada a make.
+
+** Opciones de desarrollo en make
+
+   A continuación las opciones del Makefile. Es preciso
+   corresponder que estas opciones son una lista incremental
+   debido a la naturaleza del proyecto.
+
+   - configure ............... # Configura el entorno (bash y python venv)
+   - genetico ................ # Realiza la optimización
+   - vacua ................... # Muestra la inicialización de la función potencial
+   - test_fitness ............ # Realiza pruebas de verificación de la función de fitness sobre la función potencial a
+                               # través de su definición simbólica
+   - help .................... # Muestra esta ayuda
+   - mathics ................. # Ejecuta el script de Mathematica
+   - update_pip .............. # Actualiza las dependencias del proyecto de Python
+   - py ...................... # Ejecuta Python en el entorno virtual
+   - bio_enjambre ............ # Ejecuta el algoritmo de enjambre (curso bioinspirados)
+   - bio_enjambre_it ......... # Ejecuta el script iterativo
+   - bio_enjambre_it_build ... # Compila el algoritmo de enjambre y Ejecuta el script iterativo
+
+* Sobre'l programa de Lovdog Swampland
+
+  A día de hoy: 13/02/2023. Me he dado cuenta de que'n mi
+  implementación uso dS y AdS como suffijos de las funciones
+  co'l siguiente significado:
+
+  - foo__dS es una función que no utiliza lifting
+  - foo_AdS es una función que sí utiliza lifting
+
+  Esto es destacable pues es un error grave de concepto que se
+  heredará próximamente y debe ser resuelto para futuras
+  referencias sobre el código.
+
+  Lo correcto es el uso de dS para aquellos que tengan un
+  levantamiento teórico con los efectos de las D5-Branas y por
+  ello, que pasen de ser dS a AdS en un caso de éxito en la
+  búsqueda.
+
+  Por tanto en un sistema donde dicho lifing no existe,
+  entonces se conserva como un vacío AdS. Esto siendo, la 
+  primera versión de la función potencial.
+
+  En pocas palabras, aún si el sufijo es AdS, en realidad
+  se hace referencia a una función que implementa los efectos
+  de las D5-Branas, permitiendo realmente, en teoría la
+  predicción de un vacío dS. Por lo tanto, las otras funciones
+  son las que nos permites construir los vacíos AdS en
+  contraste con lo que su sufijo nos indica..
+
+  .....
+
+  Bien, para hoy 19/02/2023, el experimento que corría duró ya
+  al menos dos días desde su ejecución (y sigue en ejecución).
+  La cuenta se va al rededor de 15000 iteraciones totales
+  divididas en 100 iteraciones del optimizador por cada
+  elemento de la base de datos original, con 75 elementos cada
+  base de datos. Una en búsqueda de Veff y otra con Veff_lift.
+  Cada optimización buscará al mejor en 50 épocas, lo que le
+  da cierta lentitud al proceso.
+
+  Debo comentar que si bien se encontraron soluciones
+  interesantes, hay un problema grave. Los límites de
+  optimización del metaheurístico están mal establecidos, pues
+
+  - A3N3=[-100,100]
+  - s=(0,100]
+  - tau=(0,100]
+
+  Esto es un problema grave, si es posible que los elementos
+  encontrados tengan sentido, estaré contento, si no... Esto
+ fue tiempo perdido.
+
+  $$ dS vs AdS
+  El concepto de dS discutido en esta sección será meramente
+  en pos de la clasificación dellos vacíos.
+  En el esquema a continuación se puede observar la
+  clasificación utilizada, permitiendo ilustrar el concepto de
+  forma simplificada.
+  $$
+
+  .image ./handmade-images/vacua_classification.png
+
+  [Abrir imagen]{:./handmade-images/vacua_classification.png:}
+
+* Diario
+  A partir de aquí comienzo a redactar miscelaneos necesarios
+  para entender lo que voy haciendo. Es posible que haya cosas
+  redundantes entre este meta diario y el diario físico. Eso
+  corroborará cualquier decisión como importante o, al menos
+  como llevada a cabo.
+
+** Dom 01 de Marzo del 2026
+
+   He decidido, por cuestiones de la volatilidad de mi puesto de
+   trabajo, robustecer mi implementación.
+
+   Esta decisión tomó forma tras reflexionar sobre el tiempo
+   perdido en cada apagón del sistema que me ha hecho perder
+   horas de experimentación.
+
+   El próximo paso es la reesttructuración del Lovdog_Swampland
+
+*** Lovdog_Swampland project tree structure
+    @code liotree
+| Lovdog_Swampland/           > Carpeta del proyecto                                                   ||
+|- lvdsl/                     > Módulo del Lovdog Swapland                                             ||
+|=-
+|---- __init__.py
+|---- xp.py                   > Implementa lo necesario para procesamiento numérico, detecta tarjeta
+|                             gráfica para decidir sobre cupy o numpy                                  ||
+|---- globals.py              > Global variables and values                                            ||
+|---- structure.liotree       > Estructura independiente del módulo                                    ||
+|---- k_theory/               > La teoría en revisión actual                                           ||
+|=-
+|------- __init__.py
+|------- vars.py              > Variables de la función potencial, definición simbólica de la función
+|                             potencial, Hess y autovalores. Además de algunas funciones auxiliares
+|                             para fijar coeficientes/módulos y precisión decimal de operación para
+|                             sympy.                                                                   ||
+|------- potentials.py        > Definición de las funciones de evaluación, tanto de la versión lifting
+|                             como de la original. (Sujeto a cambio de nombre).                        ||
+|------- plots.py             > Graficación de las funciones, las principales serán inspiradas en el
+|                             experimento original. Algunos extras en caso de ser necesario.           ||
+|==
+|---- bioinspired/
+|=-
+|------- __init__.py
+|------- defs.py
+|------- EDAs.py
+|==
+|---- data/
+|=-
+|------- __init__.py
+-------- from_csv.py
+|==
+|==
+|
+   @end
+
+   ^^ CORREO_URGENTE
+   Hoy llegó el correo del Coordinador, la propuesta de tesis
+   debe entregarse a más tardar el 18 del presente mes.
+   ^^
+
+** Mar 05 de Marzo del 2026
+   Hoy hubo un apagón mientras realizaba mis diagramas, los
+   cambios serán subidos.
+
+** Mar 17 de marzo del 2026
+   Tuve que pedir prórroga para {# CORREO_URGENTE}[la propuesta]. No había logrado
+   aterrizar el documento de propuesta de tesis y lo que
+   llevaba no fue acertado, exceso de teoría, carencia de
+   acciones tangibles.
+  
+   $$ Preguntas del 17Mar2026
+   ¿Qué tanto es tantito?
+   $$
+
+
+** Dom 23 de Marzo del 2026
+   Después de analizar los al rededor de 11 979 soluciones del 
+   experimento he llegado a vislumbrar comportamientos curiosos
+   que me gustaría plantear.
+
+   Lo primero es que, desgraciadamente la reestructuración aún
+   está en proceso, por lo tanto continúo con el Legacy.
+
+   Por otro lado, debido a los apagones todas las iteraciones
+   quedaron a la mitad, por lo que al final la mayoría de los
+   experimentos quedaron incompletos, aunque 11 979 soluciones
+   son bastantes para este primer experimento.
+
+   Bien, ahora que el contexto del código está bien planteado,
+   explico algo: las soluciones buscadas, han sido buscadas con
+   la función de potencial efectivo y sus comportamientos son
+   algo curiosos, por lo que veo imperesante su mención:
+
+   - Al momento del análisis pre-levantamiento (no lifting)
+   -- Existen vacíos en expansión $V_eff > 0$
+   -- Existen vacíos esperables AdS $V_eff < 0$
+   - Al momento de aplicar el levantamiento
+   -- Algunos vacíos pasan de ser AdS a dS
+   -- Algunos vacíos pasan de ser dS a AdS
+   -- Algunos vacíos conservan su estado sin gran alteración
+   -- Algunos vacíos conservan su estado pero cambian radicalmente su comportamiento
+   - Tal como es mencionado en mi diario de tesis (libro físico):
+   -- Se usaron valores de -100, 100 para todos los coeficientes de contribución de los flujos
+   -- Los módulos fueron propuestos en un rango de 1e-20, 100 (no usados hasta el momento en el experimento)
+   -- El comportamiento de la contribución A3N3 es coherente con lo esperado aún sin ser restricto a valores
+      definidos negativos
+   - Otro punto importante (también descrito nell diario de tesis) es la diferencia entre las magnitudes obtenidas por el
+     optimizador, si bien el comportamiento de los flujos fue como se esperaba, el orden de los elementos era bastante más
+     alto que los valores originales.
+
+
+   Para el análisis de los resultados se hicieron un script de
+   gnuplot para las gráficas de los elementos encontrados y
+   un script de python para los elementos originales del
+   {# Sobre el proyecto}[experimento del Dr. Cesar].
+   Probablemente se migre al menos un elemento para graficación
+   para el paper. (o una exportación en gnuplot a eps).
+
+** Martes 21 de Abril del 2026
+
+   He terminado de hacer la migración al sistema `lvdsl` con
+   implementación para `GPU`. *Ojo*, al momento todos parecen
+   funcionar con implementación `CUPY`, al momento se ha
+   probado `PSO` para medir tiempos y esto es lo conseguido:
+
+   - `AIW_PSO(epoch=50, pop_size=20, c1=2.05, c2=2.05, alpha=0.4)`
+   -- Computadora: `Thin GF63 12UCX (16R8.1)`
+   -- CPU: `12th Gen Intel(R) Core(TM) i5-12450H`
+   -- GPU: `GA107 [GeForce RTX 2050]`
+   -- Tiempo aproximado de 100 iteraciones por fila: 4 a 5 min.
+   -- Un diferido de los archivos creados por `lvdsl` en el
+      bloque de {# Listado de archivos PSO 21A2026}[texto]
+
+   ^ Listado de archivos PSO 21A2026
+   Detenido previo a finalizar la iteración 77 de la fila 11
+   @code txt
+   [lang_lovdog@theForest  00:37:51˙22:04,2026 Lovdog_Swampland] 󰩃 ls -lah1 VacuaFound_21042026_23_PSO/
+   total 296K
+   drwxr-xr-x  2 lang_lovdog lang_lovdog 4.0K Apr 22 00:43 .
+   drwxr-xr-x 14 lang_lovdog lang_lovdog 4.0K Apr 21 23:32 ..
+   -rw-r--r--  1 lang_lovdog lang_lovdog  23K Apr 21 23:56 0000.csv.csv
+   -rw-r--r--  1 lang_lovdog lang_lovdog  23K Apr 22 00:02 0001.csv.csv
+   -rw-r--r--  1 lang_lovdog lang_lovdog  22K Apr 22 00:07 0002.csv.csv
+   -rw-r--r--  1 lang_lovdog lang_lovdog  23K Apr 22 00:11 0003.csv.csv
+   -rw-r--r--  1 lang_lovdog lang_lovdog  23K Apr 22 00:16 0004.csv.csv
+   -rw-r--r--  1 lang_lovdog lang_lovdog  23K Apr 22 00:20 0005.csv.csv
+   -rw-r--r--  1 lang_lovdog lang_lovdog  24K Apr 22 00:25 0006.csv.csv
+   -rw-r--r--  1 lang_lovdog lang_lovdog  23K Apr 22 00:29 0007.csv.csv
+   -rw-r--r--  1 lang_lovdog lang_lovdog  23K Apr 22 00:34 0008.csv.csv
+   -rw-r--r--  1 lang_lovdog lang_lovdog  22K Apr 22 00:39 0009.csv.csv
+   -rw-r--r--  1 lang_lovdog lang_lovdog  23K Apr 22 00:43 0010.csv.csv
+   -rw-r--r--  1 lang_lovdog lang_lovdog  17K Apr 22 00:47 0011.csv.csv
+   -rw-r--r--  1 lang_lovdog lang_lovdog   60 Apr 21 23:50 model_description.txt
+   [lang_lovdog@theForest  00:47:35˙22:04,2026 Lovdog_Swampland] 󰩃
+   @end
+
+   Estas pruebas son preliminares y únicamente fungen como
+   muestra de rendimiento. {^ nota al pie 21A2026}[Los experimentos serán ejecutados
+   mañana ]
+
+** Miércoles 22 de Abril del 2026
+
+   Llego a la universidad, al rededor de las 16:30h he puesto a
+   correr 3 optimizadores: pso, ga y iwo. Mañana revisaré
+   avances.
+
+** Jueves 23 de Abril del 2026
+
+   Revisando los resultado encuentro detalles della rutina
+   d'exportación, pues el módulo de volumen, los autovalores y
+   el indicador de taquiónico del sujeto original no se habían
+   exportado en el csv. Hay un error de nomenclatura que se
+   puede corregir en una línea pero no es necesario al momento.
+
+   Los procesos `PSO` y `GA` terminaron en un plazo aproximado
+   de 4 hrs, considerando que el {^ nota al pie 23A2026}[/timestamp/] final fue de al 
+   rededor de las 20:00h.
+
+   Siendo las 3:39 de la tarde, `IWO` está en su 10 iteración
+   respecto al primer elemento del experimento. Siendo un total
+   de 87 elementos en total.
+   Sin embargo, pese a la lentitud del proceso en `IWO` aún
+   con integración en `CUDA` presumiblemente habilitada, se ha
+   visto una notable capacidad para encontrar valores 
+   significativamente más acercados al original. Esto, da una
+   luz importante sobre su capacidad para encontrar vacíos pese
+   a los tiempos. [Nota]{^ nota al pie 23A2026-1}
+
+   Para proceder con los análisis se plantea el uso de pruebas
+   como la /T-test/ que permite comparar las diferencias
+   estadísticas de los resultados obtenidos.
+
+   Las pruebas se centrarán en comparación de dos criterios:
+   ~ La cantidad de vacíos estables obtenidos
+   ~ La magnitud de los mínimos obtenidos
+
+   Se adaptará el script de graficación al `lvdsl` con la 
+   finalidad de obtener valores clave de análisis.
+
+   Deberá haber una adición en los from_csv para obtener la
+   información seriada de los resultados.
+
+   Ya que [lvdsl]{*** Lovdog_Swampland project tree structure} tiene un formato peculiar de guardado, es 
+   posible recuperar información relevante. Concatenar todos
+   los resultados y trabajar a partir de ellos.
+
+
+** Viernes 24 de Abril del 2026
+
+   `IWO` y `ACO` continúan en `0:21` y `2:30` respectivamente.
+   Acabo de implementar un gestor para iniciar los procesos en
+   una fila dentro de un directorio específico. De modo que los
+   procesos puedan ser interrumpidos y reanudados sin
+   reiniciar todo el proceso metaheurístico.
+
+   Aún planificando el flujo de los análisis de resultados.
+
+** Lunes 27 de Abril del 2026
+   Al rededor de las 12:47h se reanudan los experimentos de `ACO`
+   e `IWO`.
+   Comienzo la integración d'as rutinas d'graficación.
+
+** Martes 28 de Abril del 2026
+   Las rutinas siguen corriendo, `ACO` se mantiene a la cabeza
+   con Iteración 54 de registro 4. Sus valores han llegado casi
+   a los límites propuestos en el código, p. ej. en uno de los
+   individuos `A3N3=-99.99940982`. `IWO` sigue siendo el más
+   lento, con tieración 10 de registro 1 al momento de escrito
+   esto (16:40h).
+
+** Miercoles 29 de Abril del 2026
+   A la hora de escrito esto (16:15) se revisan los avances con
+   `IWO` iteración 22 del elemento 0. Los resultados siguen 
+   siendo interesantes de observar. Es lento pero sus mínimos 
+   parecen realmente encontrarse en órdenes de magnitud
+   inferiores a los otros optimizadores, esto es un punto
+   relevante a considerar. Los avances de `ACO` por su parte
+   son más rápidos (iteración 83 del registro 6) y presentan
+   valores dentro de las magnitudes de los demás optimizadores.
+   Es probable que se realicen pruebas de los siguientes
+   optimizadores para reducir tiempos de /runtime/, sin embargo,
+   existe la posibilidad de un cuello de botella que realentice
+   los procesos aún en GPU.
+
+** Jueves 30 de Abril del 2026
+   A la hora de escrito esto (15:50) la computadora se
+   encontraba apagada de nuevo. Los procesos deberán ser
+   reestablecidos.
+
+   `ACO` ha logrado hasta el elemento 8, iteración 60.
+
+   `IWO` ha logrado hasta el elemento 0, iteración 20.
+
+** Viernes 15 de Mayo del 2026
+   Después de un tiempo fuera debido a cuestiones del congreso,
+   continúo con modificaciones al código para que las pruebas
+   sean más "inteligentes". Debido a los cortes eléctricos es
+   necesario poder decirle al experimento en qué iteración de
+   qué registro empezar.
+    
+   A la hora de escrito esto (15:22) acabo de implementar la
+   recuperación inteligente del `lvdsl`. Esperaré resultados
+   favorables.
+
+   Por otro lado, descubrí que las primeras pruebas con `PSO` y
+   `GA` no guardaron el elemento `A3N3`, por tanto, se usará el `IWO`
+   para la prueba de la recuperación inteligente (por desgracia
+   es muy lento). Al revisar las pruebas hechas durante la
+   corrección del artículo, se observa que el término `A3N3` sí
+   fue guardado. Por lo tanto debe ser un error en la
+   estructura de los límites de los modelos o algún otro
+   parámetro depurable. Más adelante comentaré al respecto.
+
+   ___
+
+
+   ^ nota al pie 21A2026
+   A momento de escrito esto, son a las 00:31 del 22 de Abril del 2026
+
+   [Regresar al texto]{** Miércoles 22 de Abril del 2026}
+
+   ^^ nota al pie 23A2026
+   Mi terminal tiene un formato que muestra HH:MM:SS, sin embargo, se perdió el inicio.
+   Sin embargo los tiempos de creación de los archivos de configuración fueron:
+   16:31 del 22 de Abril del 2026 en todos los experimentos.
+   Y la hora de término en las terminales fue:
+   20:31 del 22 de Abril del 2026 en GA y PSO.
+
+   IWO sigue en proceso.
+   ^^
+
+   [Regresar al texto]{** Jueves 23 de Abril del 2026}
+
+   ^ nota al pie 23A2026-1
+   lvdsl utliza los valores por defecto de todo bioinspirado de
+   mealpy. Próximamente, en los experimentos con EDAs, se 
+   documentarán los parámetros considerados por defecto y los
+   usados en la optimización.
+
+   [Regresar al texto]{** Jueves 23 de Abril del 2026}
+
+ ===
+___
+
+{:../index.norg:}[Index]
+
