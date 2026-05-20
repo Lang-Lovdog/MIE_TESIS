@@ -1,0 +1,23 @@
+{
+    "lifted": {
+        "dS": {
+            "stable": 987,
+            "unstable": 2309
+        },
+        "AdS": {
+            "stable": 1345,
+            "unstable": 7338
+        }
+    },
+    "unlifted": {
+        "dS": {
+            "to dS": 3157,
+            "to AdS": 2396
+        },
+        "AdS": {
+            "to dS": 139,
+            "to AdS": 6287
+        }
+    },
+    "total": 11979
+}
