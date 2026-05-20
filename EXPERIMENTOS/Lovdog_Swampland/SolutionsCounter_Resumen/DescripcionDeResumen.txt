@@ -1,6 +1,0 @@
-[08052026]
-Archivos analizados:
-OldStuff/VacuaFound_17022026
-OldStuff/VacuaFound_11032026
-OldStuff/VacuaFound_10032026
-OldStuff/VacuaFound_09032026

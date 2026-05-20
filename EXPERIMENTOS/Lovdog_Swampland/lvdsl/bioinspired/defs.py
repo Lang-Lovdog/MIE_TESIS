@@ -21,6 +21,7 @@ from datetime import datetime
 import os
 
 full_datetime=False
+name_suffix=""
 
 def set_full_datetime():
     global full_datetime
@@ -30,6 +31,10 @@ def set_no_full_datetime():
     global full_datetime
     full_datetime=False
 
+def set_name_suffix(val : str):
+    global name_suffix
+    name_suffix=val
+
 def setup_filename():
     now = datetime.now()
     dt_string = now.strftime("%d%m%Y_%H%M%S") if full_datetime else now.strftime("%d%m%Y")
@@ -38,7 +43,7 @@ def setup_filename():
 
 def build_dir_name(model_name : str):
     dir_time=setup_filename()
-    dirname = dir_time + "/" + model_name
+    dirname = dir_time + "/" + model_name + name_suffix
     return dirname
 
 def write_model_description(model, dirname : str):
@@ -171,9 +176,11 @@ class natureinspired_models:
         name=name.lower()
         if type(name) is list or type(name) is tuple:
             for n in name:
+                print(f"Setting {n} {param} to {value}", flush=True)
                 self.set_model_param(n, param, value)
             return
         else:
+            print(f"Setting {name} {param} to {value}", flush=True)
             self.params[name][param] = value
 
     def get_model(self, name):
@@ -254,8 +261,8 @@ def handle_csv_input(csv_input : str, csv_format : str, lifting : bool):
     return df
 
 def handle_output(model_instance, model_name, out_dir, destination):
-    if destination != "":
-        out_dir = destination + "/" + model_name
+    if destination != "": ## Si la búsqueda no plantea continuar una optimización previa, no entra
+        out_dir = destination + "/" + model_name + name_suffix
         if(not os.path.exists(out_dir)):
             print(f"Output directory: {out_dir} does not exist")
             return
@@ -298,16 +305,16 @@ def perform_search_fixed_s_tau(
     if end_row < 1:
         end_row = len(df)
     elif end_row > len(df) or end_row < start_row:
-        print("Error: end_row must be greater than start_row")
+        print("Error: end_row must be greater than start_row", flush=True)
         return
 
     if end_iter < start_iter:
-        print("Error: end_iter must be greater than start_iter")
+        print("Error: end_iter must be greater than start_iter", flush=True)
         return
 
     fixed = [ "s", "tau" ]
 
-    print(f"Starting from row {start_row} until {end_row}")
+    print(f"Starting from row {start_row} until {end_row}", flush=True)
 
     for ridx,row in df[start_row:end_row].iterrows():
         set_fixed_value({
@@ -397,9 +404,8 @@ def run_model(
     destination : str  =""
 ):
     ni_models_object = natureinspired_models()
-    if params is not None:
-        for param, value in params.items():
-            ni_models_object.set_model_param(model_name, param, value)
+    for param, value in params.items():
+        ni_models_object.set_model_param(model_name, param, value)
     model_instance, out_dir = ni_models_object.get_model(model_name)
     #### If integrated CSV
     if csv_input is not None:
@@ -427,6 +433,7 @@ def run_model(
             )
             return
 
+        print("Performing search", flush=True)
         perform_search_fixed_s_tau(
             df               ,
             model_instance   ,

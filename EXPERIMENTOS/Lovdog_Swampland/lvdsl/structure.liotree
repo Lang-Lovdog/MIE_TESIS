@@ -1,9 +1,17 @@
 | lvdsl/                                           > Módulo del Lovdog Swapland                                             ||
+|---- structure.liotree                            > Estructura independiente del módulo                                    ||
 |---- ../ > Directorio del Lovdog_Swampland completo ||
 |=-
 |----- __this__dir__
 |----- LovdogSwamplandMain.py
 |----- LovdogSwamplandMain2.py
+|----- RunPSO_01.sh
+|----- RunIWO_01.sh
+|----- BASH_SCRIPTS/
+|=-
+|--------- run_da_pso_grid
+|--------- run_da_iwo_grid
+|==
 |==
 |---- ../../../ > Directorio de la TESIS ||
 |=-
@@ -14,9 +22,8 @@
 |---- __init__.py
 |---- xp.py                                        > Implementa lo necesario para procesamiento numérico, detecta tarjeta
 |                                                  gráfica para decidir sobre cupy o numpy                                  ||
-|---- utils.py                                      > Funciones auxiliares para el desarrollo del módulo                    ||
+|---- utils.py                                     > Funciones auxiliares para el desarrollo del módulo                     ||
 |---- globals.py                                   > Global variables and values                                            ||
-|---- structure.liotree                            > Estructura independiente del módulo                                    ||
 |---- k_theory/                                    > La teoría en revisión actual                                           ||
 |=-
 |------- __init__.py
