@@ -1,0 +1,26 @@
+\begin{tikzpicture}
+\small
+\begin{axis}[
+    ybar interval, % Classic histogram look
+    % Si 0, etiqueta estable; si 1, etiqueta taquiónico
+    xticklabels={Estable, Taquiónico},
+    xticklabel style={rotate=45, anchor=north east, font=\tiny},
+    xlabel={Cantidad de vacíos encontrados por estabilidad después del levantamiento},
+    ylabel={Vacíos encontrados},
+    title={Distribution of Found Vacua},
+    scale=0.7
+]
+\addplot [
+    fill=blue!30, 
+    draw=black,
+    hist={
+        bins=2, % Adjust this to see more/less detail
+        data min=0, % Optional: focus on a specific range
+        data max=1
+    }
+] table [
+    col sep=comma, 
+    y=taquiónico
+] {\losDatos};
+\end{axis}
+\end{tikzpicture}

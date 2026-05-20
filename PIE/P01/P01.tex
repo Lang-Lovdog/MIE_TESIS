@@ -1,0 +1,256 @@
+\documentclass[aspectratio=169]{beamer} % Formato 16:9 (más ancho)
+\usetheme{Madrid}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{hyperref}
+\usepackage[spanish,ruled,linesnumbered]{algorithm2e}
+
+% Reducir márgenes laterales (opcional)
+\setbeamersize{text margin left=0.8cm, text margin right=0.8cm}
+
+% Configurar espaciado en algoritmos (opcional)
+\SetAlgoSkip{smallskip}
+
+% Información actualizada
+\title[Metastable Vacua]{Metastable vacua from torsion and machine learning}
+\author{Cesar Damian, Oscar Loaiza-Brito}
+\institute{
+    Presentación creada por Brandon Marquez Salazar\\
+    Maestría en Ingeniería Eléctrica (Instrumentación y Sistemas Digitales) \\
+    4° Cuatrimestre \\
+    \href{mailto:b.marquezsalazar@ugto.mx}{b.marquezsalazar@ugto.mx}
+}
+\date{}
+
+\begin{document}
+
+% Portada
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% Índice
+\begin{frame}{Contenido}
+    \tableofcontents
+\end{frame}
+
+% Sección 1: Definición del problema
+\section{Definición del problema / propósito del experimento}
+
+\begin{frame}{Contexto: El programa Swampland}
+    \begin{itemize}
+        \item El programa Swampland busca criterios para separar teorías cuánticas de campos consistentes con gravedad cuántica (teoría de cuerdas) de aquellas que no lo son.
+        \item Conjeturas relevantes:
+        \begin{itemize}
+            \item Inestabilidad de vacíos AdS no supersimétricos.
+            \item Separación de escalas en AdS.
+            \item Conjetura refinada de de Sitter (dS).
+        \end{itemize}
+        \item Se ha propuesto que estados no-BPS (clasificados por K-teoría) podrían evadir estas restricciones.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Propósito del experimento}
+    \begin{block}{Objetivo principal}
+        Construir vacíos dS (meta)estables mediante compactificaciones de teoría de cuerdas tipo IIB en variedades Kähler con torsión, identificando el conjunto mínimo de ingredientes en el potencial escalar efectivo.
+    \end{block}
+    \begin{block}{Objetivos específicos}
+        \begin{itemize}
+            \item Incorporar contribuciones del flujo \(F_5\) (por torsión) y de estados no-BPS \(\widehat{D5}\).
+            \item Utilizar algoritmos de aprendizaje automático (ML) para explorar el espacio de parámetros.
+            \item Analizar la relación con las conjeturas del Swampland.
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+% Sección 2: Métodos empleados
+\section{Definición de los métodos empleados}
+
+\begin{frame}{Métodos: Algoritmo híbrido de Machine Learning}
+    Combinación de dos algoritmos:
+    \begin{enumerate}
+        \item \textbf{Simulated Annealing (SA)}: búsqueda estocástica global.
+        \item \textbf{Conjugate Gradient (CG)}: optimización determinística local.
+    \end{enumerate}
+    
+    Función de error con restricciones físicas:
+    \[
+    \text{Error} = \sum_{i=1}^{N} \alpha_i \cdot \text{error}_i
+    \]
+    donde \(\alpha_i\) son pesos que penalizan regiones no deseadas del espacio de parámetros.
+\end{frame}
+
+\begin{frame}{Restricciones implementadas (errores)}
+    \begin{itemize}
+        \item \textbf{error\(_1\)}: \((\partial_j V)^2\) (búsqueda de puntos críticos)
+        \item \textbf{error\(_2\)}: \(\|V\| - V\) (favorece \(V>0\), vacíos dS)
+        \item \textbf{error\(_3\)}: \(\|\operatorname{tr} m_{ij}^2\| - \operatorname{tr} m_{ij}^2\) (traza positiva de la matriz de masas)
+        \item \textbf{error\(_4\)}: \(\|\det m_{ij}^2 - \frac{1}{4}(\operatorname{tr} m_{ij}^2)^2\| + \det m_{ij}^2 - \frac{1}{4}(\operatorname{tr} m_{ij}^2)^2\) (autovalores positivos)
+        \item \textbf{error\(_5\)}: \(\|A_{\widehat{D5}}\| - A_{\widehat{D5}}\) (contribución positiva de estados no-BPS)
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Pseudocódigo: Simulated Annealing (SA)}
+    \begin{algorithm}[H]
+        \DontPrintSemicolon
+        \caption{Búsqueda global con SA}
+        Inicializar \(\phi_{\text{best}}\) aleatoriamente\;
+        Fijar temperatura inicial \(T_0\) y esquema de enfriamiento\;
+        \For{cada iteración \(i\)}{
+            Generar nuevo punto \(\phi_{\text{new}}\)\;
+            \(\Delta E = \text{Error}(\phi_{\text{new}}) - \text{Error}(\phi_{\text{best}})\)\;
+            \If{\(\Delta E \le 0\)}{
+                \(\phi_{\text{best}} = \phi_{\text{new}}\)\;
+            }
+            \If{\(\Delta E > 0\)}{
+                Aceptar con probabilidad \(P = \exp\left(-\frac{\Delta E}{T_i}\right)\)\;
+            }
+            Actualizar \(T_{i+1}\)\;
+        }
+        \Return{\(\phi_{\text{best}}\)}
+    \end{algorithm}
+\end{frame}
+
+\begin{frame}{Pseudocódigo: Conjugate Gradient (CG)}
+    \begin{algorithm}[H]
+        \DontPrintSemicolon
+        \caption{Refinamiento local con CG}
+        Inicializar \(\phi_0\) con la solución de SA\;
+        \(g_0 = \nabla \text{Error}(\phi_0)\)\;
+        \(d_0 = -g_0\)\;
+        \For{\(k = 0,1,\ldots\) hasta convergencia}{
+            Calcular \(\alpha_k\) por búsqueda lineal\;
+            \(\phi_{k+1} = \phi_k + \alpha_k d_k\)\;
+            \(g_{k+1} = \nabla \text{Error}(\phi_{k+1})\)\;
+            \(\beta_k = \frac{g_{k+1}^T g_{k+1}}{g_k^T g_k}\)\;
+            \(d_{k+1} = -g_{k+1} + \beta_k d_k\)\;
+        }
+        \Return{\(\phi_{\text{min}}\)}
+    \end{algorithm}
+\end{frame}
+
+% Sección 3: Obtención de la función potencial
+\section{Proceso para obtener la función potencial}
+
+\begin{frame}{Reducción dimensional: Acción de tipo IIB}
+    Acción en el marco de cuerda:
+    \[
+    S_{IIB} = S_G + S_\phi + S_{G_3} + S_{F_5} + S_{CS} + S_{\text{loc}}
+    \]
+    
+    Compactificación en variedad Kähler \(\mathbb{X}_6\) con torsión:
+    \begin{itemize}
+        \item Permite contribución no trivial de \(F_5\) al potencial.
+        \item Ciclos con torsión \(\Rightarrow\) estados no-BPS \(\widehat{D5}\).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Potencial escalar efectivo}
+    Módulos: \(s = e^{-\phi}\) (axio-dilatón) y \(\tau = e^{-\phi} \mathcal{V}_6^{2/3}\) (Kähler)
+    
+    \[
+    \mathcal{V}_{\text{eff}} = \frac{A_{H_3}s}{\tau^3} + \frac{A_{F_3}}{s\tau^3} + \frac{A_{F_5}}{\tau^4} + \frac{A_3\mathcal{N}_3}{\tau^3} + \frac{A_{\widehat{D5}}}{s^{1/2}\tau^{5/2}}
+    \]
+    
+    donde:
+    \begin{itemize}
+        \item \(A_{H_3}, A_{F_3}\): flujos de tres-formas
+        \item \(A_{F_5}\): contribución torsional de \(F_5\)
+        \item \(A_3\mathcal{N}_3\): fuentes \(D3\) y \(O3\) (\(\mathcal{N}_3 = \mathcal{N}_{D3} - \frac{1}{2}\mathcal{N}_{O3}\))
+        \item \(A_{\widehat{D5}}\): estados no-BPS
+    \end{itemize}
+\end{frame}
+
+% Sección 4: Experimentos realizados
+\section{Experimentos realizados}
+
+\begin{frame}{Experimento 1: Búsqueda de vacíos AdS}
+    \textbf{Configuración:}
+    \begin{itemize}
+        \item \(A_{\widehat{D5}} = 0\) (sin estados no-BPS)
+        \item Condición: \(\mathcal{N}_3 < 0\) (más \(O3\) que \(D3\))
+    \end{itemize}
+    
+    \textbf{Resultados:}
+    \begin{itemize}
+        \item 389 vacíos AdS estables encontrados
+        \item No se encontraron vacíos dS
+        \item Condición necesaria: flujos en más de un ciclo
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Experimento 2: Búsqueda de vacíos dS}
+    \textbf{Configuración:}
+    \begin{itemize}
+        \item Incluir \(A_{\widehat{D5}} > 0\) (estados no-BPS)
+        \item Mantener \(\mathcal{N}_3 < 0\)
+    \end{itemize}
+    
+    \textbf{Condiciones adicionales requeridas:}
+    \begin{enumerate}
+        \item Flujos \(H_3\) y \(F_3\) soportados en más de un ciclo
+        \item Cota inferior para orientifoldos:
+        \[
+        \mathcal{N}_{O3} > 4\frac{\sqrt{A_{H_3}A_{F_3}}}{A_3} + 2\mathcal{N}_{\text{flux}}
+        \]
+    \end{enumerate}
+    
+    \textbf{Resultado:} Más de 170 vacíos dS estables
+\end{frame}
+
+% Sección 5: Resultados obtenidos
+\section{Resultados obtenidos}
+
+\begin{frame}{Ejemplos de vacíos dS encontrados}
+    \begin{center}
+    \begin{tabular}{c c c c c}
+        \hline
+        \(V_{\min}\) & \(\tau\) & \(s\) & \(A_{F_5}\) & \(A_{\widehat{D5}}\) \\
+        \hline
+        \(1.309\times10^{-6}\) & 0.00373 & 3.695 & 0.9769 & 0.4231 \\
+        \(5.676\times10^{-6}\) & 0.00387 & 3.727 & 0.9755 & 0.4125 \\
+        \(6.980\times10^{-5}\) & 0.00788 & 2.917 & 0.3022 & 0.1851 \\
+        \hline
+    \end{tabular}
+    \end{center}
+    (Valores parciales de la Tabla 1 del paper original)
+\end{frame}
+
+\begin{frame}{Mecanismo de uplifting AdS \(\rightarrow\) dS}
+    Expansión para \(A_{\widehat{D5}}\) pequeño:
+    \[
+    \mathcal{V}_{\text{eff}} = \mathcal{V}_{AdS} + \frac{1}{s_0^{1/2}\tau_0^{5/2}} A_{\widehat{D5}} + \mathcal{O}(A_{\widehat{D5}}^2)
+    \]
+    
+    \textbf{Consecuencias:}
+    \begin{itemize}
+        \item El mínimo se eleva de AdS a dS
+        \item Los autovalores de la matriz de masas disminuyen
+        \item El potencial se aplana \(\Rightarrow\) mayor probabilidad de inestabilidades
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Relación con las conjeturas del Swampland}
+    \begin{itemize}
+        \item \textbf{AdS no supersimétricos:} metaestables por construcción (\(D_S W \neq 0\))
+        \item \textbf{Separación de escalas:}
+        \[
+        m_{\text{mod}} R_{AdS} = \frac{3\sqrt{3}\,2\sqrt{A_{H_3}A_{F_3}} + A_3\mathcal{N}_3}{A_{F_5}} \gtrsim \mathcal{O}(1)
+        \]
+        \item \textbf{Conjetura dS:} vacíos obtenidos son muy planos, fácilmente desestabilizables
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Conclusiones}
+    \begin{itemize}
+        \item La inclusión de \(F_5\) torsional y estados no-BPS \(\widehat{D5}\) permite construir vacíos dS clásicos estables en teoría de cuerdas tipo IIB.
+        \item Se encontraron más de 170 vacíos dS mediante el algoritmo híbrido SA+CG.
+        \item El uplifting produce potenciales muy planos, lo que sugiere inestabilidades potenciales.
+        \item Los resultados son consistentes (en el límite) con las conjeturas del Swampland.
+        \item Trabajo futuro: estudiar el rol de flujos torsionales de tres-formas y la cancelación de carga de K-teoría.
+    \end{itemize}
+\end{frame}
+
+\end{document}

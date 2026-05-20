@@ -1,0 +1,5 @@
+[0] Config.pm:328> INFO - This is Biber 2.21
+[0] Config.pm:331> INFO - Logfile is 'LovdogClassifierExplanation.blg'
+[45] biber:342> INFO - === Mon Oct 20, 2025, 23:38:06
+[2540] Utils.pm:479> ERROR - Cannot find 'LovdogClassifierExplanation.bcf'!
+[2541] Biber.pm:137> INFO - ERRORS: 1

@@ -1,0 +1,55 @@
+\begin{center}
+    \begin{tikzpicture}[node distance=2cm and 2.8cm, ]
+        \node (start) [startstop] {
+            start
+        };
+        \node (modulidef) [process, below of=start] {
+            Define \textbf{moduli} $s, \tau$
+        };
+        \node (flux) [process, below of=modulidef] {
+            Define coefficients regarding \textbf{fluxes}
+            \\ $ A_{H3} , A_{F3} , A_{F5} , A_{D5} , A_3N_3 $
+        };
+        \node (pot) [process, below of=flux] {
+            Define \textbf{potential function} by\\ the sum of \textbf{fluxes}
+            \\ $ V_\text{eff} = A_{H3} + A_{F3} + A_{F5} +
+            A_{D5} + A_3N_3 $
+        };
+        \node (massmatrix) [process, below of=pot] {
+            Obtain \textbf{mass matrix} \\ 
+            $M^2_{ij}=\delta_{s,\tau}$ $V_\text{eff}$
+        };
+        \node (eigvals) [process, below of=massmatrix] {
+            Obtain \textbf{eigenvalues} of the \textbf{mass matrix} \\
+            $\lambda_{1,2} = \text{\bfseries eig}(M^2_{ij})$
+        };
+        \node (simulateannealing) [process, right=of modulidef] {
+            \textbf{Simulate annealing} with the function\\
+            $\text{err} = \sum \text{err}_i$ \\
+            in a hyperspace of 2 \textbf{moduli} and 5 \textbf{fluxes}
+        };
+        \node (conjugategradient) [process, below of=simulateannealing] {  
+            Fine tuning with \textbf{conjugate gradient}\\ at each iteration
+        };
+        \node (ploteigvspot) [process, below of=conjugategradient] {
+            Plot $\text{\bfseries min}(\lambda_{1,2})$ against $V_\text{eff}$
+        };
+        \node (plotbehaviour) [process, below of=ploteigvspot] {
+            Plot $V_\text{eff}$ with fixed \textbf{fluxes}\\ and variable \textbf{moduli} $s, \tau$
+        };
+        \node (end) [startstop, below of=plotbehaviour] {
+            end
+        };
+
+        \draw [arrow] (start)             -- (modulidef);
+        \draw [arrow] (modulidef)         -- (flux);
+        \draw [arrow] (flux)              -- (pot);
+        \draw [arrow] (pot)               -- (massmatrix);
+        \draw [arrow] (massmatrix)        -- (eigvals);
+        \draw [arrow] (eigvals.east)      -- ++(1,0) |- (simulateannealing.west);
+        \draw [arrow] (simulateannealing) -- (conjugategradient);
+        \draw [arrow] (conjugategradient) -- (ploteigvspot);
+        \draw [arrow] (ploteigvspot)      -- (plotbehaviour);
+        \draw [arrow] (plotbehaviour)     -- (end);
+    \end{tikzpicture}
+\end{center}

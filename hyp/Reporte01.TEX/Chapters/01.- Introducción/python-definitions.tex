@@ -1,0 +1,40 @@
+\begin{lstlisting}[language=python]
+import sympy             as sp  #type: ignore
+##### Definición de las variables principales de la función potencial
+AH3  = sp.Symbol('AH3' , real=True)
+AF3  = sp.Symbol('AF3' , real=True)
+AF5  = sp.Symbol('AF5' , real=True)
+A3N3 = sp.Symbol('A3N3', real=True)
+AD5  = sp.Symbol('AD5' , real=True)
+tau  = sp.Symbol('tau' , real=True)
+s    = sp.Symbol('s'   , real=True)
+##### Definición de las variables principales de la función potencial
+##### Diccionario de valores numéricos globales
+variables_numericas={
+    "AH3" : 1.0,
+    "AF3" : 1.0,
+    "AF5" : 1.0,
+    "A3N3": 1.0,
+    "AD5" : 1.0,
+    "tau" : 1.0,
+    "s"   : 1.0
+}
+##### Diccionario de valores numéricos globales
+
+# Función potencial V
+V = (AH3*s/(tau**3)) + (AF3/(s*tau**3)) + (AF5/(tau**4)) + (A3N3/(tau**3))
+V_lifting =  (AH3*s/(tau**3)) + (AF3/(s*tau**3)) + (AF5/(tau**4)) + (A3N3/(tau**3)) + (AD5/((s**sp.Rational(1,2)*(tau**sp.Rational(5,2)))))
+#V_lifting =  (AH3*s/(tau**3)) + (AF3/(s*tau**3)) + (AF5/(tau**4)) + (A3N3/(tau**3)) + (AD5/((s**(1/2)*(tau**(5/2)))))
+# Función potencial V
+
+# Matriz Hessiana de la función potencial
+VHess = sp.hessian(V, [s,tau])
+V_liftingHess = sp.hessian(V_lifting, [s,tau])
+# Matriz Hessiana de la función potencial
+
+# Autovalores de VHess
+eigenvals_VHess = VHess.eigenvals()
+eigenvals_VHess_lifting = V_liftingHess.eigenvals()
+# Autovalores de VHess
+\end{lstlisting}
+
