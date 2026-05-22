@@ -12,7 +12,8 @@
 ### Para hacer funcionar este script tendrá una función que recibirá el directorio a analizar
 
 
-from ...xp import xp
+from lvdsl.xp import xp
+from lvdsl.utils import get_file_list
 import pandas #type: ignore
 import os
 import re
@@ -72,7 +73,8 @@ def get_data_from(indir :str):
 
 
 
-def get_stats(directory):
+def get_stats(directories : list[str]):
+    filelist={}
     stats_per_file={
         "total_solutions"     : {},
         "taquionic_solutions" : {},
@@ -81,11 +83,10 @@ def get_stats(directory):
         "negative_A3N3"       : {},
         "positive_A3N3"       : {}
     }
-    mdirs=get_model_dirs(directory)
-    df_per_model={}
-    for mdir in mdirs:
-        dfs=get_dataframes(directory+"/"+mdir)
-        df_per_model[mdir]=dfs
+    for directory in directories:
+        files=get_file_list(directory)
+        filelist={**filelist, **files}
+
     for mdir in df_per_model:
         print("Processing "+mdir)
         stats_per_file["total_solutions"    ][mdir]=len(df_per_model[mdir])

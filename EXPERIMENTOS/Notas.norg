@@ -475,6 +475,26 @@ Torsion and Machine Learning* de Damian et al.
 
    `IWO` ha logrado hasta el elemento 0, iteración 20.
 
+** Viernes 15 de Mayo del 2026
+   Después de un tiempo fuera debido a cuestiones del congreso,
+   continúo con modificaciones al código para que las pruebas
+   sean más "inteligentes". Debido a los cortes eléctricos es
+   necesario poder decirle al experimento en qué iteración de
+   qué registro empezar.
+    
+   A la hora de escrito esto (15:22) acabo de implementar la
+   recuperación inteligente del `lvdsl`. Esperaré resultados
+   favorables.
+
+   Por otro lado, descubrí que las primeras pruebas con `PSO` y
+   `GA` no guardaron el elemento `A3N3`, por tanto, se usará el `IWO`
+   para la prueba de la recuperación inteligente (por desgracia
+   es muy lento). Al revisar las pruebas hechas durante la
+   corrección del artículo, se observa que el término `A3N3` sí
+   fue guardado. Por lo tanto debe ser un error en la
+   estructura de los límites de los modelos o algún otro
+   parámetro depurable. Más adelante comentaré al respecto.
+
    ___
 
 
