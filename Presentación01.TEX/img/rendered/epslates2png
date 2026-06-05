@@ -1,0 +1,83 @@
+#!/bin/bash
+
+# Default settings
+DARK_MODE=false
+DPI=300
+
+# Simple help message
+show_help() {
+    echo "Usage: $0 [options] path/to/file.tex"
+    echo ""
+    echo "Options:"
+    echo "  -d, --dark     Enable dark mode (white text, native dark background)"
+    echo "  -h, --help     Show this help message"
+    exit 0
+}
+
+# Parse options
+while [[ "$#" -gt 0 ]]; do
+    case $1 in
+        -d|--dark) DARK_MODE=true; shift ;;
+        -h|--help) show_help ;;
+        *) TARGET="$1"; shift ;;
+    esac
+done
+
+if [ -z "$TARGET" ]; then
+    echo "Error: No input file specified."
+    show_help
+fi
+
+TARGET="${TARGET%.tex}"
+DIR_PATH=$(dirname "${TARGET}")
+FILE_NAME=$(basename "${TARGET}")
+
+# 1. Generate the TeX wrapper
+if [ "$DARK_MODE" = true ]; then
+    # True TeX Dark Mode: We paint the page background and invert text colors natively
+    cat << EOF > temp_wrapper.tex
+\documentclass[multi=false]{standalone}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{adjustbox}
+\usepackage{color}
+\usepackage{xcolor}
+
+# Define a custom deep dark gray/black background color
+\definecolor{darkbg}{HTML}{111111}
+\pagecolor{darkbg}
+
+\begin{document}
+\color{white}
+\input{${FILE_NAME}}
+\end{document}
+EOF
+else
+    # Standard Light Wrapper
+    cat << EOF > temp_wrapper.tex
+\documentclass{standalone}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{adjustbox}
+\usepackage{color}
+\begin{document}
+\input{${FILE_NAME}}
+\end{document}
+EOF
+fi
+
+# 2. Compile with flexible path lookups
+TEXINPUTS=".:${DIR_PATH}:${DIR_PATH}/img:" pdflatex -interaction=nonstopmode temp_wrapper.tex
+
+# 3. Convert the compiled PDF page to a crisp PNG
+if [ "$DARK_MODE" = true ]; then
+    # pdftoppm will now grab the native background painted by TeX
+    pdftoppm -png -r "$DPI" temp_wrapper.pdf "${FILE_NAME}_dark_rendered"
+    echo "Success! Generated: ${FILE_NAME}_dark_rendered-1.png"
+else
+    pdftoppm -png -r "$DPI" temp_wrapper.pdf "${FILE_NAME}_rendered"
+    echo "Success! Generated: ${FILE_NAME}_rendered-1.png"
+fi
+
+# 4. Clean up intermediate auxiliary files
+rm -f temp_wrapper.*

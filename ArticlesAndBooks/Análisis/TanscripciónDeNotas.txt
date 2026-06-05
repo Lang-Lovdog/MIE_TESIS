@@ -1,0 +1,238 @@
+{
+  "PEMEX_Turismo1.jpg": {
+    "pagina": 1,
+    "anotaciones": [
+      {
+        "ubicacion": "Margen izquierdo, junto al primer párrafo del manuscrito",
+        "texto": "Exposición / Contexto"
+      },
+      {
+        "ubicacion": "Encima del primer párrafo (con una flecha apuntando al inicio)",
+        "texto": "Conectar con público a través della empatía"
+      },
+      {
+        "ubicacion": "Al final del primer párrafo",
+        "texto": "Recurso poéticos-narrativos"
+      },
+      {
+        "ubicacion": "Entre el primer y segundo párrafo",
+        "texto": "Foco del documento"
+      },
+      {
+        "ubicacion": "Abajo, con flechas apuntando al inicio del segundo párrafo",
+        "texto": "Recurso literario descriptivo"
+      },
+      {
+        "ubicacion": "Abajo",
+        "texto": "Cierra el gancho introductorio"
+      }
+
+    ]
+  },
+  "PEMEX_Turismo2.jpg": {
+    "pagina": 2,
+    "anotaciones": [
+      {
+        "ubicacion": "Al lado del subtítulo \"¿Qué era el Club de Viajeros PEMEX?\"",
+        "texto": "Contexto histórico importante."
+      },
+      {
+        "ubicacion": "Arriba de la frase manuscrita anterior, apuntando a \"Club de Viajeros\"",
+        "texto": "-> Objeto del párrafo"
+      },
+      {
+        "ubicacion": "Margen izquierdo, junto al primer párrafo",
+        "texto": "Crea suspenso narrativo."
+      },
+      {
+        "ubicacion": "Margen izquierdo, junto al segundo párrafo",
+        "texto": "Relevancia e impacto."
+      },
+      {
+        "ubicacion": "Margen izquierdo, junto al tercer párrafo",
+        "texto": "-> Trabajo"
+      },
+      {
+        "ubicacion": "Margen derecho, al final del primer párrafo",
+        "texto": "Complemento informacional"
+      },
+      {
+        "ubicacion": "Al final del tercer párrafo",
+        "texto": "-> Interpretación del hallazgo con lenguaje poético, casi romántico."
+      },
+      {
+        "ubicacion": "Espacio en blanco inferior",
+        "texto": "Aquí, los datos institucionales y gubernamentales son expuestos como agentes, antropomorfizando sus eventos como acciones."
+      }
+    ]
+  },
+  "PEMEX_Turismo3.jpg": {
+    "pagina": 3,
+    "anotaciones": [
+      {
+        "ubicacion": "Arriba del primer subtítulo principal",
+        "texto": "-> Pasa del contexto a explicar metodología."
+      },
+      {
+        "ubicacion": "Margen izquierdo, primer párrafo",
+        "texto": "Hay un conflicto, el protagonista necesita escalar el análisis."
+      },
+      {
+        "ubicacion": "Margen derecho, segundo párrafo",
+        "texto": "El proceso se narra como algo más sistemático debido a la naturaleza del proceso."
+      },
+      {
+        "ubicacion": "Margen izquierdo, tercer párrafo",
+        "texto": "Explicación que muy brillo [?] a grandes rasgos."
+      },
+      {
+        "ubicacion": "Margen derecho, tercer párrafo",
+        "texto": "Explica un qué muy sencillo a grandes razgos."
+      },
+      {
+        "ubicacion": "Margen izquierdo, sección \"mapear sistemáticamente qué destinos...\"",
+        "texto": "Explica lo logrado, no como objetivo, sino como producto."
+      },
+      {
+        "ubicacion": "Al lado del título de la sección \"De la crisis...\"",
+        "texto": "-> Enfoque narrativo de vuelta"
+      },
+      {
+        "ubicacion": "Margen izquierdo, cuarto párrafo, sección \"Para analizar el boletín[...]diplomática muy vunerable\"",
+        "texto": "El problema."
+      },
+      {
+        "ubicacion": "Margen izquierdo, cuarto párrafo, sección \"especialmente frente[...]del siglo XX\"",
+        "texto": "El agravante (tensión narrativa)."
+      },
+      {
+        "ubicacion": "Margen derecho, cuarto párrafo, sección \"Inmediatamente después...\"",
+        "texto": "Personificación produce empatía."
+      },
+      {
+        "ubicacion": "Margen izquierdo, quinto párrafo",
+        "texto": "Describe el artefacto y objeto de estudio sin nombrarlo hallazgo del estudio, sino como parte della narración."
+      },
+      {
+        "ubicacion": "Margen derecho, sexto párrafo",
+        "texto": "El instrumento es presentado con descripciones sobre su relevancia y características."
+      },
+      {
+        "ubicacion": "Espacio en blanco inferior",
+        "texto": "La subtrama del objeto del estudio en su contexto lo muestra como una solución a la tensión narrativa dellos párrafos anteriores."
+      }
+    ]
+  },
+  "PEMEX_Turismo4.jpg": {
+    "pagina": 4,
+    "anotaciones": [
+      {
+        "ubicacion": "Arriba, con una flecha hacia \"hallazgo especialmente revelador\"",
+        "texto": "Selección de palabras de impacto."
+      },
+      {
+        "ubicacion": "Margen izquierdo superior, sección \"En lugar de limitarse[...]de reconocido prestigio.\"",
+        "texto": "Explicar hallazgo"
+      },
+      {
+        "ubicacion": "Margen derecho superior, sección \"Nombres como[...]en sus páginas.\"",
+        "texto": "Ejemplifica hallazgo"
+      },
+        "ubicacion": "Margen derecho superior, sección \"La participación[...]era cultura.\"",
+        "texto": "Explica el impacto"
+      },
+      {
+        "ubicacion": "Abajo, junto al título entre paréntesis",
+        "texto": "-> Título de Sección figurativa. Demuestra el poder del instrumento estudiado."
+      }
+    ]
+  },
+  "PEMEX_Turismo5.jpg": {
+    "pagina": 5,
+    "anotaciones": [
+      {
+        "ubicacion": "Arriba del primer párrafo, señala \"resultados más importantes de nuestro análisis\"",
+        "texto": "Predispocisión al info dumping: Primera vez en el texto que se habla explícitamente dellos resultados como tal."
+      },
+      {
+        "ubicacion": "Margen izquierdo, primer párrafo",
+        "texto": "Info dumping ofreciendo clasificaciones importantes nell hallazgo."
+      },
+      {
+        "ubicacion": "Margen derecho, primer párrafo",
+        "texto": "-> Sentencia: abre nuevo eje della discusión."
+      },
+      {
+        "ubicacion": "Margen derecho, segundo párrafo",
+        "texto": "Describe la estructura cultural del texto. El propósito está embebdido al contexto."
+      },
+      {
+        "ubicacion": "Margen izquierdo, tercer párrafo",
+        "texto": "-> Recurso diegético, descripción da los efectos colaterales y secuelas del instrumento."
+      },
+      {
+        "ubicacion": "Margen derecho, cuarto párrafo",
+        "texto": "Conclusión sobre u conección con'l presente."
+      },
+      {
+        "ubicacion": "Al lado del subtítulo \"El turismo como herramienta diplomática\"",
+        "texto": "-> Epílogo della odisea"
+      },
+      {
+        "ubicacion": "Entre el quinto y sexto párrafo (con flecha señalando al quinto párrafo)",
+        "texto": "-> Trasendencia della herramienta desde'l instrumento."
+      },
+      {
+        "ubicacion": "Margen izquierdo, sexto párrafo",
+        "texto": "Úsa'l contexto como apertura a la introducción de nuevo término técnico. Orgánicamente."
+      },
+      {
+        "ubicacion": "Al final del sexto párrafo",
+        "texto": "-> Refinamiento explicado."
+      },
+      {
+        "ubicacion": "Al final del séptimo párrafo",
+        "texto": "-> Remate en prosa poética. Recapitula como algo d'ĩterés."
+      }
+    ]
+  },
+{
+  "PEMEX_Turismo6.jpg": {
+    "pagina": 6,
+    "anotaciones": [
+      {
+        "ubicacion": "Arriba del subtítulo \"¿Por qué importa esta historia hoy?\"",
+        "texto": "Recapitula y extiende una d'as cõclusiones del último párrafo della sección \"El México que'l boletĩ́ cõstruyó»"
+      },
+      {
+        "ubicacion": "Margen izquierdo, junto al primer párrafo bajo el subtítulo",
+        "texto": "Inicia con una frase q' refleja una opinión potẽcial del espectador (lector). Una mini ventana de Overton para l'expectativa: permite'l cõtraste
+      },
+      {
+        "ubicacion": "Margen derecho, segundo párrafo bajo el subtítulo",
+        "texto": "Extiẽde un fenómeno desde los hallazgos."
+      },
+      {
+        "ubicacion": "Margen derecho, tercer párrafo bajo el subtítulo",
+        "texto": "Mẽciona hechos relevãtes q'afectã n'a actualidà."
+      },
+      {
+        "ubicacion": "Margen izquierdo inferior, junto al cuarto párrafo bajo el subtítulo",
+        "texto": "Fuerza del objeto d'estudio, la relevancia del estudio y otros del tipo."
+      },
+      {
+        "ubicacion": "Margen derecho inferior, junto al último párrafo bajo el subtítulo",
+        "texto": "Invitación a la reflexión sobre"
+      }
+    ]
+  },
+  "PEMEX_Turismo7.jpg": {
+    "pagina": 7,
+    "anotaciones": [
+      {
+        "ubicacion": "Esquina superior derecha, junto al número de página: el final del párrafo cortado al final de la página 6",
+        "texto": "los hallazgos del estudio como cierre del epílogo."
+      }
+    ]
+  }
+}
