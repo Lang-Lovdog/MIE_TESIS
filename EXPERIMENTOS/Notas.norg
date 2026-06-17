@@ -68,52 +68,50 @@ Torsion and Machine Learning* de Damian et al.
   puedo dar a entender la estructura plana del árbol.
 
   @code liotree 
-
-    | TESIS/                                          > El directorio relativo al proyecto de tesis.                          ||
-    |- EXPERIMENTOS/                                  > El directorio donde realizo los códigos y cosas por el estilo.        ||
-    |=-
-    |-- CESAR-BRITO_ORIGINAL-DATA/                    > Información del experimento original                                  ||
-    |-- Lovdog_Swampland/                             > El código donde estoy replicando el experimento del Dr. Cesar.        ||
-    |=-
-    |--- MetastableVacua.py                           > Módulo que contiene la función potencial y sus descriptores
-    |                                                 correspondientes.                                                       ||
-    |--- BusquedaGeneticos.py                         > Este script es la primera versión que implementa los
-    |                                                 metaheurísticos en Python. Originalmente PSO y Genéticos.               ||
-    |--- test_fitness_function.py                     > Aquí únicamente se evalúan los elementos según los resultados
-    |                                                 esperados.                                                              ||
-    |==
-    |-- Mathematica_Stuff/                            > Código de Mathematica donde analizo sobre el experimento,
-    |                                                 sintaxis, etc.                                                          ||
-    |-- 'Tópico Selecto - Algoritmos Bioinspirados/'  > Directorio correspondiente a la UDA de algoritmos bioinspirados,
-    |                                                 curso en el cual se estudian algoritmos de optimización
-    |                                                 metaheurísticos, la razón de contener este directorio aquí es que
-    |                                                 el enfoque del curso está dirigido al proyecto, dándole un carácter
-    |                                                 de documentación/experimentación necesaria.                             ||
-    |=-
-    |--- pso.c
-    |--- pso.h
-    |--- vacua.c
-    |--- vacua.h
-    |--- test.c
-    |--- test_multi.sh
-    |--- resultados.txt
-    |==
-    |==
-    |- venv/                                          > Producto del "setup.sh", es el entorno virtual donde se encuentran
-    |                                                 los paquetes correspondientes al proyecto,  sin éste, no es posible
-    |                                                 (ni recomendable) realizar ejecuciones del proyecto.                    ||
-    |- Makefile                                       > Este es un archivo maestro que permite ejecutar cualquier código
-    |                                                 simulación, prueba o tarea dentro del proyecto.                         ||
-    |- Notas.norg                                     > Este meta-journal                                                     ||
-    |- requirements.txt                               > Lista de paquetes y módulos necesarios para el proyecto. Si acaso
-    |                                                 algún error de dependencias, verifíque las versiones a la fecha
-    |                                                 última de instalación estable: 11/02/2026.                              ||
-    |- setup.sh                                       > Script de configuración del entorno virtual de Pyrhon.                ||
-    |- PresentaciónXX                                 > En caso de realizar alguna presentación, ésta llevará el nombre
-    |                                                 respetando el patrón (plantilla de nombre).                             ||
-    |- hyp                                            > Hipótesis y propuestas relevantes, algunas cosas que haya desarrollado
-    |                                                 lo suficiente para una correcta presentación.                           ||
-
+| TESIS/                                          > El directorio relativo al proyecto de tesis.                          ||
+|- EXPERIMENTOS/                                  > El directorio donde realizo los códigos y cosas por el estilo.        ||
+|=-
+|-- CESAR-BRITO_ORIGINAL-DATA/                    > Información del experimento original                                  ||
+|-- Lovdog_Swampland/                             > El código donde estoy replicando el experimento del Dr. Cesar.        ||
+|=-
+|--- MetastableVacua.py                           > Módulo que contiene la función potencial y sus descriptores
+|                                                 correspondientes.                                                       ||
+|--- BusquedaGeneticos.py                         > Este script es la primera versión que implementa los
+|                                                 metaheurísticos en Python. Originalmente PSO y Genéticos.               ||
+|--- test_fitness_function.py                     > Aquí únicamente se evalúan los elementos según los resultados
+|                                                 esperados.                                                              ||
+|==
+|-- Mathematica_Stuff/                            > Código de Mathematica donde analizo sobre el experimento,
+|                                                 sintaxis, etc.                                                          ||
+|-- 'Tópico Selecto - Algoritmos Bioinspirados/'  > Directorio correspondiente a la UDA de algoritmos bioinspirados,
+|                                                 curso en el cual se estudian algoritmos de optimización
+|                                                 metaheurísticos, la razón de contener este directorio aquí es que
+|                                                 el enfoque del curso está dirigido al proyecto, dándole un carácter
+|                                                 de documentación/experimentación necesaria.                             ||
+|=-
+|--- pso.c
+|--- pso.h
+|--- vacua.c
+|--- vacua.h
+|--- test.c
+|--- test_multi.sh
+|--- resultados.txt
+|==
+|==
+|- venv/                                          > Producto del "setup.sh", es el entorno virtual donde se encuentran
+|                                                 los paquetes correspondientes al proyecto,  sin éste, no es posible
+|                                                 (ni recomendable) realizar ejecuciones del proyecto.                    ||
+|- Makefile                                       > Este es un archivo maestro que permite ejecutar cualquier código
+|                                                 simulación, prueba o tarea dentro del proyecto.                         ||
+|- Notas.norg                                     > Este meta-journal                                                     ||
+|- requirements.txt                               > Lista de paquetes y módulos necesarios para el proyecto. Si acaso
+|                                                 algún error de dependencias, verifíque las versiones a la fecha
+|                                                 última de instalación estable: 11/02/2026.                              ||
+|- setup.sh                                       > Script de configuración del entorno virtual de Pyrhon.                ||
+|- PresentaciónXX                                 > En caso de realizar alguna presentación, ésta llevará el nombre
+|                                                 respetando el patrón (plantilla de nombre).                             ||
+|- hyp                                            > Hipótesis y propuestas relevantes, algunas cosas que haya desarrollado
+|                                                 lo suficiente para una correcta presentación.                           ||
   @end
 
 ** Lista de presentaciones
@@ -202,9 +200,9 @@ Torsion and Machine Learning* de Damian et al.
   interesantes, hay un problema grave. Los límites de
   optimización del metaheurístico están mal establecidos, pues
 
-  - A3N3=[-100,100]
-  - s=(0,100]
-  - tau=(0,100]
+  - $A3N3=[-100,100]$
+  - $s=(0,100]$
+  - $tau=(0,100]$
 
   Esto es un problema grave, si es posible que los elementos
   encontrados tengan sentido, estaré contento, si no... Esto
@@ -220,7 +218,7 @@ Torsion and Machine Learning* de Damian et al.
 
   .image ./handmade-images/vacua_classification.png
 
-  [Abrir imagen]{:./handmade-images/vacua_classification.png:}
+  [Abrir imagen]{./handmade-images/vacua_classification.png}
 
 * Diario
   A partir de aquí comienzo a redactar miscelaneos necesarios
@@ -380,7 +378,7 @@ Torsion and Machine Learning* de Damian et al.
 
    Estas pruebas son preliminares y únicamente fungen como
    muestra de rendimiento. {^ nota al pie 21A2026}[Los experimentos serán ejecutados
-   mañana ]
+   mañana]
 
 ** Miércoles 22 de Abril del 2026
 
@@ -495,33 +493,146 @@ Torsion and Machine Learning* de Damian et al.
    estructura de los límites de los modelos o algún otro
    parámetro depurable. Más adelante comentaré al respecto.
 
-   ___
+** Jueves 04 de Junio del 2026
+   Después de haberme presentado en la semana del 25 al 29 de
+   Mayo del 2026 nell COMIA, he regresado con algunas
+   observaciones y comentarios relevantes a tomar en cuenta
+   para la tesis.
+   El siguiente congreso en camino es el CONACIC
+
+*** Sobre los días no registrados (15-25 de Mayo)
+    Respecto a las acciones de hoy, lo primero es comentar sobre
+    los avances realizados durante'l mes pasado en los 10 días
+    no registrados:
+
+    - Implementación completa del lvdsl para rejilla de pruebas
+      con implementación para `GA`, `PSO` e `IWO`, de modo que
+      se puedan paralelizar.
+    - Modificador para directorio de destino, agrega la cadena
+      indicada por el usuario como sufijo. Esto permite que las
+      iteraciones de la rejilla sean guardadas como nodos
+      hermanos, evita árboles innecesariamente laberínticos.
+    - [En versión de casa]{^ Nota sobre versiones}: el repositorio cuenta con sistema
+      de análisis estadístico para eficiencia, actualmente mide
+      fitness y valor del potencial.
+
+*** Avances y comentarios (04-06-2026)
+    Se implementó un tic tac para la función fitness de forma
+    que puedan medirse los tiempo de ejecución. Este se
+    puede invocar como:
+    `python -m lvdsl.k_theory.potentials`
+
+    Las pruebas se desarrollan usando Void Linux x86_64 en una
+    computadora Alienware con las características siguientes:
 
 
-   ^ nota al pie 21A2026
-   A momento de escrito esto, son a las 00:31 del 22 de Abril del 2026
+    System:
+    Kernel: 6.12.82_1 arch: x86_64 bits: 64
+    Desktop: N/A Distro: Void Linux
+    Machine:
+    Type: Desktop System: Alienware product: Alienware Aurora R16 v: N/A serial: <superuser required>
+    Mobo: Alienware model: 0RF96M v: A02 serial: <superuser required> Firmware: UEFI
+    vendor: Alienware v: 2.23.0 date: 12/29/2025
+    CPU:
+    Info: 16-core (8-mt/8-st) model: 13th Gen Intel Core i7-13700F bits: 64 type: MST AMCP cache:
+    L2: 24 MiB
+    Speed (MHz): avg: 4380 min/max: 800/5100:5200:4100 cores: 1: 4380 2: 4380 3: 4380 4: 4380
+    5: 4380 6: 4380 7: 4380 8: 4380 9: 4380 10: 4380 11: 4380 12: 4380 13: 4380 14: 4380 15: 4380
+    16: 4380 17: 4380 18: 4380 19: 4380 20: 4380 21: 4380 22: 4380 23: 4380 24: 4380
+    Graphics:
+    Device-1: NVIDIA AD107 [GeForce RTX 4060] driver: nvidia v: 580.142
+    Display: server: X.Org v: 21.1.22 with: Xwayland v: 24.1.9 driver: X: loaded: nvidia
+    gpu: nvidia,nvidia-nvswitch resolution: 1920x1080~60Hz
+    API: OpenGL v: 4.6.0 vendor: nvidia v: 580.142 renderer: NVIDIA GeForce RTX 4060/PCIe/SSE2
+    API: EGL Message: EGL data requires eglinfo. Check --recommends.
+    Info: Tools: api: glxinfo de: xfce4-display-settings gpu: nvidia-settings,nvidia-smi
+    x11: xdpyinfo, xprop, xrandr
+    Audio:
+    Device-1: Intel Alder Lake-S HD Audio driver: snd_hda_intel
+    Device-2: NVIDIA AD107 High Definition Audio driver: snd_hda_intel
+    API: ALSA v: k6.12.82_1 status: kernel-api
+    Server-1: PipeWire v: 1.6.2 status: active
+    Network:
+    Device-1: Realtek Killer E3000 2.5GbE driver: r8169
+    IF: enp2s0 state: up speed: 2500 Mbps duplex: full mac: <filter>
+    Device-2: Intel Wi-Fi 6E AX210/AX1675 2x2 [Typhoon Peak] driver: iwlwifi
+    IF: wlp3s0 state: down mac: <filter>
+    Bluetooth:
+    Device-1: Intel AX210 Bluetooth driver: btusb type: USB
+    Report: btmgmt ID: hci0 state: up address: <filter> bt-v: 5.4
+    RAID:
+    Hardware-1: Intel RST Volume Management Device Controller driver: vmd
+    Drives:
+    Local Storage: total: 1.05 TiB used: 107.57 GiB (10.0%)
+    ID-1: /dev/nvme0n1 vendor: SK Hynix model: PC811 1024GB size: 953.87 GiB
+    ID-2: /dev/sda vendor: Netac model: SSD 128GB size: 119.24 GiB type: USB
+    Partition:
+    ID-1: / size: 39.08 GiB used: 34.92 GiB (89.4%) fs: ext4 dev: /dev/sda2
+    ID-2: /boot/efi size: 69.8 MiB used: 286 KiB (0.4%) fs: vfat dev: /dev/sda1
+    ID-3: /home size: 77.37 GiB used: 72.65 GiB (93.9%) fs: ext4 dev: /dev/sda3
+    Swap:
+    Alert: No swap data was found.
+    Sensors:
+    Src: /sys System Temperatures: cpu: 82.0 C mobo: 35.0 C gpu: nvidia temp: 53 C
+    Fan Speeds (rpm): cpu: 2274 mobo: 1280 gpu: nvidia fan: 33%
+    Info:
+    Memory: total: 16 GiB note: est. available: 15.34 GiB used: 4.29 GiB (28.0%)
+    Processes: 476 Uptime: 29m Shell: nvim inxi: 3.3.40
 
-   [Regresar al texto]{** Miércoles 22 de Abril del 2026}
+    This process was performed 3 times obtaining an iteration
+    time of `1.222797e-03`, `2.273568e-03` and `1.179850e-03` of avg.
+    with slight variations per batch.
 
-   ^^ nota al pie 23A2026
-   Mi terminal tiene un formato que muestra HH:MM:SS, sin embargo, se perdió el inicio.
-   Sin embargo los tiempos de creación de los archivos de configuración fueron:
-   16:31 del 22 de Abril del 2026 en todos los experimentos.
-   Y la hora de término en las terminales fue:
-   20:31 del 22 de Abril del 2026 en GA y PSO.
+    The tic tac was done using a $C$ number of iterations each
+    batch where $C=A*B$, $A = 1, 10, 100, ... 10000$, $B = 1,3,7,11$.
 
-   IWO sigue en proceso.
-   ^^
+    So in total there 20 batchs per repetition.
 
-   [Regresar al texto]{** Jueves 23 de Abril del 2026}
+    These times were obtained using GPU/cupy implementation.
 
-   ^ nota al pie 23A2026-1
-   lvdsl utliza los valores por defecto de todo bioinspirado de
-   mealpy. Próximamente, en los experimentos con EDAs, se 
-   documentarán los parámetros considerados por defecto y los
-   usados en la optimización.
+    Full memory usage is reported (around 70Gb full), need to
+    get a new disk.
 
-   [Regresar al texto]{** Jueves 23 de Abril del 2026}
+    ___
+
+
+    ^ nota al pie 21A2026
+    A momento de escrito esto, son a las 00:31 del 22 de Abril del 2026
+
+    [Regresar al texto]{** Martes 21 de Abril del 2026}
+
+
+
+    ^^ nota al pie 23A2026
+    Mi terminal tiene un formato que muestra HH:MM:SS, sin embargo, se perdió el inicio.
+    Sin embargo los tiempos de creación de los archivos de configuración fueron:
+    16:31 del 22 de Abril del 2026 en todos los experimentos.
+    Y la hora de término en las terminales fue:
+    20:31 del 22 de Abril del 2026 en GA y PSO.
+
+    IWO sigue en proceso.
+    ^^
+
+    [Regresar al texto]{** Jueves 23 de Abril del 2026}
+
+
+
+    ^ nota al pie 23A2026-1
+    lvdsl utliza los valores por defecto de todo bioinspirado de
+    mealpy. Próximamente, en los experimentos con EDAs, se 
+    documentarán los parámetros considerados por defecto y los
+    usados en la optimización.
+
+    [Regresar al texto]{** Jueves 23 de Abril del 2026}
+
+
+
+    ^ Nota sobre versiones
+    Existen dos instancias del repositorio, una en el disco de
+    arranque usado nell laboratorio y otra en la pc personal.
+
+    [Regresar al texto]{*** Sobre los días no registrados (15-25 de Mayo)}
+
 
  ===
 ___

@@ -298,3 +298,64 @@ def effective_potential_nolift(_AH3, _AF3, _AF5, _A3N3, _tau, _s):
 def effective_potential_lift(_AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s):
     return v_l(_AH3, _AF3, _AF5, _A3N3, _AD5, _tau, _s)
 
+
+
+
+
+
+
+def __complexity_tictac_test__(iterations: int = 10000, log : str = ""):
+    """
+    Measure average evaluation time of fitness_function_fixedmoduli_lift_mealpy
+    using vectorized mode with a batch of 1 individual.
+    Uses global variables_numericas defaults (all 1.0).
+    """
+    import time
+
+    global variables_numericas
+
+    # Switch to vectorized mode (expects 2D input)
+    set_evaluation_mode(vectorized=True)
+
+    # Create a batch of 1 individual as a CuPy array
+    individual = xp.array([[
+        variables_numericas['AH3'],
+        variables_numericas['AF3'],
+        variables_numericas['AF5'],
+        variables_numericas['A3N3'],
+        variables_numericas['AD5']
+    ]], dtype=xp.float64)
+
+    # Warm-up call
+    _ = fitness_function_fixedmoduli_lift_mealpy(individual)
+
+    # Timing loop
+    start = time.perf_counter()
+    for _ in range(iterations):
+        _ = fitness_function_fixedmoduli_lift_mealpy(individual)
+    end = time.perf_counter()
+
+    total_time = end - start
+    avg_time = total_time / iterations
+
+    print(f"Complexity tic-tac test (vectorized fitness, batch size 1)")
+    print(f"  Iterations      : {iterations}")
+    print(f"  Total time      : {total_time:.6f} seconds")
+    print(f"  Avg per eval    : {avg_time:.6e} seconds")
+    print(f"  Evaluations/sec : {1/avg_time:.2f}")
+
+    if log:
+        ## Apppend
+        with open(log, "a") as f:
+            print(f"Complexity tic-tac test (vectorized fitness, batch size 1)", file=f)
+            print(f"  Iterations      : {iterations}", file=f)
+            print(f"  Total time      : {total_time:.6f} seconds", file=f)
+            print(f"  Avg per eval    : {avg_time:.6e} seconds", file=f)
+            print(f"  Evaluations/sec : {1/avg_time:.2f}", file=f)
+   # print("\n=> Confirmed: per-evaluation time is constant (O(1)).")
+
+
+if __name__ == "__main__":
+    for a in [1, 10, 100, 1000, 10000]:
+        for b in [ 1, 2, 3, 7, 11 ]:
+            __complexity_tictac_test__(iterations=a*b, log="lvdsl_k_theory_potentials_lifting_fitness_tictac_test.txt")

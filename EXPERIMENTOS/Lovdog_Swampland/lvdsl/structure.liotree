@@ -7,10 +7,12 @@
 |----- LovdogSwamplandMain2.py
 |----- RunPSO_01.sh
 |----- RunIWO_01.sh
+|----- RunGA_01.sh
 |----- BASH_SCRIPTS/
 |=-
 |--------- run_da_pso_grid
 |--------- run_da_iwo_grid
+|--------- run_da_ga_grid
 |==
 |==
 |---- ../../../ > Directorio de la TESIS ||

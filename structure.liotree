@@ -251,6 +251,10 @@
 |=-
 |---- ReviewAftermath.tex
 |==
+|--- ReporteBigO.TEX/
+|=-
+|-------- ReporteBigO.tex
+|==
 |==
 |- PIE/                                           > Trabajos de la clase de Proyecto de Investigación en Ing. Electrónica. ||
 |=-

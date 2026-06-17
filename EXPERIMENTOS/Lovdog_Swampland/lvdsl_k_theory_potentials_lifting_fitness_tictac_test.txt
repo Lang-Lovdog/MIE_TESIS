@@ -1,0 +1,125 @@
+Complexity tic-tac test (vectorized fitness, batch size 1)
+  Iterations      : 1
+  Total time      : 0.001293 seconds
+  Avg per eval    : 1.292961e-03 seconds
+  Evaluations/sec : 773.42
+Complexity tic-tac test (vectorized fitness, batch size 1)
+  Iterations      : 2
+  Total time      : 0.002355 seconds
+  Avg per eval    : 1.177514e-03 seconds
+  Evaluations/sec : 849.25
+Complexity tic-tac test (vectorized fitness, batch size 1)
+  Iterations      : 3
+  Total time      : 0.003499 seconds
+  Avg per eval    : 1.166407e-03 seconds
+  Evaluations/sec : 857.33
+Complexity tic-tac test (vectorized fitness, batch size 1)
+  Iterations      : 7
+  Total time      : 0.008216 seconds
+  Avg per eval    : 1.173741e-03 seconds
+  Evaluations/sec : 851.98
+Complexity tic-tac test (vectorized fitness, batch size 1)
+  Iterations      : 11
+  Total time      : 0.013364 seconds
+  Avg per eval    : 1.214935e-03 seconds
+  Evaluations/sec : 823.09
+Complexity tic-tac test (vectorized fitness, batch size 1)
+  Iterations      : 10
+  Total time      : 0.011473 seconds
+  Avg per eval    : 1.147346e-03 seconds
+  Evaluations/sec : 871.58
+Complexity tic-tac test (vectorized fitness, batch size 1)
+  Iterations      : 20
+  Total time      : 0.024069 seconds
+  Avg per eval    : 1.203464e-03 seconds
+  Evaluations/sec : 830.93
+Complexity tic-tac test (vectorized fitness, batch size 1)
+  Iterations      : 30
+  Total time      : 0.035224 seconds
+  Avg per eval    : 1.174130e-03 seconds
+  Evaluations/sec : 851.69
+Complexity tic-tac test (vectorized fitness, batch size 1)
+  Iterations      : 70
+  Total time      : 0.082142 seconds
+  Avg per eval    : 1.173457e-03 seconds
+  Evaluations/sec : 852.18
+Complexity tic-tac test (vectorized fitness, batch size 1)
+  Iterations      : 110
+  Total time      : 0.128584 seconds
+  Avg per eval    : 1.168944e-03 seconds
+  Evaluations/sec : 855.47
+Complexity tic-tac test (vectorized fitness, batch size 1)
+  Iterations      : 100
+  Total time      : 0.117244 seconds
+  Avg per eval    : 1.172436e-03 seconds
+  Evaluations/sec : 852.93
+Complexity tic-tac test (vectorized fitness, batch size 1)
+  Iterations      : 200
+  Total time      : 0.235252 seconds
+  Avg per eval    : 1.176259e-03 seconds
+  Evaluations/sec : 850.15
+Complexity tic-tac test (vectorized fitness, batch size 1)
+  Iterations      : 300
+  Total time      : 0.353076 seconds
+  Avg per eval    : 1.176918e-03 seconds
+  Evaluations/sec : 849.68
+Complexity tic-tac test (vectorized fitness, batch size 1)
+  Iterations      : 700
+  Total time      : 0.849575 seconds
+  Avg per eval    : 1.213679e-03 seconds
+  Evaluations/sec : 823.94
+Complexity tic-tac test (vectorized fitness, batch size 1)
+  Iterations      : 1100
+  Total time      : 1.293386 seconds
+  Avg per eval    : 1.175805e-03 seconds
+  Evaluations/sec : 850.48
+Complexity tic-tac test (vectorized fitness, batch size 1)
+  Iterations      : 1000
+  Total time      : 1.190842 seconds
+  Avg per eval    : 1.190842e-03 seconds
+  Evaluations/sec : 839.74
+Complexity tic-tac test (vectorized fitness, batch size 1)
+  Iterations      : 2000
+  Total time      : 2.355154 seconds
+  Avg per eval    : 1.177577e-03 seconds
+  Evaluations/sec : 849.20
+Complexity tic-tac test (vectorized fitness, batch size 1)
+  Iterations      : 3000
+  Total time      : 3.535554 seconds
+  Avg per eval    : 1.178518e-03 seconds
+  Evaluations/sec : 848.52
+Complexity tic-tac test (vectorized fitness, batch size 1)
+  Iterations      : 7000
+  Total time      : 8.267771 seconds
+  Avg per eval    : 1.181110e-03 seconds
+  Evaluations/sec : 846.66
+Complexity tic-tac test (vectorized fitness, batch size 1)
+  Iterations      : 11000
+  Total time      : 12.916182 seconds
+  Avg per eval    : 1.174198e-03 seconds
+  Evaluations/sec : 851.64
+Complexity tic-tac test (vectorized fitness, batch size 1)
+  Iterations      : 10000
+  Total time      : 11.781785 seconds
+  Avg per eval    : 1.178178e-03 seconds
+  Evaluations/sec : 848.77
+Complexity tic-tac test (vectorized fitness, batch size 1)
+  Iterations      : 20000
+  Total time      : 23.604519 seconds
+  Avg per eval    : 1.180226e-03 seconds
+  Evaluations/sec : 847.30
+Complexity tic-tac test (vectorized fitness, batch size 1)
+  Iterations      : 30000
+  Total time      : 35.257808 seconds
+  Avg per eval    : 1.175260e-03 seconds
+  Evaluations/sec : 850.88
+Complexity tic-tac test (vectorized fitness, batch size 1)
+  Iterations      : 70000
+  Total time      : 82.698445 seconds
+  Avg per eval    : 1.181406e-03 seconds
+  Evaluations/sec : 846.45
+Complexity tic-tac test (vectorized fitness, batch size 1)
+  Iterations      : 110000
+  Total time      : 129.783539 seconds
+  Avg per eval    : 1.179850e-03 seconds
+  Evaluations/sec : 847.57

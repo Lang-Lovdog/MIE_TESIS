@@ -1,0 +1,116 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\definecolor{codegray}{gray}{0.95}
+\lstset{language=Python,
+        basicstyle=\ttfamily\small,
+        backgroundcolor=\color{codegray},
+        commentstyle=\color{green!40!black},
+        keywordstyle=\color{blue},
+        stringstyle=\color{red},
+        showstringspaces=false,
+        breaklines=true}
+
+\title{Complexity Analysis of a SymPy‐Based Fitness Function\\ for Metaheuristic Benchmarking}
+\author{Computational Physics \& Optimization Group}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+We analyze the computational complexity of a fitness function derived from a symbolic potential model (implemented in SymPy) that is used within metaheuristic (MH) algorithms. The fitness evaluation consists of a fixed number of arithmetic operations and is therefore $O(1)$ per call. For a family of metaheuristics under a fixed budget of evaluations, the total asymptotic complexity is linear in the number of evaluations, with constant factors that depend on the MH’s internal overhead. We provide a systematic measurement methodology and derive a general Big O expression that can be applied across different optimizers. This work is part of a No Free Lunch (NFL) style experimental study.
+\end{abstract}
+
+\section{Introduction}
+In metaheuristic optimization, the cost of evaluating the fitness function often dominates total runtime. However, for symbolic models with a fixed number of variables, each evaluation takes constant time. We examine a concrete implementation: a fitness function that sums four components (potential, Hessian trace, gradient modulus, and tachyon level), each derived from a two‑field scalar potential $V_{\text{lift}}(s,\tau; \vec{\alpha})$ where $\vec{\alpha} = (AH3, AF3, AF5, A3N3, AD5)$ are real parameters. The function is written in SymPy and then lambdified to NumPy/CuPy for numerical evaluation.
+
+\section{Complexity of the Fitness Function}
+Let $f(\vec{\alpha})$ be the fitness function:
+\[
+f(\vec{\alpha}) = V_{\text{lift}}(\vec{\alpha}) + \operatorname{tr}(\mathbf{H}) + \|\nabla V_{\text{lift}}\| + \lambda_{\min}(\mathbf{H})
+\]
+with $\mathbf{H}$ the $2\times 2$ Hessian matrix. All terms are closed‑form algebraic expressions obtained by symbolic differentiation. The lambdified code performs a fixed number of floating‑point operations (additions, multiplications, divisions, powers, square roots) that does not depend on any input size. Therefore:
+
+\[
+T_{\text{fitness}}(1) = O(1) \quad\text{(constant time)}.
+\]
+
+Let $C_f$ be the measured average time per evaluation (a constant). For $E$ evaluations, total fitness cost is $C_f \cdot E = O(E)$.
+
+\section{Metaheuristic Complexity: General Form}
+Let a metaheuristic $\mathcal{M}$ be characterized by:
+\begin{itemize}
+    \item Population size (or number of agents) $P$,
+    \item Number of generations (iterations) $G$,
+    \item Total number of fitness evaluations $E = P \times G$ (for generational algorithms; some MHs may use different relations).
+\end{itemize}
+The total runtime of $\mathcal{M}$ is:
+\[
+T_{\mathcal{M}} = \underbrace{C_f \cdot E}_{\text{fitness}} \;+\; T_{\text{int}}(P,G)
+\]
+where $T_{\text{int}}(P,G)$ is the internal overhead (selection, crossover, mutation, velocity updates, etc.). For typical MHs, $T_{\text{int}} = O(E \cdot h(P))$ with $h(P)$ usually $O(1)$ or $O(\log P)$. Hence asymptotically:
+\[
+T_{\mathcal{M}} = O(E) \quad\text{with respect to problem size (fixed)}.
+\]
+
+\subsection{Dependence on the Metaheuristic}
+For a fixed evaluation budget $E_{\max}$ (e.g., $10^5$), all compared MHs perform exactly the same number of fitness calls. Thus the asymptotic complexity is identical for all; only the constant factors differ:
+\[
+T_{\mathcal{M}} = E_{\max} \cdot C_f + \text{constant}_{\mathcal{M}} \cdot E_{\max}
+\]
+where $\text{constant}_{\mathcal{M}}$ captures the per‑evaluation overhead of the MH’s internal operations. Therefore in an NFL‑style experiment, the measured performance differences reflect the algorithms’ efficiency (including constant factors), not asymptotic growth differences.
+
+\section{Systematic Measurement Methodology}
+To empirically determine the complexity parameters for a specific MH:
+
+\begin{enumerate}
+    \item \textbf{Measure $C_f$:}
+    \begin{lstlisting}
+    import time
+    N = 10000
+    t0 = time.perf_counter()
+    for _ in range(N):
+        fitness_function_fixedmoduli_lift(AH3, AF3, AF5, A3N3, AD5)
+    t1 = time.perf_counter()
+    C_f = (t1 - t0) / N
+    \end{lstlisting}
+    \item \textbf{Run the MH with varying $E$:} Keep $P$ fixed and increase $G$ (or vice versa) so that $E = P \cdot G$ varies linearly.
+    \item \textbf{Measure total wall time $T_{\text{total}}$}.
+    \item \textbf{Subtract the fitness cost:}
+    \[
+    T_{\text{int}} = T_{\text{total}} - C_f \cdot E
+    \]
+    \item \textbf{Perform regression:} Plot $T_{\text{total}}$ vs $E$; the slope is $C_f + \text{const}_{\mathcal{M}}$ and the intercept captures constant initialization overhead.
+\end{enumerate}
+
+\subsection{Example: Genetic Algorithm (GA)}
+For a GA with population $P$, generations $G$, tournament selection of size $k$, one‑point crossover, and bit‑flip mutation:
+\begin{itemize}
+    \item Fitness evaluations: $E = P \cdot G$
+    \item Sorting population (for elitism): $O(P \log P)$ per generation
+    \item Selection: $O(P \cdot k)$ per generation
+    \item Crossover/Mutation: $O(P)$ per generation
+\end{itemize}
+Hence $T_{\text{int}} = G \cdot O(P \log P + P k) = O(E \log P)$. For fixed $P$, this is $O(E)$; for variable $P$, the $\log P$ factor may appear.
+
+\section{Conclusion}
+The fitness function derived from the two‑field scalar potential is $O(1)$ per evaluation. Consequently, for any metaheuristic operating under a fixed evaluation budget, the total complexity is linear in that budget. The constant factor is the sum of the per‑evaluation fitness cost $C_f$ and the per‑evaluation internal overhead of the algorithm. This linearity enables fair comparisons in NFL‑style benchmarks: differences in wall‑clock time directly reflect algorithmic efficiency modulo the constant $C_f$, which is identical across all methods.
+
+\begin{thebibliography}{9}
+\bibitem{CLRS} Cormen, T. H. et al. \textit{Introduction to Algorithms}. MIT Press, 2009.
+\bibitem{NFL} Wolpert, D. H., Macready, W. G. “No Free Lunch Theorems for Optimization”. \textit{IEEE Trans. Evol. Comput.} 1(1), 1997.
+\bibitem{sympy} Meurer, A. et al. “SymPy: symbolic computing in Python”. \textit{PeerJ Computer Science} 3, 2017.
+\end{thebibliography}
+
+\end{document}
