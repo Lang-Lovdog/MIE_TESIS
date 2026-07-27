@@ -95,6 +95,10 @@ if __name__ == "__main__":
         print(f"{len(built_params_main)} models built")
     else:
         print("No model specified use as: this_script OPTIMIZER_NAME_UPPERCASE [models to test]")
+        print("Optimizers: GA, PSO, IWO:")
+        for model_to_optimize in GridS.keys():
+            print(f"{model_to_optimize} has \t{len(build_grid(model_to_optimize, GridS[model_to_optimize]))} possible configurations.")
+        exit(0)
     print(f'{len(built_params_main)} to test')
 
     print(built_params_main)
