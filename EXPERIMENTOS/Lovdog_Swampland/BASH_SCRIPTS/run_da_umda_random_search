@@ -1,0 +1,5 @@
+#!/bin/bash
+
+. ../venv/bin/activate
+python ./LovdogSwamplandMain3.py UMDA $1
+
