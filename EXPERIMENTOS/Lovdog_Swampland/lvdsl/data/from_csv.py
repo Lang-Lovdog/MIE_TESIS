@@ -51,8 +51,8 @@ def read_mathematica_format(archivo_csv: str, D5_Fluxes: bool = False):
     print(df2)
     return df2
 
-def read_native_format(archivo_csv: str):
-    df = pd.read_csv(archivo_csv, index_col=None, header=0, sep=",", dtype=str)
+def read_native_format(archivo_csv: str, index_col=None):
+    df = pd.read_csv(archivo_csv, index_col=index_col, header=0, sep=",", dtype=str)
     ### Drop all suffixed with _O
     df = df.loc[:, ~df.columns.str.endswith('_O')]
     return df

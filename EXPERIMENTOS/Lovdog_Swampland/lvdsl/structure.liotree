@@ -5,17 +5,38 @@
 |----- __this__dir__
 |----- LovdogSwamplandMain.py
 |----- LovdogSwamplandMain2.py
+|----- LovdogSwamplandMain3.py
+|----- LovdogSwamplandStats.py
 |----- RunPSO_01.sh
 |----- RunIWO_01.sh
 |----- RunGA_01.sh
+|
+|----- RunGA-RS_01.sh    > :3 ||
+|----- RunPSO-RS_01.sh   > :  ||
+|----- RunIWO-RS_01.sh   > :  ||
+|----- RunUMDA-RS_01.sh  > :c ||
+|----- RunPBIL-RS_01.sh  > :3 ||
+|----- RunACO-RS_01.sh   > :  ||
+|----- RunVCS-RS_01.sh   > :3 ||
+|----- RunASO-RS_01.sh   > :c ||
+|
 |----- BASH_SCRIPTS/
 |=-
 |--------- run_da_pso_grid
 |--------- run_da_iwo_grid
 |--------- run_da_ga_grid
+|
+|--------- run_da_ga_random_search
+|--------- run_da_iwo_random_search
+|--------- run_da_pso_random_search
+|--------- run_da_umda_random_search
+|--------- run_da_pbil_random_search
+|--------- run_da_aco_random_search
+|--------- run_da_aso_random_search
+|--------- run_da_vcs_random_search
 |==
 |==
-|---- ../../../ > Directorio de la TESIS ||
+|---- ../../ > Directorio de la TESIS ||
 |=-
 |----- structure.liotree                           > Estructura de la tesis completa                                        ||
 |----- Notas.norg
@@ -52,6 +73,7 @@
 |=-
 |-------- __init__.py
 |-------- plot_stats.py
+|-------- dir_handle.py
 |-------- get_stats.py
 |==
 |---- tests/

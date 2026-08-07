@@ -37,7 +37,7 @@ def set_name_suffix(val : str):
 
 def setup_filename():
     now = datetime.now()
-    dt_string = now.strftime("%d%m%Y_%H%M%S") if full_datetime else now.strftime("%d%m%Y")
+    dt_string = now.strftime("%Y%m%d_%H%M%S") if full_datetime else now.strftime("%Y%m%d")
     dirname = "lvdsl_outputs/VacuaFound_" + dt_string
     return dirname
 
@@ -142,6 +142,16 @@ class natureinspired_models:
                 "p_mutation": 0.05,
                 "p_external": 0.02
             },
+            "umda": {
+                "epoch": 100,
+                "pop_size": 50,
+                "selection_ratio": 0.2,
+            },
+            "pbil": {
+                "epoch": 100,
+                "pop_size": 50,
+                "learning_rate": 0.1,
+            },
             "aco": {
                 "epoch" : 10000,
                 "pop_size" : 100,
@@ -200,15 +210,15 @@ class natureinspired_models:
             )
         elif name == "UMDA":
             return_model = UMDA(
-                epoch           = self.params.get("eda").get("epoch"),
-                pop_size        = self.params.get("eda").get("pop_size"),
-                selection_ratio = self.params.get("eda").get("selection_ratio")
+                epoch           = self.params.get("umda").get("epoch"),
+                pop_size        = self.params.get("umda").get("pop_size"),
+                selection_ratio = self.params.get("umda").get("selection_ratio")
             )
         elif name == "PBIL":
             return_model = PBIL(
-                epoch         = self.params.get("eda").get("epoch"),
-                pop_size      = self.params.get("eda").get("pop_size"),
-                learning_rate = self.params.get("eda").get("learning_rate"),
+                epoch         = self.params.get("pbil").get("epoch"),
+                pop_size      = self.params.get("pbil").get("pop_size"),
+                learning_rate = self.params.get("pbil").get("learning_rate"),
             )
         elif name == "IWO":
             return_model = mp.IWO.OriginalIWO(
@@ -371,6 +381,9 @@ def perform_search_fixed_s_tau(
             ridx            ,
             fixed
         )
+
+        ### Restart found_solutions for the next search row
+        found_solutions = []
 
 def save_solutions(
         found_solutions ,
