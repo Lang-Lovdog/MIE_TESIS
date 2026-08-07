@@ -1,0 +1,161 @@
+| Lovdog_Swampland/                             > El código donde estoy replicando el experimento del Dr. Cesar.         ||
+|=-
+|--- __this__dir__
+|--- MetastableVacua.py                           > Módulo que contiene la función potencial y sus descriptores
+|                                                 correspondientes.                                                        ||
+|--- BusquedaGeneticos.py                         > Este script es la primera versión que implementa los
+|                                                 metaheurísticos en Python. Originalmente PSO y Genéticos.                ||
+|--- test_fitness_function.py                     > Aquí únicamente se evalúan los elementos según los resultados
+|                                                 esperados.                                                               ||
+|--- SolutionsCounter.py                          > Contador de soluciones (archivos VacuaFound_DDMMAAAA), clasificación
+|                                                 de todo el contenido encontrado en los diferentes experimentos (usa
+|                                                 lista de python con los nombres de los directorios a examinar            ||
+|--- SolutionsCounter_O.py                        > Contador de soluciones (archivos VacuaFound_DDMMAAAA), clasificación
+|                                                 de todo el contenido encontrado en los diferentes experimentos (usa
+|                                                 lista de python con los nombres de los directorios a examinar            ||
+|--- PlotOriginal.py                              > Módulo que grafica las soluciones encontradas por el Dr. Cesar         ||
+|--- PlotVacuaFound.py
+|--- Pasarela.sh
+|-- VacuaFoundPlots/
+|=-
+|-- ;[DDMMYYYY]/;                                 >  Gráfica de las salidas de la búsqueda metaheurística.
+|                                                    | --- ;VacuaFound[DDMMYYYY]/;
+|                                                    |   =-
+|                                                    |     -- __this__dir__
+|                                                    |     -- dS/
+|                                                    |       =-
+|                                                    |       --- ;Plot_VacuaFound_[DDMMYYYY]_E[int].eps;
+|                                                    |       --- Pasarela.sh
+|                                                    |       ==
+|                                                    |     -- AdS/
+|                                                    |       =-
+|                                                    |       --- ;Plot_VacuaFound_[DDMMYYYY]_E[int].eps;
+|                                                    |       --- Pasarela.sh
+|                                                    |       ==
+|                                                    |   ==
+|                                                    ||
+|=-
+|--- ;found_solutions_[_]dS_fv_[d]/;              > Resultados de la búsqueda metaheurística.                              ||
+|=-
+|----- ;Plot_E[index].eps;                       > Gráfica en formato eps ||
+|==
+|==
+|==
+|--- OriginalSolutions/                           > Plots de los elementos originales (Damian_2022)                        ||
+|=-
+|----- __this__dir__
+|----- ;Solution-[XYZ].eps;
+|----- ;Solution-[XYZ].eps.eps;
+|==
+|--- ;SolutionsCounter_Resumen[_O]/;        > ||
+|=-
+|-- ;ResumenDel[DDMMAAAA].json;                   > El archivo tendrá la forma:
+|                                                  "post lift": {
+|                                                     "dS":  { "stable": [int], "unstable": [int] },
+|                                                     "AdS": { "stable": [int], "unstable": [int] },
+|                                                  }
+|                                                  "pre lifting": {
+|                                                     "dS":  { "to dS": [int],  "to AdS": [int] },
+|                                                     "AdS": { "to dS": [int],  "to AdS": [int] },
+|                                                  }
+|                                                 ||
+|-- ;Histograma1[DDMMAAAA].eps;                   > Histograma de barra dividida con base en dS AdS y división por
+|                                                 estabilidad                                                              ||
+|-- ;Histograma2[DDMMAAAA].eps;                   > Histograma de barra dividida con base en dS AdS y división por
+|                                                 comportamiento tras levantamiento                                        ||
+|-- DescripcionDeResumen.txt                      > El archivo tendrá la forma:
+|                                                   [DDMMAAAA]
+|                                                   Archivos:
+|                                                   VacuaFoundXXYYZZZZ/
+|                                                   VacuaFoundAABBCCCC/
+|                                                   Registros ignorados
+|                                                   a,b,c,... (int)
+|                                                   ...
+|                                                 ||
+|==
+|--- OldStuff/ > Salidas de genéticos de la versión preliminar (artículo) ||
+|=-
+|----- ;VacuaFound_[DDMMYYYY]/;                     > Las salidas de la búsqueda metaheurística.                             ||
+|=-
+|-------- __this__dir__
+|-------- ;found_solutions__dS_fv_[d].csv;              > Resultados de la búsqueda metaheurística.                              ||
+|-------- ;found_solutions_AdS_fv_[d].csv;              > Resultados de la búsqueda metaheurística.                              ||
+|==
+|==
+|--- lvdsl_outputs/
+|=-
+|--- ;VacuaFound_[DDMMYYYY]_[HH]/;                > Las salidas de la búsqueda metaheurística.                             ||
+|=-
+|----- ;[MODEL];/
+|=-
+|-- __this__dir__
+|-- ;[MODEL]-[4d][.csv].csv;              > Resultados de la búsqueda metaheurística.                              ||
+|==
+|==
+|==
+|--- Classifier/
+|=-
+|==
+|--- LovdogSwamplandMain.py
+|--- LovdogSwamplandMain2.py
+|--- LovdogSwamplandMain3.py
+|--- RunPSO_01.sh
+|--- RunIWO_01.sh
+|--- RunGA_01.sh
+|
+|--- RunGA-RS_01.sh
+|--- RunPSO-RS_01.sh
+|--- RunIWO-RS_01.sh
+|--- RunUMDA-RS_01.sh
+|--- RunPBIL-RS_01.sh
+|--- RunACO-RS_01.sh
+|--- RunVCS-RS_01.sh
+|--- RunASO-RS_01.sh
+|
+|--- BASH_SCRIPTS/
+|=-
+|--------- run_da_pso_grid
+|--------- run_da_iwo_grid
+|--------- run_da_ga_grid
+|--------- run_da_ga_random_search
+|--------- run_da_iwo_random_search
+|--------- run_da_pso_random_search
+|--------- run_da_umda_random_search
+|--------- run_da_pbil_random_search
+|--------- run_da_aco_random_search
+|--------- run_da_aso_random_search
+|--------- run_da_vcs_random_search
+|==
+|--- StatisticAnalysis_lvdsl.qmd
+|--- lvdsl/                                       > Módulo del Lovdog Swapland                                             ||
+|=-
+|--- structure.liotree                            > Estructura independiente del módulo  (actualizado)                     ||
+|---- __init__.py
+|---- xp.py                                        > Implementa lo necesario para procesamiento numérico, detecta tarjeta
+|                                                  gráfica para decidir sobre cupy o numpy                                  ||
+|---- globals.py                                   > Global variables and values                                            ||
+|---- k_theory/                                    > La teoría en revisión actual                                           ||
+|=-
+|------- __init__.py
+|------- vars.py                                   > Variables de la función potencial, definición simbólica de la función
+|                                                  potencial, Hess y autovalores. Además de algunas funciones auxiliares
+|                                                  para fijar coeficientes/módulos y precisión decimal de operación para
+|                                                  sympy.                                                                   ||
+|------- potentials.py                             > Definición de las funciones de evaluación, tanto de la versión lifting
+|                                                  como de la original. (Sujeto a cambio de nombre).                        ||
+|------- plots.py                                  > Graficación de las funciones, las principales serán inspiradas en el
+|                                                  experimento original. Algunos extras en caso de ser necesario.           ||
+|==
+|---- bioinspired/
+|=-
+|------- __init__.py
+|------- defs.py
+|------- EDAs.py
+|==
+|---- data/
+|=-
+|------- __init__.py
+-------- from_csv.py
+|==
+|==
+|==

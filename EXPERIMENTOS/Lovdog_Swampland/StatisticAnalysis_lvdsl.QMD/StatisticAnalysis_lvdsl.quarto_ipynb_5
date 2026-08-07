@@ -1,0 +1,442 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: \"Results Analysis\"\n",
+        "format: pdf\n",
+        "jupyter: python3\n",
+        "---"
+      ],
+      "id": "c1b8a68a"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import pandas as pd\n",
+        "import os\n",
+        "import matplotlib.pyplot as plt\n",
+        "import seaborn as sns\n",
+        "from scipy.stats import shapiro\n",
+        "import scipy.stats as stats"
+      ],
+      "id": "bc6f3c85",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: false\n",
+        "os.chdir(\"/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/MIE_TESIS/EXPERIMENTOS/Lovdog_Swampland\")"
+      ],
+      "id": "fab57a95",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Obtaining datasets"
+      ],
+      "id": "569379de"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "lvdsl_output=[\n",
+        "  ## Primer modelo\n",
+        "  \"./lvdsl_outputs/VacuaFound_07052026_174039/GA/GA-0000.csv.csv\",\n",
+        "  \"./lvdsl_outputs/VacuaFound_07052026_174039/GA/GA-0001.csv.csv\",\n",
+        "  \"./lvdsl_outputs/VacuaFound_07052026_174039/GA/GA-0002.csv.csv\",\n",
+        "  ## Segundo modelo\n",
+        "  \"./lvdsl_outputs/VacuaFound_07052026_174049/GA/GA-0000.csv.csv\",\n",
+        "  \"./lvdsl_outputs/VacuaFound_07052026_174049/GA/GA-0001.csv.csv\",\n",
+        "  \"./lvdsl_outputs/VacuaFound_07052026_174049/GA/GA-0002.csv.csv\",\n",
+        "  ## Tercer modelo\n",
+        "  \"./lvdsl_outputs/VacuaFound_07052026_174804/GA/GA-0000.csv.csv\",\n",
+        "  \"./lvdsl_outputs/VacuaFound_07052026_174804/GA/GA-0001.csv.csv\",\n",
+        "  \"./lvdsl_outputs/VacuaFound_07052026_174804/GA/GA-0002.csv.csv\",\n",
+        "  ## Cuarto modelo\n",
+        "  \"./lvdsl_outputs/VacuaFound_07052026_175255/GA/GA-0000.csv.csv\",\n",
+        "  \"./lvdsl_outputs/VacuaFound_07052026_175255/GA/GA-0001.csv.csv\",\n",
+        "  \"./lvdsl_outputs/VacuaFound_07052026_175255/GA/GA-0002.csv.csv\",\n",
+        "]\n",
+        "\n",
+        "lvdsl_runmodels=[\n",
+        "  ## Primer modelo\n",
+        "  \"./lvdsl_outputs/VacuaFound_07052026_174039/GA/model_description.txt\",\n",
+        "  ## Segundo modelo\n",
+        "  \"./lvdsl_outputs/VacuaFound_07052026_174049/GA/model_description.txt\",\n",
+        "  ## Tercer modelo\n",
+        "  \"./lvdsl_outputs/VacuaFound_07052026_174804/GA/model_description.txt\",\n",
+        "  ## Cuarto modelo\n",
+        "  \"./lvdsl_outputs/VacuaFound_07052026_175255/GA/model_description.txt\",\n",
+        "]\n",
+        "\n",
+        "data=[]\n",
+        "\n",
+        "for dataset in lvdsl_output:\n",
+        "  data.append(pd.read_csv(dataset))"
+      ],
+      "id": "7f8e972c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "by Model grouping"
+      ],
+      "id": "7a94584c"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "i=0\n",
+        "for mod in lvdsl_runmodels:\n",
+        "  i=i+1\n",
+        "  print(f'Model {i}')\n",
+        "  with open(mod) as f:\n",
+        "    print(f.readlines())"
+      ],
+      "id": "b743152d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "all_frames = []\n",
+        "\n",
+        "for i, path in enumerate(lvdsl_output):\n",
+        "    df = pd.read_csv(path)\n",
+        "    # Assign model group (0-2 is Model 1, 3-5 is Model 2, etc.)\n",
+        "    df['Model'] = f'Model {i // 3 + 1}'\n",
+        "    # Assign Run ID (0, 1, or 2 within that model)\n",
+        "    df['Run'] = f'Run {i % 3}'\n",
+        "    all_frames.append(df[['V', 'fitness', 's', 'tau', 'Model', 'Run']])"
+      ],
+      "id": "e60461e1",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Run characteristics"
+      ],
+      "id": "8dc1ecbe"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "for frame in all_frames[0:3]:\n",
+        "  run=frame['Run'].iloc[0]\n",
+        "  run=int(run[3:])+1\n",
+        "  s=frame['s'].iloc[0]\n",
+        "  tau=frame['tau'].iloc[0]\n",
+        "  print(f'Run {run}: s={s}, tau={tau}')"
+      ],
+      "id": "72f52e4a",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Stable vacua count"
+      ],
+      "id": "541debba"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# 1. Prepare the Data\n",
+        "plot_list = []\n",
+        "for i, ds in enumerate(data):\n",
+        "    model_num = i // 3\n",
+        "    run_idx = i % 3  # 0, 1, or 2\n",
+        "    stable_count = ds[ds['taquiónico'] == 0].shape[0]\n",
+        "    \n",
+        "    # Mapping indices to names for the plot\n",
+        "    run_names = ['Run 1', 'Run 2', 'Run 3']\n",
+        "    \n",
+        "    plot_list.append({\n",
+        "        'Model': f'Model {model_num + 1}',\n",
+        "        'Run': run_names[run_idx],\n",
+        "        'Stable_Count': stable_count,\n",
+        "        'Total_Count': ds.shape[0]\n",
+        "    })\n",
+        "\n",
+        "df_plot = pd.DataFrame(plot_list)\n",
+        "\n",
+        "# 2. Define the Autumn Forest Palette (Per Run)\n",
+        "# Forest Green, Burnt Orange, Earthy Brown\n",
+        "autumn_palette = [\"#228B22\", \"#D2691E\", \"#8B4513\"]\n",
+        "\n",
+        "# 3. Plotting\n",
+        "plt.figure(figsize=(12, 7))\n",
+        "\n",
+        "ax = sns.barplot(\n",
+        "    data=df_plot, \n",
+        "    x='Model', \n",
+        "    y='Stable_Count', \n",
+        "    hue='Run', \n",
+        "    palette=autumn_palette,\n",
+        "    edgecolor='black'\n",
+        ")\n",
+        "\n",
+        "# Aesthetics\n",
+        "plt.title('Stability Analysis: Count of Non-Tachyonic Vacua', fontsize=14, fontweight='bold')\n",
+        "plt.ylabel('Number of Stable (Non Tachionic) Points', fontsize=12)\n",
+        "plt.xlabel('Model Comparison', fontsize=12)\n",
+        "plt.ylim(0, 105) # Since you have 100 rows per dataset\n",
+        "plt.grid(axis='y', linestyle='--', alpha=0.3)\n",
+        "\n",
+        "# Legend placement\n",
+        "plt.legend(title=\"Execution Runs\", loc='upper left', bbox_to_anchor=(1, 1))\n",
+        "\n",
+        "plt.tight_layout()\n",
+        "plt.savefig('StabilityAnalysis.eps')\n",
+        "plt.show()"
+      ],
+      "id": "8246b199",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Stability ratio"
+      ],
+      "id": "92481b8a"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "for e in plot_list:\n",
+        "  print(f\"Model {e['Model']} Run {e['Run']} Stability Ratio: {e['Stable_Count']/e['Total_Count']:.2f}\")"
+      ],
+      "id": "985a44f8",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Fitness and Potential comparison"
+      ],
+      "id": "6de9d489"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "sns.set_theme(style=\"whitegrid\", context=\"paper\", font_scale=2.0)\n",
+        "# Combine into one master dataframe\n",
+        "combined_df = pd.concat(all_frames)\n",
+        "\n",
+        "# 2. Create the Comparison Plot\n",
+        "fig, axs = plt.subplots(2, 1, figsize=(14, 10))\n",
+        "\n",
+        "# Plot for V\n",
+        "sns.violinplot(data=combined_df, x='Model', y='V', hue='Run', ax=axs[0], palette='viridis')\n",
+        "axs[0].set_title('Comparison of V across Models (3 Runs each)')\n",
+        "axs[0].grid(axis='y', linestyle='--', alpha=0.7)\n",
+        "\n",
+        "# Plot for fitness\n",
+        "sns.violinplot(data=combined_df, x='Model', y='fitness', hue='Run', ax=axs[1], palette='magma')\n",
+        "axs[1].set_title('Comparison of Fitness across Models (3 Runs each)')\n",
+        "axs[1].grid(axis='y', linestyle='--', alpha=0.7)\n",
+        "\n",
+        "plt.tight_layout()\n",
+        "plt.savefig('ViolinAG_comparison.eps')\n",
+        "plt.show()"
+      ],
+      "id": "6499b392",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Normality test"
+      ],
+      "id": "1f3c50d1"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "normality_results = []\n",
+        "\n",
+        "for i, df in enumerate(data):\n",
+        "    # Test for 'V'\n",
+        "    stat_v, p_v = shapiro(df['V'])\n",
+        "    # Test for 'fitness'\n",
+        "    stat_f, p_f = shapiro(df['fitness'])\n",
+        "    \n",
+        "    normality_results.append({\n",
+        "        'Dataset': f'DF {i}',\n",
+        "        'V_p-value': round(p_v, 4),\n",
+        "        'V_is_Normal': p_v > 0.05,\n",
+        "        'Fit_p-value': round(p_f, 4),\n",
+        "        'Fit_is_Normal': p_f > 0.05\n",
+        "    })\n",
+        "\n",
+        "# Display as a Table\n",
+        "results_df = pd.DataFrame(normality_results)\n",
+        "\n",
+        "#plt.figure(figsize=(6, 6))\n",
+        "#stats.probplot(data[0]['fitness'], dist=\"norm\", plot=plt)\n",
+        "#plt.title(\"Q-Q Plot for Fitness (Dataset 0)\")\n",
+        "#plt.show()\n",
+        "\n",
+        "with open('AG_normality_results.csv', 'w') as f:\n",
+        "    f.write(results_df.to_csv())\n",
+        "print(results_df)"
+      ],
+      "id": "fd520716",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Tests"
+      ],
+      "id": "d6bfbcd9"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "from scipy.stats import shapiro, f_oneway, kruskal\n",
+        "\n",
+        "# Defining your matrix groups\n",
+        "groups = [\n",
+        "    [0, 3, 6, 9],\n",
+        "    [1, 4, 7, 10],\n",
+        "    [2, 5, 8, 11]\n",
+        "]\n",
+        "\n",
+        "target_metrics = ['V', 'fitness']\n",
+        "\n",
+        "for row_idx, group in enumerate(groups):\n",
+        "    # Extract s and tau from the first dataframe in the group\n",
+        "    s_val = data[group[0]]['s'].iloc[0]\n",
+        "    tau_val = data[group[0]]['tau'].iloc[0]\n",
+        "    \n",
+        "    print(f\"--- Testing Moduli Group {row_idx}: s={s_val}, tau={tau_val} ---\")\n",
+        "    \n",
+        "    for metric in target_metrics:\n",
+        "        # Collect the metric arrays for the 4 dataframes in this group\n",
+        "        samples = [data[i][metric] for i in group]\n",
+        "        \n",
+        "        # 1. Normality Check (All samples in group must be normal for ANOVA)\n",
+        "        all_normal = all(shapiro(s)[1] > 0.05 for s in samples)\n",
+        "        \n",
+        "        # 2. Perform Test\n",
+        "        if all_normal:\n",
+        "            stat, p_value = f_oneway(*samples)\n",
+        "            test_name = \"ANOVA\"\n",
+        "        else:\n",
+        "            stat, p_value = kruskal(*samples)\n",
+        "            test_name = \"Kruskal-Wallis\"\n",
+        "            \n",
+        "        result = \"Significant Difference\" if p_value < 0.05 else \"No Significant Difference\"\n",
+        "        \n",
+        "        print(f\"  [{metric}] {test_name}: p={p_value:.4f} -> {result}\")\n",
+        "    print(\"\\n\")"
+      ],
+      "id": "1c82cba4",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Posthoc"
+      ],
+      "id": "74fc2dd1"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "from scipy.stats import mannwhitneyu\n",
+        "\n",
+        "# Your matrix again\n",
+        "groups = [[0, 3, 6, 9], [1, 4, 7, 10], [2, 5, 8, 11]]\n",
+        "model_names = [\"Model 1\", \"Model 2\", \"Model 3\", \"Model 4\"]\n",
+        "\n",
+        "for row_idx, group_indices in enumerate(groups):\n",
+        "    print(f\"--- ANALYZING MODULI GROUP {row_idx} ---\")\n",
+        "    \n",
+        "    # 1. Calculate Medians to find the 'Candidate' for best\n",
+        "    medians = [data[i]['fitness'].median() for i in group_indices]\n",
+        "    best_idx_in_group = medians.index(max(medians))\n",
+        "    best_model_name = model_names[best_idx_in_group]\n",
+        "    best_data = data[group_indices[best_idx_in_group]]['fitness']\n",
+        "    \n",
+        "    print(f\"Candidate for Best: {best_model_name} (Median Fitness: {max(medians):.4f})\")\n",
+        "    \n",
+        "    # 2. Pairwise Comparison (Best vs Everyone Else)\n",
+        "    # Since we do 3 comparisons per group, alpha becomes 0.05 / 3 = 0.0166 (Bonferroni)\n",
+        "    alpha_corrected = 0.05 / 3\n",
+        "    is_truly_superior = True\n",
+        "    \n",
+        "    for i, model_idx in enumerate(group_indices):\n",
+        "        if i == best_idx_in_group:\n",
+        "            continue\n",
+        "            \n",
+        "        compare_data = data[model_idx]['fitness']\n",
+        "        stat, p = mannwhitneyu(best_data, compare_data, alternative='greater')\n",
+        "        \n",
+        "        if p > alpha_corrected:\n",
+        "            print(f\"  - No statistical lead over {model_names[i]} (p={p:.4f})\")\n",
+        "            is_truly_superior = False\n",
+        "        else:\n",
+        "            print(f\"  - Statistically better than {model_names[i]} (p={p:.4f})\")\n",
+        "            \n",
+        "    if is_truly_superior:\n",
+        "        print(f\"RESULT: {best_model_name} is the CLEAR WINNER for this group.\\n\")\n",
+        "    else:\n",
+        "        print(f\"RESULT: Tie or negligible difference between top models.\\n\")"
+      ],
+      "id": "76221da3",
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "/usr/share/jupyter/kernels/python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

@@ -1,0 +1,23 @@
+Este directorio contiene diferentes archivos.
+
+Brandon, los directorios importantes que debes revisar si quieres
+acceder a tus registros viejos:
+
+|-- OldStuff/
+|=-
+|---- VacuaFound_09032026            >  33 Registros ||
+|---- VacuaFound_10032026            >  13 Registros ||
+|---- VacuaFound_11032026            > 121 Registros ||
+|---- VacuaFound_17022026            >  98 Registros ||
+|---- VacuaFound_21042026_23_PSO     >  12 Registros ||
+|==
+
+Cada registro cuenta con 99 corridas de cada modelo (considerando que estén completas).
+
+
+Es muy probable que el repositorio se vuelva muy pesado, en cuyo caso, lo más probable
+es que hayas creado una nueva rama, pondré un asterisco si es el caso [  ].
+
+Ánimo, cachorro, eres un lobo hábil, aunque desordenado :3
+
+Crearé un archivo, éste se llamará `Classifier'
