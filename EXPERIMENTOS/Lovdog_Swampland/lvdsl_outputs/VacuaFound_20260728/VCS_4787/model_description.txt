@@ -1,0 +1,1 @@
+DevVCS(epoch=100, pop_size=220, lamda=0.3, sigma=3.7)
