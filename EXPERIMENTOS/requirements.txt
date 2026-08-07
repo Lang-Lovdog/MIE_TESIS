@@ -13,3 +13,4 @@ Mathics-Django[full]
 mathicsscript[full]
 pymathics-natlang
 pymathics-graph
+natsort

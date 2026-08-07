@@ -593,6 +593,23 @@ Torsion and Machine Learning* de Damian et al.
     Full memory usage is reported (around 70Gb full), need to
     get a new disk.
 
+*** Avances y comentarios del 28 de Abril del 2026
+
+    He reestructurado el GRID para que funcione como un
+    Random Search (RS) el cual es más eficiente según la teoría.
+    Lo relevante no se centra en eso estrictamente, sino en la
+    capacidad de realizar más exploración.
+    Sin embargo, tengo un inconveniente: UMDA y ASO no están
+    respondiendo correctamente a la estructura del sistema.
+    Al parecer un error con el gbest. Habrá que revisar.
+    Se implementó paralelización con Multiprocessing::Pool.
+    El paralelizado puede ser un factor relevante. Se harán
+    pruebas más adelante para encontrar la causa del error.
+
+    ^ Recordatorio 20260728
+    Al terminar el RS, deberán ser eliminados los archivos
+    residuales de UMDA y ASO nell directorio de salida.
+
     ___
 
 
