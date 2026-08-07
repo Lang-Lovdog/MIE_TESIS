@@ -1,0 +1,921 @@
+{'lvdsl_outputs/BENCHMARK_01/OFICIAL/': ['IWO1',
+                                         'IWO9',
+                                         'IWO0',
+                                         'PSO13',
+                                         'PSO9',
+                                         'IWO8',
+                                         'PSO5',
+                                         'PSO14',
+                                         'PSO8',
+                                         'PSO2',
+                                         'IWO2',
+                                         'PSO10',
+                                         'PSO1',
+                                         'PSO7',
+                                         'PSO4',
+                                         'PSO12',
+                                         'IWO7',
+                                         'PSO3',
+                                         'IWO12',
+                                         'IWO14',
+                                         'PSO15',
+                                         'IWO13',
+                                         'PSO6',
+                                         'IWO3',
+                                         'IWO11',
+                                         'PSO11',
+                                         'IWO15',
+                                         'IWO10',
+                                         'PSO0']}
+Procesando: lvdsl_outputs/BENCHMARK_01/OFICIAL/
+	Modelo: IWO1 encontrado
+	Modelo: IWO9 encontrado
+	Modelo: IWO0 encontrado
+	Modelo: PSO13 encontrado
+	Modelo: PSO9 encontrado
+	Modelo: IWO8 encontrado
+	Modelo: PSO5 encontrado
+	Modelo: PSO14 encontrado
+	Modelo: PSO8 encontrado
+	Modelo: PSO2 encontrado
+	Modelo: IWO2 encontrado
+	Modelo: PSO10 encontrado
+	Modelo: PSO1 encontrado
+	Modelo: PSO7 encontrado
+	Modelo: PSO4 encontrado
+	Modelo: PSO12 encontrado
+	Modelo: IWO7 encontrado
+	Modelo: PSO3 encontrado
+	Modelo: IWO12 encontrado
+	Modelo: IWO14 encontrado
+	Modelo: PSO15 encontrado
+	Modelo: IWO13 encontrado
+	Modelo: PSO6 encontrado
+	Modelo: IWO3 encontrado
+	Modelo: IWO11 encontrado
+	Modelo: PSO11 encontrado
+	Modelo: IWO15 encontrado
+	Modelo: IWO10 encontrado
+	Modelo: PSO0 encontrado
+{'lvdsl_outputs/BENCHMARK_01/OFICIAL/': {'IWO0': {'csv': ['IWO-0087.csv.csv'],
+                                                  'model_desc': {'epoch': '50',
+                                                                 'exponent': '2',
+                                                                 'name': 'OriginalIWO',
+                                                                 'pop_size': '20',
+                                                                 'seed_max': '4',
+                                                                 'seed_min': '1',
+                                                                 'sigma_end': '0.05',
+                                                                 'sigma_start': '0.5'},
+                                                  'tests_count': 1},
+                                         'IWO1': {'csv': ['IWO-0087.csv.csv'],
+                                                  'model_desc': {'epoch': '50',
+                                                                 'exponent': '2',
+                                                                 'name': 'OriginalIWO',
+                                                                 'pop_size': '20',
+                                                                 'seed_max': '4',
+                                                                 'seed_min': '1',
+                                                                 'sigma_end': '0.1',
+                                                                 'sigma_start': '0.5'},
+                                                  'tests_count': 1},
+                                         'IWO10': {'csv': ['IWO-0087.csv.csv'],
+                                                   'model_desc': {'epoch': '50',
+                                                                  'exponent': '2',
+                                                                  'name': 'OriginalIWO',
+                                                                  'pop_size': '20',
+                                                                  'seed_max': '4',
+                                                                  'seed_min': '1',
+                                                                  'sigma_end': '0.05',
+                                                                  'sigma_start': '1.5'},
+                                                   'tests_count': 1},
+                                         'IWO11': {'csv': ['IWO-0087.csv.csv'],
+                                                   'model_desc': {'epoch': '50',
+                                                                  'exponent': '2',
+                                                                  'name': 'OriginalIWO',
+                                                                  'pop_size': '20',
+                                                                  'seed_max': '4',
+                                                                  'seed_min': '1',
+                                                                  'sigma_end': '0.1',
+                                                                  'sigma_start': '1.5'},
+                                                   'tests_count': 1},
+                                         'IWO12': {'csv': ['IWO-0087.csv.csv'],
+                                                   'model_desc': {'epoch': '50',
+                                                                  'exponent': '2',
+                                                                  'name': 'OriginalIWO',
+                                                                  'pop_size': '20',
+                                                                  'seed_max': '4',
+                                                                  'seed_min': '1',
+                                                                  'sigma_end': '0.15',
+                                                                  'sigma_start': '1.5'},
+                                                   'tests_count': 1},
+                                         'IWO13': {'csv': ['IWO-0087.csv.csv'],
+                                                   'model_desc': {'epoch': '50',
+                                                                  'exponent': '2',
+                                                                  'name': 'OriginalIWO',
+                                                                  'pop_size': '20',
+                                                                  'seed_max': '4',
+                                                                  'seed_min': '1',
+                                                                  'sigma_end': '0.2',
+                                                                  'sigma_start': '1.5'},
+                                                   'tests_count': 1},
+                                         'IWO14': {'csv': ['IWO-0087.csv.csv'],
+                                                   'model_desc': {'epoch': '50',
+                                                                  'exponent': '2',
+                                                                  'name': 'OriginalIWO',
+                                                                  'pop_size': '20',
+                                                                  'seed_max': '4',
+                                                                  'seed_min': '1',
+                                                                  'sigma_end': '0.25',
+                                                                  'sigma_start': '1.5'},
+                                                   'tests_count': 1},
+                                         'IWO15': {'csv': ['IWO-0087.csv.csv'],
+                                                   'model_desc': {'epoch': '50',
+                                                                  'exponent': '2',
+                                                                  'name': 'OriginalIWO',
+                                                                  'pop_size': '20',
+                                                                  'seed_max': '4',
+                                                                  'seed_min': '1',
+                                                                  'sigma_end': '0.05',
+                                                                  'sigma_start': '2.0'},
+                                                   'tests_count': 1},
+                                         'IWO2': {'csv': ['IWO-0087.csv.csv'],
+                                                  'model_desc': {'epoch': '50',
+                                                                 'exponent': '2',
+                                                                 'name': 'OriginalIWO',
+                                                                 'pop_size': '20',
+                                                                 'seed_max': '4',
+                                                                 'seed_min': '1',
+                                                                 'sigma_end': '0.15',
+                                                                 'sigma_start': '0.5'},
+                                                  'tests_count': 1},
+                                         'IWO3': {'csv': ['IWO-0087.csv.csv'],
+                                                  'model_desc': {'epoch': '50',
+                                                                 'exponent': '2',
+                                                                 'name': 'OriginalIWO',
+                                                                 'pop_size': '20',
+                                                                 'seed_max': '4',
+                                                                 'seed_min': '1',
+                                                                 'sigma_end': '0.2',
+                                                                 'sigma_start': '0.5'},
+                                                  'tests_count': 1},
+                                         'IWO7': {'csv': ['IWO-0087.csv.csv'],
+                                                  'model_desc': {'epoch': '50',
+                                                                 'exponent': '2',
+                                                                 'name': 'OriginalIWO',
+                                                                 'pop_size': '20',
+                                                                 'seed_max': '4',
+                                                                 'seed_min': '1',
+                                                                 'sigma_end': '0.15',
+                                                                 'sigma_start': '1.0'},
+                                                  'tests_count': 1},
+                                         'IWO8': {'csv': ['IWO-0087.csv.csv'],
+                                                  'model_desc': {'epoch': '50',
+                                                                 'exponent': '2',
+                                                                 'name': 'OriginalIWO',
+                                                                 'pop_size': '20',
+                                                                 'seed_max': '4',
+                                                                 'seed_min': '1',
+                                                                 'sigma_end': '0.2',
+                                                                 'sigma_start': '1.0'},
+                                                  'tests_count': 1},
+                                         'IWO9': {'csv': ['IWO-0087.csv.csv'],
+                                                  'model_desc': {'epoch': '50',
+                                                                 'exponent': '2',
+                                                                 'name': 'OriginalIWO',
+                                                                 'pop_size': '20',
+                                                                 'seed_max': '4',
+                                                                 'seed_min': '1',
+                                                                 'sigma_end': '0.25',
+                                                                 'sigma_start': '1.0'},
+                                                  'tests_count': 1},
+                                         'PSO0': {'csv': ['PSO-0087.csv.csv'],
+                                                  'model_desc': {'alpha': '0.4',
+                                                                 'c1': '0.02',
+                                                                 'c2': '0.02',
+                                                                 'epoch': '50',
+                                                                 'name': 'AIW_PSO',
+                                                                 'pop_size': '20'},
+                                                  'tests_count': 1},
+                                         'PSO1': {'csv': ['PSO-0087.csv.csv'],
+                                                  'model_desc': {'alpha': '0.4',
+                                                                 'c1': '0.02',
+                                                                 'c2': '0.04',
+                                                                 'epoch': '50',
+                                                                 'name': 'AIW_PSO',
+                                                                 'pop_size': '20'},
+                                                  'tests_count': 1},
+                                         'PSO10': {'csv': ['PSO-0087.csv.csv'],
+                                                   'model_desc': {'alpha': '0.4',
+                                                                  'c1': '0.08',
+                                                                  'c2': '0.02',
+                                                                  'epoch': '50',
+                                                                  'name': 'AIW_PSO',
+                                                                  'pop_size': '20'},
+                                                   'tests_count': 1},
+                                         'PSO11': {'csv': ['PSO-0087.csv.csv'],
+                                                   'model_desc': {'alpha': '0.4',
+                                                                  'c1': '0.08',
+                                                                  'c2': '0.04',
+                                                                  'epoch': '50',
+                                                                  'name': 'AIW_PSO',
+                                                                  'pop_size': '20'},
+                                                   'tests_count': 1},
+                                         'PSO12': {'csv': ['PSO-0087.csv.csv'],
+                                                   'model_desc': {'alpha': '0.4',
+                                                                  'c1': '0.08',
+                                                                  'c2': '0.08',
+                                                                  'epoch': '50',
+                                                                  'name': 'AIW_PSO',
+                                                                  'pop_size': '20'},
+                                                   'tests_count': 1},
+                                         'PSO13': {'csv': ['PSO-0087.csv.csv'],
+                                                   'model_desc': {'alpha': '0.4',
+                                                                  'c1': '0.08',
+                                                                  'c2': '0.2',
+                                                                  'epoch': '50',
+                                                                  'name': 'AIW_PSO',
+                                                                  'pop_size': '20'},
+                                                   'tests_count': 1},
+                                         'PSO14': {'csv': ['PSO-0087.csv.csv'],
+                                                   'model_desc': {'alpha': '0.4',
+                                                                  'c1': '0.08',
+                                                                  'c2': '0.4',
+                                                                  'epoch': '50',
+                                                                  'name': 'AIW_PSO',
+                                                                  'pop_size': '20'},
+                                                   'tests_count': 1},
+                                         'PSO15': {'csv': ['PSO-0087.csv.csv'],
+                                                   'model_desc': {'alpha': '0.4',
+                                                                  'c1': '0.2',
+                                                                  'c2': '0.02',
+                                                                  'epoch': '50',
+                                                                  'name': 'AIW_PSO',
+                                                                  'pop_size': '20'},
+                                                   'tests_count': 1},
+                                         'PSO2': {'csv': ['PSO-0087.csv.csv'],
+                                                  'model_desc': {'alpha': '0.4',
+                                                                 'c1': '0.02',
+                                                                 'c2': '0.08',
+                                                                 'epoch': '50',
+                                                                 'name': 'AIW_PSO',
+                                                                 'pop_size': '20'},
+                                                  'tests_count': 1},
+                                         'PSO3': {'csv': ['PSO-0087.csv.csv'],
+                                                  'model_desc': {'alpha': '0.4',
+                                                                 'c1': '0.02',
+                                                                 'c2': '0.2',
+                                                                 'epoch': '50',
+                                                                 'name': 'AIW_PSO',
+                                                                 'pop_size': '20'},
+                                                  'tests_count': 1},
+                                         'PSO4': {'csv': ['PSO-0087.csv.csv'],
+                                                  'model_desc': {'alpha': '0.4',
+                                                                 'c1': '0.02',
+                                                                 'c2': '0.4',
+                                                                 'epoch': '50',
+                                                                 'name': 'AIW_PSO',
+                                                                 'pop_size': '20'},
+                                                  'tests_count': 1},
+                                         'PSO5': {'csv': ['PSO-0087.csv.csv'],
+                                                  'model_desc': {'alpha': '0.4',
+                                                                 'c1': '0.04',
+                                                                 'c2': '0.02',
+                                                                 'epoch': '50',
+                                                                 'name': 'AIW_PSO',
+                                                                 'pop_size': '20'},
+                                                  'tests_count': 1},
+                                         'PSO6': {'csv': ['PSO-0087.csv.csv'],
+                                                  'model_desc': {'alpha': '0.4',
+                                                                 'c1': '0.04',
+                                                                 'c2': '0.04',
+                                                                 'epoch': '50',
+                                                                 'name': 'AIW_PSO',
+                                                                 'pop_size': '20'},
+                                                  'tests_count': 1},
+                                         'PSO7': {'csv': ['PSO-0087.csv.csv'],
+                                                  'model_desc': {'alpha': '0.4',
+                                                                 'c1': '0.04',
+                                                                 'c2': '0.08',
+                                                                 'epoch': '50',
+                                                                 'name': 'AIW_PSO',
+                                                                 'pop_size': '20'},
+                                                  'tests_count': 1},
+                                         'PSO8': {'csv': ['PSO-0087.csv.csv'],
+                                                  'model_desc': {'alpha': '0.4',
+                                                                 'c1': '0.04',
+                                                                 'c2': '0.2',
+                                                                 'epoch': '50',
+                                                                 'name': 'AIW_PSO',
+                                                                 'pop_size': '20'},
+                                                  'tests_count': 1},
+                                         'PSO9': {'csv': ['PSO-0087.csv.csv'],
+                                                  'model_desc': {'alpha': '0.4',
+                                                                 'c1': '0.04',
+                                                                 'c2': '0.4',
+                                                                 'epoch': '50',
+                                                                 'name': 'AIW_PSO',
+                                                                 'pop_size': '20'},
+                                                  'tests_count': 1}}}
+Procesando: lvdsl_outputs/BENCHMARK_01/OFICIAL/
+	Modelo: IWO1 encontrado
+		 csv
+['IWO-0087.csv.csv']
+		 model_desc
+{'epoch': '50',
+ 'exponent': '2',
+ 'name': 'OriginalIWO',
+ 'pop_size': '20',
+ 'seed_max': '4',
+ 'seed_min': '1',
+ 'sigma_end': '0.1',
+ 'sigma_start': '0.5'}
+		 tests_count
+1
+	Modelo: IWO9 encontrado
+		 csv
+['IWO-0087.csv.csv']
+		 model_desc
+{'epoch': '50',
+ 'exponent': '2',
+ 'name': 'OriginalIWO',
+ 'pop_size': '20',
+ 'seed_max': '4',
+ 'seed_min': '1',
+ 'sigma_end': '0.25',
+ 'sigma_start': '1.0'}
+		 tests_count
+1
+	Modelo: IWO0 encontrado
+		 csv
+['IWO-0087.csv.csv']
+		 model_desc
+{'epoch': '50',
+ 'exponent': '2',
+ 'name': 'OriginalIWO',
+ 'pop_size': '20',
+ 'seed_max': '4',
+ 'seed_min': '1',
+ 'sigma_end': '0.05',
+ 'sigma_start': '0.5'}
+		 tests_count
+1
+	Modelo: PSO13 encontrado
+		 csv
+['PSO-0087.csv.csv']
+		 model_desc
+{'alpha': '0.4',
+ 'c1': '0.08',
+ 'c2': '0.2',
+ 'epoch': '50',
+ 'name': 'AIW_PSO',
+ 'pop_size': '20'}
+		 tests_count
+1
+	Modelo: PSO9 encontrado
+		 csv
+['PSO-0087.csv.csv']
+		 model_desc
+{'alpha': '0.4',
+ 'c1': '0.04',
+ 'c2': '0.4',
+ 'epoch': '50',
+ 'name': 'AIW_PSO',
+ 'pop_size': '20'}
+		 tests_count
+1
+	Modelo: IWO8 encontrado
+		 csv
+['IWO-0087.csv.csv']
+		 model_desc
+{'epoch': '50',
+ 'exponent': '2',
+ 'name': 'OriginalIWO',
+ 'pop_size': '20',
+ 'seed_max': '4',
+ 'seed_min': '1',
+ 'sigma_end': '0.2',
+ 'sigma_start': '1.0'}
+		 tests_count
+1
+	Modelo: PSO5 encontrado
+		 csv
+['PSO-0087.csv.csv']
+		 model_desc
+{'alpha': '0.4',
+ 'c1': '0.04',
+ 'c2': '0.02',
+ 'epoch': '50',
+ 'name': 'AIW_PSO',
+ 'pop_size': '20'}
+		 tests_count
+1
+	Modelo: PSO14 encontrado
+		 csv
+['PSO-0087.csv.csv']
+		 model_desc
+{'alpha': '0.4',
+ 'c1': '0.08',
+ 'c2': '0.4',
+ 'epoch': '50',
+ 'name': 'AIW_PSO',
+ 'pop_size': '20'}
+		 tests_count
+1
+	Modelo: PSO8 encontrado
+		 csv
+['PSO-0087.csv.csv']
+		 model_desc
+{'alpha': '0.4',
+ 'c1': '0.04',
+ 'c2': '0.2',
+ 'epoch': '50',
+ 'name': 'AIW_PSO',
+ 'pop_size': '20'}
+		 tests_count
+1
+	Modelo: PSO2 encontrado
+		 csv
+['PSO-0087.csv.csv']
+		 model_desc
+{'alpha': '0.4',
+ 'c1': '0.02',
+ 'c2': '0.08',
+ 'epoch': '50',
+ 'name': 'AIW_PSO',
+ 'pop_size': '20'}
+		 tests_count
+1
+	Modelo: IWO2 encontrado
+		 csv
+['IWO-0087.csv.csv']
+		 model_desc
+{'epoch': '50',
+ 'exponent': '2',
+ 'name': 'OriginalIWO',
+ 'pop_size': '20',
+ 'seed_max': '4',
+ 'seed_min': '1',
+ 'sigma_end': '0.15',
+ 'sigma_start': '0.5'}
+		 tests_count
+1
+	Modelo: PSO10 encontrado
+		 csv
+['PSO-0087.csv.csv']
+		 model_desc
+{'alpha': '0.4',
+ 'c1': '0.08',
+ 'c2': '0.02',
+ 'epoch': '50',
+ 'name': 'AIW_PSO',
+ 'pop_size': '20'}
+		 tests_count
+1
+	Modelo: PSO1 encontrado
+		 csv
+['PSO-0087.csv.csv']
+		 model_desc
+{'alpha': '0.4',
+ 'c1': '0.02',
+ 'c2': '0.04',
+ 'epoch': '50',
+ 'name': 'AIW_PSO',
+ 'pop_size': '20'}
+		 tests_count
+1
+	Modelo: PSO7 encontrado
+		 csv
+['PSO-0087.csv.csv']
+		 model_desc
+{'alpha': '0.4',
+ 'c1': '0.04',
+ 'c2': '0.08',
+ 'epoch': '50',
+ 'name': 'AIW_PSO',
+ 'pop_size': '20'}
+		 tests_count
+1
+	Modelo: PSO4 encontrado
+		 csv
+['PSO-0087.csv.csv']
+		 model_desc
+{'alpha': '0.4',
+ 'c1': '0.02',
+ 'c2': '0.4',
+ 'epoch': '50',
+ 'name': 'AIW_PSO',
+ 'pop_size': '20'}
+		 tests_count
+1
+	Modelo: PSO12 encontrado
+		 csv
+['PSO-0087.csv.csv']
+		 model_desc
+{'alpha': '0.4',
+ 'c1': '0.08',
+ 'c2': '0.08',
+ 'epoch': '50',
+ 'name': 'AIW_PSO',
+ 'pop_size': '20'}
+		 tests_count
+1
+	Modelo: IWO7 encontrado
+		 csv
+['IWO-0087.csv.csv']
+		 model_desc
+{'epoch': '50',
+ 'exponent': '2',
+ 'name': 'OriginalIWO',
+ 'pop_size': '20',
+ 'seed_max': '4',
+ 'seed_min': '1',
+ 'sigma_end': '0.15',
+ 'sigma_start': '1.0'}
+		 tests_count
+1
+	Modelo: PSO3 encontrado
+		 csv
+['PSO-0087.csv.csv']
+		 model_desc
+{'alpha': '0.4',
+ 'c1': '0.02',
+ 'c2': '0.2',
+ 'epoch': '50',
+ 'name': 'AIW_PSO',
+ 'pop_size': '20'}
+		 tests_count
+1
+	Modelo: IWO12 encontrado
+		 csv
+['IWO-0087.csv.csv']
+		 model_desc
+{'epoch': '50',
+ 'exponent': '2',
+ 'name': 'OriginalIWO',
+ 'pop_size': '20',
+ 'seed_max': '4',
+ 'seed_min': '1',
+ 'sigma_end': '0.15',
+ 'sigma_start': '1.5'}
+		 tests_count
+1
+	Modelo: IWO14 encontrado
+		 csv
+['IWO-0087.csv.csv']
+		 model_desc
+{'epoch': '50',
+ 'exponent': '2',
+ 'name': 'OriginalIWO',
+ 'pop_size': '20',
+ 'seed_max': '4',
+ 'seed_min': '1',
+ 'sigma_end': '0.25',
+ 'sigma_start': '1.5'}
+		 tests_count
+1
+	Modelo: PSO15 encontrado
+		 csv
+['PSO-0087.csv.csv']
+		 model_desc
+{'alpha': '0.4',
+ 'c1': '0.2',
+ 'c2': '0.02',
+ 'epoch': '50',
+ 'name': 'AIW_PSO',
+ 'pop_size': '20'}
+		 tests_count
+1
+	Modelo: IWO13 encontrado
+		 csv
+['IWO-0087.csv.csv']
+		 model_desc
+{'epoch': '50',
+ 'exponent': '2',
+ 'name': 'OriginalIWO',
+ 'pop_size': '20',
+ 'seed_max': '4',
+ 'seed_min': '1',
+ 'sigma_end': '0.2',
+ 'sigma_start': '1.5'}
+		 tests_count
+1
+	Modelo: PSO6 encontrado
+		 csv
+['PSO-0087.csv.csv']
+		 model_desc
+{'alpha': '0.4',
+ 'c1': '0.04',
+ 'c2': '0.04',
+ 'epoch': '50',
+ 'name': 'AIW_PSO',
+ 'pop_size': '20'}
+		 tests_count
+1
+	Modelo: IWO3 encontrado
+		 csv
+['IWO-0087.csv.csv']
+		 model_desc
+{'epoch': '50',
+ 'exponent': '2',
+ 'name': 'OriginalIWO',
+ 'pop_size': '20',
+ 'seed_max': '4',
+ 'seed_min': '1',
+ 'sigma_end': '0.2',
+ 'sigma_start': '0.5'}
+		 tests_count
+1
+	Modelo: IWO11 encontrado
+		 csv
+['IWO-0087.csv.csv']
+		 model_desc
+{'epoch': '50',
+ 'exponent': '2',
+ 'name': 'OriginalIWO',
+ 'pop_size': '20',
+ 'seed_max': '4',
+ 'seed_min': '1',
+ 'sigma_end': '0.1',
+ 'sigma_start': '1.5'}
+		 tests_count
+1
+	Modelo: PSO11 encontrado
+		 csv
+['PSO-0087.csv.csv']
+		 model_desc
+{'alpha': '0.4',
+ 'c1': '0.08',
+ 'c2': '0.04',
+ 'epoch': '50',
+ 'name': 'AIW_PSO',
+ 'pop_size': '20'}
+		 tests_count
+1
+	Modelo: IWO15 encontrado
+		 csv
+['IWO-0087.csv.csv']
+		 model_desc
+{'epoch': '50',
+ 'exponent': '2',
+ 'name': 'OriginalIWO',
+ 'pop_size': '20',
+ 'seed_max': '4',
+ 'seed_min': '1',
+ 'sigma_end': '0.05',
+ 'sigma_start': '2.0'}
+		 tests_count
+1
+	Modelo: IWO10 encontrado
+		 csv
+['IWO-0087.csv.csv']
+		 model_desc
+{'epoch': '50',
+ 'exponent': '2',
+ 'name': 'OriginalIWO',
+ 'pop_size': '20',
+ 'seed_max': '4',
+ 'seed_min': '1',
+ 'sigma_end': '0.05',
+ 'sigma_start': '1.5'}
+		 tests_count
+1
+	Modelo: PSO0 encontrado
+		 csv
+['PSO-0087.csv.csv']
+		 model_desc
+{'alpha': '0.4',
+ 'c1': '0.02',
+ 'c2': '0.02',
+ 'epoch': '50',
+ 'name': 'AIW_PSO',
+ 'pop_size': '20'}
+		 tests_count
+1
+{'lvdsl_outputs/BENCHMARK_01/OFICIAL/': {'IWO0': {'model_desc': {'epoch': '50',
+                                                                 'exponent': '2',
+                                                                 'name': 'OriginalIWO',
+                                                                 'pop_size': '20',
+                                                                 'seed_max': '4',
+                                                                 'seed_min': '1',
+                                                                 'sigma_end': '0.05',
+                                                                 'sigma_start': '0.5'},
+                                                  'tests_count': 1},
+                                         'IWO1': {'model_desc': {'epoch': '50',
+                                                                 'exponent': '2',
+                                                                 'name': 'OriginalIWO',
+                                                                 'pop_size': '20',
+                                                                 'seed_max': '4',
+                                                                 'seed_min': '1',
+                                                                 'sigma_end': '0.1',
+                                                                 'sigma_start': '0.5'},
+                                                  'tests_count': 1},
+                                         'IWO10': {'model_desc': {'epoch': '50',
+                                                                  'exponent': '2',
+                                                                  'name': 'OriginalIWO',
+                                                                  'pop_size': '20',
+                                                                  'seed_max': '4',
+                                                                  'seed_min': '1',
+                                                                  'sigma_end': '0.05',
+                                                                  'sigma_start': '1.5'},
+                                                   'tests_count': 1},
+                                         'IWO11': {'model_desc': {'epoch': '50',
+                                                                  'exponent': '2',
+                                                                  'name': 'OriginalIWO',
+                                                                  'pop_size': '20',
+                                                                  'seed_max': '4',
+                                                                  'seed_min': '1',
+                                                                  'sigma_end': '0.1',
+                                                                  'sigma_start': '1.5'},
+                                                   'tests_count': 1},
+                                         'IWO12': {'model_desc': {'epoch': '50',
+                                                                  'exponent': '2',
+                                                                  'name': 'OriginalIWO',
+                                                                  'pop_size': '20',
+                                                                  'seed_max': '4',
+                                                                  'seed_min': '1',
+                                                                  'sigma_end': '0.15',
+                                                                  'sigma_start': '1.5'},
+                                                   'tests_count': 1},
+                                         'IWO13': {'model_desc': {'epoch': '50',
+                                                                  'exponent': '2',
+                                                                  'name': 'OriginalIWO',
+                                                                  'pop_size': '20',
+                                                                  'seed_max': '4',
+                                                                  'seed_min': '1',
+                                                                  'sigma_end': '0.2',
+                                                                  'sigma_start': '1.5'},
+                                                   'tests_count': 1},
+                                         'IWO14': {'model_desc': {'epoch': '50',
+                                                                  'exponent': '2',
+                                                                  'name': 'OriginalIWO',
+                                                                  'pop_size': '20',
+                                                                  'seed_max': '4',
+                                                                  'seed_min': '1',
+                                                                  'sigma_end': '0.25',
+                                                                  'sigma_start': '1.5'},
+                                                   'tests_count': 1},
+                                         'IWO15': {'model_desc': {'epoch': '50',
+                                                                  'exponent': '2',
+                                                                  'name': 'OriginalIWO',
+                                                                  'pop_size': '20',
+                                                                  'seed_max': '4',
+                                                                  'seed_min': '1',
+                                                                  'sigma_end': '0.05',
+                                                                  'sigma_start': '2.0'},
+                                                   'tests_count': 1},
+                                         'IWO2': {'model_desc': {'epoch': '50',
+                                                                 'exponent': '2',
+                                                                 'name': 'OriginalIWO',
+                                                                 'pop_size': '20',
+                                                                 'seed_max': '4',
+                                                                 'seed_min': '1',
+                                                                 'sigma_end': '0.15',
+                                                                 'sigma_start': '0.5'},
+                                                  'tests_count': 1},
+                                         'IWO3': {'model_desc': {'epoch': '50',
+                                                                 'exponent': '2',
+                                                                 'name': 'OriginalIWO',
+                                                                 'pop_size': '20',
+                                                                 'seed_max': '4',
+                                                                 'seed_min': '1',
+                                                                 'sigma_end': '0.2',
+                                                                 'sigma_start': '0.5'},
+                                                  'tests_count': 1},
+                                         'IWO7': {'model_desc': {'epoch': '50',
+                                                                 'exponent': '2',
+                                                                 'name': 'OriginalIWO',
+                                                                 'pop_size': '20',
+                                                                 'seed_max': '4',
+                                                                 'seed_min': '1',
+                                                                 'sigma_end': '0.15',
+                                                                 'sigma_start': '1.0'},
+                                                  'tests_count': 1},
+                                         'IWO8': {'model_desc': {'epoch': '50',
+                                                                 'exponent': '2',
+                                                                 'name': 'OriginalIWO',
+                                                                 'pop_size': '20',
+                                                                 'seed_max': '4',
+                                                                 'seed_min': '1',
+                                                                 'sigma_end': '0.2',
+                                                                 'sigma_start': '1.0'},
+                                                  'tests_count': 1},
+                                         'IWO9': {'model_desc': {'epoch': '50',
+                                                                 'exponent': '2',
+                                                                 'name': 'OriginalIWO',
+                                                                 'pop_size': '20',
+                                                                 'seed_max': '4',
+                                                                 'seed_min': '1',
+                                                                 'sigma_end': '0.25',
+                                                                 'sigma_start': '1.0'},
+                                                  'tests_count': 1},
+                                         'PSO0': {'model_desc': {'alpha': '0.4',
+                                                                 'c1': '0.02',
+                                                                 'c2': '0.02',
+                                                                 'epoch': '50',
+                                                                 'name': 'AIW_PSO',
+                                                                 'pop_size': '20'},
+                                                  'tests_count': 1},
+                                         'PSO1': {'model_desc': {'alpha': '0.4',
+                                                                 'c1': '0.02',
+                                                                 'c2': '0.04',
+                                                                 'epoch': '50',
+                                                                 'name': 'AIW_PSO',
+                                                                 'pop_size': '20'},
+                                                  'tests_count': 1},
+                                         'PSO10': {'model_desc': {'alpha': '0.4',
+                                                                  'c1': '0.08',
+                                                                  'c2': '0.02',
+                                                                  'epoch': '50',
+                                                                  'name': 'AIW_PSO',
+                                                                  'pop_size': '20'},
+                                                   'tests_count': 1},
+                                         'PSO11': {'model_desc': {'alpha': '0.4',
+                                                                  'c1': '0.08',
+                                                                  'c2': '0.04',
+                                                                  'epoch': '50',
+                                                                  'name': 'AIW_PSO',
+                                                                  'pop_size': '20'},
+                                                   'tests_count': 1},
+                                         'PSO12': {'model_desc': {'alpha': '0.4',
+                                                                  'c1': '0.08',
+                                                                  'c2': '0.08',
+                                                                  'epoch': '50',
+                                                                  'name': 'AIW_PSO',
+                                                                  'pop_size': '20'},
+                                                   'tests_count': 1},
+                                         'PSO13': {'model_desc': {'alpha': '0.4',
+                                                                  'c1': '0.08',
+                                                                  'c2': '0.2',
+                                                                  'epoch': '50',
+                                                                  'name': 'AIW_PSO',
+                                                                  'pop_size': '20'},
+                                                   'tests_count': 1},
+                                         'PSO14': {'model_desc': {'alpha': '0.4',
+                                                                  'c1': '0.08',
+                                                                  'c2': '0.4',
+                                                                  'epoch': '50',
+                                                                  'name': 'AIW_PSO',
+                                                                  'pop_size': '20'},
+                                                   'tests_count': 1},
+                                         'PSO15': {'model_desc': {'alpha': '0.4',
+                                                                  'c1': '0.2',
+                                                                  'c2': '0.02',
+                                                                  'epoch': '50',
+                                                                  'name': 'AIW_PSO',
+                                                                  'pop_size': '20'},
+                                                   'tests_count': 1},
+                                         'PSO2': {'model_desc': {'alpha': '0.4',
+                                                                 'c1': '0.02',
+                                                                 'c2': '0.08',
+                                                                 'epoch': '50',
+                                                                 'name': 'AIW_PSO',
+                                                                 'pop_size': '20'},
+                                                  'tests_count': 1},
+                                         'PSO3': {'model_desc': {'alpha': '0.4',
+                                                                 'c1': '0.02',
+                                                                 'c2': '0.2',
+                                                                 'epoch': '50',
+                                                                 'name': 'AIW_PSO',
+                                                                 'pop_size': '20'},
+                                                  'tests_count': 1},
+                                         'PSO4': {'model_desc': {'alpha': '0.4',
+                                                                 'c1': '0.02',
+                                                                 'c2': '0.4',
+                                                                 'epoch': '50',
+                                                                 'name': 'AIW_PSO',
+                                                                 'pop_size': '20'},
+                                                  'tests_count': 1},
+                                         'PSO5': {'model_desc': {'alpha': '0.4',
+                                                                 'c1': '0.04',
+                                                                 'c2': '0.02',
+                                                                 'epoch': '50',
+                                                                 'name': 'AIW_PSO',
+                                                                 'pop_size': '20'},
+                                                  'tests_count': 1},
+                                         'PSO6': {'model_desc': {'alpha': '0.4',
+                                                                 'c1': '0.04',
+                                                                 'c2': '0.04',
+                                                                 'epoch': '50',
+                                                                 'name': 'AIW_PSO',
+                                                                 'pop_size': '20'},
+                                                  'tests_count': 1},
+                                         'PSO7': {'model_desc': {'alpha': '0.4',
+                                                                 'c1': '0.04',
+                                                                 'c2': '0.08',
+                                                                 'epoch': '50',
+                                                                 'name': 'AIW_PSO',
+                                                                 'pop_size': '20'},
+                                                  'tests_count': 1},
+                                         'PSO8': {'model_desc': {'alpha': '0.4',
+                                                                 'c1': '0.04',
+                                                                 'c2': '0.2',
+                                                                 'epoch': '50',
+                                                                 'name': 'AIW_PSO',
+                                                                 'pop_size': '20'},
+                                                  'tests_count': 1},
+                                         'PSO9': {'model_desc': {'alpha': '0.4',
+                                                                 'c1': '0.04',
+                                                                 'c2': '0.4',
+                                                                 'epoch': '50',
+                                                                 'name': 'AIW_PSO',
+                                                                 'pop_size': '20'},
+                                                  'tests_count': 1}}}
