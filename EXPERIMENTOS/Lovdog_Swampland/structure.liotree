@@ -92,9 +92,11 @@
 |-- ;[MODEL]-[4d][.csv].csv;              > Resultados de la búsqueda metaheurística.                              ||
 |==
 |==
-|==
-|--- Classifier/
+|------ Classifier/
 |=-
+|--- __this__dir__
+|--- lvdsl_dataset_unifier.py
+|==
 |==
 |--- LovdogSwamplandMain.py
 |--- LovdogSwamplandMain2.py
@@ -127,6 +129,14 @@
 |--------- run_da_vcs_random_search
 |==
 |--- StatisticAnalysis_lvdsl.qmd
+|--- lvdsl_outputs/                                > Módulo del Lovdog Swapland                                             ||
+|=-
+|---- Classifier/
+|=-
+|------- __this__dir__
+|------- lvdsl_dataset_unifier.py
+|==
+|==
 |--- lvdsl/                                       > Módulo del Lovdog Swapland                                             ||
 |=-
 |--- structure.liotree                            > Estructura independiente del módulo  (actualizado)                     ||
