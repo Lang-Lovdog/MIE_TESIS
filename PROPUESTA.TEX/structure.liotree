@@ -1,0 +1,40 @@
+| PROPUESTA.TEX/                                 > Propuesta de tesis. Plazo máximo de entrega 18 de Febrero 2026         ||
+|=-
+|-- ../
+|=-
+|-- structure.liotree                             > ||
+|==
+|-- ;[*].tex;
+|-- fonts/                                        > Fuentes a utilizar ||
+|=-
+|--- ;QTBookmann-[type].otf;                      > ||
+|==
+|-- symbols/
+|=-
+|--- ;[*].pdf;                                    > ||
+|--- ;[*].tex;                                    > ||
+|==
+|-- img/
+|=-
+|--- ;[*].png;                                    > ||
+|--- ;[*].j[e]pg;                                 > ||
+|==
+|-- Capítulos/                                    > ||
+|=-
+|--- 00.00.00.-Portada.tex
+|--- 01.00.00.-Introducción.tex
+|--- 01.01.00.-Objetivos.tex
+|--- 01.02.00.-Justificación.tex
+|--- 01.03.00.-Antecedentes.tex
+|--- 01.04.00.-Desarrollo.tex
+|--- 01.05.00.-Cronograma.tex
+|--- 01.06.00.-Resultados.tex
+|--- 02.00.00.-DatosSECIHTI.tex
+|--- 02.01.00.-MetasDelProyecto.tex
+|--- 02.02.00.-ImpactoCientíficoDelProyecto.tex
+|--- 02.03.00.-AportaciónProbPrior.tex
+|==
+|-- MarquezSalazarBrandon-PropuestaDeTesis.tex    > ||
+|-- bibliography.bib                              > ||
+|-- ;[*].txt;
+|==

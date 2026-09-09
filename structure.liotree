@@ -124,6 +124,7 @@
 |==
 |--- lvdsl_outputs/
 |=-
+|--- structure.liotree
 |--- ;VacuaFound_[DDMMYYYY]_[HH]/;                > Las salidas de la búsqueda metaheurística.                             ||
 |=-
 |----- ;[MODEL];/
@@ -295,6 +296,7 @@
 |==
 |- PROPUESTA.TEX/                                 > Propuesta de tesis. Plazo máximo de entrega 18 de Febrero 2026         ||
 |=-
+|-- structure.liotree                             > ||
 |-- ;[*].tex;
 |-- fonts/                                        > Fuentes a utilizar ||
 |=-
