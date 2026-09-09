@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>LVDSL - Reporte de Clasificación</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 30px; background-color: #f8f9fa; color: #333; }
+        h1, h2, h3 { color: #1a365d; }
+        .card { background: white; padding: 20px; margin-bottom: 25px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.9em; }
+        th, td { padding: 10px 12px; border: 1px solid #e2e8f0; text-align: left; }
+        th { background-color: #2b6cb0; color: white; }
+        tr:nth-child(even) { background-color: #f7fafc; }
+        .img-container { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+        .img-card { background: #edf2f7; padding: 10px; border-radius: 6px; text-align: center; }
+        img { max-width: 320px; height: auto; border-radius: 4px; border: 1px solid #cbd5e0; }
+        .badge { background-color: #319795; color: white; padding: 3px 8px; border-radius: 4px; font-size: 0.8em; }
+    </style>
+</head>
+<body>
+    <h1>LVDSL - Reporte Ejecutivo de Clasificación</h1>
+    <p><strong>Fecha de Generación:</strong> 2026-09-07 14:27:20</p>
+
+    <div class="card">
+        <h2>1. Información de Datasets Evaluados</h2>
+        <table>
+            <tr>
+                <th>Dataset</th>
+                <th>Muestras (Filas)</th>
+                <th>Características</th>
+                <th>Distribución de Clases</th>
+            </tr>
+            <tr>
+                <td><strong>Original_Raw</strong></td>
+                <td>169528</td>
+                <td>7</td>
+                <td><code>{0: 42382, 1: 42382, 2: 42382, 3: 42382}</code></td>
+            </tr>
+            <tr>
+                <td><strong>Original_Scaled</strong></td>
+                <td>169528</td>
+                <td>7</td>
+                <td><code>{0: 42382, 1: 42382, 2: 42382, 3: 42382}</code></td>
+            </tr>
+            <tr>
+                <td><strong>LDA_2D</strong></td>
+                <td>169528</td>
+                <td>2</td>
+                <td><code>{0: 42382, 1: 42382, 2: 42382, 3: 42382}</code></td>
+            </tr>
+            <tr>
+                <td><strong>NCA_2D</strong></td>
+                <td>8000</td>
+                <td>2</td>
+                <td><code>{3: 2000, 1: 2000, 2: 2000, 0: 2000}</code></td>
+            </tr>
+            <tr>
+                <td><strong>PCA_2D</strong></td>
+                <td>169528</td>
+                <td>2</td>
+                <td><code>{0: 42382, 1: 42382, 2: 42382, 3: 42382}</code></td>
+            </tr>
+            <tr>
+                <td><strong>SparsePCA_2D</strong></td>
+                <td>8000</td>
+                <td>2</td>
+                <td><code>{0: 8000}</code></td>
+            </tr>
+            <tr>
+                <td><strong>TruncatedSVD_2D</strong></td>
+                <td>169528</td>
+                <td>2</td>
+                <td><code>{0: 42382, 1: 42382, 2: 42382, 3: 42382}</code></td>
+            </tr>
+            <tr>
+                <td><strong>Isomap_2D</strong></td>
+                <td>8000</td>
+                <td>2</td>
+                <td><code>{0: 8000}</code></td>
+            </tr>
+            <tr>
+                <td><strong>LLE_standard_2D</strong></td>
+                <td>8000</td>
+                <td>2</td>
+                <td><code>{0: 8000}</code></td>
+            </tr>
+            <tr>
+                <td><strong>LDA_3D</strong></td>
+                <td>169528</td>
+                <td>3</td>
+                <td><code>{0: 42382, 1: 42382, 2: 42382, 3: 42382}</code></td>
+            </tr>
+            <tr>
+                <td><strong>NCA_3D</strong></td>
+                <td>8000</td>
+                <td>3</td>
+                <td><code>{3: 2000, 1: 2000, 2: 2000, 0: 2000}</code></td>
+            </tr>
+            <tr>
+                <td><strong>PCA_3D</strong></td>
+                <td>169528</td>
+                <td>3</td>
+                <td><code>{0: 42382, 1: 42382, 2: 42382, 3: 42382}</code></td>
+            </tr>
+            <tr>
+                <td><strong>SparsePCA_3D</strong></td>
+                <td>8000</td>
+                <td>3</td>
+                <td><code>{0: 8000}</code></td>
+            </tr>
+            <tr>
+                <td><strong>TruncatedSVD_3D</strong></td>
+                <td>169528</td>
+                <td>3</td>
+                <td><code>{0: 42382, 1: 42382, 2: 42382, 3: 42382}</code></td>
+            </tr>
+            <tr>
+                <td><strong>Isomap_3D</strong></td>
+                <td>8000</td>
+                <td>3</td>
+                <td><code>{0: 8000}</code></td>
+            </tr>
+            <tr>
+                <td><strong>LLE_standard_3D</strong></td>
+                <td>8000</td>
+                <td>3</td>
+                <td><code>{0: 8000}</code></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>2. Comparativa General de Rendimiento</h2>
+        <img src="lvdsl_classify_20260907.plot/Accuracy_Comparison_All_Models.png" style="max-width: 100%; height: auto;">
+    </div>
+
+    <div class="card">
+        <h2>3. Detalle por Modelo y Artefactos</h2>
+        <table>
+            <tr>
+                <th>Modelo</th>
+                <th>Dataset</th>
+                <th>Accuracy (CV)</th>
+                <th>F1-Score (CV)</th>
+                <th>Artefactos Visuales</th>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors2_weightsuniform</strong></td>
+                <td><span class="badge">Original_Raw</span></td>
+                <td>0.7608 (±0.0014)</td>
+                <td>0.7572</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors2_weightsuniform_Original_Raw.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors2_weightsuniform_Original_Raw.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors2_weightsdistance</strong></td>
+                <td><span class="badge">Original_Raw</span></td>
+                <td>0.8132 (±0.0006)</td>
+                <td>0.8127</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors2_weightsdistance_Original_Raw.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors2_weightsdistance_Original_Raw.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors7_weightsuniform</strong></td>
+                <td><span class="badge">Original_Raw</span></td>
+                <td>0.7492 (±0.0016)</td>
+                <td>0.7488</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors7_weightsuniform_Original_Raw.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors7_weightsuniform_Original_Raw.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors7_weightsdistance</strong></td>
+                <td><span class="badge">Original_Raw</span></td>
+                <td>0.8224 (±0.0010)</td>
+                <td>0.8217</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors7_weightsdistance_Original_Raw.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors7_weightsdistance_Original_Raw.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors14_weightsuniform</strong></td>
+                <td><span class="badge">Original_Raw</span></td>
+                <td>0.7364 (±0.0008)</td>
+                <td>0.7355</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors14_weightsuniform_Original_Raw.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors14_weightsuniform_Original_Raw.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors14_weightsdistance</strong></td>
+                <td><span class="badge">Original_Raw</span></td>
+                <td>0.8255 (±0.0006)</td>
+                <td>0.8247</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors14_weightsdistance_Original_Raw.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors14_weightsdistance_Original_Raw.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors28_weightsuniform</strong></td>
+                <td><span class="badge">Original_Raw</span></td>
+                <td>0.7255 (±0.0016)</td>
+                <td>0.7242</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors28_weightsuniform_Original_Raw.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors28_weightsuniform_Original_Raw.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors28_weightsdistance</strong></td>
+                <td><span class="badge">Original_Raw</span></td>
+                <td>0.8257 (±0.0009)</td>
+                <td>0.8247</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors28_weightsdistance_Original_Raw.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors28_weightsdistance_Original_Raw.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors2_weightsuniform</strong></td>
+                <td><span class="badge">Original_Scaled</span></td>
+                <td>0.7987 (±0.0007)</td>
+                <td>0.7961</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors2_weightsuniform_Original_Scaled.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors2_weightsuniform_Original_Scaled.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors2_weightsdistance</strong></td>
+                <td><span class="badge">Original_Scaled</span></td>
+                <td>0.8420 (±0.0011)</td>
+                <td>0.8416</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors2_weightsdistance_Original_Scaled.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors2_weightsdistance_Original_Scaled.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors7_weightsuniform</strong></td>
+                <td><span class="badge">Original_Scaled</span></td>
+                <td>0.8029 (±0.0016)</td>
+                <td>0.8026</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors7_weightsuniform_Original_Scaled.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors7_weightsuniform_Original_Scaled.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors7_weightsdistance</strong></td>
+                <td><span class="badge">Original_Scaled</span></td>
+                <td>0.8535 (±0.0012)</td>
+                <td>0.8530</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors7_weightsdistance_Original_Scaled.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors7_weightsdistance_Original_Scaled.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors14_weightsuniform</strong></td>
+                <td><span class="badge">Original_Scaled</span></td>
+                <td>0.7942 (±0.0013)</td>
+                <td>0.7937</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors14_weightsuniform_Original_Scaled.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors14_weightsuniform_Original_Scaled.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors14_weightsdistance</strong></td>
+                <td><span class="badge">Original_Scaled</span></td>
+                <td>0.8560 (±0.0012)</td>
+                <td>0.8555</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors14_weightsdistance_Original_Scaled.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors14_weightsdistance_Original_Scaled.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors28_weightsuniform</strong></td>
+                <td><span class="badge">Original_Scaled</span></td>
+                <td>0.7881 (±0.0006)</td>
+                <td>0.7876</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors28_weightsuniform_Original_Scaled.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors28_weightsuniform_Original_Scaled.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors28_weightsdistance</strong></td>
+                <td><span class="badge">Original_Scaled</span></td>
+                <td>0.8557 (±0.0008)</td>
+                <td>0.8552</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors28_weightsdistance_Original_Scaled.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors28_weightsdistance_Original_Scaled.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors2_weightsuniform</strong></td>
+                <td><span class="badge">LDA_2D</span></td>
+                <td>0.7048 (±0.0018)</td>
+                <td>0.6976</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors2_weightsuniform_LDA_2D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors2_weightsuniform_LDA_2D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors2_weightsdistance</strong></td>
+                <td><span class="badge">LDA_2D</span></td>
+                <td>0.7620 (±0.0010)</td>
+                <td>0.7608</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors2_weightsdistance_LDA_2D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors2_weightsdistance_LDA_2D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors7_weightsuniform</strong></td>
+                <td><span class="badge">LDA_2D</span></td>
+                <td>0.6893 (±0.0018)</td>
+                <td>0.6886</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors7_weightsuniform_LDA_2D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors7_weightsuniform_LDA_2D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors7_weightsdistance</strong></td>
+                <td><span class="badge">LDA_2D</span></td>
+                <td>0.7776 (±0.0012)</td>
+                <td>0.7761</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors7_weightsdistance_LDA_2D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors7_weightsdistance_LDA_2D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors14_weightsuniform</strong></td>
+                <td><span class="badge">LDA_2D</span></td>
+                <td>0.6835 (±0.0015)</td>
+                <td>0.6822</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors14_weightsuniform_LDA_2D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors14_weightsuniform_LDA_2D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors14_weightsdistance</strong></td>
+                <td><span class="badge">LDA_2D</span></td>
+                <td>0.7878 (±0.0011)</td>
+                <td>0.7864</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors14_weightsdistance_LDA_2D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors14_weightsdistance_LDA_2D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors28_weightsuniform</strong></td>
+                <td><span class="badge">LDA_2D</span></td>
+                <td>0.6845 (±0.0022)</td>
+                <td>0.6828</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors28_weightsuniform_LDA_2D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors28_weightsuniform_LDA_2D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors28_weightsdistance</strong></td>
+                <td><span class="badge">LDA_2D</span></td>
+                <td>0.7952 (±0.0015)</td>
+                <td>0.7938</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors28_weightsdistance_LDA_2D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors28_weightsdistance_LDA_2D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors2_weightsuniform</strong></td>
+                <td><span class="badge">NCA_2D</span></td>
+                <td>0.6421 (±0.0058)</td>
+                <td>0.6373</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors2_weightsuniform_NCA_2D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors2_weightsuniform_NCA_2D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors2_weightsdistance</strong></td>
+                <td><span class="badge">NCA_2D</span></td>
+                <td>0.6760 (±0.0036)</td>
+                <td>0.6760</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors2_weightsdistance_NCA_2D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors2_weightsdistance_NCA_2D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors7_weightsuniform</strong></td>
+                <td><span class="badge">NCA_2D</span></td>
+                <td>0.7127 (±0.0069)</td>
+                <td>0.7125</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors7_weightsuniform_NCA_2D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors7_weightsuniform_NCA_2D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors7_weightsdistance</strong></td>
+                <td><span class="badge">NCA_2D</span></td>
+                <td>0.7160 (±0.0078)</td>
+                <td>0.7159</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors7_weightsdistance_NCA_2D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors7_weightsdistance_NCA_2D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors14_weightsuniform</strong></td>
+                <td><span class="badge">NCA_2D</span></td>
+                <td>0.7214 (±0.0045)</td>
+                <td>0.7211</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors14_weightsuniform_NCA_2D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors14_weightsuniform_NCA_2D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors14_weightsdistance</strong></td>
+                <td><span class="badge">NCA_2D</span></td>
+                <td>0.7293 (±0.0070)</td>
+                <td>0.7290</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors14_weightsdistance_NCA_2D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors14_weightsdistance_NCA_2D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors28_weightsuniform</strong></td>
+                <td><span class="badge">NCA_2D</span></td>
+                <td>0.7251 (±0.0013)</td>
+                <td>0.7245</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors28_weightsuniform_NCA_2D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors28_weightsuniform_NCA_2D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors28_weightsdistance</strong></td>
+                <td><span class="badge">NCA_2D</span></td>
+                <td>0.7339 (±0.0058)</td>
+                <td>0.7336</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors28_weightsdistance_NCA_2D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors28_weightsdistance_NCA_2D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors2_weightsuniform</strong></td>
+                <td><span class="badge">PCA_2D</span></td>
+                <td>0.6074 (±0.0014)</td>
+                <td>0.5903</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors2_weightsuniform_PCA_2D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors2_weightsuniform_PCA_2D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors2_weightsdistance</strong></td>
+                <td><span class="badge">PCA_2D</span></td>
+                <td>0.6844 (±0.0011)</td>
+                <td>0.6813</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors2_weightsdistance_PCA_2D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors2_weightsdistance_PCA_2D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors7_weightsuniform</strong></td>
+                <td><span class="badge">PCA_2D</span></td>
+                <td>0.5436 (±0.0017)</td>
+                <td>0.5427</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors7_weightsuniform_PCA_2D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors7_weightsuniform_PCA_2D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors7_weightsdistance</strong></td>
+                <td><span class="badge">PCA_2D</span></td>
+                <td>0.6853 (±0.0011)</td>
+                <td>0.6810</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors7_weightsdistance_PCA_2D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors7_weightsdistance_PCA_2D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors14_weightsuniform</strong></td>
+                <td><span class="badge">PCA_2D</span></td>
+                <td>0.5240 (±0.0016)</td>
+                <td>0.5226</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors14_weightsuniform_PCA_2D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors14_weightsuniform_PCA_2D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors14_weightsdistance</strong></td>
+                <td><span class="badge">PCA_2D</span></td>
+                <td>0.6921 (±0.0009)</td>
+                <td>0.6878</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors14_weightsdistance_PCA_2D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors14_weightsdistance_PCA_2D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors28_weightsuniform</strong></td>
+                <td><span class="badge">PCA_2D</span></td>
+                <td>0.5178 (±0.0018)</td>
+                <td>0.5164</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors28_weightsuniform_PCA_2D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors28_weightsuniform_PCA_2D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors28_weightsdistance</strong></td>
+                <td><span class="badge">PCA_2D</span></td>
+                <td>0.6986 (±0.0015)</td>
+                <td>0.6943</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors28_weightsdistance_PCA_2D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors28_weightsdistance_PCA_2D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors2_weightsuniform</strong></td>
+                <td><span class="badge">SparsePCA_2D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors2_weightsdistance</strong></td>
+                <td><span class="badge">SparsePCA_2D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors7_weightsuniform</strong></td>
+                <td><span class="badge">SparsePCA_2D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors7_weightsdistance</strong></td>
+                <td><span class="badge">SparsePCA_2D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors14_weightsuniform</strong></td>
+                <td><span class="badge">SparsePCA_2D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors14_weightsdistance</strong></td>
+                <td><span class="badge">SparsePCA_2D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors28_weightsuniform</strong></td>
+                <td><span class="badge">SparsePCA_2D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors28_weightsdistance</strong></td>
+                <td><span class="badge">SparsePCA_2D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors2_weightsuniform</strong></td>
+                <td><span class="badge">TruncatedSVD_2D</span></td>
+                <td>0.6074 (±0.0014)</td>
+                <td>0.5903</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors2_weightsuniform_TruncatedSVD_2D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors2_weightsuniform_TruncatedSVD_2D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors2_weightsdistance</strong></td>
+                <td><span class="badge">TruncatedSVD_2D</span></td>
+                <td>0.6844 (±0.0011)</td>
+                <td>0.6813</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors2_weightsdistance_TruncatedSVD_2D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors2_weightsdistance_TruncatedSVD_2D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors7_weightsuniform</strong></td>
+                <td><span class="badge">TruncatedSVD_2D</span></td>
+                <td>0.5436 (±0.0017)</td>
+                <td>0.5427</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors7_weightsuniform_TruncatedSVD_2D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors7_weightsuniform_TruncatedSVD_2D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors7_weightsdistance</strong></td>
+                <td><span class="badge">TruncatedSVD_2D</span></td>
+                <td>0.6853 (±0.0011)</td>
+                <td>0.6810</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors7_weightsdistance_TruncatedSVD_2D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors7_weightsdistance_TruncatedSVD_2D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors14_weightsuniform</strong></td>
+                <td><span class="badge">TruncatedSVD_2D</span></td>
+                <td>0.5240 (±0.0016)</td>
+                <td>0.5226</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors14_weightsuniform_TruncatedSVD_2D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors14_weightsuniform_TruncatedSVD_2D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors14_weightsdistance</strong></td>
+                <td><span class="badge">TruncatedSVD_2D</span></td>
+                <td>0.6921 (±0.0009)</td>
+                <td>0.6878</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors14_weightsdistance_TruncatedSVD_2D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors14_weightsdistance_TruncatedSVD_2D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors28_weightsuniform</strong></td>
+                <td><span class="badge">TruncatedSVD_2D</span></td>
+                <td>0.5178 (±0.0018)</td>
+                <td>0.5164</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors28_weightsuniform_TruncatedSVD_2D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors28_weightsuniform_TruncatedSVD_2D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors28_weightsdistance</strong></td>
+                <td><span class="badge">TruncatedSVD_2D</span></td>
+                <td>0.6986 (±0.0015)</td>
+                <td>0.6943</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors28_weightsdistance_TruncatedSVD_2D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors28_weightsdistance_TruncatedSVD_2D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors2_weightsuniform</strong></td>
+                <td><span class="badge">Isomap_2D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors2_weightsdistance</strong></td>
+                <td><span class="badge">Isomap_2D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors7_weightsuniform</strong></td>
+                <td><span class="badge">Isomap_2D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors7_weightsdistance</strong></td>
+                <td><span class="badge">Isomap_2D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors14_weightsuniform</strong></td>
+                <td><span class="badge">Isomap_2D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors14_weightsdistance</strong></td>
+                <td><span class="badge">Isomap_2D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors28_weightsuniform</strong></td>
+                <td><span class="badge">Isomap_2D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors28_weightsdistance</strong></td>
+                <td><span class="badge">Isomap_2D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors2_weightsuniform</strong></td>
+                <td><span class="badge">LLE_standard_2D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors2_weightsdistance</strong></td>
+                <td><span class="badge">LLE_standard_2D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors7_weightsuniform</strong></td>
+                <td><span class="badge">LLE_standard_2D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors7_weightsdistance</strong></td>
+                <td><span class="badge">LLE_standard_2D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors14_weightsuniform</strong></td>
+                <td><span class="badge">LLE_standard_2D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors14_weightsdistance</strong></td>
+                <td><span class="badge">LLE_standard_2D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors28_weightsuniform</strong></td>
+                <td><span class="badge">LLE_standard_2D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors28_weightsdistance</strong></td>
+                <td><span class="badge">LLE_standard_2D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors2_weightsuniform</strong></td>
+                <td><span class="badge">LDA_3D</span></td>
+                <td>0.7293 (±0.0012)</td>
+                <td>0.7234</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors2_weightsuniform_LDA_3D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors2_weightsuniform_LDA_3D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors2_weightsdistance</strong></td>
+                <td><span class="badge">LDA_3D</span></td>
+                <td>0.7827 (±0.0019)</td>
+                <td>0.7818</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors2_weightsdistance_LDA_3D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors2_weightsdistance_LDA_3D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors7_weightsuniform</strong></td>
+                <td><span class="badge">LDA_3D</span></td>
+                <td>0.7223 (±0.0013)</td>
+                <td>0.7220</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors7_weightsuniform_LDA_3D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors7_weightsuniform_LDA_3D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors7_weightsdistance</strong></td>
+                <td><span class="badge">LDA_3D</span></td>
+                <td>0.8004 (±0.0013)</td>
+                <td>0.7994</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors7_weightsdistance_LDA_3D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors7_weightsdistance_LDA_3D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors14_weightsuniform</strong></td>
+                <td><span class="badge">LDA_3D</span></td>
+                <td>0.7176 (±0.0010)</td>
+                <td>0.7170</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors14_weightsuniform_LDA_3D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors14_weightsuniform_LDA_3D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors14_weightsdistance</strong></td>
+                <td><span class="badge">LDA_3D</span></td>
+                <td>0.8103 (±0.0011)</td>
+                <td>0.8094</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors14_weightsdistance_LDA_3D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors14_weightsdistance_LDA_3D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors28_weightsuniform</strong></td>
+                <td><span class="badge">LDA_3D</span></td>
+                <td>0.7166 (±0.0014)</td>
+                <td>0.7159</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors28_weightsuniform_LDA_3D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors28_weightsuniform_LDA_3D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors28_weightsdistance</strong></td>
+                <td><span class="badge">LDA_3D</span></td>
+                <td>0.8175 (±0.0013)</td>
+                <td>0.8167</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors28_weightsdistance_LDA_3D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors28_weightsdistance_LDA_3D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors2_weightsuniform</strong></td>
+                <td><span class="badge">NCA_3D</span></td>
+                <td>0.6731 (±0.0070)</td>
+                <td>0.6685</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors2_weightsuniform_NCA_3D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors2_weightsuniform_NCA_3D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors2_weightsdistance</strong></td>
+                <td><span class="badge">NCA_3D</span></td>
+                <td>0.6991 (±0.0078)</td>
+                <td>0.6990</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors2_weightsdistance_NCA_3D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors2_weightsdistance_NCA_3D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors7_weightsuniform</strong></td>
+                <td><span class="badge">NCA_3D</span></td>
+                <td>0.7311 (±0.0052)</td>
+                <td>0.7308</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors7_weightsuniform_NCA_3D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors7_weightsuniform_NCA_3D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors7_weightsdistance</strong></td>
+                <td><span class="badge">NCA_3D</span></td>
+                <td>0.7405 (±0.0065)</td>
+                <td>0.7403</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors7_weightsdistance_NCA_3D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors7_weightsdistance_NCA_3D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors14_weightsuniform</strong></td>
+                <td><span class="badge">NCA_3D</span></td>
+                <td>0.7377 (±0.0067)</td>
+                <td>0.7371</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors14_weightsuniform_NCA_3D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors14_weightsuniform_NCA_3D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors14_weightsdistance</strong></td>
+                <td><span class="badge">NCA_3D</span></td>
+                <td>0.7536 (±0.0049)</td>
+                <td>0.7533</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors14_weightsdistance_NCA_3D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors14_weightsdistance_NCA_3D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors28_weightsuniform</strong></td>
+                <td><span class="badge">NCA_3D</span></td>
+                <td>0.7397 (±0.0060)</td>
+                <td>0.7392</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors28_weightsuniform_NCA_3D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors28_weightsuniform_NCA_3D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors28_weightsdistance</strong></td>
+                <td><span class="badge">NCA_3D</span></td>
+                <td>0.7561 (±0.0045)</td>
+                <td>0.7556</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors28_weightsdistance_NCA_3D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors28_weightsdistance_NCA_3D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors2_weightsuniform</strong></td>
+                <td><span class="badge">PCA_3D</span></td>
+                <td>0.6894 (±0.0011)</td>
+                <td>0.6799</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors2_weightsuniform_PCA_3D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors2_weightsuniform_PCA_3D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors2_weightsdistance</strong></td>
+                <td><span class="badge">PCA_3D</span></td>
+                <td>0.7500 (±0.0017)</td>
+                <td>0.7483</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors2_weightsdistance_PCA_3D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors2_weightsdistance_PCA_3D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors7_weightsuniform</strong></td>
+                <td><span class="badge">PCA_3D</span></td>
+                <td>0.6690 (±0.0012)</td>
+                <td>0.6678</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors7_weightsuniform_PCA_3D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors7_weightsuniform_PCA_3D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors7_weightsdistance</strong></td>
+                <td><span class="badge">PCA_3D</span></td>
+                <td>0.7678 (±0.0010)</td>
+                <td>0.7654</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors7_weightsdistance_PCA_3D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors7_weightsdistance_PCA_3D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors14_weightsuniform</strong></td>
+                <td><span class="badge">PCA_3D</span></td>
+                <td>0.6618 (±0.0014)</td>
+                <td>0.6596</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors14_weightsuniform_PCA_3D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors14_weightsuniform_PCA_3D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors14_weightsdistance</strong></td>
+                <td><span class="badge">PCA_3D</span></td>
+                <td>0.7799 (±0.0007)</td>
+                <td>0.7776</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors14_weightsdistance_PCA_3D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors14_weightsdistance_PCA_3D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors28_weightsuniform</strong></td>
+                <td><span class="badge">PCA_3D</span></td>
+                <td>0.6606 (±0.0008)</td>
+                <td>0.6579</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors28_weightsuniform_PCA_3D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors28_weightsuniform_PCA_3D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors28_weightsdistance</strong></td>
+                <td><span class="badge">PCA_3D</span></td>
+                <td>0.7880 (±0.0005)</td>
+                <td>0.7858</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors28_weightsdistance_PCA_3D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors28_weightsdistance_PCA_3D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors2_weightsuniform</strong></td>
+                <td><span class="badge">SparsePCA_3D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors2_weightsdistance</strong></td>
+                <td><span class="badge">SparsePCA_3D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors7_weightsuniform</strong></td>
+                <td><span class="badge">SparsePCA_3D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors7_weightsdistance</strong></td>
+                <td><span class="badge">SparsePCA_3D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors14_weightsuniform</strong></td>
+                <td><span class="badge">SparsePCA_3D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors14_weightsdistance</strong></td>
+                <td><span class="badge">SparsePCA_3D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors28_weightsuniform</strong></td>
+                <td><span class="badge">SparsePCA_3D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors28_weightsdistance</strong></td>
+                <td><span class="badge">SparsePCA_3D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors2_weightsuniform</strong></td>
+                <td><span class="badge">TruncatedSVD_3D</span></td>
+                <td>0.6894 (±0.0011)</td>
+                <td>0.6799</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors2_weightsuniform_TruncatedSVD_3D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors2_weightsuniform_TruncatedSVD_3D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors2_weightsdistance</strong></td>
+                <td><span class="badge">TruncatedSVD_3D</span></td>
+                <td>0.7500 (±0.0017)</td>
+                <td>0.7483</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors2_weightsdistance_TruncatedSVD_3D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors2_weightsdistance_TruncatedSVD_3D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors7_weightsuniform</strong></td>
+                <td><span class="badge">TruncatedSVD_3D</span></td>
+                <td>0.6690 (±0.0012)</td>
+                <td>0.6678</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors7_weightsuniform_TruncatedSVD_3D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors7_weightsuniform_TruncatedSVD_3D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors7_weightsdistance</strong></td>
+                <td><span class="badge">TruncatedSVD_3D</span></td>
+                <td>0.7678 (±0.0010)</td>
+                <td>0.7654</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors7_weightsdistance_TruncatedSVD_3D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors7_weightsdistance_TruncatedSVD_3D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors14_weightsuniform</strong></td>
+                <td><span class="badge">TruncatedSVD_3D</span></td>
+                <td>0.6618 (±0.0014)</td>
+                <td>0.6596</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors14_weightsuniform_TruncatedSVD_3D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors14_weightsuniform_TruncatedSVD_3D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors14_weightsdistance</strong></td>
+                <td><span class="badge">TruncatedSVD_3D</span></td>
+                <td>0.7799 (±0.0007)</td>
+                <td>0.7776</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors14_weightsdistance_TruncatedSVD_3D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors14_weightsdistance_TruncatedSVD_3D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors28_weightsuniform</strong></td>
+                <td><span class="badge">TruncatedSVD_3D</span></td>
+                <td>0.6606 (±0.0008)</td>
+                <td>0.6579</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors28_weightsuniform_TruncatedSVD_3D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors28_weightsuniform_TruncatedSVD_3D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors28_weightsdistance</strong></td>
+                <td><span class="badge">TruncatedSVD_3D</span></td>
+                <td>0.7880 (±0.0005)</td>
+                <td>0.7858</td>
+                <td>
+                    <div class="img-container"><div class="img-card"><p>Matriz de Confusión</p><img src="lvdsl_classify_20260907.plot/ConfusionMatrix_KNN_n_neighbors28_weightsdistance_TruncatedSVD_3D.png"></div><div class="img-card"><p>Curva de Aprendizaje</p><img src="lvdsl_classify_20260907.plot/LearningCurve_KNN_n_neighbors28_weightsdistance_TruncatedSVD_3D.png"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors2_weightsuniform</strong></td>
+                <td><span class="badge">Isomap_3D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors2_weightsdistance</strong></td>
+                <td><span class="badge">Isomap_3D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors7_weightsuniform</strong></td>
+                <td><span class="badge">Isomap_3D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors7_weightsdistance</strong></td>
+                <td><span class="badge">Isomap_3D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors14_weightsuniform</strong></td>
+                <td><span class="badge">Isomap_3D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors14_weightsdistance</strong></td>
+                <td><span class="badge">Isomap_3D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors28_weightsuniform</strong></td>
+                <td><span class="badge">Isomap_3D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors28_weightsdistance</strong></td>
+                <td><span class="badge">Isomap_3D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors2_weightsuniform</strong></td>
+                <td><span class="badge">LLE_standard_3D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors2_weightsdistance</strong></td>
+                <td><span class="badge">LLE_standard_3D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors7_weightsuniform</strong></td>
+                <td><span class="badge">LLE_standard_3D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors7_weightsdistance</strong></td>
+                <td><span class="badge">LLE_standard_3D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors14_weightsuniform</strong></td>
+                <td><span class="badge">LLE_standard_3D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors14_weightsdistance</strong></td>
+                <td><span class="badge">LLE_standard_3D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors28_weightsuniform</strong></td>
+                <td><span class="badge">LLE_standard_3D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>KNN_n_neighbors28_weightsdistance</strong></td>
+                <td><span class="badge">LLE_standard_3D</span></td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>
+                    <div class="img-container">
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
