@@ -1,11 +1,11 @@
 =========================================================
    LVDSL - BITÁCORA DE SELECCIÓN Y DATASETS PROCESADOS   
-   FECHA DE EJECUCIÓN: 2026-08-26 01:14:33
+   FECHA DE EJECUCIÓN: 2026-09-08 07:48:06
 =========================================================
 
 >>> DIRECTORIOS DE SALIDA GENERADOS <<<
-  • Imágenes (.png):  lvdsl_classify_dim_reduction/lvdsl_reduc_dim_2026_08_26.img
-  • Datasets (.ds):   lvdsl_classify_dim_reduction/lvdsl_reduc_dim_2026_08_26.ds
+  • Imágenes (.png):  lvdsl_classify_dim_reduction/lvdsl_reduc_dim_2026_09_08.img
+  • Datasets (.ds):   lvdsl_classify_dim_reduction/lvdsl_reduc_dim_2026_09_08.ds
 
 >>> RESUMEN DE DATASETS FINALES ALMACENADOS <<<
   • [LDA_2D] -> dataset_LDA_2D.csv | Dimensiones: (169528, 3)
