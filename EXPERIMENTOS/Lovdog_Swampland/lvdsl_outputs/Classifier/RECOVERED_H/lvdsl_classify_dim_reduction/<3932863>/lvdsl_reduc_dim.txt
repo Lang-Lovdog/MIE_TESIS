@@ -1,0 +1,144 @@
+=========================================================
+   LVDSL - BITÁCORA DE SELECCIÓN Y DATASETS PROCESADOS   
+   FECHA DE EJECUCIÓN: 2026-09-08 07:48:06
+=========================================================
+
+>>> DIRECTORIOS DE SALIDA GENERADOS <<<
+  • Imágenes (.png):  lvdsl_classify_dim_reduction/lvdsl_reduc_dim_2026_09_08.img
+  • Datasets (.ds):   lvdsl_classify_dim_reduction/lvdsl_reduc_dim_2026_09_08.ds
+
+>>> RESUMEN DE DATASETS FINALES ALMACENADOS <<<
+  • [LDA_2D] -> dataset_LDA_2D.csv | Dimensiones: (169528, 3)
+  • [NCA_2D] -> dataset_NCA_2D.csv | Dimensiones: (8000, 3)
+  • [PCA_2D] -> dataset_PCA_2D.csv | Dimensiones: (169528, 2)
+  • [SparsePCA_2D] -> dataset_SparsePCA_2D.csv | Dimensiones: (8000, 2)
+  • [TruncatedSVD_2D] -> dataset_TruncatedSVD_2D.csv | Dimensiones: (169528, 2)
+  • [Isomap_2D] -> dataset_Isomap_2D.csv | Dimensiones: (8000, 2)
+  • [LLE_standard_2D] -> dataset_LLE_standard_2D.csv | Dimensiones: (8000, 2)
+  • [LDA_3D] -> dataset_LDA_3D.csv | Dimensiones: (169528, 4)
+  • [NCA_3D] -> dataset_NCA_3D.csv | Dimensiones: (8000, 4)
+  • [PCA_3D] -> dataset_PCA_3D.csv | Dimensiones: (169528, 3)
+  • [SparsePCA_3D] -> dataset_SparsePCA_3D.csv | Dimensiones: (8000, 3)
+  • [TruncatedSVD_3D] -> dataset_TruncatedSVD_3D.csv | Dimensiones: (169528, 3)
+  • [Isomap_3D] -> dataset_Isomap_3D.csv | Dimensiones: (8000, 3)
+  • [LLE_standard_3D] -> dataset_LLE_standard_3D.csv | Dimensiones: (8000, 3)
+
+=========================================================
+
+>>> APORTE DE CARACTERÍSTICAS ORIGINALES Y PESOS <<<
+
+--- MODELO: LDA_2D ---
+Matriz de salida: (169528, 2)
+Varianza explicada acumulada: 0.9890 [0.7877, 0.2013]
+Top 3 Características con mayor peso absoluto por Componente:
+   • Comp 1: AF3 (|w|=1.102), AF5 (|w|=0.440), tau (|w|=0.381)
+   • Comp 2: AD5 (|w|=1.371), AF3 (|w|=0.927), AH3 (|w|=0.283)
+
+----------------------------------------
+
+--- MODELO: NCA_2D ---
+Matriz de salida: (8000, 2)
+Top 3 Características con mayor peso absoluto por Componente:
+   • Comp 1: tau (|w|=1419.969), AF3 (|w|=868.100), s (|w|=372.050)
+   • Comp 2: AD5 (|w|=1688.854), AF3 (|w|=818.230), A3N3 (|w|=706.573)
+
+----------------------------------------
+
+--- MODELO: PCA_2D ---
+Matriz de salida: (169528, 2)
+Varianza explicada acumulada: 0.4767 [0.2888, 0.1879]
+Top 3 Características con mayor peso absoluto por Componente:
+   • Comp 1: AF3 (|w|=0.615), AD5 (|w|=0.525), AH3 (|w|=0.443)
+   • Comp 2: A3N3 (|w|=0.751), AD5 (|w|=0.330), AF5 (|w|=0.302)
+
+----------------------------------------
+
+--- MODELO: SparsePCA_2D ---
+Matriz de salida: (8000, 2)
+Top 3 Características con mayor peso absoluto por Componente:
+   • Comp 1: AF3 (|w|=0.614), AD5 (|w|=0.543), AH3 (|w|=0.451)
+   • Comp 2: tau (|w|=0.720), s (|w|=0.488), AF5 (|w|=0.366)
+
+----------------------------------------
+
+--- MODELO: TruncatedSVD_2D ---
+Matriz de salida: (169528, 2)
+Varianza explicada acumulada: 0.4767 [0.2888, 0.1879]
+Top 3 Características con mayor peso absoluto por Componente:
+   • Comp 1: AF3 (|w|=0.615), AD5 (|w|=0.525), AH3 (|w|=0.443)
+   • Comp 2: A3N3 (|w|=0.751), AD5 (|w|=0.330), AF5 (|w|=0.302)
+
+----------------------------------------
+
+--- MODELO: Isomap_2D ---
+Matriz de salida: (8000, 2)
+Pesos por Feature: Transformación no lineal (Sin componentes explícitos).
+
+----------------------------------------
+
+--- MODELO: LLE_standard_2D ---
+Matriz de salida: (8000, 2)
+Pesos por Feature: Transformación no lineal (Sin componentes explícitos).
+
+----------------------------------------
+
+--- MODELO: LDA_3D ---
+Matriz de salida: (169528, 3)
+Varianza explicada acumulada: 1.0000 [0.7877, 0.2013, 0.011]
+Top 3 Características con mayor peso absoluto por Componente:
+   • Comp 1: AF3 (|w|=1.102), AF5 (|w|=0.440), tau (|w|=0.381)
+   • Comp 2: AD5 (|w|=1.371), AF3 (|w|=0.927), AH3 (|w|=0.283)
+   • Comp 3: AD5 (|w|=0.749), A3N3 (|w|=0.643), AF3 (|w|=0.597)
+
+----------------------------------------
+
+--- MODELO: NCA_3D ---
+Matriz de salida: (8000, 3)
+Top 3 Características con mayor peso absoluto por Componente:
+   • Comp 1: tau (|w|=307.902), AF3 (|w|=165.668), s (|w|=118.378)
+   • Comp 2: AD5 (|w|=268.616), tau (|w|=173.452), AF3 (|w|=166.815)
+   • Comp 3: AD5 (|w|=159.159), tau (|w|=128.209), AH3 (|w|=110.321)
+
+----------------------------------------
+
+--- MODELO: PCA_3D ---
+Matriz de salida: (169528, 3)
+Varianza explicada acumulada: 0.6527 [0.2888, 0.1879, 0.176]
+Top 3 Características con mayor peso absoluto por Componente:
+   • Comp 1: AF3 (|w|=0.615), AD5 (|w|=0.525), AH3 (|w|=0.443)
+   • Comp 2: A3N3 (|w|=0.751), AD5 (|w|=0.330), AF5 (|w|=0.302)
+   • Comp 3: tau (|w|=0.560), AF5 (|w|=0.537), AH3 (|w|=0.475)
+
+----------------------------------------
+
+--- MODELO: SparsePCA_3D ---
+Matriz de salida: (8000, 3)
+Top 3 Características con mayor peso absoluto por Componente:
+   • Comp 1: AF3 (|w|=0.611), AH3 (|w|=0.536), AD5 (|w|=0.475)
+   • Comp 2: tau (|w|=0.766), s (|w|=0.451), AF5 (|w|=0.401)
+   • Comp 3: A3N3 (|w|=0.770), AH3 (|w|=0.489), AD5 (|w|=0.380)
+
+----------------------------------------
+
+--- MODELO: TruncatedSVD_3D ---
+Matriz de salida: (169528, 3)
+Varianza explicada acumulada: 0.6527 [0.2888, 0.1879, 0.176]
+Top 3 Características con mayor peso absoluto por Componente:
+   • Comp 1: AF3 (|w|=0.615), AD5 (|w|=0.525), AH3 (|w|=0.443)
+   • Comp 2: A3N3 (|w|=0.751), AD5 (|w|=0.330), AF5 (|w|=0.302)
+   • Comp 3: tau (|w|=0.560), AF5 (|w|=0.537), AH3 (|w|=0.475)
+
+----------------------------------------
+
+--- MODELO: Isomap_3D ---
+Matriz de salida: (8000, 3)
+Pesos por Feature: Transformación no lineal (Sin componentes explícitos).
+
+----------------------------------------
+
+--- MODELO: LLE_standard_3D ---
+Matriz de salida: (8000, 3)
+Pesos por Feature: Transformación no lineal (Sin componentes explícitos).
+
+----------------------------------------
+

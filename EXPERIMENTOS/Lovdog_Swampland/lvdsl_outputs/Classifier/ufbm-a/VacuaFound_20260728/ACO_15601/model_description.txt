@@ -1,0 +1,1 @@
+OriginalACOR(epoch=200, pop_size=140, sample_count=220, intent_factor=0.6, zeta=0.13)

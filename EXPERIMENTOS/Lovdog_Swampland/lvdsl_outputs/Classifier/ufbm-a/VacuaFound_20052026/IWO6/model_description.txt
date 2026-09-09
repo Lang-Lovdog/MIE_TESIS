@@ -1,0 +1,1 @@
+OriginalIWO(epoch=50, pop_size=20, seed_min=1, seed_max=4, exponent=2, sigma_start=1.0, sigma_end=0.1)
