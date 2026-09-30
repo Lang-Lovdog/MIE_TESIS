@@ -356,6 +356,7 @@ def __complexity_tictac_test__(iterations: int = 10000, log : str = ""):
 
 
 if __name__ == "__main__":
+    import datetime
     for a in [1, 10, 100, 1000, 10000]:
         for b in [ 1, 2, 3, 7, 11 ]:
-            __complexity_tictac_test__(iterations=a*b, log="lvdsl_k_theory_potentials_lifting_fitness_tictac_test.txt")
+            __complexity_tictac_test__(iterations=a*b, log=f"lvdsl_k_theory_potentials_lifting_fitness_tictac_test_{datetime.datetime.now().strftime('%Y%m%d')}.txt")

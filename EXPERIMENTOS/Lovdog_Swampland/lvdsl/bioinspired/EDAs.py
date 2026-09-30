@@ -83,13 +83,13 @@ class PBIL:
     def solve(self, problem_dict):
         set_evaluation_mode(vectorized=True)
         try:
-            lb = np.array(problem_dict['bounds'].lb)
-            ub = np.array(problem_dict['bounds'].ub)
+            lb       = np.array(problem_dict['bounds'].lb)
+            ub       = np.array(problem_dict['bounds'].ub)
             fit_func = problem_dict['obj_func']
-            dim = len(lb)
+            dim      = len(lb)
 
             # Vectores de probabilidad (inicializados al centro de los bounds)
-            mu_vec = (lb + ub) / 2.0
+            mu_vec    = (lb + ub) / 2.0
             sigma_vec = (ub - lb) / 4.0
 
             for g in range(self.epoch):

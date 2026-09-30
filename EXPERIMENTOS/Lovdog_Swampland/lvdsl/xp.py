@@ -7,7 +7,7 @@ HAS_GPU = True
 
 def get_nvidia_configs():
     ## Obtiene la información del entorno virtual en el que se está corriendo
-    venv_path = os.environ.get('VIRTUAL_ENV')
+    venv_path  = os.environ.get('VIRTUAL_ENV')
     if venv_path:
         cuda_lib_path = os.path.join(venv_path, 'lib', f'python{sys.version_info.major}.{sys.version_info.minor}', 'site-packages', 'nvidia')
         if os.path.exists(cuda_lib_path):
@@ -23,6 +23,13 @@ def get_nvidia_configs():
 def import_numeric_handle():
     global np, xp, HAS_GPU
     import numpy
+    env_usegpu = os.environ.get('USE_GPU', '1')
+    if env_usegpu == '0':
+        print("USE_GPU=0 detectado. Deshabilitando GPU y usando NumPy.")
+        HAS_GPU = False
+        np = numpy
+        xp = numpy
+        return
     try:
         import cupy #type: ignore
         HAS_GPU = True

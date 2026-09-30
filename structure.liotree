@@ -333,10 +333,24 @@
 |==
 |- TESIS.TEX/                                     > Directorio della tesis.                                                ||
 |=-
+|-- img.eps/
+|=-
+|---- swampland.plt
+|---- swampland.eps
+|==
 |-- 00.-Portada.tex
 |-- commands.tex
 |-- escudoUG.png
 |-- lstautodedent.sty
+|==
+|----- ProyectosDeInvestigación/
+|=-
+|------- COMIA_2026/
+|------- CONACIC/
+|-------  ICApplEC_2026/
+|=-
+|------- Presentación_ICApplEC_2026.tex
+|==
 |==
 |- SaveChanges.sh                                 > The file that saves and pushes to GitHub when needed, all in Tesis dir ||
 |- GetChanges.sh                                  > The file that just pulls from GitHub when needed, all in Tesis dir ||
