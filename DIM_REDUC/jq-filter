@@ -1,0 +1,36 @@
+# JQ filter: press <CR> to execute it (different queries should be separated by a blank line)
+
+.+=[{
+  "paper": "Neighbourhood components analysis.",
+  "doi": "",
+  "method":"NCA"
+},
+{
+  "paper": "On lines and planes of closest fit to systems of points in space.",
+  "doi": "",
+  "method":"PCA"
+},
+{
+  "paper": "Sparse principal component analysis",
+  "doi": "",
+  "method":"Sparse PCA"
+},
+{
+  "paper": "Nonlinear dimensionality reduction by locally linear embedding",
+  "doi": "",
+  "method": "LLE"
+},
+{
+  "paper": "A global geometric framework for nonlinear dimensionality reduction",
+  "doi": "",
+  "method":"Isomap"
+},
+{
+  "paper": [
+      "The approximation of one matrix by another of lower rank. ",
+      "The singular value decomposition and least squares solutions."
+    ],
+  "doi": "",
+  "method":"Truncated SVD"
+}
+]
