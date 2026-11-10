@@ -1,1 +1,0 @@
-BaseGA(epoch=50, pop_size=60, pc=0.5, pm=0.6)

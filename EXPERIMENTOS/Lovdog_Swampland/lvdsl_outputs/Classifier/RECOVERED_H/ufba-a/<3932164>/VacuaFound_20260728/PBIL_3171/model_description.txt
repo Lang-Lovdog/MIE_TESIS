@@ -1,1 +1,0 @@
-PBIL(epoch=100, pop_size=300, lr=1.87)

@@ -1,1 +1,0 @@
-OriginalASO(epoch=400, pop_size=300, alpha=27, beta=0.1)

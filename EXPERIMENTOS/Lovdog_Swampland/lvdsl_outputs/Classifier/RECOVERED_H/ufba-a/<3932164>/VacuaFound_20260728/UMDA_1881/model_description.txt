@@ -1,1 +1,0 @@
-UMDA(epoch=400, pop_size=220, sel_ratio=0.63)
