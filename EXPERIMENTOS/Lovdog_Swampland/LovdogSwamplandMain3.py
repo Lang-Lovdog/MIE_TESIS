@@ -205,7 +205,7 @@ if __name__ == "__main__":
 
     print(built_params_main)
 
-    max_subprocesses = 4
+    max_subprocesses = 2 ## Batch size, so if 2, the full list will be split in groups of 2 being len(built_params_main)/2 parallel processes
 
     ## Making groups of {max_subprocesses} per group for multiprocessing
     pool_params = [

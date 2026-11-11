@@ -1,0 +1,16 @@
+#!/bin/bash
+
+model=$1
+shift
+## Si el segundo argumento es -d=texto, se guarda en pdir
+if [[ $1 == -d=* ]]; then
+  pdir="$1"
+  shift
+else
+  pdir=""
+fi
+midx="$@"
+
+. ../venv/bin/activate
+python ./LovdogSwamplandMain4.py "$model" "$pdir" "$midx"
+

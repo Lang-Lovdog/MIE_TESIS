@@ -105,6 +105,7 @@
 |--- LovdogSwamplandMain.py
 |--- LovdogSwamplandMain2.py
 |--- LovdogSwamplandMain3.py
+|--- LovdogSwamplandMain4.py
 |--- RunPSO_01.sh
 |--- RunIWO_01.sh
 |--- RunGA_01.sh
@@ -117,6 +118,7 @@
 |--- RunACO-RS_01.sh
 |--- RunVCS-RS_01.sh
 |--- RunASO-RS_01.sh
+|--- RunLibre-RS.sh
 |
 |--- BASH_SCRIPTS/
 |=-
@@ -131,6 +133,7 @@
 |--------- run_da_aco_random_search
 |--------- run_da_aso_random_search
 |--------- run_da_vcs_random_search
+|--------- run_da_libre_random_search
 |==
 |--- StatisticAnalysis_lvdsl.qmd
 |--- lvdsl_outputs/                                > Módulo del Lovdog Swapland                                             ||
