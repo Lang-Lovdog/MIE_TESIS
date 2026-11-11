@@ -3,4 +3,9 @@ venv
 *.log
 *.model
 *.mp4
+*.wav
+*.aup
+*.aup3
+*.aup4
 RECOVERED_H
+lvdsl_outputs/

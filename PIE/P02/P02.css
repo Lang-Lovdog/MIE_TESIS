@@ -1,0 +1,271 @@
+body {
+  font-family: 'IM FELL DW Pica';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(50, 30, 30);
+}
+@import url('https://fonts.googleapis.com/css2?family=Victor+Mono:ital,wght@0,300..700;1,300..700&display=swap');
+code, pre, .vintage-code {
+  font-family: 'Victor Mono', monospace;
+  font-optical-sizing: auto;
+  font-weight: 500; /* Puedes ajustar el grosor (ej. 400, 500, 600) */
+  font-style: normal;
+}
+
+.frame {
+  max-width:  80vw;
+  min-width:  80vw;
+  aspect-ratio: 16/9;
+  border: 2px solid rgb(200, 0, 200);
+  background-color: rgb(255, 255, 255);
+  border-radius: 12px;
+  box-shadow:
+    0 0 10px  rgb(180, 200, 10),
+    0 0 10px  rgb(180, 200, 10) inset;
+  background-color: #f4ebd0;
+  background-image: 
+      radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(0,0,0,0.08) 100%),
+      linear-gradient(135deg, #f7f1e3 0%, #ebd6b3 100%);
+  margin: auto;
+  box-sizing: border-box;
+  padding: 40px 58px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra verticalmente */
+  align-items: center;     /* Centra horizontalmente */
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  opacity: 1;
+  transform: translateY(0)
+}
+.frame.is-animating {
+    opacity: 0;
+    transform: translateY(8px); /* Desplaza un pelín hacia abajo al desvanecer */
+}
+.frame .maintitle{
+  font-size:  70px;
+  text-align: center;
+}
+.frame .title{
+  font-size: 50px;
+  display: block;
+  align-self: center;
+  text-align: center;
+}
+.frame .ttitle{
+  font-size: 50px;
+  display: block;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: auto;
+}
+.frame .subtitle {
+  font-size: 40px;
+  display: block;
+  align-self: center;
+  text-align: center;
+}
+.frame .lower{
+  font-size: 28px;
+}
+.frame .body {
+  font-size: 28px;
+  flex-grow: 1; 
+  width: 100%; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 20px 40px; 
+}
+.hidden{
+  display: none !important;
+}
+.ornament-line {
+    width: 400px;         /* Ancho de la línea */
+    height: 30px;         /* Altura del contenedor */
+    margin: 30px auto;    /* Margen automático para centrarla horizontalmente */
+    
+    /* Convertimos el SVG directamente en un fondo reutilizable */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 600 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cline x1='0' y1='15' x2='260' y2='15' stroke='%235a3d28' stroke-width='2' stroke-linecap='round'/%3E%3Cpolygon points='300,5 315,15 300,25 285,15' fill='%235a3d28'/%3E%3Cline x1='340' y1='15' x2='600' y2='15' stroke='%235a3d28' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.ornament-vine {
+    width: 450px;         /* Ancho del separador */
+    height: 40px;         /* Altura del contenedor */
+    margin: 30px auto;    /* Margen para centrarlo */
+    
+    /* SVG de pluma fuente con filigranas laterales y punto central elegante */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 500 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 10,20 Q 80,5 150,20 Q 220,35 240,20' fill='none' stroke='%235a3d28' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M 490,20 Q 420,5 350,20 Q 280,35 260,20' fill='none' stroke='%235a3d28' stroke-width='2' stroke-linecap='round'/%3E%3Ccircle cx='250' cy='20' r='3.5' fill='%235a3d28'/%3E%3Ccircle cx='235' cy='15' r='1.5' fill='%235a3d28'/%3E%3Ccircle cx='265' cy='25' r='1.5' fill='%235a3d28'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.ornament-feather {
+    width: 500px;
+    height: 30px;
+    margin: 30px auto;
+    
+    /* SVG con trazo de grosor variable tipo pluma real y sin punto central */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 500 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 20,15 Q 120,13 250,15 Q 380,13 480,15' fill='none' stroke='%235a3d28' stroke-width='3.5' stroke-linecap='round'/%3E%3Cpath d='M 40,17 Q 150,19 250,17 Q 350,19 460,17' fill='none' stroke='%235a3d28' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M 10,15 Q 100,12 250,15 Q 400,12 490,15' fill='none' stroke='%235a3d28' stroke-width='0.8' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.frame .footer {
+  font-size: 20px;
+  align-self: last baseline;
+  scrollbar-width: none;
+}
+.frame-counter {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #f4ebd0;
+    border: 1px solid #5a3d28;
+    font-family: "IM Fell DW Pica", serif;
+    font-size: 20px;
+    color: #5a3d28;
+    padding: 6px 14px;
+    border-radius: 4px;
+    box-shadow:
+       2px 2px 6px rgba(0, 200, 200, 0.15),
+       2px 2px 6px rgba(0, 200, 200, 0.15) inset;
+    font-size: 30px;
+    z-index: 1000;
+}
+.frame .body ul {
+    list-style: none; /* Quitamos los puntos predeterminados del navegador */
+    padding-left: 0;
+    margin: 20px 0;
+    width: 100%;
+    max-width: 800px;
+}
+
+.frame .body ul li {
+    position: relative;
+    margin-bottom: 20px;
+    padding-left: 45px; /* Espacio reservado para la viñeta ornamental */
+    text-align: left;    /* Alineación limpia a la izquierda */
+    line-height: 1.4;
+}
+
+/* Viñeta ornamental para listas ul */
+.frame .body ul li::before {
+    content: "❖"; /* Rombo ornamental clásico o puedes usar "—" (raya de diálogo) */
+    position: absolute;
+    left: 10px;
+    top: 2px;
+    font-size: 20px;
+    color: #7a5230; /* Tono sepia/capuchino */
+    font-family: "IM Fell DW Pica", serif;
+}
+/* Contenedor que activa el scroll */
+.vintage-scroll {
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 100%; /* O la altura específica que necesites limitar */
+    
+    /* Para Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: #5a3d28 #f4ebd0;
+}
+
+/* Estilos de la barra para navegadores basados en WebKit (Chrome, Safari, Edge) */
+.vintage-scroll::-webkit-scrollbar {
+    width: 8px; /* Ancho sutil y elegante */
+}
+
+.vintage-scroll::-webkit-scrollbar-track {
+    background: #f4ebd0; /* Fondo color papel antiguo */
+    border-radius: 4px;
+    border: 1px solid rgba(90, 61, 40, 0.15); /* Borde muy sutil */
+}
+
+.vintage-scroll::-webkit-scrollbar-thumb {
+    background: #7a5230; /* Tono sepia/capuchino oscuro para la barra */
+    border-radius: 4px;
+    border: 1px solid #5a3d28;
+}
+
+.vintage-scroll::-webkit-scrollbar-thumb:hover {
+    background: #5a3d28; /* Se oscurece ligeramente al pasar el cursor */
+}
+    /* Heredar y estilizar el salto de línea en contenedores con scroll vintage */
+.vintage-scroll br {
+/*    display: block;a */
+/*    content: ""; */
+    margin-top: 1em; /* Ajusta este valor (ej. 0.6em a 1em) para controlar el espacio extra */
+    line-height: 2pt;
+}
+/* Estilo general para los enlaces dentro de tus marcos */
+.frame a {
+    color: #5a3d28; /* Tono marrón sepia oscuro (coincide con los bordes y títulos) */
+    text-decoration: underline;
+    font-weight: bold;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    text-decoration-color: rgba(90, 61, 40, 0.4); /* Subrayado semitransparente estilo pluma */
+    transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+/* Efecto al pasar el cursor (hover) */
+.frame a:hover {
+    color: #7a5230; /* Un tono ligeramente más cálido o vibrante */
+    text-decoration-color: #5a3d28; /* El subrayado se vuelve más sólido al apuntarlo */
+}
+
+/* Opcional: si quieres que los enlaces visitados mantengan la misma elegancia */
+.frame a:visited {
+    color: #6b462b;
+}
+/* Contenedor en fila para colocar elementos lado a lado o centrar una figura */
+.vintage-row {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    margin: 1rem 0;
+}
+
+/* Tarjeta contenedora para imágenes, tablas o ilustraciones */
+.vintage-figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(244, 235, 208, 0.4); /* Fondo papel semitransparente */
+    border: 1px solid #5a3d28;
+    border-radius: 4px;
+    padding: 1rem;
+    box-shadow: 2px 3px 6px rgba(90, 61, 40, 0.15); /* Sombra suave de tinta/papel */
+    max-width: 100%;
+}
+
+/* Ajuste automático para imágenes dentro de la tarjeta */
+.vintage-figure img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid rgba(90, 61, 40, 0.3);
+    border-radius: 2px;
+}
+
+/* Pie de figura / Leyenda usando tu estilo de texto o la clase .footer existente */
+.vintage-figure .figure-caption,
+.vintage-figure .footer {
+    margin-top: 0.75rem;
+    font-size: 17px;
+    font-style: italic;
+    color: #5a3d28;
+    text-align:left;
+    overflow: visible;
+    max-height: none;
+}
+

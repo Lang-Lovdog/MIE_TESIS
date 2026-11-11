@@ -149,6 +149,7 @@
 |--- RunACO-RS_01.sh
 |--- RunVCS-RS_01.sh
 |--- RunASO-RS_01.sh
+|--- RunLibre-RS.sh
 |
 |--- BASH_SCRIPTS/
 |=-
@@ -289,9 +290,12 @@
 |==
 |- PIE/                                           > Trabajos de la clase de Proyecto de Investigación en Ing. Electrónica. ||
 |=-
+|-- P02/ > Cambie Número Para Crear Nuevos directorios||
 |-- ;P0[1]/;                                      > Presentación 01 Presenta una investigación como tuya                   ||
 |=-
 |--- P01.tex                                      > La investigación fue tomando el Metastable Vacua del Dr. Ascencio      ||
+|--- ;P02.[html];
+|--- ;pso.[svg];
 |==
 |==
 |- PROPUESTA.TEX/                                 > Propuesta de tesis. Plazo máximo de entrega 18 de Febrero 2026         ||
@@ -345,9 +349,10 @@
 |==
 |----- ProyectosDeInvestigación/
 |=-
+|---- _this_dir_
 |------- COMIA_2026/
 |------- CONACIC/
-|-------  ICApplEC_2026/
+|------- ICApplEC_2026/
 |=-
 |------- Presentación_ICApplEC_2026.tex
 |==
@@ -355,4 +360,9 @@
 |- SaveChanges.sh                                 > The file that saves and pushes to GitHub when needed, all in Tesis dir ||
 |- GetChanges.sh                                  > The file that just pulls from GitHub when needed, all in Tesis dir ||
 |- structure.liotree                              > Este es un archivo que permite el acceso a la estructura del proyecto. ||
+|- Nyeh/
+|=-
+|--- fornaments.tex
+|--- CV.tex
+|==
 

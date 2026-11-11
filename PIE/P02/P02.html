@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Protocolo de tesis</title>
+    <link href="P02.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="frame">
+      <div class="title"> Protocolo de tesis </div>
+      <div class="maintitle">Búsqueda de vacíos estables en teoría de cuerdas mediante métodos metaheurísticos</div>
+      <div class="ornament-line"></div>
+      <div class="lower">Brandon Marquez-Salazar, Ángel Díaz Pacheco & Cesar Damian</div>
+    </div>
+
+    <!--- Frame 2 --->
+    <div class="frame">
+      <div class="ttitle">1. Introducción</div>
+      <div class="body">
+        <div class="vintage-row">
+          <ul>
+            <li>El uso de herramientas computacionales ha tenido un impacto significativo
+              dentro de la investigación científica.</li>
+            <li>Dicho impacto abarca desde la automatización y gestión de datos[2], hasta aproximaciones basadas en IA [3,4].</li>
+            <li>También, dentro de este contexto, han surgido los métodos metaheurísticos, entre los que destacan a menudo los
+              Métodos Inspirados en la Naturaleza. Estos son abstracciones de fenómenos y sistemas como la evolución o el
+              comportamiento animal [5,6].</li>
+          </ul>
+          <figure class="vintage-figure" style="flex: 1;">
+            <img src="https://www.chilton-computing.org.uk/gallery/1985/r85r3939.jpg" alt="Gráfica de vacua">
+            <figcaption class="footer vintage-scroll">
+              Figura 1: Computación científica.
+              <br/>Fuente: https://www.chilton-computing.org.uk/gallery/1985/r85r3939.jpg
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="frame">
+      <div class="ttitle">Ventajas de los Enfoques Metaheurísticos  </div>
+      <div class="ttitle">yael</div>
+      <div class="body vintage-scroll">
+        <div class="vintage-row">
+          <div style="width: 60%;">
+            <figure class="vintage-figure" style="align-self: center;">
+              <img
+                src="https://www.researchgate.net/profile/Mijodrag-Milosevic-2/publication/341418607/figure/fig2/AS:994730997469185@1614173759214/Natural-inspiration-behind-metaheuristic-algorithms-Images-taken-from-pixabaycom-and.png"
+                alt="Taxonomía de metaheurísticas"
+                style="max-width: 600px; height: auto;"
+                >
+                <figcaption class="footer" style="text-align: center; width: 100%;">
+                  Figura 2: Clasificación de algoritmos bioinspirados.
+                  <br/>
+                  <span style="font-size: 0.85em;">Fuente: Milosevic et al. / ResearchGate (Adaptado de Pixabay).</span>
+                </figcaption>
+            </figure>
+          </div>
+          <div>
+            <p style="padding-bottom: 5px !important; margin-bottom: 5px; !important">
+              Las metaheurísticas, al implementar reglas locales simples que resultan en comportamientos «inteligentes», logran
+              efectuar la exploración y la explotación. La principal ventaja de esto es su capacidad de explorar funciones complejas
+              y extremadamente caprichosas [5, 7, 8].
+            </p>
+            <figure class="vintage-figure" style="flex: 1; width: 100%; transform: translate(-70px, 0);">
+              <object data="pso.svg" type="image/svg+xml" style="width: 100%; height: auto;">
+                Tu navegador no soporta gráficos vectoriales SVG.
+              </object>
+              <figcaption class="footer" style="text-align: center; width: 100%;">
+                Figura 3: Representación de un metaheurístico optimizando.
+                <br/>
+                <span style="font-size: 0.85em;">Fuente: Creado con asistencia de IA</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="frame">
+      <div class="ttitle">1.1 Objetivos</div>
+      <div class="body">
+        <div class="vintage-row">
+          <!-- Columna del Objetivo General -->
+          <div style="flex: 1;">
+            <p><strong>1.1.1 Objetivo General</strong></p>
+            <br/>
+            <p>
+              Implementar métodos metaheurísticos para la optimización de los parámetros (flujos y coeficientes) de una función potencial derivada de modelos específicos de teoría de cuerdas, con el fin de identificar y caracterizar configuraciones de vacío estables.
+            </p>
+          </div>
+
+          <!-- Columna de Objetivos Específicos -->
+          <div class="vintage-scroll" style="flex: 1.2; max-height: 450px;">
+            <p><strong>1.1.2 Objetivos Específicos</strong></p>
+            <br/>
+            <ul>
+              <li>Analizar modelos derivados de teoría de cuerdas con énfasis en la estructura de la función potencial y la
+                caracterización de vacíos estables.</li>
+              <li>Identificar los parámetros relevantes (flujos y coeficientes) que intervienen en la definición del potencial
+                efectivo y su impacto en la estabilidad de las soluciones.</li>
+              <li>Revisar y seleccionar métodos metaheurísticos adecuados (algoritmos genéticos, optimización por enjambre de
+                partículas, algoritmos de estimación de distribución, colonia de hormigas, entre otros) para el problema planteado.
+              </li>
+              <li>Formular el problema de optimización de la función potencial como un problema computacional en espacios de alta
+                dimensionalidad.</li>
+              <li>Implementar los métodos seleccionados y ajustar sus parámetros para su aplicación en el contexto del modelo físico
+                considerado.</li>
+              <li>Evaluar el desempeño de los métodos mediante métricas de convergencia, calidad de solución y capacidad para
+                identificar vacíos estables.</li>
+              <li>Comparar los resultados obtenidos con enfoques existentes o configuraciones base, con el fin de determinar mejoras
+                en la exploración del espacio de soluciones.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="frame">
+      <div class="ttitle">1.2 Justificación</div>
+      <div class="body">
+        <div class="vintage-row">
+          <!-- Columna de texto sintetizado -->
+          <div class="vintage-scroll" style="flex: 1.2; max-height: 450px;">
+            <p>
+              <strong>Reto analítico:</strong> Los potenciales en teoría de cuerdas presentan alta dimensionalidad, múltiples óptimos
+              locales y no convexidad, donde los métodos basados en gradientes resultan insuficientes [9, 10].
+            </p>
+            <p>
+              <strong>Teorema de <em>No Free Lunch</em>:</strong> Dado que no existe un algoritmo universalmente superior [11], es
+              necesario evaluar diversas estrategias metaheurísticas al carecer de una garantía analítica previa.
+            </p>
+            <p>
+              <strong>Impacto:</strong> Este análisis comparativo sistemático (algoritmos genéticos, PSO, entre otros) busca optimizar
+              la exploración del espacio de soluciones y superar los registros previos [12] en la identificación de vacíos estables.
+            </p>
+          </div>
+
+          <!-- Columna de la imagen -->
+          <figure class="vintage-figure" style="flex: 0.5;">
+            <!-- Reemplaza 'tu_imagen.svg' por el archivo que usarás -->
+            <object data="swampland.pdf#toolbar=0&navpanes=0&scrollbar=0&zoom=128"
+            type="application/pdf" style="width: 390px; height: 260px; border: none;"></object>
+            <figcaption class="footer" style="text-align: center; width: 100%;">
+              Figura 4: Representación del Landscape.
+              <br/>
+              <span style="font-size: 0.85em;">Fuente: Creado con GNUPLOT.</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="frame">
+      <div class="ttitle">1.3 Antecedentes</div>
+      <div class="body">
+        <div class="vintage-row">
+          <!-- Columna izquierda: Hitos en la literatura -->
+          <div class="vintage-scroll" style="flex: 1.3; max-height: 450px;">
+            <ul>
+              <li><strong>Abel y Rizos [16]:</strong> Algoritmos genéticos más eficientes que el muestreo aleatorio en modelos
+                fermiónicos.</li>
+              <li><strong>Bizet et al. [17]:</strong> Más de 60,000 configuraciones de flujo en tipo IIB con algoritmos genéticos y
+                redes neuronales.</li>
+              <li><strong>He et al. [18]:</strong> Descubrimiento de configuraciones inéditas mediante <em>Simulated Annealing</em>.
+              </li>
+              <li><strong>Damian y Loaiza-Brito [12]:</strong> Identificación de más de 170 configuraciones dS estables en tipo IIB
+                con torsión.</li>
+            </ul>
+          </div>
+
+          <!-- Columna derecha: Oportunidad de investigación -->
+          <div class="vintage-scroll" style="flex: 1; max-height: 450px; border-left: 1px dashed rgba(90, 61, 40, 0.3); padding-left: 1.5rem;">
+            <p><strong>Oportunidad de Investigación</strong></p>
+            <p>
+              Los estudios previos suelen restringirse al uso de un único algoritmo estocástico, lo que limita la evaluación de
+              desempeño [12].
+            </p>
+            <p>
+              El presente trabajo extiende este análisis mediante la implementación de un conjunto amplio de metaheurísticas.
+              Desde una perspectiva computacional.
+            </p>
+          </div>
+        </div>
+        <div class="footer">
+          Aunque carecen de la formalidad analítica tradicional, las metaheurísticas han demostrado alta efectividad en física y teoría de cuerdas, reduciendo el costo computacional frente a la búsqueda aleatoria [13-15].
+        </div>
+      </div>
+    </div>
+
+    <div class="frame">
+      <div class="ttitle">1.4 Desarrollo</div>
+      <div class="body vintage-scroll" >
+        <p>
+          El proyecto se ha estructurado en etapas metódicas orientadas a los objetivos planteados:
+        </p>
+        <br/>
+        <div class="vintage-row">
+          <ul>
+            <li><strong>Análisis y Modelo Base:</strong> Ingeniería inversa del código original en Mathematica para
+              extraer la función potencial, gradiente, matriz hessiana y autovalores.</li>
+            <li><strong>Implementación en Python:</strong> Desarrollo de módulos con <code>sympy</code> para definir la función
+              potencial (con y sin término de lifting por \(\widehat{D5}\)-branas) y cálculo automático de criterios de
+              penalización.</li>
+            <li><strong>Validación:</strong> Verificación frente al modelo de referencia, confirmando la correspondencia exacta en
+              las salidas simbólicas.</li>
+          </ul>
+          <ul>
+            <li><strong>Experimentación Inicial:</strong> Pruebas preliminares con Algoritmo Genético Simple (SGA) sobre la base de
+              datos de referencia, clasificando soluciones estables/inestables (dS/AdS).</li>
+            <li><strong>Fase Actual:</strong> Implementación secuencial de las metaheurísticas restantes (PSO, EDAs, ACO, IWO, VCS,
+              ASO) conforme al cronograma.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="frame">
+      <div class="ttitle">3 Resultados Esperados</div>
+      <div class="body">
+        <p>Al concluir el proyecto se entregarán los siguientes productos y contribuciones tangibles:</p>
+        <br/>
+        <ul>
+          <li><strong>Tesis de Maestría:</strong> Documento final de investigación con la evaluación comparativa completa.</li>
+          <li><strong>Software Científico:</strong> Repositorio en código abierto con la implementación de la función objetivo y
+            los algoritmos optimizadores.</li>
+          <li><strong>Difusión Académica:</strong> Participación en congresos y redacción/envío de artículos a revistas indexadas
+            (JCR y SECIHTI).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="frame">
+      <div class="ttitle">4 Datos SECIHTI</div>
+      <div class="body vintage-scroll" >
+        <div class="vintage-row">
+          <div>
+            <p><strong>4.1 Metas del Proyecto</strong></p>
+            <p>
+              Exploración sistemática de un espacio de alta dimensionalidad en teoría de cuerdas tipo IIB mediante múltiples Métodos
+              Inspirados en la Naturaleza (NIM), evaluando su desempeño comparativo bajo métricas estandarizadas.
+            </p>
+          </div>
+          <div>
+            <p><strong>4.2 Impacto Científico</strong></p>
+            <p>
+              Aporte de criterios objetivos para la selección de estrategias de optimización en problemas complejos de física teórica
+              (multimodalidad y no linealidad), además de liberar herramientas reproducibles para la comunidad.
+            </p>
+          </div>
+        </div>
+        <p><strong>4.3 Aportación a Problemas Prioritarios</strong></p>
+        <p>
+          Las características matemáticas del modelo (alta dimensionalidad y búsqueda de vacíos estables) comparten la naturaleza
+          de problemas abordados en Programas Nacionales Estratégicos (PRONACES), aportando al acervo metodológico aplicable en
+          áreas de transición energética y sistemas complejos.
+        </p>
+      </div>
+    </div>
+
+    <!--- Referencias --->
+    <div class="frame">
+      <div class="ttitle">Referencias</div>
+      <div class="footer vintage-scroll">
+        [1] Qiang Du. “Some perspective on the Large Scale Scientific Computation Research”.
+        En: Science in China Series A: Mathematics 47.S1 (ene. de 2004), 1-3.
+        issn: 1862-2763. doi: <a href="http://dx.doi.org/10.1007/bf02894554" target="_blank">10.1007/bf02894554</a>. url: <a href="http://dx.doi.org/10.1007/bf02894554" target="_blank">http://dx.doi.org/10.1007/bf02894554</a>.
+        <br/>
+        [2] T MCMILLAN. “SCIENTIFIC COMPUTING”. English. En: POPULAR COMPUTING 4.6 (1985), pág. 67. issn: 0279-4721.
+        <br/>
+        [3] Gokul Yenduri et al. “GPT (Generative Pre-Trained Transformer)— A Comprehensive
+        Review on Enabling Technologies, Potential Applications, Emerging Challenges,
+        and Future Directions”. En: IEEE Access 12 (2024), 54608-54649.
+        issn: 2169-3536. doi: <a href="http://dx.doi.org/10.1109/ACCESS.2024.3389497" target="_blank">10.1109/access.2024.3389497</a>. url: <a href="http://dx.doi.org/10.1109/ACCESS.2024.3389497" target="_blank">http://dx.doi.org/10.1109/ACCESS.2024.3389497</a>.
+        <br/>
+        [4] Greg Wilson et al. “Best Practices for Scientific Computing”. En: PLoS Biology
+        12.1 (ene. de 2014). Ed. por Jonathan A. Eisen, e1001745. issn: 1545-7885.
+        doi: <a href="http://dx.doi.org/10.1371/journal.pbio.1001745" target="_blank">10.1371/journal.pbio.1001745</a>. url: <a href="http://dx.doi.org/10.1371/journal.pbio.1001745" target="_blank">http://dx.doi.org/10.1371/journal.pbio.1001745</a>.
+        <br/>
+        [5] Xin-She Yang y Mehmet Karamanoglu. “Chapter 1 - Nature-inspired compu-
+        tation and swarm intelligence: a state-of-the-art overview”. En: Nature-Inspired
+        Computation and Swarm Intelligence. Ed. por Xin-She Yang. Academic Press,
+        2020, págs. 3-18. isbn: 978-0-12-819714-1. doi: <a href="https://doi.org/10.1016/B978-0-12-819714-1.00010-5" target="_blank">10.1016/B978-0-12-819714-1.00010-5</a>. url: <a href="https://www.sciencedirect.com/science/article/pii/B9780128197141000105" target="_blank">https://www.sciencedirect.com/science/article/pii/B9780128197141000105</a>.
+        <br/>
+        [6] Zhongqiang Ma et al. “Performance assessment and exhaustive listing of 500+nature-
+        inspired metaheuristic algorithms”. English. En: SWARM AND EVOLUTIONARY
+        COMPUTATION 77 (mar. de 2023). issn: 2210-6502. doi: <a href="https://doi.org/10.1016/j.swevo.2023.101248" target="_blank">10.1016/j.swevo.2023.101248</a>.
+        <br/>
+        [7] Xin-She Yang. Nature-Inspired Algorithms and Applied Optimization. Springer,
+        2017, pág. 330. url: <a href="https://openlibrary.org/books/OL27946749M/Nature-Inspired_Algorithms_and_Applied_Optimization" target="_blank">https://openlibrary.org/books/OL27946749M/Nature-Inspired_Algorithms_and_Applied_Optimization</a>.
+        <br/>
+        [8] A.E. Eiben y J.E. Smith. Introduction to Evolutionary Computing. Springer Ber-
+        lin Heidelberg, 2015. isbn: 9783662448748. doi: <a href="http://dx.doi.org/10.1007/978-3-662-44874-8" target="_blank">10.1007/978-3-662-44874-8</a>.
+        url: <a href="http://dx.doi.org/10.1007/978-3-662-44874-8" target="_blank">http://dx.doi.org/10.1007/978-3-662-44874-8</a>.
+        <br/>
+        [9] Stefano Lanza y Alexander Westphal. “Uplifts in the penumbra: features of
+        the moduli potential away from infinite-distance boundaries”. En: Journal of
+        High Energy Physics 2025.5 (mayo de 2025). issn: 1029-8479. doi: <a href="http://dx.doi.org/10.1007/JHEP05(2025)071" target="_blank">10.1007/jhep05(2025)071</a>. url: <a href="http://dx.doi.org/10.1007/JHEP05(2025)071" target="_blank">http://dx.doi.org/10.1007/JHEP05(2025)071</a>.
+        <br/>
+        [10] G. Bruno De Luca. “Machine Learning gravity compactifications on negatively
+        curved manifolds”. En: Journal of High Energy Physics 2025.9 (sep. de 2025).
+        issn: 1029-8479. doi: <a href="http://dx.doi.org/10.1007/JHEP09(2025)090" target="_blank">10.1007/jhep09(2025)090</a>. url: <a href="http://dx.doi.org/10.1007/JHEP09(2025)090" target="_blank">http://dx.doi.org/10.1007/JHEP09(2025)090</a>.
+        <br/>
+        [11] D.H. Wolpert y W.G. Macready. “No free lunch theorems for optimization”.
+        En: IEEE Transactions on Evolutionary Computation 1.1 (abr. de 1997), 67-82.
+        issn: 1089-778X. doi: <a href="http://dx.doi.org/10.1109/4235.585893" target="_blank">10.1109/4235.585893</a>. url: <a href="http://dx.doi.org/10.1109/4235.585893" target="_blank">http://dx.doi.org/10.1109/4235.585893</a>.
+        <br/>
+        [12] Cesar Damian y Oscar Loaiza-Brito. “Metastable vacua from torsion and machine
+        learning”. En: The European Physical Journal C 82.12 (dic. de 2022).
+        issn: 1434-6052. doi: <a href="http://dx.doi.org/10.1140/epjc/s10052-022-11118-x" target="_blank">10.1140/epjc/s10052-022-11118-x</a>. url:
+        <a href="http://dx.doi.org/10.1140/epjc/s10052-022-11118-x" target="_blank">http://dx.doi.org/10.1140/epjc/s10052-022-11118-x</a>.
+        <br/>
+        [13] Yanchao Wang et al. “Crystal structure prediction via particle-swarm optimization”.
+        En: Physical Review B 82.9 (sep. de 2010). issn: 1550-235X.
+        doi: <a href="http://dx.doi.org/10.1103/PhysRevB.82.094116" target="_blank">10.1103/physrevb.82.094116</a>. url: <a href="http://dx.doi.org/10.1103/PhysRevB.82.094116" target="_blank">http://dx.doi.org/10.1103/PhysRevB.82.094116</a>.
+        <br/>
+        [14] J Prasad y T Souradeep. “Cosmological parameter estimation using Particle
+        Swarm Optimization”. En: Journal of Physics: Conference Series 484 (mar. de
+        2014), pág. 12047. issn: 1742-6596. doi: <a href="http://dx.doi.org/10.1088/1742-6596/484/1/012047" target="_blank">10.1088/1742-6596/484/1/012047</a>.
+        url: <a href="http://dx.doi.org/10.1088/1742-6596/484/1/012047" target="_blank">http://dx.doi.org/10.1088/1742-6596/484/1/012047</a>.
+        <br/>
+        [15] Prisma Megantoro et al. “Optimizing reactive power dispatch with metaheuristic
+        algorithms: A review of renewable distributed generation integration with
+        intermittency considerations”. En: Energy Reports 13 (jun. de 2025), 397-423.
+        issn: 2352-4847. doi: <a href="http://dx.doi.org/10.1016/j.egyr.2024.12.020" target="_blank">10.1016/j.egyr.2024.12.020</a>.
+        url: <a href="http://dx.doi.org/10.1016/j.egyr.2024.12.020" target="_blank">http://dx.doi.org/10.1016/j.egyr.2024.12.020</a>.
+        <br/>
+        [16] Steven Abel y John Rizos. “Genetic algorithms and the search for viable string
+        vacua”. En: Journal of High Energy Physics 2014.8 (ago. de 2014).
+        issn: 1029-8479. doi: <a href="http://dx.doi.org/10.1007/JHEP08(2014)010" target="_blank">10.1007/jhep08(2014)010</a>.
+        url: <a href="http://dx.doi.org/10.1007/JHEP08(2014)010" target="_blank">http://dx.doi.org/10.1007/JHEP08(2014)010</a>.
+        <br/>
+        [17] Nana Cabo Bizet et al. “Testing swampland conjectures with machine learning”.
+        En: The European Physical Journal C 80.8 (ago. de 2020).
+        issn: 1434-6052.
+        doi: <a href="http://dx.doi.org/10.1140/epjc/s10052-020-8332-9" target="_blank">10.1140/epjc/s10052-020-8332-9</a>.
+        url: <a href="http://dx.doi.org/10.1140/epjc/s10052-020-8332-9" target="_blank">http://dx.doi.org/10.1140/epjc/s10052-020-8332-9</a>.
+        <br/>
+        [18] Yang-Hui He, Vishnu Jejjala y Tomás S.R. Silva. “Metaheuristic generation of
+        brane tilings”. En: Physics Letters B 862 (mar. de 2025), pág. 139365.
+        issn: 0370-2693.
+        doi: <a href="http://dx.doi.org/10.1016/j.physletb.2025.139365" target="_blank">10.1016/j.physletb.2025.139365</a>.
+        url: <a href="http://dx.doi.org/10.1016/j.physletb.2025.139365" target="_blank">http://dx.doi.org/10.1016/j.physletb.2025.139365</a>.
+        <br/>
+        [19] Xin Gao y Hao Zou. “Applying machine learning to the Calabi-Yau orientifolds
+        with string vacua”. En: Physical Review D 105.4 (feb. de 2022).
+        issn: 2470-0029.
+        doi: <a href="http://dx.doi.org/10.1103/PhysRevD.105.046017" target="_blank">10.1103/physrevd.105.046017</a>.
+        url: <a href="http://dx.doi.org/10.1103/PhysRevD.105.046017" target="_blank">http://dx.doi.org/10.1103/PhysRevD.105.046017</a>.
+      </div>
+    </div>
+
+    <!--- Contador --->
+    <div id="frame-counter" class="frame-counter">1</div>
+  </body>
+
+  <!--- Add Script P02.js --->
+  <script src="P02.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</html>

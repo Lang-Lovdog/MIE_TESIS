@@ -1,0 +1,230 @@
+%! TeX program = xelatex
+%! TeX root = CV.tex
+
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage[left=1.3in, right=1.3in, top=1in, bottom=1in]{geometry}
+\usepackage{fontspec}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{pgfornament}
+\usepackage{amssymb}
+
+\setmainfont{IM FELL DW Pica}
+\newfontfamily{\bookmann}{QTBookmann}
+\newfontfamily\nerdfont{JetBrainsMono Nerd Font}[Scale=0.85]
+
+\definecolor{vinotinto}{RGB}{92, 26, 40}
+\colorlet{oroVino}{vinotinto!60!yellow!85!orange}
+\definecolor{navyprofundo}{RGB}{30, 75, 231}
+\colorlet{azulNavyVino}{navyprofundo!65!vinotinto}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=azulNavyVino,     % Color para enlaces internos
+    urlcolor=azulNavyVino,      % Color para URLs externas
+    citecolor=vinotinto
+}
+\newcommand{\linkicon}{\textsuperscript{\tiny\nerdfont\symbol{"F0C1}}} % Glifo de cadena/enlace (\uF0C1)
+\newcommand{\extlink}[2]{\href{#1}{#2\,\textcolor{azulNavyVino}{\linkicon}}}
+
+\setlist{nosep, leftmargin=1.5em}
+\setlist[itemize,1]{label=\textcolor{vinotinto}{$\bullet$}}                  % Nivel 1: Círculo en tono vino
+\setlist[itemize,2]{label=\textcolor{oroVino}{\scriptsize$\blacklozenge$}, leftmargin=1.2em} % Nivel 2: Rombo ornamental en mezcla oro/vino
+\setlist[itemize,3]{label=\textcolor{oroVino}{\footnotesize$\circ$}, leftmargin=1em}          % Nivel 3: Círculo abierto en mezcla oro/vino
+
+\pagestyle{plain}
+
+\begin{document}
+
+\noindent
+\begin{minipage}[c]{0.74\textwidth}
+    {\Large \textbf{Brandon Marquez Salazar}}\\[0.4em]
+    {\itshape Mexicano} | Soltero\\[0.2em]
+    {\small \href{mailto:hataraku_wulfus@outlook.com}{\detokenize{hataraku_wulfus@outlook.com (Profesional Personal)}}} |
+    {\small \href{mailto:b.marquezsalazar@ugto.mx}{\detokenize{b.marquezsalazar@ugto.mx (Institucional)}}} |
+    {\small \extlink{https://www.linkedin.com/in/brandon-marquez-salazar-lang-lovdog}{Linkedin::Brandon Marquez Salazar}}
+    $|$
+    {\small \extlink{https://github.com/Lang-Lovdog}{GitHub::Lang-Lovdog}}
+    $|$
+    {\small \extlink{https://lang-lovdog-inu-ookami-1b6b91.gitlab.io/}{Portafolio Digital General}}
+    $|$
+    {\small Tel/Whatsapp::\bookmann\scriptsize +52 464-131-0738}
+\end{minipage}
+\begin{minipage}[c]{0.25\textwidth}
+    \raggedleft
+    \includegraphics[height=0.9\linewidth]{./FotoCV.png}
+\end{minipage}\hfill
+
+\vspace{2em}
+\noindent\centerline{\color{oroVino!70!blue}\pgfornament[width=0.5\textwidth]{89}}
+%\noindent\rule{\textwidth}{0.4pt}
+
+\section*{Información académica}
+\begin{itemize}
+    \item Técnico en Mecatrónica\\
+        {\footnotesize%
+        En el programa \textit{Bachillerato bivalente},\\
+        de la ENMS Salamanca, Universidad de Guanajuato.}
+    \item Licenciatura en Ingeniería en Sistemas Computacionales\\
+        {\footnotesize%
+        En el programa \textit{LISC},\\
+        de la División de Ingenierías Campus Irapuato--Salamanca, Universidad de Guanajuato.}
+    \item Actualmente cursando la Maestría en Ingeniería Eléctrica (Instrumentación y Sistemas Digitales)\\
+        {\footnotesize%
+        En el programa \textit{MIE (ISD)},\\
+        de la División de Ingenierías Campus Irapuato--Salamanca, Universidad de Guanajuato.}
+\end{itemize}
+
+\vspace{1.5em}
+
+\section*{Habilidades destacadas por área}
+\begin{multicols}{2}
+    \begin{itemize}[leftmargin=*]
+        \item \colorbox{vinotinto}{\textcolor{white}{Programación}}
+    \begin{itemize}
+        \item PHP
+        \item C
+        \item C++
+        \item Fortran
+        \item Python
+        \item R
+        \item Octave
+        \item Bash
+        \item LADDER
+        \item Javascript
+        \item Depuración
+    \end{itemize}
+    \item \colorbox{vinotinto}{\color{white}Paradigmas de programación}
+    \begin{itemize}
+        \item Cascada
+        \item Estructurada
+        \item Orientado a Objetos
+        \item Orientada a eventos
+    \end{itemize}
+    \item \colorbox{vinotinto}{\color{white}Electrónica digital e informática industrial}
+    \begin{itemize}
+        \item Reducción de circuitos
+        \item Análisis de máquinas de estados
+    \end{itemize}
+    \item \colorbox{vinotinto}{\color{white}Bases de datos SQL y NoSQL}
+    \item \colorbox{vinotinto}{\color{white}Informática y computación científica}
+    \begin{itemize}
+        \item Optimización metaheurística
+        \item Implementación de modelos matemáticos.
+        \item Manejo de apuntadores y aritmética de apuntadores
+        \item Estructuras de datos: listas enlazadas, árboles, etc.
+        \item Aprendizaje de máquina
+        \item Redes neuronales
+    \end{itemize}
+    \item \colorbox{vinotinto}{\color{white}Maquetado}
+    \begin{itemize}
+        \item HTML
+        \item CSS
+        \item SVG
+        \item LaTeX
+        \item Markdown
+    \end{itemize}
+    \item \colorbox{vinotinto}{\color{white}Sistemas Operativos}
+    \begin{itemize}
+        \item Unix-like: GNU/Linux, BSD, MacOS
+        \item Windows
+    \end{itemize}
+    \item \colorbox{vinotinto}{\color{white}Redes de computadoras}
+    \begin{itemize}
+        \item TCP/IP
+        \item FTP
+        \item SSH
+        \item Samba
+    \end{itemize}
+    \item \colorbox{vinotinto}{\color{white}Composición y producción musical}
+    \begin{itemize}
+        \item Electrónica
+        \item Orquestal
+        \item Coral
+        \item Arreglos vocales
+        \item MIDI
+        \item SFX
+    \end{itemize}
+    \item \colorbox{vinotinto}{\color{white}Análisis musical}
+    \begin{itemize}
+        \item Estructural
+        \item Armónico
+        \item Melódico
+        \item Emocional
+        \item Temporal
+    \end{itemize}
+    \item \colorbox{vinotinto}{\color{white}Canto}
+    \begin{itemize}
+        \item Técnica SLS
+        \item Técnica Twang
+        \item Técnica Lírica
+        \item Regional Mexicano
+        \item Rock
+        \item Orquestal
+    \end{itemize}
+    \item \colorbox{vinotinto}{\color{white}Caligrafía}
+    \begin{itemize}
+        \item Gótica Quadrata
+        \item Gótica Fraktur
+        \item Gótica Bastarda
+        \item Cancelleresca
+        \item Uncial
+        \item Humanística
+        \begin{itemize}
+            \item Bastarda Española (Ioseph de Casanova)
+            \item Itálica italiana (Ludovico Vicentino)
+            \item Bastarda española (Francisco J. S. de Palomares)
+        \end{itemize}
+        \columnbreak
+        \item Secretarial Inglesa
+        \item Abreviaturas/elisiones históricas (Siglos XV-XVIII) inglesas y españolas
+        \item China
+        \begin{itemize}
+            \item Ou
+            \item Liu
+        \end{itemize}
+        \item Japonesa
+        \begin{itemize}
+            \item GyouSho
+            \item SouSho
+            \item KaiSho
+        \end{itemize}
+    \end{itemize}
+    \item \colorbox{vinotinto}{\color{white}Creación de ficción literaria}
+    \item \colorbox{vinotinto}{\color{white}Divulgación científica}
+    \item \colorbox{vinotinto}{\color{white}Lenguas}
+    \begin{itemize}
+        \item Español::Nativo
+        \item Inglés::C1
+        \item Francés::B1
+        \item Japonés::N5
+        \item Alemán::A1
+        \item Italiano::A1
+        \item Portugués::A1
+        %\item Chino::HSK1
+        \item Fonética China, PinYin (Romanizado) y BoPoMoFo (ZhuYin FuHao)
+        \item Fonética/Alfabeto Ruso 
+        \item Fonética/Alfabeto Griego
+        \item Fonética/Alfabeto Turco
+        \item Fonética/Alfabeto Estonio
+    \end{itemize}
+\end{itemize}
+\end{multicols}
+
+\vspace{1.5em}
+
+%%\section*{Apéndice de documentos}
+%%\begin{itemize}
+%%    \item \href{./TOEFL_OCT_2026_Cert.png}{Abrir Certificado TOEFL}
+%%    \item \href{https://strommeninc.com/cert/6ADEBDF94D917/}{Certificado Español}
+%%    \item \href{https://strommeninc.com/cert/6ADEC0DD372CE/}{Certificado Francés}
+%%    \item \href{https://www.linkedin.com/in/brandon-marquez-salazar-lang-lovdog}{Linkedin}
+%%\end{itemize}
+
+\end{document}
